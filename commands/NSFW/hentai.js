@@ -3,7 +3,7 @@
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
-const errors = require('../../assets/json/command/errors');
+const errors = require('../../assets/json/errors');
 const subreddits = [
     "hentai",
     "rule34",
