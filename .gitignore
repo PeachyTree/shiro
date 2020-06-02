@@ -1,0 +1,14 @@
+# Dependency Files
+node_modules/
+package-lock.json
+
+# Log Files
+logs/
+*.log
+
+# Config Files
+.env
+config.json
+
+# In-Development Commands
+commands/productivity/reminder.js
