@@ -56,8 +56,8 @@ class NSFWCommands extends Command {
       await message.channel.send({ embed });
 
     } else if (category === "3d nsfw") {
-      let commandsCategory = "8 3D NSFW"
-      let allCommands = ("4knsfw\nartsyporn\nass\nboobs\nnsfw\nnsfwgif\npornhub\npussy")
+      let commandsCategory = "7 3D NSFW"
+      let allCommands = ("4knsfw\nartsyporn\nass\nboobs\nnsfw\nnsfwgif\npussy")
 
       const embed = new RichEmbed()
         .setColor("RANDOM")
