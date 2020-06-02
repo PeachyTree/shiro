@@ -56,7 +56,7 @@ class Commands extends Command {
 
     } else if (category === "fun") {
       let commandsCategory = "19 Fun"
-      let allCommands = ("advice\nbonzi\ncatfact\nfaketweet\nfortune\nhoroscope\njoke\nkaomoji\nmagic8ball\npasta\npickupline\nquote\nrate\nrightthere\nroll\nship\nshits\ntoday\ntsundere")
+      let allCommands = ("advice\nbonzi\ncatfact\nfortune\nhoroscope\njoke\nkaomoji\nmagic8ball\npasta\npickupline\nquote\nrate\nrightthere\nroll\nship\nshits\ntoday\ntrivia\ntsundere")
 
       const embed = new RichEmbed()
         .setColor("RANDOM")
@@ -68,12 +68,12 @@ class Commands extends Command {
       await message.channel.send({ embed });
 
     } else if (category === "info") {
-      let commandsCategory = "13 Info"
-      let allCommands = ("avatar\nchannel\ndiscrim\nedits\nemoji\nicon\ninrole\ninvites\nlastmessage\nrole\nserver\ntime\nuser")
+      let commandsCategory = "11 Info"
+      let allCommands = ("avatar\nchannel\ndiscrim\nemoji\nemojiimage\nicon\nlastmessage\nserver\ntime\ntimezones\nuser")
 
       const embed = new RichEmbed()
         .setColor("RANDOM")
-        .setTitle("List of Commands in `Games` category")
+        .setTitle("List of Commands in `Info` category")
         .setDescription(`Use the \`commands\` command to get a list of all the 8 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
@@ -104,8 +104,8 @@ class Commands extends Command {
       await message.channel.send({ embed });
 
     } else if (category === "productivity") {
-      let commandsCategory = "12 Productivity"
-      let allCommands = ("calculate\ncapture\nchoose\ncolor\ncreate-emoji\ngenerate-invite\npoll\nreminder\nsay\nsend\nshorten\ntranslate")
+      let commandsCategory = "10 Productivity"
+      let allCommands = ("calculate\nchoose\ncolor\ncreate-emoji\ngenerate-invite\npoll\nreminder\nsay\nshorten\ntranslate")
 
       const embed = new RichEmbed()
         .setColor("RANDOM")
@@ -117,8 +117,8 @@ class Commands extends Command {
       await message.channel.send({ embed });
 
     } else if (category === "searches") {
-      let commandsCategory = "13 Searches"
-      let allCommands = ("forecast\ngiphy\ngithub\nisbreached\njisho\nlatest-tweet\nmeme\nsteam\ntwitterinfo\nurban\nweather\nwikipedia\nyoutube")
+      let commandsCategory = "10 Searches"
+      let allCommands = ("forecast\ngiphy\ngithub\njisho\nmeme\nsteam\nurban\nweather\nwikipedia\nyoutube")
 
       const embed = new RichEmbed()
         .setColor("RANDOM")
