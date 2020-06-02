@@ -1,10 +1,10 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
-const { ADMINS, SUPPORT, CELESTIA_PREFIX, MODROLE, ADMINROLE, SYSTEMNOTICE } = process.env;
+const { ADMIN, SUPPORT, CELESTIA_PREFIX, MODROLE, ADMINROLE, SYSTEMNOTICE } = process.env;
 
 const config = {
-  "admins": ADMINS.split(','),
-  "support": SUPPORT.split(','),
+  "admins": ADMIN,
+  "support": SUPPORT,
 
   defaultSettings: {
     "prefix": CELESTIA_PREFIX,
