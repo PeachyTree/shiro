@@ -41,6 +41,6 @@ module.exports = class {
       const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
       this.client.user.setPresence({ game: { name: activities_list[index], type: "PLAYING"}});
   }, 300000); 
-    this.client.logger.log(`${this.client.user.tag}, ready to serve ${this.client.users.size} user(s) in ${this.client.guilds.size} server(s).`, "ready");
+    this.client.logger.log(`Ready and logged in as ${this.client.user.tag}`, "ready");
   }
 };
