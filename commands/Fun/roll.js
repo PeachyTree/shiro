@@ -9,7 +9,7 @@ class Roll extends Command {
       name: "roll",
       description: "Rolls the specified amount of dice, with specified modifiers, and shows you the outcomes.",
       category: "Fun",
-      usage: "c.roll [NO_OF_DICE] [FACES] [ADDITIVE_MODIFIER] [MULTIPLIER]"
+      usage: "roll [NO_OF_DICE] [FACES] [ADDITIVE_MODIFIER] [MULTIPLIER]"
     });
   }
 

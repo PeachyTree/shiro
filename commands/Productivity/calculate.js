@@ -9,8 +9,8 @@ class Calculate extends Command {
       name: "calculate",
       description: "Evaluates/calculates a given mathematical expression.",
       category: "Productivity",
-      usage: "c.calculate <Expression>",
-      aliases: ["math"]
+      usage: "calculate <Expression>",
+      aliases: ["math", "maths"]
     });
   }
 

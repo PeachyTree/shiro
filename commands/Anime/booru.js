@@ -10,7 +10,7 @@ class Booru extends Command {
       name: "booru",
       description: "Searches for images on Safebooru! Keep in mind Safebooru's definition of safe!",
       category: "Anime",
-      usage: "c.booru <Query>",
+      usage: "booru <Query>",
       aliases: ["safebooru", "animepic", "sfwbooru"]
     });
   }

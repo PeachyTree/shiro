@@ -11,7 +11,7 @@ class Manga extends Command {
       name: "manga",
       description: "Searches for a manga with Kitsu.io!",
       category: "Anime",
-      usage: "c.manga <Manga Name>",
+      usage: "manga <Manga Name>",
     });
   }
 

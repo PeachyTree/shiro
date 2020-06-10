@@ -8,7 +8,7 @@ class Shutdown extends Command {
       name: "shutdown",
       description: "Shuts down Celestia.",
       category: "Bot Owner",
-      usage: "c.shutdown",
+      usage: "shutdown",
       permLevel: "Bot Owner"
     });
   }

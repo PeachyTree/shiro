@@ -9,7 +9,7 @@ class Kick extends Command {
       name: "kick",
       description: "Kicks the mentioned user from the server.",
       category: "Moderation",
-      usage: "c.kick <@USER_MENTION> <Reason>",
+      usage: "kick <@USER_MENTION> <Reason>",
       guildOnly: true,
       permLevel: "Moderator"
     });

@@ -8,7 +8,7 @@ class Prefix extends Command {
       name: "prefix",
       description: "Returns the command prefix for the current server.",
       category: "Core",
-      usage: "c.prefix",
+      usage: "prefix",
       guildOnly: true
     });
   }

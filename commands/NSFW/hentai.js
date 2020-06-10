@@ -16,7 +16,7 @@ class Hentai extends Command {
             name: 'hentai',
             description: 'Finds hentai for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.hentai',
+            usage: 'hentai',
             guildOnly: true
         });
     }

@@ -8,7 +8,7 @@ class EmitEvent extends Command {
       name: "emitEvent",
       description: "Emits an event.",
       category: "Bot Owner",
-      usage: "c.emitEvent",
+      usage: "emitEvent",
       aliases: ["emit"],
       permLevel: "Bot Owner",
       guildOnly: true

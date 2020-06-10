@@ -9,7 +9,7 @@ class Color extends Command {
       name: "color",
       description: "Shows a random color or a preview of the given color!",
       category: "Productivity",
-      usage: "c.color [Color]",
+      usage: "color [Color]",
       aliases: ["hex"]
     });
   }

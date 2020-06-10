@@ -9,7 +9,7 @@ class Joke extends Command {
       name: "joke",
       description: "Tells a general or programming-related joke.",
       category: "Fun",
-      usage: "c.joke",
+      usage: "joke",
     });
   }
 

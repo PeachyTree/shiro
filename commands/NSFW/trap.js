@@ -11,7 +11,7 @@ class Trap extends Command {
             name: 'trap',
             description: 'Finds...traps? for...you?\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.trap',
+            usage: 'trap',
             guildOnly: true,
             aliases: ['traps']
         });

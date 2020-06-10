@@ -10,7 +10,7 @@ class Weather extends Command {
       name: "weather",
       description: "Displays weather information for the specified location.",
       category: "Searches",
-      usage: "c.weather <Location>"
+      usage: "weather <Location>"
     });
   }
 

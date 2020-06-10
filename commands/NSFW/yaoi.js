@@ -11,7 +11,7 @@ class Yaoi extends Command {
             name: 'yaoi',
             description: 'Finds yaoi for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.yaoi',
+            usage: 'yaoi',
             guildOnly: true,
             aliases: ['bl']
         });

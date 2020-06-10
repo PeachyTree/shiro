@@ -11,7 +11,7 @@ class Boobs extends Command {
             name: 'boobs',
             description: 'Shows a picture of boobs!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.boobs',
+            usage: 'boobs',
             guildOnly: true,
             aliases: ['boobies', 'bobs']
         });

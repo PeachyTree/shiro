@@ -11,7 +11,7 @@ class Jisho extends Command {
       name: "jisho",
       description: "Searches for Japanese words and kanji on Jisho!",
       category: "Searches",
-      usage: "c.jisho <Word / Kanji / Japanese / Romaji>",
+      usage: "jisho <Word / Kanji / Japanese / Romaji>",
       aliases: ["define", "kanji"]
     });
   }

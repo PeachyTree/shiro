@@ -11,7 +11,7 @@ class Futa extends Command {
             name: 'futa',
             description: 'Finds... futas...? For...you?\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.futa',
+            usage: 'futa',
             guildOnly: true,
             aliases: ['futarani']
         });

@@ -11,7 +11,7 @@ class Gelbooru extends Command {
             name: 'gelbooru',
             description: 'Searches for images on Gelbooru!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.gelbooru <Query>',
+            usage: 'gelbooru <Query>',
             guildOnly: true
         });
     }

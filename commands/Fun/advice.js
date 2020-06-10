@@ -9,7 +9,7 @@ class Advice extends Command {
       name: "advice",
       description: "Get some advice!",
       category: "Fun",
-      usage: "c.advice"
+      usage: "advice"
     });
   }
 

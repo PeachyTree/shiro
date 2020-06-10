@@ -11,7 +11,7 @@ class Yuri extends Command {
             name: 'yuri',
             description: 'Finds yuri for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.yuri',
+            usage: 'yuri',
             guildOnly: true,
             aliases: ['gl']
         });

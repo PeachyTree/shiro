@@ -9,7 +9,7 @@ class Shits extends Command {
             name: 'shits',
             description: 'It\'s shit!!!',
             category: 'Fun',
-            usage: 'c.shits <Text>',
+            usage: 'shits <Text>',
             guildOnly: true
         });
     }

@@ -8,7 +8,7 @@ class Rate extends Command {
       name: "rate",
       description: "Gives the item you specify a rating out of 10!",
       category: "Fun",
-      usage: "c.rate <ITEM_TO_BE_RATED>"
+      usage: "rate <ITEM_TO_BE_RATED>"
     });
   }
 

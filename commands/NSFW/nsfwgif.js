@@ -21,7 +21,7 @@ class NSFWGif extends Command {
             name: 'nsfwgif',
             description: 'Finds NSFW gifs for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.nsfwgif',
+            usage: 'nsfwgif',
             guildOnly: true,
             aliases: ['nsfwg', 'porngif']
         });

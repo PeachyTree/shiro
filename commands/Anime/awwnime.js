@@ -10,7 +10,7 @@ class Awwnime extends Command {
       name: "awwnime",
       description: "Cute anime girls!",
       category: "Anime",
-      usage: "c.awwnime"
+      usage: "awwnime"
     });
   }
 

@@ -9,7 +9,7 @@ class ForceBan extends Command {
       name: "forceban",
       description: "Bans a user, even if they aren't in your server.",
       category: "Moderation",
-      usage: "c.forceban <USER_ID> <Reason>",
+      usage: "forceban <USER_ID> <Reason>",
       guildOnly: true,
       permLevel: "Administrator"
     });

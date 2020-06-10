@@ -8,7 +8,7 @@ class GenerateInvite extends Command {
       name: "generate-invite",
       description: "Generates an invite link of the current text channel of your Discord server.",
       category: "Productivity",
-      usage: "c.generate-invite [<NO_OF_USES>] [<INVITE_LINK_TIMEOUT_IN_MINUTES>]"
+      usage: "generate-invite [<NO_OF_USES>] [<INVITE_LINK_TIMEOUT_IN_MINUTES>]"
     });
   }
 

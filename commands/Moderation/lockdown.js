@@ -10,7 +10,7 @@ class Lockdown extends Command {
         name: "lockdown",
         description: "Locks a channel down for a set duration. Use \"lockdown release\" to end the lockdown prematurely.",
         category: "Moderation",
-        usage: "c.lockdown <duration (seconds | minute(s) | hour(s))>",
+        usage: "lockdown <duration (seconds | minute(s) | hour(s))>",
         guildOnly: true,
         permLevel: "Moderator"
       });

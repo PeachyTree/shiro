@@ -9,7 +9,7 @@ class NoNSFW extends Command {
             name: 'nonsfw',
             description: 'No more NSFW!\nOptionally have me set it for you!',
             category: 'NSFW',
-            usage: 'c.nonsfw',
+            usage: 'nonsfw',
             guildOnly: true,
             aliases: ['nomore', 'nm', 'sfw']
         });

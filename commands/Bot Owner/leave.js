@@ -8,7 +8,7 @@ class Leave extends Command {
         name: "leave",
         description: "Leaves the current server.",
         category: "Bot Owner",
-        usage: "c.leave",
+        usage: "leave",
         guildOnly: true,
         permLevel: "Bot Owner" 
       });

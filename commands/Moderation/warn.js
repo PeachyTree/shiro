@@ -9,7 +9,7 @@ class Warn extends Command {
       name: "warn",
       description: "Issues a warning to the specified user.",
       category: "Moderation",
-      usage: "c.warn <@USER_MENTION> <Reason>",
+      usage: "warn <@USER_MENTION> <Reason>",
       guildOnly: true,
       permLevel: "Moderator"
     });

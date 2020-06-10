@@ -9,7 +9,7 @@ class Commands extends Command {
       name: "commands",
       description: "Sends a list of all command categories. When a specific category is specified, it shows all commands from that category.",
       category: "Core",
-      usage: "c.commands [Category]",
+      usage: "commands [Category]",
       aliases: ["command", "cmd", "cmds"]
     });
   }

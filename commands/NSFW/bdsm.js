@@ -11,7 +11,7 @@ class BDSMCommand extends Command {
             name: 'bdsm',
             description: 'Finds....BDSM????? For you...!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.bdsm',
+            usage: 'bdsm',
             guildOnly: true
         });
     }

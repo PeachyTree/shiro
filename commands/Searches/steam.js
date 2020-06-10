@@ -10,7 +10,7 @@ class Steam extends Command {
         name: "steam",
         description: "Searches Steam for games!",
         category: "Searches",
-        usage: "c.steam <Game Name>",
+        usage: "steam <Game Name>",
         aliases: ["game"]
         });
     }

@@ -11,7 +11,7 @@ class Amateur extends Command {
             name: 'amateur',
             description: 'Finds?? Amateur...nsfw?? For you...??\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.amateur',
+            usage: 'amateur',
             guildOnly: true
         });
     }

@@ -10,7 +10,7 @@ class Kaomoji extends Command {
       name: "kaomoji",
       description: "Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ",
       category: "Fun",
-      usage: "c.kaomojo",
+      usage: "kaomojo",
       aliases: ["emoticon"]
     });
   }

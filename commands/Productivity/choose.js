@@ -8,7 +8,7 @@ class Choose extends Command {
       name: "choose",
       description: "Choose an item from a list you provide.",    
       category: "Productivity",
-      usage: "c.choose <option1;option2> [option3[...]]"
+      usage: "choose <option1;option2> [option3[...]]"
     });
   }
 

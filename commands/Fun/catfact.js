@@ -10,7 +10,7 @@ class CatFact extends Command {
       name: "catfact",
       description: "Shows a random fact about cats.",
       category: "Fun",
-      usage: "c.catfact"
+      usage: "catfact"
     });
   }
 

@@ -9,7 +9,7 @@ class Shorten extends Command {
       name: "shorten",
       description: "Shortens the specified link.",
       category: "Productivity",
-      usage: "c.shorten <URL> [Custom Title]",
+      usage: "shorten <URL> [Custom Title]",
     });
   }
 

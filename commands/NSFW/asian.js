@@ -11,7 +11,7 @@ class Asian extends Command {
             name: 'asian',
             description: 'Finds...asians?????...for??? you?!?!?!!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.asian',
+            usage: 'asian',
             guildOnly: true
         });
     }

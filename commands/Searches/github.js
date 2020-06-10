@@ -11,7 +11,7 @@ class GitHub extends Command {
       name: "github",
       description: "Returns information about the specified GitHub repository.",
       category: "Searches",
-      usage: "c.github <Repo-owner> <Repo-name>",
+      usage: "github <Repo-owner> <Repo-name>",
     });
   }
 

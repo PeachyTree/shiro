@@ -11,7 +11,7 @@ class Feedback extends Command {
         name: "feedback",
         description: "Want to give feedback? Encountered any bugs?",
         category: "Core",
-        usage: "c.feedback <Suggestion / Issue>",
+        usage: "feedback <Suggestion / Issue>",
         aliases: ["suggestion", "suggest", "bug"]
       }); 
     }

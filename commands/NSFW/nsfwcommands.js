@@ -9,7 +9,7 @@ class NSFWCommands extends Command {
       name: "nsfwcommands",
       description: "Lists all the NSFW command categories! When a specific category is specified, it shows all commands from that category.",
       category: "NSFW",
-      usage: "c.nsfwcommands [Category]",
+      usage: "nsfwcommands [Category]",
       aliases: ['commandsnsfw', 'cnsfw', 'pervert']
     });
   }

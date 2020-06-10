@@ -11,7 +11,7 @@ class HentaiBondage extends Command {
             name: 'bondage',
             description: 'Finds...hentai..bondage??..For...you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.bondage',
+            usage: 'bondage',
             guildOnly: true, 
             aliases: ['hbondage', 'hentaibondage']
         });

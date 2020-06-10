@@ -8,7 +8,7 @@ class Bans extends Command {
       name: "fetchbans",
       description: "Checks how many users are banned on the current server.",
       category: "Moderation",
-      usage: "c.fetchbans",
+      usage: "fetchbans",
       guildOnly: true,
       permLevel: "Moderator"
     });

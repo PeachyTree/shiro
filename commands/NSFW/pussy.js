@@ -11,7 +11,7 @@ class Pussy extends Command {
             name: 'pussy',
             description: 'Finds... pussy?? For..you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.pussy',
+            usage: 'pussy',
             guildOnly: true
         });
     }

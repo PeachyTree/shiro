@@ -10,7 +10,7 @@ class Today extends Command {
       name: "today",
       description: "Finds a historical event from today!",
       category: "Fun",
-      usage: "c.today"
+      usage: "today"
     });
   }
 

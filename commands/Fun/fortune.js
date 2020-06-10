@@ -9,7 +9,7 @@ class Fortune extends Command {
       name: "fortune",
       description: "Get a fortune!",
       category: "Fun",
-      usage: "c.fortune"
+      usage: "fortune"
     });
   }
 

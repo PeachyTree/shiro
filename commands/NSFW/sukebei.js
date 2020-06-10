@@ -11,7 +11,7 @@ class Sukebei extends Command {
             name: 'sukebei',
             description: 'NSFW girls who\'ve lost their clothing..?\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.sukebei',
+            usage: 'sukebei',
             guildOnly: true
         });
     }

@@ -8,7 +8,7 @@ class CreateEmoji extends Command {
       name: "create-emoji",
       description: "Creates a new emoji.",
       category: "Productivity",
-      usage: "c.create-emoji <IMAGE_URL> <Emoji Name>",
+      usage: "create-emoji <IMAGE_URL> <Emoji Name>",
       guildOnly: true
     });
   }

@@ -11,7 +11,7 @@ class Oppai extends Command {
             name: 'oppai',
             description: 'Finds oppai for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.oppai',
+            usage: 'oppai',
             guildOnly: true,
             aliases: ['tiddy', 'animetiddy']
         });

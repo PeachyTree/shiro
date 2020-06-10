@@ -11,7 +11,7 @@ class Paheal extends Command {
             name: 'paheal',
             description: 'Searches for images on Paheal!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.paheal <Query>',
+            usage: 'paheal <Query>',
             guildOnly: true,
             aliases: ['ph']
         });

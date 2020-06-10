@@ -10,7 +10,7 @@ class Help extends Command {
       name: "help",
       description: "Displays basic information or help for a command!",
       category: "Core",
-      usage: "c.help [Command]",
+      usage: "help [Command]",
       aliases: ["info"]
     });
   }

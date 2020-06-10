@@ -9,7 +9,7 @@ class SetNSFW extends Command {
             name: 'setnsfw',
             description: 'Tells you how to set a channel into an NSFW one!\nOptionally have me set it for you!',
             category: 'NSFW',
-            usage: 'c.setnsfw',
+            usage: 'setnsfw',
             guildOnly: true,
             aliases: ['howto', 'howtonsfw', 'nsfwchannel', 'toggle']
         });

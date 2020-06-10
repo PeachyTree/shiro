@@ -9,7 +9,7 @@ class Invite extends Command {
       name: "invite",
       description: "Generates an invite link, for adding Celestia to a server.",
       category: "Core",
-      usage: "c.invite",
+      usage: "invite",
       aliases: ["add"]
     });
   }

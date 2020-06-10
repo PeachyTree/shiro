@@ -11,7 +11,7 @@ class HentaiIrl extends Command {
             name: 'hentaiirl',
             description: 'Hentai! But depicts of real situations!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.hentaiirl',
+            usage: 'hentaiirl',
             guildOnly: true,
             aliases: ['irl', 'hirl']
         });

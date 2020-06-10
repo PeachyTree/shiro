@@ -10,7 +10,7 @@ class Wikipedia extends Command {
       name: "wikipedia",
       description: "Searches Wikipedia for the specified article.",
       category: "Searches",
-      usage: "c.wikipedia <Query>"
+      usage: "wikipedia <Query>"
     });
   }
 

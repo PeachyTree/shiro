@@ -8,7 +8,7 @@ class Status extends Command {
       name: "status",
       description: "Sets Celestia's presence/status.",
       category: "Bot Owner",
-      usage: "c.status <online | idle | dnd | invisible>",
+      usage: "status <online | idle | dnd | invisible>",
       permLevel: "Bot Owner"
     });
   }

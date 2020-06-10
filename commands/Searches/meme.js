@@ -20,7 +20,7 @@ class Meme extends Command {
       name: "meme",
       description: "Searches for a random meme from selected subreddits!\nWarning: There is no NSFW filter on this!",
       category: "Searches",
-      usage: "c.meme",
+      usage: "meme",
     });
   }
 

@@ -24,7 +24,7 @@ class Horoscope extends Command {
             name: 'horoscope',
             description: 'Gets your daily horoscope!',
             category: 'Fun',
-            usage: 'c.horoscope <Sign>',
+            usage: 'horoscope <Sign>',
             guildOnly: true,
             aliases: ['horo', 'sign']
         });

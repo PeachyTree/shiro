@@ -11,7 +11,7 @@ class Hypno extends Command {
             name: 'hypno',
             description: 'Searches for images on Hypnohub!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.hypno <Query>',
+            usage: 'hypno <Query>',
             guildOnly: true,
             aliases: ['hypnohub', 'hh']
         });

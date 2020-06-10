@@ -11,7 +11,7 @@ class Trivia extends Command {
       name: "trivia",
       description: "Put your general knowledge to the test.",
       category: "Fun",
-      usage: "c.trivia [difficulty (easy | medium | hard)]",
+      usage: "trivia [difficulty (easy | medium | hard)]",
       aliases: ["randomtrivia", "testme", "quiz"]
     });
   }

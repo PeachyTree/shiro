@@ -9,7 +9,7 @@ class Bonzi extends Command {
       name: 'bonzi',
       description: 'Makes Bonzi tell an interesting fact!',
       category: 'Fun',
-      usage: 'c.bonzi <Text>]',
+      usage: 'bonzi <Text>]',
       guildOnly: true,
       aliases: ['fact']
     });

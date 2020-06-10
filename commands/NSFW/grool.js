@@ -11,7 +11,7 @@ class Grool extends Command {
             name: 'grool',
             description: 'Finds..grool?? For you...??\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.grool',
+            usage: 'grool',
             guildOnly: true
         });
     }

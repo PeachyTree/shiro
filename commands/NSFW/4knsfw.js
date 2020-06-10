@@ -11,7 +11,7 @@ class FourKNSFW extends Command {
             name: '4knsfw',
             description: 'Finds high quality NSFW content for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.4knsfw',
+            usage: '4knsfw',
             guildOnly: true,
             aliases: ['hdnsfw', 'hqnsfw']
         });

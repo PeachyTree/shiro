@@ -12,7 +12,7 @@ class Stats extends Command {
       name: "stats",
       description: "Shows some information about Celestia!",
       category: "Core",
-      usage: "c.stats",
+      usage: "stats",
       aliases: ["botinfo"]
     });
   } 

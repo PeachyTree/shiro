@@ -8,7 +8,7 @@ class ClearNickname extends Command {
       name: "clear-nickname",
       description: "Clears a user's nickname.",
       category: "Moderation",
-      usage: "c.clear-nickname <@USER_MENTION>",
+      usage: "clear-nickname <@USER_MENTION>",
       permLevel: "Moderator",
       guildOnly: true,
       aliases: ["cn"]

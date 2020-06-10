@@ -11,7 +11,7 @@ class Lingerie extends Command {
       name: 'lingerie',
       description: 'Finds...girls wearing..lingerie? ...For you!\nThis command can only be used in NSFW channels!',
       category: 'NSFW',
-      usage: 'c.lingerie',
+      usage: 'lingerie',
       guildOnly: true,
       aliases: ['thighhighs', 'stockings']
     });

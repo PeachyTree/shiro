@@ -8,7 +8,7 @@ class Eval extends Command {
       name: "eval",
       description: "Evaluates arbitrary JavaScript.",
       category: "Bot Owner",
-      usage: "c.eval <EXPRESSION>",
+      usage: "eval <EXPRESSION>",
       permLevel: "Bot Owner"
     });
   }

@@ -9,7 +9,7 @@ class Poll extends Command {
       name: "poll",
       description: "Starts a poll in the current text channel asking users to vote with the specified time. If no time is specified, poll ends in 60 minutes.",
       category: "Productivity",
-      usage: "c.poll <question> [TIME_IN_MINUTES] | [end]"
+      usage: "poll <question> [TIME_IN_MINUTES] | [end]"
     });
   }
 

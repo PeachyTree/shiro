@@ -10,7 +10,7 @@ class UrbanDictionary extends Command {
       name: "urban",
       description: "Searches the Urban Dictionary for the specified query.",
       category: "Searches",
-      usage: "c.urban <Query>",
+      usage: "urban <Query>",
     });
   }
 

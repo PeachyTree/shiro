@@ -9,7 +9,7 @@ class Exec extends Command {
       name: "exec",
       description: "Evaluates arbitrary JavaScript.",
       category: "Bot Owner",
-      usage: "c.exec <EXPRESSION>",
+      usage: "exec <EXPRESSION>",
       permLevel: "Bot Owner"
     });
   }

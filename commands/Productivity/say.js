@@ -8,7 +8,7 @@ class Say extends Command {
       name: "say",
       description: "Lets me say something for you. Useful for example to create rules or help pages.",
       category: "Productivity",
-      usage: "c.say <Text>",
+      usage: "say <Text>",
       aliases: ["echo"],
       permLevel: 'Moderator'
     });

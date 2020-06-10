@@ -10,7 +10,7 @@ class PickUpLine extends Command {
       name: "pickupline",
       description: "Get a random pick up line!",
       category: "Fun",
-      usage: "c.pickupline",
+      usage: "pickupline",
       aliases: ["pickup"]
     });
   }

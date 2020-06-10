@@ -11,7 +11,7 @@ class Konachan extends Command {
             name: 'konachan',
             description: 'Searches for images on Konachan!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.konachan <Query>',
+            usage: 'konachan <Query>',
             guildOnly: true,
             aliases: ['kona', 'kc']
         });

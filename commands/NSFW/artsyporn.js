@@ -11,7 +11,7 @@ class Artsyporn extends Command {
             name: 'artsyporn',
             description: 'Finds artsy..? Porn?? For you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.artsyporn',
+            usage: 'artsyporn',
             guildOnly: true,
             aliases: ['artsy']
         });

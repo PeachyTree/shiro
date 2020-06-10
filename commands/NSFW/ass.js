@@ -11,7 +11,7 @@ class Ass extends Command {
             name: 'ass',
             description: 'A random picture of...ASS!!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.ass',
+            usage: 'ass',
             guildOnly: true,
             aliases: ['butt', 'booty', 'butts']
         });

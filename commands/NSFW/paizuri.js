@@ -11,7 +11,7 @@ class Paizuri extends Command {
             name: 'paizuri',
             description: 'NSFW tiddy fuck...?\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.paizuri',
+            usage: 'paizuri',
             guildOnly: true
         });
     }

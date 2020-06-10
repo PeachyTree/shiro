@@ -36,7 +36,7 @@ class Tsundere extends Command {
       name: "tsundere",
       description: "Get a random tsundere quote!",
       category: "Fun",
-      usage: "c.tsundere",
+      usage: "tsundere",
     });
   }
 

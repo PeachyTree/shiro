@@ -9,7 +9,7 @@ class Ban extends Command {
       name: "ban",
       description: "Bans the mentioned user from the server.",
       category: "Moderation",
-      usage: "c.ban <@USER_MENTION> <Reason>",
+      usage: "ban <@USER_MENTION> <Reason>",
       guildOnly: true,
       permLevel: "Administrator"
     });

@@ -11,7 +11,7 @@ class E621Search extends Command {
             name: 'e621',
             description: 'Searches for images on e621!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.e621 <Query>',
+            usage: 'e621 <Query>',
             guildOnly: true,
             aliases: ['e6']
         });

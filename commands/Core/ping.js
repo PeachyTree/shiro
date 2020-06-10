@@ -10,7 +10,7 @@ class Ping extends Command {
       name: "ping",
       description: "Shows the bot latency and gives it a rating.",
       category: "Core",
-      usage: "c.ping"
+      usage: "ping"
     });
   } 
 

@@ -9,7 +9,7 @@ class RightThere extends Command {
       name: "rightthere",
       description: "Sends a random right there copypasta! May include NSFW language and elements or considered as spam.",
       category: "Fun",
-      usage: "c.rightthere",
+      usage: "rightthere",
       aliases: ["rthere"]
     });
   }

@@ -10,7 +10,7 @@ class Neko extends Command {
             name: 'cry',
             description: 'Nekos!\nThis command is NSFW in NSFW channels and not NSFW in normal channels!',
             category: 'NSFW',
-            usage: 'c.neko',
+            usage: 'neko',
             guildOnly: true,
             aliases: ['catgirls', 'nekomimi', 'nekos']
         });

@@ -11,7 +11,7 @@ class Danbooru extends Command {
             name: 'danbooru',
             description: 'Searches for images on Danbooru!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.danbooru <Query>',
+            usage: 'danbooru <Query>',
             guildOnly: true
         });
     }

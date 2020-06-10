@@ -9,7 +9,7 @@ class Unmute extends Command {
       name: "unmute",
       description: "Undoes the mentioned user's mute.",
       category: "Moderation",
-      usage: "c.unmute <@USER_MENTION> <Reason>",
+      usage: "unmute <@USER_MENTION> <Reason>",
       permLevel: "Moderator",
       guildOnly: true
     });

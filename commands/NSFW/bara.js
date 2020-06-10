@@ -11,7 +11,7 @@ class Bara extends Command {
             name: 'bara',
             description: 'Finds bara...? For you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.bara',
+            usage: 'bara',
             guildOnly: true
         });
     }

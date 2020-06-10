@@ -8,7 +8,7 @@ class Reload extends Command {
       name: "reload",
       description: "Reloads a command that has been modified.",
       category: "Bot Owner",
-      usage: "c.reload <COMMAND_NAME>",
+      usage: "reload <COMMAND_NAME>",
       permLevel: "Bot Owner"
     });
   }

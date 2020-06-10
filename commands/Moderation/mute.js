@@ -9,7 +9,7 @@ class Mute extends Command {
       name: "mute",
       description: "Mutes the mentioned user.",
       category: "Moderation",
-      usage: "c.mute <@USER_MENTION> <Reason>",
+      usage: "mute <@USER_MENTION> <Reason>",
       permLevel:"Moderator",
       guildOnly: true
     });

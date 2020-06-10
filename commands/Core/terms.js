@@ -9,7 +9,7 @@ class Terms extends Command {
       name: "terms",
       description: "Read Celestia's Terms of Service.",
       category: "Core",
-      usage: "c.terms"
+      usage: "terms"
     });
   } 
 

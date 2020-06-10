@@ -10,7 +10,7 @@ class Zr extends Command {
             name: 'zr',
             description: '"Absolute Territory" (絶対領域, zettai ryouiki) describes the amount of bare thigh skin between the skirt and stockings or socks for female characters.',
             category: 'NSFW',
-            usage: 'c.zr',
+            usage: 'zr',
             guildOnly: true,
             aliases: ['zettairyouiki']
         });

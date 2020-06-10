@@ -9,7 +9,7 @@ class Magic8Ball extends Command {
       name: "magic8ball",
       description: "Consults my magic 8-ball!",
       category: "Fun",
-      usage: "c.magic8ball <Question>",
+      usage: "magic8ball <Question>",
     });
   }
 

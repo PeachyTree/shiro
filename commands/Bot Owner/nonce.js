@@ -8,7 +8,7 @@ class Nonce extends Command {
       name: "nonce",
       description: "Sends a random number string used for checking message delivery.",
       category: "Bot Owner",
-      usage: "c.nonce",
+      usage: "nonce",
       permLevel: "Bot Owner"
     });
   }

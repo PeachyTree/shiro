@@ -8,7 +8,7 @@ class Purge extends Command {
       name: "clear",
       description: "Clears (bulk-deletes) between 2 and 99 messages.",
       category: "Moderation",
-      usage: "c.clear [@USER_MENTION] <Number>",
+      usage: "clear [@USER_MENTION] <Number>",
       permLevel: "Moderator",
       guildOnly: true
     });

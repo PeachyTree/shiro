@@ -20,7 +20,7 @@ class Nsfw extends Command {
             name: 'nsfw',
             description: 'Finds porn for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.nsfw',
+            usage: 'nsfw',
             guildOnly: true,
             aliases: ['porn']
         });

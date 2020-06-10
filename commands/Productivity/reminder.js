@@ -9,7 +9,7 @@ class Reminder extends Command {
       name: "reminder",
       description: "Sets a reminder for you with the given time.",
       category: "Productivity",
-      usage: "c.reminder <Time (h | min | sec)> <Text>",
+      usage: "reminder <Time (h | min | sec)> <Text>",
     });
   }
   

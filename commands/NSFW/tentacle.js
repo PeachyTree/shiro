@@ -11,7 +11,7 @@ class Tentacle extends Command {
             name: 'tentacle',
             description: 'Finds...tentacle..porn?? For...?? You!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.tentacle',
+            usage: 'tentacle',
             guildOnly: true,
             aliases: ['shokushu', 'tentai', 'tentacles']
         });

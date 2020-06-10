@@ -9,7 +9,7 @@ class Settings extends Command {
       name: "settings",
       description: "Allows you to view or change settings for your server.",
       category: "Core",
-      usage: "c.settings <view | get | edit> <KEY> <VALUE>",
+      usage: "settings <view | get | edit> <KEY> <VALUE>",
       aliases: ["set"],
       guildOnly: true,
       permLevel: "Administrator"

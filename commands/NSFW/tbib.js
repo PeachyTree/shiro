@@ -11,7 +11,7 @@ class TBIB extends Command {
             name: 'tbib',
             description: 'Searches for images on TBIB!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.tbib <Query>',
+            usage: 'tbib <Query>',
             guildOnly: true
         });
     }

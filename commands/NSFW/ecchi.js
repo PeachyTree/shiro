@@ -11,7 +11,7 @@ class Ecchi extends Command {
             name: 'ecchi',
             description: 'Finds ecchi for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.ecchi',
+            usage: 'ecchi',
             guildOnly: true
         });
     }

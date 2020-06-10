@@ -12,7 +12,7 @@ class Anime extends Command {
       name: "anime",
       description: "Searches for an anime on Kitsu.io! If no anime name is given, it gives you a random suggestion!",
       category: "Anime",
-      usage: "c.anime [Anime Name]",
+      usage: "anime [Anime Name]",
     });
   }
 

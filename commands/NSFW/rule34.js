@@ -11,7 +11,7 @@ class Rule34 extends Command {
             name: 'rule34',
             description: 'Searches for images on rule34!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.rule34 <Query>',
+            usage: 'rule34 <Query>',
             guildOnly: true,
             aliases: ['r34']
         });

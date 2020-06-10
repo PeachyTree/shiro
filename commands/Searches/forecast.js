@@ -9,7 +9,7 @@ class Forecast extends Command {
       name: "forecast",
       description: "Shows the weather forecast for 5 days of the specified city.",
       category: "Searches",
-      usage: "c.forecast < City, country_code | Zipcode >"
+      usage: "forecast < City, country_code | Zipcode >"
     });
   }
 

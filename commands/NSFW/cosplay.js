@@ -11,7 +11,7 @@ class Cosplay extends Command {
             name: 'cosplay',
             description: 'Finds NSFW cosplay for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.cosplay',
+            usage: 'cosplay',
             guildOnly: true
         });
     }

@@ -11,7 +11,7 @@ class HentaiGif extends Command {
             name: 'hentaigif',
             description: 'Finds hentai gifs for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.hentaigif',
+            usage: 'hentaigif',
             guildOnly: true,
             aliases: ['hgif']
         });

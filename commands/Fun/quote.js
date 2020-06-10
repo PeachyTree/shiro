@@ -11,7 +11,7 @@ class Quote extends Command {
       name: "quote",
       description: "Gives you a random quote!",
       category: "Fun",
-      usage: "c.quote"
+      usage: "quote"
     });
   }
 

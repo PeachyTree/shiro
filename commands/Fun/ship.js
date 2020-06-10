@@ -8,7 +8,7 @@ class Ship extends Command {
       name: "ship",
       description: "Combines two or more mentioned user's names.",
       category: "Fun",
-      usage: "c.ship <@USER_MENTION1> <@USER_MENTION2>"
+      usage: "ship <@USER_MENTION1> <@USER_MENTION2>"
     });
   }
 

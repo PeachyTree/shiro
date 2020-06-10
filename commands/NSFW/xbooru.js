@@ -11,7 +11,7 @@ class XBooru extends Command {
             name: 'xbooru',
             description: 'Searches for images on xbooru!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.xbooru <Query>',
+            usage: 'xbooru <Query>',
             guildOnly: true,
             aliases: ['xb']
         });

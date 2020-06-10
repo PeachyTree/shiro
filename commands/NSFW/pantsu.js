@@ -11,7 +11,7 @@ class Pantsu extends Command {
             name: 'pantsu',
             description: 'Finds pantsu for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.pantsu',
+            usage: 'pantsu',
             guildOnly: true
         });
     }

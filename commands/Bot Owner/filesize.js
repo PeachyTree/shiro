@@ -9,7 +9,7 @@ class FileSize extends Command {
       name: "filesize",
       description: "Returns the value of the size of the specified file.",
       category: "Bot Owner",
-      usage: "c.filesize <FILE_NAME>",
+      usage: "filesize <FILE_NAME>",
       permLevel: "Bot Owner"
     });
   }

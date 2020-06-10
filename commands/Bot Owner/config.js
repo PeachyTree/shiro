@@ -8,7 +8,7 @@ class Config extends Command {
       name: "config",
       description: "Modifies the default configuration for all guilds.",
       category: "Bot Owner",
-      usage: "c.config <view | get | edit> <KEY> <VALUE>",
+      usage: "config <view | get | edit> <KEY> <VALUE>",
       guildOnly: true,
       permLevel: "Bot Owner"
     });

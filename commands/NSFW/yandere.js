@@ -11,7 +11,7 @@ class Yandere extends Command {
             name: 'yandere',
             description: 'Searches for images on Yandere!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.yandere <Query>',
+            usage: 'yandere <Query>',
             guildOnly: true,
             aliases: ['yd']
         });

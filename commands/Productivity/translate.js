@@ -14,7 +14,7 @@ class Translate extends Command {
       name: "translate",
       description: "Translates a specific text. A language (e.g. English, German, French, etc.) must be added to specify a language to translate to.",
       category: "Productivity",
-      usage: "c.translate <Language> <Text>"
+      usage: "translate <Language> <Text>"
     });
   }
 

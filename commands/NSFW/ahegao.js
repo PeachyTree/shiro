@@ -11,7 +11,7 @@ class Ahegao extends Command {
             name: 'ahegao',
             description: 'Finds ahegao for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.ahegao',
+            usage: 'ahegao',
             guildOnly: true
         });
     }

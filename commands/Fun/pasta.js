@@ -9,7 +9,7 @@ class Pasta extends Command {
       name: "pasta",
       description: "Cool custom, random pastas that I make!",
       category: "Fun",
-      usage: "c.pasta",
+      usage: "pasta",
     });
   }
 

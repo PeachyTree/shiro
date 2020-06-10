@@ -8,7 +8,7 @@ class Restart extends Command {
       name: "restart",
       description: "If running under PM2, the bot will restart.",
       category: "Bot Owner",
-      usage: "c.restart",
+      usage: "restart",
       permLevel: "Bot Owner"
     });
   }

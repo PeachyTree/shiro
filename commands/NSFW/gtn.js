@@ -11,7 +11,7 @@ class GTN extends Command {
             name: 'gtn',
             description: 'Finds a GreenTeaNeko comic!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.gtn',
+            usage: 'gtn',
             guildOnly: true,
             aliases: ['nsfwcomics']
         });

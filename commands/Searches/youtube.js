@@ -12,7 +12,7 @@ class YouTube extends Command {
       name: "youtube",
       description: 'Searches for your query on YouTube!',
       category: "Searches",
-      usage: "c.youtube <Video Name>",
+      usage: "youtube <Video Name>",
       aliases: ['yt', 'video']
     });
   }

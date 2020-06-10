@@ -8,7 +8,7 @@ class ListBans extends Command {
       name: "listbans",
       description: "DMs you a list of banned users.",
       category: "Moderation",
-      usage: "c.listbans",
+      usage: "listbans",
       guildOnly: true,
       permLevel: "Moderator"
     });

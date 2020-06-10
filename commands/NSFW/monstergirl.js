@@ -11,7 +11,7 @@ class MonsterGirl extends Command {
             name: 'monstergirls',
             description: 'Finds monstergirls for you!\nThis command can only be used in NSFW channels!',
             category: 'NSFW',
-            usage: 'c.monstergirl',
+            usage: 'monstergirl',
             guildOnly: true,
             aliases: ['mg', 'monster']
         });
