@@ -10,7 +10,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 *Note: Please remove the .example part of it, once you are done.*
 
 ### Bot-related Information:
-* `CELESTIA_TOKEN=` is the bot's token. You can get it from https://discord.com/developers/applications/
+* `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
 * `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is c.
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
