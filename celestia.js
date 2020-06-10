@@ -1,5 +1,6 @@
 /*
-Celestia - Magicmazing!
+Celestia Discord Bot
+Originally created 2017
 
 Copyright (©) 2020 Azura Apple. All rights reserved. MIT License.
 */
