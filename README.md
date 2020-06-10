@@ -20,7 +20,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 
 *Note:  Feel free to change these roles for your server. It's not required to change them though. Defaults below. Those are for the permission level function, so that the bot knows who is an Admin, Moderator, or user.*
 * `MODROLE=` Moderator role on a server. Default is `Moderator`.
-* `ADMINROLE=` Admin role on a server. Default is `Admin`.
+* `ADMINROLE=` Admin role on a server. Default is `Administrator`.
 
 ### API KEYS, Secrets, and more:
 
