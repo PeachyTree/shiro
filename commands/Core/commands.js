@@ -147,7 +147,7 @@ class Commands extends Command {
         .setColor("RANDOM")
         .setTitle("🚫 | Command Category Not Found")
         .setDescription("Use the `commands` command without any arguments to get a list of all the available command categories.")
-      return await message.channel.send({ embed });
+      return await message.channel.send({ embed }); 
     }
   }
 }
