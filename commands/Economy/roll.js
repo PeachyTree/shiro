@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require("quick.db");
@@ -10,7 +12,8 @@ class Roll extends Command {
       name: "roll",
       description: "Bet Money on prediction of the outcome of rolling a dice. If you win, you get more of it. But if you lose, you lose the amount you have bet.",
       category: "Economy",
-      usage: "roll < one / two / three / four / five / six > <Amount>"
+      usage: "roll <one / two / three / four / five / six> <Amount>",
+      aliases: ["bet-roll", "broll"]
     });
   }
 

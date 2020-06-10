@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const db = require('quick.db');
 const talkedRecently = new Set();
@@ -9,6 +11,7 @@ class Work extends Command {
       description: "Work for a chance to earn Money!",
       category: "Economy",
       usage: "work",
+      aliases: ["earn-money"]
     });
   }
 

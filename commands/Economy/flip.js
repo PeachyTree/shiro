@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require("quick.db");
@@ -10,7 +12,8 @@ class Flip extends Command {
       name: "flip",
       description: "Bet Money on prediction of the outcome of flipping a coin. If you win, you get more of it. But if you lose, you lose the amount you have bet.",
       category: "Economy",
-      usage: "flip < heads / tails > <Amount>"
+      usage: "flip <heads / tails> <Amount>",
+      aliases: ["bet-flip", "bflip"]
     });
   }
 

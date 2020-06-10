@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 // If you want to add another item to this buy-item.js command, make sure to also add it to the item-shop 
 // For a template to add new items to this command, look at the buttom of this command
 
@@ -11,7 +13,7 @@ class BuyItem extends Command {
       description: "Buy something from the item shop!",
       category: "Economy",
       usage: "buy-item <item>",
-      aliases: ["buy"]
+      aliases: ["buy", "get"]
     });
   }
 

@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require("quick.db");
@@ -10,7 +12,8 @@ class Slots extends Command {
       name: "slots",
       description: "Bet Money on slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!",
       category: "Economy",
-      usage: "slots <Amount>"
+      usage: "slots <Amount>",
+      aliases: ["slot-machine"]
     });
   }
 

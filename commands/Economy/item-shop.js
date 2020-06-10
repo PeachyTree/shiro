@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require('quick.db');
@@ -8,8 +10,8 @@ class ItemShop extends Command {
       name: "item-shop",
       description: "Buy Items from the Item Shop!",
       category: "Economy",
-      aliases: ["items"],
       usage: "item-shop",
+      aliases: ["items"],
     });
   }
 

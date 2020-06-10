@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 // This command is not necessarily.
 // It's for stuff that can be bought with real money
 // If you want to use this to sell anything, as example any roles or permissions,
@@ -13,7 +15,8 @@ class Shop extends Command {
       name: "shop",
       description: "Buy stuff with real money, and get cool advantages.",
       category: "Economy",
-      usage: "shop"
+      usage: "shop",
+      aliases: ["real-shop"]
     });
   }
     

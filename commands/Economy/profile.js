@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require('quick.db');
@@ -9,6 +11,7 @@ class Profile extends Command {
       description: "Displays your amount of Money and items you currently own.",
       category: "Economy",
       usage: "profile [@USER_MENTION]",
+      aliases: ["user-card", "user-profile", "social", "money", "balance", "bal"]
     });
   }
 

@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require('quick.db');
@@ -10,6 +12,7 @@ class Claim extends Command {
       description: "Claim your daily rewards.",
       category: "Economy",
       usage: "claim",
+      aliases: ["daily", "claim-daily"]
     });
   }
 

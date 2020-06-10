@@ -1,3 +1,5 @@
+// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
+
 const Command = require('../../base/Command.js');
 const db = require('quick.db')
 
@@ -8,6 +10,7 @@ class Transfer extends Command {
         description: "Transfer Money to your friends!",
         category: "Economy",
         usage: "transfer <@USER_MENTION> <AMOUNT_TO_TRANSFER>",
+        aliases: ["give", "give-user", "transfer-user"]
       });
     }
   
