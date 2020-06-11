@@ -1,5 +1,7 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
+// This is the functions file, you can place any function in here.
+
 module.exports = (client) => {
 
   client.awaitReply = async (msg, question, limit = 60000) => {
@@ -22,36 +24,6 @@ module.exports = (client) => {
       client.logger.error(error);
       return false;
     }
-  };
-
-  client.clean = async (client, text) => {
-    if (text && text.constructor.name == "Promise")
-      text = await text;
-    if (typeof evaled !== "string")
-      text = require("util").inspect(text, {depth: 0});
-
-    text = text
-      .replace(/`/g, "`" + String.fromCharCode(8203))
-      .replace(/@/g, "@" + String.fromCharCode(8203))
-      .replace(client.token, "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
-
-    return text;
-  };
-
-  client.truncate = function(string, max, append = '') {
-    if (!string || !max || (1 + append.length) >= max) {
-        return ''
-    }
-
-    if (string.length <= max && !append) {
-        return string
-    }
-
-    string = string.slice(0, max - 1 - append.length)
-    if (/\s/.test(string.charAt(string.length - 1))) {
-        string = string.replace(/\s+?$/, '')
-    }
-    return string + '\u2026' + append
   };
   
   String.prototype.toProperCase = function() {
