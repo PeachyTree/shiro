@@ -16,7 +16,7 @@ class Commands extends Command {
 
   async run(message, args, level, settings) {
 
-    let categories = "Anime\nCore\nEconomy\nFun\nInfo\nModeration\nNSFW\nProductivity\nSearches"
+    let categories = "Anime\nCore\nEconomy\nFun\nImage\nInfo\nModeration\nNSFW\nProductivity\nSearches"
     const category = args.join(" ").toLowerCase(); 
 
     if (!args.length) {
@@ -35,7 +35,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Anime` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -48,7 +48,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Core` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -61,7 +61,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Economy` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -74,7 +74,20 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Fun` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
+        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
+        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
+        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
+      await message.channel.send({ embed });
+
+    } else if (category === "image") {
+      let commandsCategory = "9 Image"
+      let allCommands = ("cat\ndog\nimage\nimage-search\njpeg\nlizard\nmagik\nrobohash\nsnake")
+
+      const embed = new RichEmbed()
+        .setColor("RANDOM")
+        .setTitle("List of Commands in `Image` category")
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -87,7 +100,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Info` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -100,7 +113,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Moderation` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -111,7 +124,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("To see a list of NSFW Commands, use the `c.nsfwcommands` Command!")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
       await message.channel.send({ embed });
@@ -123,7 +136,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Productivity` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
@@ -136,7 +149,7 @@ class Commands extends Command {
       const embed = new RichEmbed()
         .setColor("RANDOM")
         .setTitle("List of Commands in `Searches` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 9 command categories.`)
+        .setDescription(`Use the \`commands\` command to get a list of all the 10 command categories.`)
         .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
         .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
         .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)

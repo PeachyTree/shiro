@@ -1,7 +1,7 @@
 {
   "name": "celestia",
-  "version": "1.13.3",
-  "description": "A Discord Bot with focus on Fun, Moderation, and Utility commands.",
+  "version": "1.14.1",
+  "description": "A Discord Bot with focus on Economy, Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
