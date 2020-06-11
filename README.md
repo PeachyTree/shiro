@@ -27,7 +27,10 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 * `GOOGLE_API=` You can get the Google API Key by creating a new Application on the [Google Cloud Console.](https://console.cloud.google.com/home/dashboard). After that, you need to enable the [YouTube Data API](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508&project=azura-278914&hl).
 * `GIPHY_API_KEY=` You can get the Giphy API Key by visiting the [Giphy API Page](https://developers.giphy.com/).
 
-# Feedback Command
+### Feedback Command
 *Note: This is a Channel ID for the channel you want to view feedback from. It's not really required, so delete it, with the feedback command, if you don't want or need it.*
 `FEEDBACKCHANNEL=` is simply the channel ID of any channel in the main server the bot should be in.
+
+## License
+For more information see `LICENSE`.
 
