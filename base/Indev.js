@@ -1,5 +1,7 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
+// If there may be any commands that are still in development, or may not work fully yet, that's what this base is for!
+
 class Indev {
   constructor(client, {
     name = null,

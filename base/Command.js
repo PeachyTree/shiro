@@ -1,5 +1,7 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
+// Base Command Handler structure for all commands
+
 class Command {
   constructor(client, {
     name = null,
