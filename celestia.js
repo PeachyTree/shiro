@@ -1,12 +1,7 @@
-/*
-Celestia Discord Bot
-Originally created 2017
+// Celestia Discord Bot Copyright (©) 2019 - 2020 Azura Apple. All rights reserved. MIT License.
 
-Copyright (©) 2020 Azura Apple. All rights reserved. MIT License.
-*/
-
-if (Number(process.version.slice(1).split(".")[0]) < 12) throw new Error("Node.js 12.0.0 or higher is required. Update Node on your system.");
-
+require("dotenv").config();
+require("./modules/functions.js")(client);
 const Discord = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
@@ -14,6 +9,7 @@ const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
 
+// Client Settings
 class Celestia extends Discord.Client {
   constructor(options) {
     super(options);
@@ -26,6 +22,7 @@ class Celestia extends Discord.Client {
     this.wait = promisify(setTimeout);
   }
 
+  // Permission Levels
   permlevel(message) {
     let permlvl = 0;
 
@@ -43,6 +40,7 @@ class Celestia extends Discord.Client {
   }
   
 
+  // Command load / unload
   loadCommand(commandPath, commandName) {
     try {
       const props = new (require(`${commandPath}${path.sep}${commandName}`))(client);
@@ -77,6 +75,7 @@ class Celestia extends Discord.Client {
     return false;
   }
 
+  // Get / write Settingsfile
   getSettings(guild) {
     if (guild) {
       const defaults = client.config.defaultSettings || {};
@@ -112,13 +111,8 @@ const client = new Celestia({
 
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
 
-require("dotenv").config();
-require("./modules/functions.js")(client);
-
-const { CELESTIA_TOKEN } = process.env;
-
 const init = async () => {
-
+  // Load commands
   klaw("./commands").on("data", (item) => {
     const cmdFile = path.parse(item.path);
     if (!cmdFile.ext || cmdFile.ext !== ".js") return;
@@ -126,6 +120,7 @@ const init = async () => {
     if (response) client.logger.error(response);
   });
 
+  // Find and load events folder
   const evtFiles = await readdir("./events");
   client.logger.log(`Loading a total of ${evtFiles.length} events.`, "log");
   evtFiles.forEach(file => {
