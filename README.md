@@ -14,7 +14,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 * `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is c.
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
-* `SYSTEMNOTICE=` Please leave it this to `true`, which is set by default. This shouldn't be touched.
+* `SYSTEMNOTICE=` Leave this to `true`, which is set by default. This shouldn't be touched.
 
 ### Roles:
 *Note:  Feel free to change these roles for your server. It's not required to change them though. Defaults below. Those are for the permission level function, so that the bot knows who is an Admin, Moderator, or user.*
