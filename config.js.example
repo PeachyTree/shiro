@@ -1,7 +1,7 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
 // Check .env.example 
-const { ADMIN, SUPPORT, CELESTIA_PREFIX, MODROLE, ADMINROLE, SYSTEMNOTICE } = process.env;
+const { ADMIN, SUPPORT, CELESTIA_PREFIX, MOD_ROLE, ADMIN_ROLE, SYSTEM_NOTICE } = process.env;
 
 const config = {
   "admins": ADMIN, // ID of Bot Admin. Not required.
@@ -9,9 +9,9 @@ const config = {
 
   defaultSettings: {
     "prefix": CELESTIA_PREFIX,
-    "modRole": MODROLE, // Default mod role.
-    "adminRole": ADMINROLE, // Default admin role.
-    "systemNotice": SYSTEMNOTICE
+    "modRole": MOD_ROLE, // Default mod role.
+    "adminRole": ADMIN_ROLE, // Default admin role.
+    "systemNotice": SYSTEM_NOTICE
   },
   
   permLevels: [

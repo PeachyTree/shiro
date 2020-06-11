@@ -3,7 +3,7 @@
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const celestia = require("../../package.json");
-const { FEEDBACKCHANNEL } = process.env;
+const { FEEDBACK_CHANNEL } = process.env;
 
 class Feedback extends Command {
     constructor(client) {
@@ -17,7 +17,7 @@ class Feedback extends Command {
     }
 
     async run(message, args, level, settings) {
-        let channel = this.client.channels.get(FEEDBACKCHANNEL);
+        let channel = this.client.channels.get(FEEDBACK_CHANNEL);
 
         if (!args.length) {
             return message.react('🚫'), message.reply("Command Usage: `feedback <Suggestion / Issue>`")
