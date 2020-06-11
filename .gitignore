@@ -9,6 +9,7 @@ logs/
 # Config Files
 .env
 config.json
+*.example
 
 # In-Development Commands
 commands/productivity/reminder.js
