@@ -68,8 +68,8 @@ class Commands extends Command {
       await message.channel.send({ embed });
 
     } else if (category === "fun") {
-      let commandsCategory = "19 Fun"
-      let allCommands = ("advice\nbonzi\ncatfact\nfortune\nhoroscope\njoke\nkaomoji\nmagic8ball\npasta\npickupline\nquote\nrate\nrightthere\nroll\nship\nshits\ntoday\ntrivia\ntsundere")
+      let commandsCategory = "23 Fun"
+      let allCommands = ("advice\nbonzi\ncatfact\ndadjoke\nfortune\nhoroscope\njoke\nkaomoji\nlmgtfy\nmagic8ball\npasta\npickupline\nquote\nrate\nrightthere\nroll\nship\nshits\ntableflip\ntoday\ntrivia\ntsundere\nvaportext")
 
       const embed = new RichEmbed()
         .setColor("RANDOM")

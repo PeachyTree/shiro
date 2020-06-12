@@ -1,6 +1,6 @@
 {
   "name": "celestia",
-  "version": "1.14.1",
+  "version": "1.14.2",
   "description": "A Discord Bot with focus on Economy, Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
