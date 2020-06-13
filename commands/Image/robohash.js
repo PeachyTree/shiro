@@ -9,14 +9,14 @@ class Robohash extends Command {
         name: "robohash",
         description: "Generates a picture of a robot from some given text.",
         category: "Image",
-        usage: "robohash <text>",
+        usage: "robohash <Text>",
         aliases: ["robot"]
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         const query = args.join(" ");
-        if (!query) return message.channel.send("You must some text to use to generate the robot.");
+        if (!query) return message.react('🚫'), message.channel.send("Command Usage: `robohash <Text>`");
         if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
 
         message.channel.startTyping();

@@ -16,7 +16,7 @@ class Snake extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         const page = Math.floor(Math.random() * 5) + 1;
         const index = Math.floor(Math.random() * 10) + 1;
 
