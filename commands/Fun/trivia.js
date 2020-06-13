@@ -20,7 +20,7 @@ class Trivia extends Command {
 
     const levels = ["easy", "medium", "hard"];
     const difficulty = args[0] || "medium";
-    if (!levels.includes(difficulty.toLowerCase())) return message.react('🚫'), message.reply("Invalid difficulty specified. Please choose from one of **easy**, **medium** or **hard**.");
+    if (!levels.includes(difficulty.toLowerCase())) return message.reply("Invalid difficulty specified. Please choose from one of **easy**, **medium** or **hard**.");
 
     const { body } = await snekfetch.get(`https://opentdb.com/api.php?amount=50&difficulty=${difficulty.toLowerCase()}&type=multiple`);
     const quiz = body.results.random();
