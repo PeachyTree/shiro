@@ -10,6 +10,7 @@ class Magic8Ball extends Command {
       description: "Consults my magic 8-ball!",
       category: "Fun",
       usage: "magic8ball <Question>",
+      aliases: ["8ball"]
     });
   }
 
