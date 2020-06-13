@@ -18,7 +18,7 @@ class Jisho extends Command {
 
   async run(message, args, level, settings) {
 
-    const word = message.content.split(/\s+/g).slice(1).join(" ");
+    const word = args.join(" ");
 
     if (!word) {
       return message.react('🚫'), message.reply("Command Usage: `jisho <Word / Kanji / Japanese / Romaji>`")
