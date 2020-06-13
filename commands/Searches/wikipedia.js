@@ -1,7 +1,6 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
 const Command = require('../../base/Command.js');
-//const { RichEmbed } = require('discord.js');
 const request = require('request-promise-native');
 
 class Wikipedia extends Command {
