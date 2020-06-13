@@ -16,16 +16,16 @@ class Shits extends Command {
 
     async run(message, args, level, settings) {
         if (!message.channel.permissionsFor(this.client.user).has('ATTACH_FILES')) {
-            return message.channel.send('I can\'t attach messages!');
+            return message.channel.send('🚫 | I can\'t attach messages!');
         }
 
         if (args.length < 1) {
-            return message.react('🚫'), message.channel.send('Command Usage: `shits <Text>');
+            return message.react('🚫'), message.channel.send('Command Usage: `shits <Text>`');
         }
 
         await message.channel.startTyping()
 
-        const text = message.content.split(/\s+/g).slice(1).join(" ");
+        const text = args.join(" ");
         const shits = await Jimp.read('assets/images/SHITS.png');
         const blank = await Jimp.read('assets/images/blank.png');
 
