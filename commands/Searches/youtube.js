@@ -18,7 +18,7 @@ class YouTube extends Command {
   }
 
   async run(message, args, level, settings) { 
-    let query = message.content.split(/\s+/g).slice(1).join(" ");
+    let query = args.join(" ");
     try {
       youtube.search(query, 1, function(error, result) {
         if (!query) {
