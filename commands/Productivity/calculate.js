@@ -24,7 +24,7 @@ class Calculate extends Command {
     try {
       let evaled = math.eval(exp);
       if (isNaN(evaled)) evaled = 'NaN (not a number).';
-      if (exp.length + evaled.length > 2000) return message.channel.send(`🚫 |Output is too long to fit into a message!`);
+      if (exp.length + evaled.length > 2000) return message.channel.send(`🚫 | Output is too long to fit into a message!`);
       
       msg.edit(`${exp} = **${evaled}**`);
     } catch (error) {
