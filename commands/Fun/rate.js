@@ -13,13 +13,13 @@ class Rate extends Command {
   }
 
   async run(message, args, level, settings) {
-    const item = message.content.split(/\s+/g).slice(1).join(" ");
+    const item = args.split(/\s+/g).slice(1).join(" ");
 
     if (!item) {
       return message.react('🚫'), message.reply("Command Usage: `rate <ITEM_TO_BE_RATED>`")
     } 
 
-    if (item.toUpperCase().startsWith("BYLETH")) return message.channel.send('I\'d give myself a 10/10!');
+    if (item.toUpperCase().startsWith("CELESTIA")) return message.channel.send('I\'d give myself a 10/10!');
 
     const rating = Math.floor(Math.random() * 10) + 0;
     return message.channel.send(`I'd give **${item}** a ${rating}/10!`);
