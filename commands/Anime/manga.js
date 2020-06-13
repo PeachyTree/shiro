@@ -17,7 +17,7 @@ class Manga extends Command {
 
   async run(message, args, level, settings) {
 
-    let search = message.content.split(/\s+/g).slice(1).join(" ");
+    let search = args.split(/\s+/g).slice(1).join(" ");
 
     if (!search) {
       return message.react('🚫'), message.reply("Command Usage: `manga <Manga Name>`")
@@ -38,7 +38,7 @@ class Manga extends Command {
         .addField('❯\u2000\Stats', `•\u2000\**Average Rating:** ${manga.averageRating ? manga.averageRating : '`N/A`'}\n\•\u2000\**Rating Rank:** ${manga.ratingRank ? manga.ratingRank : '`N/A`'}\n\•\u2000\**Popularity Rank:** ${manga.popularityRank ? manga.popularityRank : '`N/A`'}`, true)
         .addField('❯\u2000\Status', `•\u2000\**Volumes:** ${manga.volumeCount ? manga.volumeCount : '`N/A`'}\n\•\u2000\**Start Date:** ${manga.startDate}\n\•\u2000\**End Date:** ${manga.endDate ? manga.endDate : "Ongoing"}`, true)
         .setImage(manga.posterImage.original);
-      return message.channel.send({embed});
+      return message.channel.send({ embed });
         
       }).catch(err => {
         this.client.logger.log(err);
