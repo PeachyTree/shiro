@@ -1,179 +1,65 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
+// The COMMANDS command is used to display every command's name and description
+// to the user, so that they can see what commands are available. The commands
+// command is also filtered by level, so if a user does not have access to
+// a command, it is not shown to them. If a command name is given with the
+// help command, its extended help is shown.
+
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
 
 class Commands extends Command {
   constructor(client) {
     super(client, {
       name: "commands",
-      description: "Sends a list of all command categories. When a specific category is specified, it shows all commands from that category.",
+      description: "Sends a list of all commands.",
       category: "Core",
-      usage: "commands [Category]",
+      usage: "commands",
       aliases: ["command", "cmd", "cmds"]
     });
   }
 
   async run(message, args, level, settings) {
 
-    let categories = "Anime\nCore\nEconomy\nFun\nImage\nInfo\nMisc\nModeration\nNSFW\nProductivity\nSearches"
-    const category = args.join(" ").toLowerCase(); 
+    if (!args[0]) {
+      // Loads guild settings (for prefixes and eventually per-guild tweaks)
+      const settings = message.settings;
+      
+      // Filters all commands by which are available for the user's level, using the <Collection>.filter() method.
+      const myCommands = message.guild ? this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level) : this.client.commands.filter(cmd => this.client.levelCache[cmd.conf.permLevel] <= level &&  cmd.conf.guildOnly !== true);
+      
+      // Gets command names only, and uses that array to get the longest name.
+      // This allows the output to be nicely aligned.
+      const commandNames = myCommands.keyArray();
+      const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
+      let currentCategory = "";
+      let output = `= Command List =\n\n[Use ${settings.prefix}help <commandname> for details]\n`;
+      const sorted = myCommands.array().sort((p, c) => p.help.category > c.help.category ? 1 :  p.help.name > c.help.name && p.help.category === c.help.category ? 1 : -1 );
+      sorted.forEach( c => {
+        const cat = c.help.category.toProperCase();
+        if (currentCategory !== cat) {
+          output += `\u200b\n== ${cat} ==\n`;
+          currentCategory = cat;
+        }
+        output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
+      });
 
-    if (!args.length) {
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setDescription("Use the `commands <category>` command to list all the commands in the specified category.")
-        .addField("Command Categories", categories)
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      return await message.channel.send({ embed });
-    } 
- 
-    if (category === "anime") {
-      let commandsCategory = "5 Anime"
-      let allCommands = ("anime\nbooru\nawwnime\nmanga\nwaifu")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Anime` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "core") {
-      let commandsCategory = "7 Core"
-      let allCommands = ("commands\nfeedback\nhelp\ninvite\nping\nsettings\nstats")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Core` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "Economy") {
-      let commandsCategory = "10 Economy"
-      let allCommands = ("buy-item\nclaim\nflip\nitem-shop\nprofile\nroll\nshop\nslots\ntransfer\nwork")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Economy` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "fun") {
-      let commandsCategory = "23 Fun"
-      let allCommands = ("advice\nbonzi\ncatfact\ndadjoke\nfortune\nhoroscope\njoke\nkaomoji\nlmgtfy\nmagic8ball\npasta\npickupline\nquote\nrate\nrightthere\nroll\nship\nshits\ntableflip\ntoday\ntrivia\ntsundere\nvaportext")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Fun` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "image") {
-      let commandsCategory = "9 Image"
-      let allCommands = ("cat\ndog\nimage\nimage-search\njpeg\nlizard\nmagik\nrobohash\nsnake")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Image` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "info") {
-      let commandsCategory = "9 Info"
-      let allCommands = ("avatar\nchannel\ndiscrim\nemoji\nemoji-image\nserver\ntime\ntimezones\nuser")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Info` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "misc") {
-      let commandsCategory = "5 Misc"
-      let allCommands = ("color\nicon\nlast-message\nprefix\nterms")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Misc` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "moderation") {
-      let commandsCategory = "12 Moderation"
-      let allCommands = ("ban\nclear\nclear-nickname\nfetchbans\nforceban\nkick\nlistbans\nlockdown\nmute\nreport\nunmute\nwarn")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Moderation` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "nsfw") {
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("To see a list of NSFW Commands, use the `c.nsfwcommands` Command!")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "productivity") {
-      let commandsCategory = "9 Productivity"
-      let allCommands = ("calculate\nchoose\ncreate-emoji\ngenerate-invite\npoll\nreminder\nsay\nshorten\ntranslate")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Productivity` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (category === "searches") {
-      let commandsCategory = "10 Searches"
-      let allCommands = ("forecast\ngiphy\ngithub\njisho\nmeme\nsteam\nurban\nweather\nwikipedia\nyoutube")
-
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("List of Commands in `Searches` category")
-        .setDescription(`Use the \`commands\` command to get a list of all the 11 command categories.`)
-        .addField(`${commandsCategory} Commands`, `\`\`\`css\n${allCommands}\`\`\``)
-        .addField("Need more details?", "Check out the help message of the command, using the `help <command>` command.")
-        .setFooter(`Did you know? There are ${this.client.commands.size} commands in this version of Celestia!`)
-      await message.channel.send({ embed });
-
-    } else if (!category === "anime" || "core" || "economy" || "fun" || "info" || "moderation" || "nsfw" || "productivity" || "searches") {
-      const embed = new RichEmbed()
-        .setColor("RANDOM")
-        .setTitle("🚫 | Command Category Not Found")
-        .setDescription("Use the `commands` command without any arguments to get a list of all the available command categories.")
-      return await message.channel.send({ embed }); 
+      // Sends the output to the message author, and catches any errors that occur
+        message.channel.send('Sending commands to your DM...');
+        message.author.send(output, { code:"asciidoc", split: { char: "\u200b" } })
+        .catch(e => {
+          if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
+            return message.channel.send(`🚫 | Cannot send DMs to ${message.author}. Please enable the setting in your settings.`)
+          } else {
+            this.client.logger.error(e);
+            return message.channel.send(`🚫 | An Error occurred: ${e.message}`);
+          }
+        });
+      
+      if (message.channel.type === "dm") {
+        await this.client.wait(2000);
+        message.author.send("Please note that due to the `commands` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `commands` command in a server.");
+      }
     }
   }
 }
