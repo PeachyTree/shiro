@@ -14,7 +14,7 @@ class Image extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         let size = args[0];
         if (!args[0]) size = "";
 

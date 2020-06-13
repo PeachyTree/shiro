@@ -13,7 +13,7 @@ class Dog extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         message.channel.startTyping();
 
         fetch("https://dog.ceo/api/breeds/image/random")
