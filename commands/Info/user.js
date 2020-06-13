@@ -9,7 +9,7 @@ class User extends Command {
         name: "user",
         description: "Displays information about the mentioned user.",
         category: "Info",
-        usage: "user [@user]",
+        usage: "user [@USER_MENTION]",
         aliases: ["userinfo", "whois"],
         guildOnly: true
       });
@@ -42,30 +42,27 @@ class User extends Command {
         }
 
         const embed = new RichEmbed()
-        .setColor(message.guild.member(user).displayColor)
-        .setThumbnail(user.displayAvatarURL)
-        .setTitle(`User Information for ${user.tag}`)
-        .setDescription(`**User ID**: ${user.id}`)
+          .setColor(message.guild.member(user).displayColor)
+          .setThumbnail(user.displayAvatarURL)
+          .setTitle(`User Information for ${user.tag}`)
+          .setDescription(`**User ID**: ${user.id}`)
 
-        .addField("❯ Details", stripIndents`
-        • Status: **${status}**
-        • Activity: ${activity}
-        ‍   
-        `, true)
+          .addField("❯ Details", stripIndents`
+          • Status: **${status}**
+          • Activity: ${activity}
+          ‍   
+          `, true)
 
-        .addField("❯ Roles", stripIndents`
-        • Highest: **\`${message.guild.member(user).highestRole.name}\`**
-        • All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(", ")}
-        ‍   
-        `, true)
+          .addField("❯ Roles", stripIndents`
+          • Highest: **\`${message.guild.member(user).highestRole.name}\`**
+          • All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(", ")}
+          ‍   
+          `, true)
 
-        .addField("❯ Join Dates", stripIndents`
-        • ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
-        • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
-        `, true)
-
-        .setFooter(`Requested by ${message.author.tag} using ${settings.prefix}userinfo`, message.author.avatarURL);
-
+          .addField("❯ Join Dates", stripIndents`
+          • ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
+          • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
+          `, true)
         message.channel.send({ embed });
     }
 }
