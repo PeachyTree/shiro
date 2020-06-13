@@ -9,13 +9,13 @@ class Magik extends Command {
         name: "magik",
         description: "Adds a \"magik\" effect to the specified image.",
         category: "Image",
-        usage: "magik <image-url>"
+        usage: "magik <IMAGE_URL>"
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
       const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : null;
-      if (!url || !url.startsWith("http")) return message.channel.send("You must provide a valid image URL to apply some ***m a g i k*** to.");
+      if (!url || !url.startsWith("http")) return message.react('🚫'), message.channel.send("Command Usage: `magik <IMAGE_URL>`");
 
       message.channel.startTyping();
 

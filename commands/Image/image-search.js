@@ -11,14 +11,14 @@ class ImageSearch extends Command {
         name: "image-search",
         description: "Sends a random image based on your query.",
         category: "Image",
-        usage: "image-search <query>",
+        usage: "image-search <Query>",
         aliases: ["isearch", "i-search", "imagesearch"]
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         let query = args.join(" ");
-        if (!query) return message.channel.send("You must specify a search query.");
+        if (!query) return message.react('🚫'), message.channel.send("Command Usage: `image-search <Query>`");
         else query = encodeURIComponent(args.join(" "));
 
         const page = Math.floor(Math.random() * 5) + 1;

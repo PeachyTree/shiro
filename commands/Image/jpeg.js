@@ -9,14 +9,14 @@ class JPEG extends Command {
         name: "jpeg",
         description: "Needs more JPEG.",
         category: "Image",
-        usage: "jpeg <image url>",
+        usage: "jpeg <IMAGE_URL>",
         aliases: ["jpegify"]
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
       const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : null;
-      if (!url || !url.startsWith("http")) return message.channel.send("You must provide a valid image URL to JPEGify.");
+      if (!url || !url.startsWith("http")) return message.react('🚫'), message.channel.send("Command Usage: `jpeg <IMAGE_URL>`");
 
       message.channel.startTyping();
 

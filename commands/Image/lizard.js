@@ -13,7 +13,7 @@ class Lizard extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         message.channel.startTyping();
 
         fetch("https://nekos.life/api/v2/img/lizard")
