@@ -8,17 +8,17 @@ class LMGTFY extends Command {
         name: "lmgtfy",
         description: "Why don't you just... Google it?",
         category: "Fun",
-        usage: "lmgtfy <query>",
+        usage: "lmgtfy <Query>",
         aliases: ["googleit"]
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
         const textQuery = args.join(" ");
         const query = encodeURIComponent(args.join(" "));
         const url = `https://lmgtfy.com/?q=${query}`;
 
-        if (!query) return message.channel.send(`Please enter a query. For example, \`${settings.prefix}lmgtfy How to create a Discord server\`.`);
+        if (!query) return message.react('🚫'), message.channel.send('Command Usage: `lmgtfy <Query>`');
         else message.channel.send(`"${textQuery}"\n**<${url}>**`);
     }
 }

@@ -19,7 +19,7 @@ class Bonzi extends Command {
         let text = message.content.split(/\s+/g).slice(1).join(" ");
 
         if (!text) {
-            return message.reply('Command Usage: `bonzi <Text>`');
+            return message.react('🚫'), message.reply('Command Usage: `bonzi <Text>`');
         }
 
         await message.channel.startTyping()

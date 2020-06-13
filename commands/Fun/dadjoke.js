@@ -14,7 +14,7 @@ class DadJoke extends Command {
       });
     }
 
-    async run(message, args, level, settings) { // eslint-disable-line no-unused-vars
+    async run(message, args, level, settings) { 
       const meta = { "Accept": "text/plain" };
 
       fetch("https://icanhazdadjoke.com/", { headers: meta })
@@ -22,7 +22,7 @@ class DadJoke extends Command {
         .then(body => message.channel.send(body))
         .catch(error => {
           this.client.logger.error(error);
-          return message.channel.send(`An Error occurred: ${error.message}`);
+          return message.channel.send(`🚫 | An Error occurred: ${error.message}`);
         });
     }
 }
