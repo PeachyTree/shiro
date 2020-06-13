@@ -6,15 +6,15 @@ class Vaportext extends Command {
     constructor(client) {
       super(client, {
         name: "vaportext",
-        description: "A E S T H E T I C",
+        description: "Make text **A E S T H E T I C**.",
         category: "Fun",
-        usage: "vaportext <text>",
+        usage: "vaportext <Text>",
         aliases: ["vapor", "vapour", "vapourtext"]
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
-        if (!args.length) return message.channel.send("You must provide some text to make ***A E S T H E T I C A L L Y   P L E A S I N G***.");
+    async run(message, args, level) { 
+        if (!args.length) return message.channel.send("Command Usage: `vaportext <Text>`");
 
         let msg = "";
         for (let i = 0; i < args.length; i++) {
