@@ -7,17 +7,17 @@ const snekfetch = require('snekfetch');
 class Steam extends Command {
     constructor(client) {
         super(client, {
-        name: "steam",
-        description: "Searches Steam for games!",
-        category: "Searches",
-        usage: "steam <Game Name>",
-        aliases: ["game"]
+            name: "steam",
+            description: "Searches Steam for games!",
+            category: "Searches",
+            usage: "steam <Game Name>",
+            aliases: ["game"]
         });
     }
 
     async run(message, args, level, settings) {
 
-        const query = message.content.split(/\s+/g).slice(1).join(" ");
+        const query = args.join(" ");
 
         if (!query) {
             return message.react('🚫'), message.reply("Command Usage: `steam <Game Name>`")
