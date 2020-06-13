@@ -19,7 +19,7 @@ class TableFlip extends Command {
       });
     }
 
-    async run(message, args, level) { // eslint-disable-line no-unused-vars
+    async run(message, args, level) { 
       const msg = await message.channel.send("(\\\\°□°)\\\\  ┬─┬");
 
       for (const frame of flipFrames) {

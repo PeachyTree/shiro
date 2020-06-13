@@ -20,7 +20,7 @@ class Shits extends Command {
         }
 
         if (args.length < 1) {
-            return message.channel.send('Please provide some text!');
+            return message.react('🚫'), message.channel.send('Command Usage: `shits <Text>');
         }
 
         await message.channel.startTyping()
