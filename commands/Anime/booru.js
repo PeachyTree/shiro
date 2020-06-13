@@ -16,9 +16,9 @@ class Booru extends Command {
   }
 
     async run(message, args, level, settings) {
-        if (args.toUpperCase().includes('LOLI') || args.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
+        if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
-        let query = args.split(/\s+/g).slice(1).join(" ");
+        let query = args.slice(1).join(" ");
 
         if (!query) {
             return message.react('🚫'), message.reply("Command Usage: `booru <Query>`")
