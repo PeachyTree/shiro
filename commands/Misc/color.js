@@ -15,7 +15,7 @@ class Color extends Command {
   }
 
   async run(message, args, level, settings) {
-        const color = message.content.split(/\s+/g).slice(1).join(" ");
+        const color = args.split(/\s+/g).slice(1).join(" ");
 
         if (!color) {
             let genColour = '#' + Math.floor(Math.random() * 16777215).toString(16);
