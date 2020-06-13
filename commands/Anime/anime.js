@@ -17,7 +17,7 @@ class Anime extends Command {
   }
 
   async run(message, args, level, settings) {
-        let search = message.content.split(/\s+/g).slice(1).join(" ");
+        let search = args.split(/\s+/g).slice(1).join(" ");
 
         if (!search) {
 
@@ -33,11 +33,11 @@ class Anime extends Command {
                     .addField('❯\u2000\Stats', `•\u2000\**Average Rating:** ${anime.averageRating}\n\•\u2000\**Rating Rank:** ${anime.ratingRank}\n\•\u2000\**Popularity Rank:** ${anime.popularityRank}`, true)
                     .addField('❯\u2000\Status', `•\u2000\**Episodes:** ${anime.episodeCount ? anime.episodeCount : 'N/A'}\n\•\u2000\**Start Date:** ${anime.startDate}\n\•\u2000\**End Date:** ${anime.endDate ? anime.endDate : "Still airing"}`, true)
                     .setImage(anime.posterImage.original);
-                return message.channel.send(`📺 | Try watching **${anime.titles.english}**!`, { embed: embed });
+                return message.channel.send(`📺 | Try watching **${anime.titles.english}**!`, { embed });
             })
 
         } else {
-            let search = message.content.split(/\s+/g).slice(1).join(" ");
+            let search = args.split(/\s+/g).slice(1).join(" ");
 
             kitsu.searchAnime(search).then(result => {
                 if (result.length === 0) {
