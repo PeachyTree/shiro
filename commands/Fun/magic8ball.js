@@ -37,7 +37,7 @@ class Magic8Ball extends Command {
       "Hmm...", // Neutral
       "Nahhhhhh", // Negative
       "Certainly not.", // Negative
-      "Seems like my magic 8 ball is broken... Try again.",
+      "Seems like my magic 8 ball is broken... Try again.", 
       "I sure hope so!", // Positive
       "There is a good chance.", // Positive
       "Quite likely.", // Positive
