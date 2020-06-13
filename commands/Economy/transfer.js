@@ -21,7 +21,7 @@ class Transfer extends Command {
         let member = await db.get(`money_${message.author.id}`)
 
         if (!user || !args[1]) {
-            return message.reply('Command Usage: `transfer <@USER_MENTION> <AMOUNT_TO_TRANSFER>`')
+            return message.react('🚫'), message.reply('Command Usage: `transfer <@USER_MENTION> <AMOUNT_TO_TRANSFER>`')
         }
 
         if (message.content.includes('-')) { 
