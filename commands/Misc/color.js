@@ -4,18 +4,18 @@ const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 
 class Color extends Command {
-  constructor(client) {
-    super(client, {
-      name: "color",
-      description: "Shows a random color or a preview of the given color!",
-      category: "Misc",
-      usage: "color [Color]",
-      aliases: ["hex"]
-    });
-  }
+    constructor(client) {
+        super(client, {
+            name: "color",
+            description: "Shows a random color or a preview of the given color!",
+            category: "Misc",
+            usage: "color [Color]",
+            aliases: ["hex"]
+        });
+    }
 
-  async run(message, args, level, settings) {
-        const color = args.split(/\s+/g).slice(1).join(" ");
+    async run(message, args, level, settings) {
+        const color = args.join(" ");
 
         if (!color) {
             let genColour = '#' + Math.floor(Math.random() * 16777215).toString(16);
