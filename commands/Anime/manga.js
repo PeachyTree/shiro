@@ -17,7 +17,7 @@ class Manga extends Command {
 
   async run(message, args, level, settings) {
 
-    let search = args.split(/\s+/g).slice(1).join(" ");
+    let search = args.join(" ");
 
     if (!search) {
       return message.react('🚫'), message.reply("Command Usage: `manga <Manga Name>`")
