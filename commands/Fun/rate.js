@@ -13,7 +13,7 @@ class Rate extends Command {
   }
 
   async run(message, args, level, settings) {
-    const item = args.split(/\s+/g).slice(1).join(" ");
+    const item = args.join(" ");
 
     if (!item) {
       return message.react('🚫'), message.reply("Command Usage: `rate <ITEM_TO_BE_RATED>`")
