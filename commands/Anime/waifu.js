@@ -11,17 +11,16 @@ class Waifu extends Command {
       name: 'waifu',
       description: `Finds you a waifu from a database of ${total} waifus!\nOthers can vote on the waifu through reactions!`,
       category: 'Anime',
-      usage: 'waifu [Number]',
+      usage: 'waifu <Number>',
       aliases: ['waif']
     });
   }
 
   async run(message, args, level, settings) {
 
-        let waifuNumber = message.content.split(/\s+/g).slice(1).join(" ");
+        let waifuNumber = args.split(/\s+/g).slice(1).join(" ");
         if (waifuNumber <= total && waifuNumber > 0) return message.channel.send(`That's not a valid waifu number! There are only **${total}** waifus right now, *choose a number between 1 and ${total}*!`);
 
-        const percentage = Math.random()
         if (!waifuNumber) {
             let random = Math.floor(Math.random() * total + 1);
             let waifu = waifus[random];
@@ -32,7 +31,7 @@ class Waifu extends Command {
                 .setImage(waifu.image)
                 .setFooter(`Waifu Number ${random}`)
                 .setColor('#FAC193');
-            let ms = await message.channel.send(`💝 | **${waifu.name}**? `, { embed: embed });
+            let ms = await message.channel.send(`💝 | **${waifu.name}**? `, { embed });
             await ms.react('👍');
             await ms.react('👎');
 
@@ -46,7 +45,7 @@ class Waifu extends Command {
                 .setImage(waifu.image)
                 .setFooter(`Waifu Number ${waifuNumber}`)
                 .setColor('#FAC193');
-            let ms = await message.channel.send(`💝 | Here's waifu number **${waifuNumber}**!`, { embed: embed });
+            let ms = await message.channel.send(`💝 | Here's waifu number **${waifuNumber}**!`, { embed });
             await ms.react('👍');
             await ms.react('👎');
 
