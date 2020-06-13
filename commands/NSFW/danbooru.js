@@ -25,7 +25,7 @@ class Danbooru extends Command {
 
         if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
-        let query = message.content.split(/\s+/g).slice(1).join(" ");
+        let query = args.join(" ");
         booru.search('danbooru', [query], { limit: 1, random: true })
         .then(booru.commonfy)
         .then(images => {

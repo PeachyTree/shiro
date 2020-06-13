@@ -29,7 +29,6 @@ class GTN extends Command {
         let text = await snekfetch.get(`https://rra.ram.moe/i/r?nsfw=true`);
         let body = JSON.parse(text.text);
 
-        //let recipient = message.content.split(/\s+/g).slice(1).join(" ");
         let embed = new RichEmbed()
             .setColor('RANDOM')
             .setImage(`https://rra.ram.moe${body.path}`);
