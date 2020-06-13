@@ -18,7 +18,7 @@ class Waifu extends Command {
 
   async run(message, args, level, settings) {
 
-        let waifuNumber = args.split(/\s+/g).slice(1).join(" ");
+        let waifuNumber = args.join(" ");
         if (waifuNumber <= total && waifuNumber > 0) return message.channel.send(`That's not a valid waifu number! There are only **${total}** waifus right now, *choose a number between 1 and ${total}*!`);
 
         if (!waifuNumber) {
