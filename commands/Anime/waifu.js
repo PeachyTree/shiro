@@ -11,7 +11,7 @@ class Waifu extends Command {
       name: 'waifu',
       description: `Finds you a waifu from a database of ${total} waifus!\nOthers can vote on the waifu through reactions!`,
       category: 'Anime',
-      usage: 'waifu <Number>',
+      usage: 'waifu [Number]',
       aliases: ['waif']
     });
   }
