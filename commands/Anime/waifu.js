@@ -8,7 +8,6 @@ const weefi = [
     'https://gfycat.com/KindheartedContentIberianmidwifetoad',
     'http://i.imgur.com/U25HMyz.gifv',
     'http://i.imgur.com/0xhBPbR.gif',
-    'Your waifu is me...right?',
     'https://media.giphy.com/media/2PW8oTlHnVaZa/giphy.gif',
     'https://thumbs.gfycat.com/BiodegradableWillingIchneumonfly-max-1mb.gif',
     'https://i.makeagif.com/media/10-19-2015/PyKTt9.gif',
