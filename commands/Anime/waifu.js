@@ -9,7 +9,8 @@ class Waifu extends Command {
   constructor(client) {
     super(client, {
       name: 'waifu',
-      description: `Finds you a waifu from a database of ${total} waifus!\nOthers can vote on the waifu through reactions!\n\Also #119 is best girl.`,
+      description: `Finds you a waifu from a database of ${total} waifus!`,
+      details: 'Others can vote on the waifu through reactions!'
       category: 'Anime',
       usage: 'waifu [Number]',
       aliases: ['waif']
