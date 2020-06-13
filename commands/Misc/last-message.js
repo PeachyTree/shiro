@@ -14,19 +14,19 @@ class LastMessage extends Command {
   }
 
   async run(message, args, level, settings) {
-      const member = message.mentions.members.first();
-      if (!member) return message.channel.send('🚫 | Command Usage: `lastmessage <@user>`');
+    const member = message.mentions.members.first();
+    if (!member) return message.react('🚫'), message.channel.send('Command Usage: `lastmessage <@user>`');
 
-      const lastMsg = message.guild.member(member).lastMessage;
-      if (!lastMsg) return message.channel.send("This user's last message could not be found, or they simply may not have sent any messages here.");
-                  
-      const embed = new RichEmbed()
-        .setColor(message.guild.member(member).displayColor)
-        .setAuthor(member.user.tag, member.user.displayAvatarURL)
-        .setDescription(`*${lastMsg}*`)
-        .setFooter(`#${message.channel.name}`)
-        .setTimestamp();
-      message.channel.send({ embed });
+    const lastMsg = message.guild.member(member).lastMessage;
+    if (!lastMsg) return message.channel.send("🚫 | This user's last message could not be found, or they simply may not have sent any messages here.");
+                
+    const embed = new RichEmbed()
+      .setColor(message.guild.member(member).displayColor)
+      .setAuthor(member.user.tag, member.user.displayAvatarURL)
+      .setDescription(`*${lastMsg}*`)
+      .setFooter(`#${message.channel.name}`)
+      .setTimestamp();
+    message.channel.send({ embed });
   }
 }
 
