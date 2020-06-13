@@ -31,8 +31,8 @@ class Horoscope extends Command {
     }
 
     async run(message, args, level, settings) {
-        const sign = message.content.split(/\s+/g).slice(1).join(" ");
-        if (!sign) return message.channel.send("Please give me a sign to get the horoscope of!");
+        const sign = args.split(/\s+/g).slice(1).join(" ");
+        if (!sign) return message.channel.send("Command Usage: `horoscope <Sign>`");
 
         if (!signs.includes(sign.toLowerCase())) return message.channel.send('That is not a valid sign!');
 
