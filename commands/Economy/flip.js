@@ -23,7 +23,7 @@ class Flip extends Command {
     // This command has a cooldown, so it can't be instantly, to prevent users to cheat.
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `betflip < heads / tails > <Amount>`")
+      return message.react('🚫'), message.reply("Command Usage: `flip < heads / tails > <Amount>`")
     }
 
     if (recentUsers.has(message.author.id)) {
