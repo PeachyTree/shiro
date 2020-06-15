@@ -10,10 +10,10 @@ class Slots extends Command {
   constructor(client) {
     super(client, {
       name: "slots",
-      description: "Bet Money on slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!",
+      description: "Bet Money on spinning the slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!",
       category: "Economy",
       usage: "slots <Amount>",
-      aliases: ["slot-machine"]
+      aliases: ["slot-machine", "betslots"]
     });
   }
 
@@ -23,7 +23,7 @@ class Slots extends Command {
     // 1 hour cooldown as in flip/roll to prevent uses from cheating.
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `betslots <Amount>`")
+      return message.react('🚫'), message.reply("Command Usage: `slots <Amount>`")
     }
 
     if (recentUsers.has(message.author.id)) {
