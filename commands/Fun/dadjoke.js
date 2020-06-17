@@ -22,7 +22,7 @@ class DadJoke extends Command {
     .then(body => message.channel.send(body))
     .catch(error => {
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An Error occurred: ${error.message}`);
+      return message.channel.send(`An Error occurred: ${error.message}`);
     });
   }
 }

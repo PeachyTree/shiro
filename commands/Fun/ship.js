@@ -14,7 +14,7 @@ class Ship extends Command {
 
   run(message, args, level, settings) { 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `ship <@USER_MENTION1> <@USER_MENTION2>`")
+      return message.reply("Command Usage: `ship <@USER_MENTION1> <@USER_MENTION2>`")
     }
 
     let users = message.mentions.users.map(u => u.username);

@@ -14,7 +14,7 @@ class Vaportext extends Command {
   }
 
   async run(message, args, level) { 
-    if (!args.length) return message.react('🚫'), message.channel.send("Command Usage: `vaportext <Text>`");
+    if (!args.length) return message.channel.send("Command Usage: `vaportext <Text>`");
 
     let msg = "";
     for (let i = 0; i < args.length; i++) {

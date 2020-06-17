@@ -20,7 +20,7 @@ class Advice extends Command {
     try {
       message.channel.send(advice.slip.advice)
     } catch (err) {
-      return message.channel.send(`🚫 | My API isn't working!`)
+      return message.channel.send(`My API isn't working!`)
     }
   }
 }

@@ -18,7 +18,7 @@ class LMGTFY extends Command {
     const query = encodeURIComponent(args.join(" "));
     const url = `https://lmgtfy.com/?q=${query}`;
 
-    if (!query) return message.react('🚫'), message.channel.send('Command Usage: `lmgtfy <Query>`');
+    if (!query) return message.channel.send('Command Usage: `lmgtfy <Query>`');
     else message.channel.send(`"${textQuery}"\n**<${url}>**`);
   }
 }

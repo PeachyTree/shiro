@@ -19,7 +19,7 @@ class Joke extends Command {
     .then(data => message.channel.send(`${data.setup} ${data.punchline}`))
     .catch(error => {
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+      return message.channel.send(`An error occurred:\n\```${error.message}\````);
     });
   }
 }

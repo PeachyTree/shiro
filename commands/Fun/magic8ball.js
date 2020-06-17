@@ -66,7 +66,7 @@ class Magic8Ball extends Command {
     ];
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `magic8ball <Question>`")
+      return message.reply("Command Usage: `magic8ball <Question>`")
     }
 
     if (args[0]) {
@@ -89,7 +89,7 @@ class Magic8Ball extends Command {
         }
       } catch (error) {
         this.client.logger.error(error);
-        message.channel.send(`🚫 | My Magic 8 Ball says: An error occurred:\n\```${error.message}\````);
+        message.channel.send(`My Magic 8 Ball says: An error occurred:\n\```${error.message}\````);
       }
     }
   }
