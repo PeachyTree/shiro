@@ -26,7 +26,7 @@ class Discrim extends Command {
             if (users.length === 0) return message.reply(`After searching all my servers, no one with the discriminator **#${discrim}** could be found.`);
             return message.channel.send(`**${users.length}** user(s) found with the discriminator **#${discrim}**:\n\`\`\`yml\n${users.join(", ")}\`\`\``);
         } else {
-            return message.reply('🚫 | Invalid discriminator provided.');
+            return message.reply('Invalid discriminator provided.');
         }
     }
 }
