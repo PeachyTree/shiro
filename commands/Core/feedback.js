@@ -20,7 +20,7 @@ class Feedback extends Command {
         let channel = this.client.channels.get(FEEDBACK_CHANNEL);
 
         if (!args.length) {
-            return message.react('🚫'), message.reply("Command Usage: `feedback <Suggestion / Issue>`")
+            return message.reply("Command Usage: `feedback <Suggestion / Issue>`")
         } else {
 
             try {
@@ -41,7 +41,7 @@ class Feedback extends Command {
                 return null;
 
             } catch (err) {
-                return message.channel.send(`🚫 | An error occurred:\n\```${err.message}\````);
+                return message.channel.send(`An error occurred:\n\```${err.message}\````);
             }   
        }
     }
