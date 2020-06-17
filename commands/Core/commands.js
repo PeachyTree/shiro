@@ -49,10 +49,10 @@ class Commands extends Command {
         message.author.send(output, { code:"asciidoc", split: { char: "\u200b" } })
         .catch(e => {
           if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
-            return message.channel.send(`🚫 | Cannot send DMs to ${message.author}. Please enable the setting in your settings.`)
+            return message.channel.send(`Cannot send DMs to ${message.author}. Please enable the setting in your settings.`)
           } else {
             this.client.logger.error(e);
-            return message.channel.send(`🚫 | An Error occurred: ${e.message}`);
+            return message.channel.send(`An Error occurred: ${e.message}`);
           }
         });
       
