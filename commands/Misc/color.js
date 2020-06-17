@@ -34,7 +34,7 @@ class Color extends Command {
             return message.channel.send({ embed });
 
         } else {
-            return message.channel.send("🚫 | Invalid Parameters!");
+            return message.channel.send("Invalid Parameters!");
         }
     }
 }
