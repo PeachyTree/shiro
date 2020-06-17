@@ -20,7 +20,7 @@ class Translate extends Command {
 
   async run(message, args, level, settings) {
     if (args.length < 2) {
-      return message.react('🚫'), message.reply("Command Usage: `translate <Language> <Text>`")
+      return message.reply("Command Usage: `translate <Language> <Text>`")
     }
 
     const result = await translate(args.slice(1).join(' '), { to: args[0] });

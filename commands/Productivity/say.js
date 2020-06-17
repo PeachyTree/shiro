@@ -16,8 +16,9 @@ class Say extends Command {
 
   async run(message, args, level, settings) { 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `say <Text>`")
+      return message.reply("Command Usage: `say <Text>`")
     }
+    
     let botmessage = args.join(" ");
     message.delete().catch();
     message.channel.send(botmessage);

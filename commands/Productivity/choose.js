@@ -15,7 +15,7 @@ class Choose extends Command {
   run(message, args, level, settings) { 
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `choose <option1;option2> [option3[...]]`")
+      return message.reply("Command Usage: `choose <option1;option2> [option3[...]]`")
     }
 
     const randomNumber = Math.floor(Math.random() * (args.length - 0) + 0);

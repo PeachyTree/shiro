@@ -14,15 +14,15 @@ class Shorten extends Command {
   }
 
   async run(message, args, level, settings) { 
-    if (!args[0]) return message.react('🚫'), message.reply('Command Usage: `shorten <URL> [Custom Title]`');
+    if (!args[0]) return message.reply('Command Usage: `shorten <URL> [Custom Title]`');
     if (!args[1]) {
       shortener.shorten(args[0], function(res) {
-        if (res.startsWith("Error:")) return message.channel.send(`🚫 | Invalid URL provided!`);
+        if (res.startsWith("Error:")) return message.channel.send(`Invalid URL provided!`);
         message.channel.send(`🔗 | Your shortened link: **<${res}>**.`);
       });
     } else {
       shortener.custom(args[0], args[1], function(res) {
-        if (res.startsWith("Error:")) return message.channel.send(`🚫 | An error occurred:\n\```${res.slice(7)}\````);
+        if (res.startsWith("Error:")) return message.channel.send(`An error occurred:\n\```${res.slice(7)}\````);
         message.channel.send(`🔗 | Your shortened link: **<${res}>**.`);
       });
     }

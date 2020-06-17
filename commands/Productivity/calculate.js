@@ -16,7 +16,7 @@ class Calculate extends Command {
 
   async run(message, args, level, settings) { 
     let exp = args.join(" ");
-    if (!exp) return message.react('🚫'), message.reply('Command Usage: `calculate <Expression>`');
+    if (!exp) return message.reply('Command Usage: `calculate <Expression>`');
     if (exp.includes("°")) exp = exp.replace(/°/g, "deg");
 
     const msg = await message.channel.send(`🔄 | Calculating...`);
@@ -24,14 +24,14 @@ class Calculate extends Command {
     try {
       let evaled = math.eval(exp);
       if (isNaN(evaled)) evaled = 'NaN (not a number).';
-      if (exp.length + evaled.length > 2000) return message.channel.send(`🚫 | Output is too long to fit into a message!`);
+      if (exp.length + evaled.length > 2000) return message.channel.send(`Output is too long to fit into a message!`);
       
       msg.edit(`${exp} = **${evaled}**`);
     } catch (error) {
-      if (error.toString().startsWith("SyntaxError:") || error.message.startsWith("Undefined symbol")) return msg.edit(`🚫 | **\`SyntaxError:\`** \`${error.message}\``);
+      if (error.toString().startsWith("SyntaxError:") || error.message.startsWith("Undefined symbol")) return msg.edit(`**\`SyntaxError:\`** \`${error.message}\``);
 
       this.client.logger.error(error);
-      msg.edit(`🚫 | An error occurred:\n\```${error.message}\````);
+      msg.edit(`An error occurred:\n\```${error.message}\````);
     }
   }
 }

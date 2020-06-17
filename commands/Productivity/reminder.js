@@ -18,7 +18,7 @@ class Reminder extends Command {
     let reminderTime = args[0];
 
     if (!reminderTime.length) {
-      return message.react('🚫'), message.reply("Command Usage: `reminder <Time (h | min | sec)> <Text>`")
+      return message.reply("Command Usage: `reminder <Time (h | min | sec)> <Text>`")
     }
 
     let reminder = args.slice(1).join(" "); 
