@@ -23,7 +23,7 @@ class Roll extends Command {
     // Same as flip, 1 hour limit to prevent users to cheat.
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `roll < one / two / three / four / five / six > <Amount>`")
+      return message.reply("Command Usage: `roll < one / two / three / four / five / six > <Amount>`")
     }
 
     if (recentUsers.has(message.author.id)) {

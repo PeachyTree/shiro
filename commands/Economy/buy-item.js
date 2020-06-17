@@ -24,7 +24,7 @@ class BuyItem extends Command {
     let author = db.get(`money_${message.author.id}`);
 
     if (!item.length) {
-      return message.react('🚫'), message.reply("Command Usage: `buy-item <item>`")
+      return message.reply("Command Usage: `buy-item <item>`")
     } else {
       // Example of an buy-item command:
       // Item name = Item

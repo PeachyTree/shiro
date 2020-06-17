@@ -23,7 +23,7 @@ class Slots extends Command {
     // 1 hour cooldown as in flip/roll to prevent uses from cheating.
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `slots <Amount>`")
+      return message.reply("Command Usage: `slots <Amount>`")
     }
 
     if (recentUsers.has(message.author.id)) {
