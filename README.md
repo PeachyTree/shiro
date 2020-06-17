@@ -12,6 +12,9 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 ### Bot-related Information:
 * `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
 * `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is c.
+* `CELESTIA_ID=` is the ID of your bot. This is so far only used for the `rate` command (yet).
+
+### System
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
 * `SYSTEM_NOTICE=` Leave this to `true`, which is set by default. This shouldn't be touched.

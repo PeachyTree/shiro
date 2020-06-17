@@ -1,6 +1,7 @@
 // Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
 
 const Command = require('../../base/Command.js');
+const { CELESTIA_ID } = process.env;
 
 class Rate extends Command {
   constructor(client) {
@@ -19,7 +20,7 @@ class Rate extends Command {
       return message.reply("Command Usage: `rate <ITEM_TO_BE_RATED>`")
     } 
 
-    if (item.toUpperCase().startsWith("CELESTIA") || item.toUpperCase().startsWith(`<@!${BOT_ID}`)) return message.channel.send('I\'d give myself a 10/10!');
+    if (item.toUpperCase().startsWith("CELESTIA") || item.toUpperCase().startsWith(`<@!${CELESTIA_ID}`)) return message.channel.send('I\'d give myself a 10/10!');
 
     const rating = Math.floor(Math.random() * 10) + 0;
     return message.channel.send(`I'd give **${item}** a ${rating}/10!`);
