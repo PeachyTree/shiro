@@ -16,10 +16,10 @@ class Rate extends Command {
     const item = args.join(" ");
 
     if (!item) {
-      return message.react('🚫'), message.reply("Command Usage: `rate <ITEM_TO_BE_RATED>`")
+      return message.reply("Command Usage: `rate <ITEM_TO_BE_RATED>`")
     } 
 
-    if (item.toUpperCase().startsWith("CELESTIA")) return message.channel.send('I\'d give myself a 10/10!');
+    if (item.toUpperCase().startsWith("CELESTIA") || item.toUpperCase().startsWith(`<@!${BOT_ID}`)) return message.channel.send('I\'d give myself a 10/10!');
 
     const rating = Math.floor(Math.random() * 10) + 0;
     return message.channel.send(`I'd give **${item}** a ${rating}/10!`);
