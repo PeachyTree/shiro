@@ -40,7 +40,7 @@ class Snake extends Command {
       message.channel.stopTyping(true);
       if (error.message === "Cannot read property 'urls' of undefined") return message.channel.send('No results found.');
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred: ${error.message}`);
+      return message.channel.send(`An error occurred: ${error.message}`);
     });
 
     message.channel.stopTyping(true);

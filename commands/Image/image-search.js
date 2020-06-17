@@ -18,7 +18,7 @@ class ImageSearch extends Command {
 
   async run(message, args, level, settings) { 
     let query = args.join(" ");
-    if (!query) return message.react('🚫'), message.channel.send("Command Usage: `image-search <Query>`");
+    if (!query) return message.channel.send("Command Usage: `image-search <Query>`");
     else query = encodeURIComponent(args.join(" "));
 
     const page = Math.floor(Math.random() * 5) + 1;
@@ -44,7 +44,7 @@ class ImageSearch extends Command {
       message.channel.stopTyping(true);
       if (error.message === "Cannot read property 'urls' of undefined") return message.channel.send('No results found.');
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred: ${error.message}`);
+      return message.channel.send(`An error occurred: ${error.message}`);
     });
 
     message.channel.stopTyping(true);

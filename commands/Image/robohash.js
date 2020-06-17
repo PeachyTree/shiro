@@ -16,8 +16,8 @@ class Robohash extends Command {
 
   async run(message, args, level, settings) { 
     const query = args.join(" ");
-    if (!query) return message.react('🚫'), message.channel.send("Command Usage: `robohash <Text>`");
-    if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("🚫 | Your query cannot include symbols.");
+    if (!query) return message.channel.send("Command Usage: `robohash <Text>`");
+    if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
 
     message.channel.startTyping();
 
@@ -26,7 +26,7 @@ class Robohash extends Command {
     .catch(error => {
       this.client.logger.error(error);
       message.channel.stopTyping(true);
-      return message.channel.send(`🚫 | An error occurred: ${error.message}`);
+      return message.channel.send(`An error occurred: ${error.message}`);
     }));
 
     message.channel.stopTyping(true);

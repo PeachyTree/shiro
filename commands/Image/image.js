@@ -25,7 +25,7 @@ class Image extends Command {
     .catch(error => {
       this.client.logger.error(error);
       message.channel.stopTyping(true);
-      return message.channel.send(`🚫 | An error occurred: ${error.message}`);
+      return message.channel.send(`An error occurred: ${error.message}`);
     }));
 
     message.channel.stopTyping(true);
