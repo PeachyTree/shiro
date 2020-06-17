@@ -20,12 +20,12 @@ class Manga extends Command {
     let search = args.join(" ");
 
     if (!search) {
-      return message.react('🚫'), message.reply("Command Usage: `manga <Manga Name>`")
+      return message.reply("Command Usage: `manga <Manga Name>`")
     } 
 
     kitsu.searchManga(search).then(result => {
       if (result.length === 0) {
-        return message.channel.send(`🚫 | No search results found for **${search}**!`);
+        return message.channel.send(`No search results found for **${search}**!`);
       }
 
       let manga = result[0]

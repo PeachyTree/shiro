@@ -18,10 +18,10 @@ class Booru extends Command {
     async run(message, args, level, settings) {
         if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
-        let query = args.slice(1).join(" ");
+        let query = args.join(" ");
 
         if (!query) {
-            return message.react('🚫'), message.reply("Command Usage: `booru <Query>`")
+            return message.reply("Command Usage: `booru <Query>`")
         } else {
 
         booru.search('safebooru', [query], { limit: 1, random: true })
@@ -38,9 +38,9 @@ class Booru extends Command {
 
             }).catch(err => {
                 if (err.name === 'booruError') {
-                    return message.channel.send(`🚫 | No search results found for **${query}**!`);
+                    return message.channel.send(`No search results found for **${query}**!`);
                 } else {
-                    return message.channel.send(`🚫 | No search results found for **${query}**!`);
+                    return message.channel.send(`No search results found for **${query}**!`);
                 }
             })
         }

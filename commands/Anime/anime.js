@@ -41,7 +41,7 @@ class Anime extends Command {
 
             kitsu.searchAnime(search).then(result => {
                 if (result.length === 0) {
-                    return message.channel.send(`🚫 | No search results found for **${search}**!`);
+                    return message.channel.send(`No search results found for **${search}**!`);
                 }
 
                 let anime = result[0]
@@ -57,7 +57,7 @@ class Anime extends Command {
                 return message.channel.send({ embed });
             }).catch(err => {
                 this.client.logger.log(err)
-                return message.channel.send(`🚫 | No search results found for **${search}**!`);
+                return message.channel.send(`No search results found for **${search}**!`);
             });
         }
     }
