@@ -22,23 +22,23 @@ class YouTube extends Command {
     try {
       youtube.search(query, 1, function(error, result) {
         if (!query) {
-          return message.react('🚫'), message.reply('Command Usage: `youtube <Video Name>`');
+          return message.reply('Command Usage: `youtube <Video Name>`');
         }
 
         if (error) {
-          return message.channel.send(`🚫 | An error occurred:\n\```${err.message}\````);
+          return message.channel.send(`An error occurred:\n\```${err.message}\````);
         } else {
           if (!result || !result.items || result.items.length < 1) {
-            return message.channel.send(`🚫 | No search results found for **${query}**`);
+            return message.channel.send(`No search results found for **${query}**`);
           } else if (!result.items[0].id.videoId) {
-            return message.channel.send(`🚫 | No search results found for **${query}**`);
+            return message.channel.send(`No search results found for **${query}**`);
           } else {
             return message.channel.send(`☑️ | **${query}** (http://www.youtube.com/watch?v=${result.items[0].id.videoId})`);
           }
         }
       });
     } catch (err) {
-      return message.channel.send('🚫 | Something went wrong while executing that command!');
+      return message.channel.send('Something went wrong while executing that command!');
     }
   }
 }

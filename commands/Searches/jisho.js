@@ -21,7 +21,7 @@ class Jisho extends Command {
     const word = args.join(" ");
 
     if (!word) {
-      return message.react('🚫'), message.reply("Command Usage: `jisho <Word / Kanji / Japanese / Romaji>`")
+      return message.reply("Command Usage: `jisho <Word / Kanji / Japanese / Romaji>`")
     } 
 
     let query = encodeURI(word);
@@ -46,7 +46,7 @@ class Jisho extends Command {
       return message.channel.send({ embed });
 
     } else {
-      return message.channel.send(`🚫 | No search results found for **${query}**!`);
+      return message.channel.send(`No search results found for **${query}**!`);
     }
   }
 }

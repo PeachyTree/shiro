@@ -17,18 +17,18 @@ class Weather extends Command {
   async run(message, args, level, settings) { 
     weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
       if (!args.length) {
-        return message.react('🚫'), message.reply("Command Usage: `weather <location>`")
+        return message.reply("Command Usage: `weather <location>`")
       }
 
-      if (err) return message.channel.send(`🚫 | An error occurred:\n\```${err.message}\````);
+      if (err) return message.channel.send(`An error occurred:\n\```${err.message}\````);
 
       try {
         let current = result[0].current;
       } catch (error) {
-        if (error.message === "Cannot read property 'current' of undefined") return message.channel.send(`🚫 | Invalid location provided!`);
+        if (error.message === "Cannot read property 'current' of undefined") return message.channel.send(`Invalid location provided!`);
         if (error.message === "ESOCKETTIMEDOUT") return message.channel.send("Request timed out. Please try again.");
         this.client.logger.error(error.message);
-        return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+        return message.channel.send(`An error occurred:\n\```${error.message}\````);
       }
 
       //const location = result[0].location; 

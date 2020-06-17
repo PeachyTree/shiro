@@ -19,7 +19,7 @@ class Giphy extends Command {
   async run(message, args, level, settings) { 
     const query = args[0];
     if (!query.length) {
-      return message.react('🚫'), message.reply("Command Usage: `giphy <Query>`")
+      return message.reply("Command Usage: `giphy <Query>`")
     }
     
     const url = "http://api.giphy.com/v1/gifs/search?";
@@ -34,7 +34,7 @@ class Giphy extends Command {
     .then(json => message.channel.send(json.data.random().images.original.url))
     .catch(error => {
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+      return message.channel.send(`An error occurred:\n\```${error.message}\````);
     });
   }
 }

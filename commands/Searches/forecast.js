@@ -16,16 +16,16 @@ class Forecast extends Command {
   async run(message, args, level, settings) { 
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `forecast < city, country_code | zipcode >`")
+      return message.reply("Command Usage: `forecast < city, country_code | zipcode >`")
     }
 
     await weather.find({ search: args.join(' '), degreeType: 'C' }, async (err, result) => {
       if (err) {
-        return message.channel.send(`🚫 | No search results found.`);
+        return message.channel.send(`No search results found.`);
       }
 
       if (!result || !result.length) {
-        return message.channel.send("🚫 | Connection error.");
+        return message.channel.send("Connection error.");
       }
 
       let fields = [];

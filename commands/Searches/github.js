@@ -18,13 +18,13 @@ class GitHub extends Command {
   async run(message, args, level, settings) { 
     let owner = args[0];
     if (!owner.length || !repo.length) {
-      return message.react('🚫'), message.reply("Command Usage: `github <repo-owner> <repo-name>`")
+      return message.reply("Command Usage: `github <repo-owner> <repo-name>`")
     }
     else owner = encodeURIComponent(args[0]);
 
     
     if (!repo.length) {
-      return message.react('🚫'), message.reply("Command Usage: `github <repo-owner> <repo-name>`")
+      return message.reply("Command Usage: `github <repo-owner> <repo-name>`")
     }
     else repo = encodeURIComponent(args[1]);
     
@@ -51,9 +51,9 @@ class GitHub extends Command {
       return message.channel.send({ embed });
     })
     .catch(error => {
-      if (error.status === 404) return message.channel.send(`🚫 | No search results found.`);
+      if (error.status === 404) return message.channel.send(`No search results found.`);
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+      return message.channel.send(`An error occurred:\n\```${error.message}\````);
     });
   }
 }

@@ -20,7 +20,7 @@ class Steam extends Command {
         const query = args.join(" ");
 
         if (!query) {
-            return message.react('🚫'), message.reply("Command Usage: `steam <Game Name>`")
+            return message.reply("Command Usage: `steam <Game Name>`")
         } 
 
         const search = await snekfetch
@@ -31,7 +31,7 @@ class Steam extends Command {
             term: query
         });
                 
-        if (!search.body.items.length) return message.channel.send(`🚫 | No search results found for **${query}**!`);
+        if (!search.body.items.length) return message.channel.send(`No search results found for **${query}**!`);
         
         const { id, tiny_image } = search.body.items[0];
         

@@ -17,7 +17,7 @@ class UrbanDictionary extends Command {
   async run(message, args, level, settings) { 
     const query = args.join(" ");
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `urban <Query>`")
+      return message.reply("Command Usage: `urban <Query>`")
     }
 
     fetch(`http://api.urbandictionary.com/v0/define?term=${query}`)
@@ -38,7 +38,7 @@ class UrbanDictionary extends Command {
     })
     .catch(error => {
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+      return message.channel.send(`An error occurred:\n\```${error.message}\````);
     });
   }
 }

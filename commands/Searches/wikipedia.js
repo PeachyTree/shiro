@@ -16,7 +16,7 @@ class Wikipedia extends Command {
   async run(message, args, level, settings) { 
 
     if (!args.length) {
-      return message.react('🚫'), message.reply("Command Usage: `wikipedia <text>`")
+      return message.reply("Command Usage: `wikipedia <text>`")
     }
 
     let options = {
