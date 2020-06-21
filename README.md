@@ -1,11 +1,15 @@
 # Celestia Discord Bot
-A Discord Bot with focus on Fun, Moderation, Economy and Utility commands.
-
-This Discord Bot has over 120 commands, from Fun to Moderation, from Anime to Utility. 
+A Discord Bot with focus on Fun, Moderation, Economy, Utility and NSFW commands.
 
 YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
 
-**PLEASE NOTE THAT THIS BOT IS MADE WITH DISCORD.JS 11.5.1, YOU MAY HAVE TO CHANGE SOME THINGS TO USE IT WITH THE CURRENT VERSION.**
+**PLEASE NOTE THAT THIS BOT IS MADE WITH DISCORD.JS 11.5.1, YOU MAY HAVE TO CHANGE SOME THINGS TO USE IT WITH THE CURRENT VERSION. I am working on a fix for it to work for 12x**
+
+## Bot Highlights
+* 140+ Commands
+* Almost 2 Years of development
+* Heavy focus on Anime, Fun, Utility and NSFW commands
+* Economy commands (Each command is explained!)
 
 ## Filling out the .env / config.js file
 
