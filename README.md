@@ -5,6 +5,8 @@ This Discord Bot has over 120 commands, from Fun to Moderation, from Anime to Ut
 
 YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
 
+**PLEASE NOTE THAT THIS BOT IS MADE WITH DISCORD.JS 11.5.1, YOU MAY HAVE TO CHANGE SOME THINGS TO USE IT WITH THE CURRENT VERSION.**
+
 ## Filling out the .env / config.js file
 
 *Note: Remove the .example part from both the .env and config.js files, once you are done.*
