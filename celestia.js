@@ -1,13 +1,13 @@
 // Celestia Discord Bot Copyright (©) 2019 - 2020 Azura Apple. All rights reserved. MIT License.
 
 require("dotenv").config();
-require("./modules/functions.js")(client);
 const Discord = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
+const { CELESTIA_TOKEN } = process.env;
 
 // Client Settings
 class Celestia extends Discord.Client {
@@ -110,6 +110,8 @@ const client = new Celestia({
 });
 
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
+
+require("./modules/functions.js")(client);
 
 const init = async () => {
   // Load commands
