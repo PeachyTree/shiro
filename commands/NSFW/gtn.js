@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 const errors = require('../../assets/json/errors');
 
 class GTN extends Command {
@@ -19,14 +17,13 @@ class GTN extends Command {
 
     async run(message, args, level, settings) {
 
-
         let errMessage = errors[Math.round(Math.random() * (errors.length - 1))];
         if (!message.channel.nsfw) {
             message.react('💢');
             return message.channel.send(errMessage);
         }
 
-        let text = await snekfetch.get(`https://rra.ram.moe/i/r?nsfw=true`);
+        const text = await request.get('https://rra.ram.moe/i/r?nsfw=true');
         let body = JSON.parse(text.text);
 
         let embed = new RichEmbed()

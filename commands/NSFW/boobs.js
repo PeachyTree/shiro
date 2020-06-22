@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 const errors = require('../../assets/json/errors');
 
 class Boobs extends Command {
@@ -27,7 +25,7 @@ class Boobs extends Command {
         } else {
 
             const id = [Math.floor(Math.random() * 10930)];
-            const res = await snekfetch.get(`http://api.oboobs.ru/boobs/${id}`);
+            const res = await request.get(`http://api.oboobs.ru/boobs/${id}`);
             const preview = res.body[0]["PREVIEW".toLowerCase()];
             const image = `http://media.oboobs.ru/${preview}`;
 
