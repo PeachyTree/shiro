@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 const wanakana = require('wanakana');
 
 class Jisho extends Command {
@@ -26,7 +24,7 @@ class Jisho extends Command {
 
     let query = encodeURI(word);
 
-    let res = await snekfetch.get(`https://jisho.org/api/v1/search/words?keyword=${query}`).catch(console.error);
+    const res = await request.get(`https://jisho.org/api/v1/search/words?keyword=${query}`).catch(console.error);
     let jisho = res.body || res.body.toString();
 
     this.client.logger.log(jisho);

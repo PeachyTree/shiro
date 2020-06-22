@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const fetch = require("node-fetch");
+const fetch = require("node-superfetch");
 const moment = require("moment");
 
 class GitHub extends Command {

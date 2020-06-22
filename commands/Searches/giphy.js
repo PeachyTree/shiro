@@ -1,7 +1,5 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
-const fetch = require("node-fetch");
+const fetch = require("node-superfetch");
 const { URLSearchParams } = require("url");
 const { GIPHY_API_KEY } = process.env;
 

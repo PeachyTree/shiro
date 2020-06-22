@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 
 class Steam extends Command {
     constructor(client) {
@@ -23,7 +21,7 @@ class Steam extends Command {
             return message.reply("Command Usage: `steam <Game Name>`")
         } 
 
-        const search = await snekfetch
+        const search = await request
         .get('https://store.steampowered.com/api/storesearch')
         .query({
             cc: 'us',
@@ -35,7 +33,7 @@ class Steam extends Command {
         
         const { id, tiny_image } = search.body.items[0];
         
-        const { body } = await snekfetch
+        const { body } = await request
         .get('https://store.steampowered.com/api/appdetails')
         .query({ appids: id });
             
