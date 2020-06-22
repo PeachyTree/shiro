@@ -33,4 +33,3 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 
 ## License
 For more information see `LICENSE`.
-
