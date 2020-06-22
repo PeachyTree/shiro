@@ -1,7 +1,5 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 
 class Advice extends Command {
   constructor(client) {
@@ -14,7 +12,7 @@ class Advice extends Command {
   }
 
   async run(message, args, level, settings) { 
-    let res = await snekfetch.get("http://api.adviceslip.com/advice");
+    const res = await request.get('http://api.adviceslip.com/advice');
     let advice = JSON.parse(res.body)
 
     try {

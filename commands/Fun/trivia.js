@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require("snekfetch");
+const request = require('node-superfetch');
 const h = new (require("html-entities").AllHtmlEntities)();
 
 class Trivia extends Command {
@@ -22,7 +20,7 @@ class Trivia extends Command {
     const difficulty = args[0] || "medium";
     if (!levels.includes(difficulty.toLowerCase())) return message.reply("Invalid difficulty specified. Please choose from one of **easy**, **medium** or **hard**.");
 
-    const { body } = await snekfetch.get(`https://opentdb.com/api.php?amount=50&difficulty=${difficulty.toLowerCase()}&type=multiple`);
+    const { body } = await request.get(`https://opentdb.com/api.php?amount=50&difficulty=${difficulty.toLowerCase()}&type=multiple`);
     const quiz = body.results.random();
     const choices = quiz.incorrect_answers.map(ans => h.decode(ans));
     choices.push(h.decode(quiz.correct_answer));

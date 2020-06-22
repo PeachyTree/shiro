@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 const signs = [
     "capricorn",
     "aquarius",
@@ -36,8 +34,7 @@ class Horoscope extends Command {
 
         if (!signs.includes(sign.toLowerCase())) return message.channel.send('That is not a valid sign!');
 
-        const text = await snekfetch
-            .get(`http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today`);
+        const text = await request.get(`http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today`);
         const body = JSON.parse(text.body);
 
         let horoscope = body.horoscope

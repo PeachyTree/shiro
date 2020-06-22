@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const tsun = [
   "N-No, it's not like I did it for you! I did it because I had freetime, that's all! ┐(￣ヘ￣;)┌",

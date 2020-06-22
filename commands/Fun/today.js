@@ -1,8 +1,6 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const snekfetch = require('snekfetch');
+const request = require('node-superfetch');
 
 class Today extends Command {
   constructor(client) {
@@ -15,7 +13,7 @@ class Today extends Command {
   }
 
   async run(message, args, level, settings) { 
-    const res = await snekfetch.get('http://history.muffinlabs.com/date')
+    const res = await request.get('http://history.muffinlabs.com/date');
     const data = JSON.parse(res.body)
     const source = data.data['Events']
     const event = source[Math.round(Math.random() * (source.length - 1))]
