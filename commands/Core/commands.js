@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // The COMMANDS command is used to display every command's name and description
 // to the user, so that they can see what commands are available. The commands
 // command is also filtered by level, so if a user does not have access to
