@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // The translate command uses the "@k3rn31p4nic/google-translate-api" module, 
 // which is sourced from https://github.com/TheBastionBot/Bastion
 // Credit to module owner: https://github.com/k3rn31p4nic
