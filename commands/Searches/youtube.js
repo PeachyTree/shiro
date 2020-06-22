@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require('../../base/Command.js');
 let youtube_node = require('youtube-node');
 youtube = new youtube_node();
