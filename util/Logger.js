@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // Logger class for unique and advanced logging
 
 const chalk = require("chalk");

@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 exports.botPerms = [
     "MANAGE_ROLES", 
     "KICK_MEMBERS", 

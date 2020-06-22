@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 class Utils {
     static base64(text, mode = "encode") {
         if (mode === "encode") return Buffer.from(text).toString("base64");
