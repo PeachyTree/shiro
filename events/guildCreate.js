@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // This event runs anytime the bot is being added to a server
 
 const { RichEmbed, version } = require('discord.js');

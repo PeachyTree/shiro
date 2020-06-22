@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // This is the message event. It runs anytime the bot receives a message.
 // Very useful for setting up the prefix, args, and settings!
 

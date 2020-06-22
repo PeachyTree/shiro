@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // This event runs anytime a Discord API error occurres.
 
 module.exports = class {

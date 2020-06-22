@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // This is the functions file, you can place any function in here.
 
 module.exports = (client) => {

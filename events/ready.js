@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // This event runs whenever the bot starts up
 // It's basically for creating its presence on Discord
 

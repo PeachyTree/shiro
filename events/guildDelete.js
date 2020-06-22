@@ -1,5 +1,3 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 // This event runs anytime it leaves a server.
 
 module.exports = class {
