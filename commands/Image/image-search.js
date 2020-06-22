@@ -1,7 +1,5 @@
-// Copyright (c) 2020 Azura Apple. All rights reserved. MIT license.
-
 const Command = require("../../base/Command.js");
-const fetch = require("node-fetch");
+const fetch = require("node-superfetch");
 const { RichEmbed } = require("discord.js");
 const { UNSPLASH_ACCESS_KEY } = process.env;
 
