@@ -1,6 +1,6 @@
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
-const celestia = require("../../package.json");
+const { version } = require("../../package.json");
 const { FEEDBACK_CHANNEL } = process.env;
 
 class Feedback extends Command {
@@ -27,7 +27,7 @@ class Feedback extends Command {
                     .setTitle(`Feedback command used by ${message.author.tag}`)
                     .addField("In:", `${message.guild.name}, ${message.channel.name} (${message.channel.id})`)
                     .addField("Issue:", args.join(" "))
-                    .setFooter(`Celestia v${celestia}`)
+                    .setFooter(`Celestia v${version}`)
                     .setTimestamp()
                 channel.send({ embed });
 
