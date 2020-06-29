@@ -28,7 +28,7 @@ class Help extends Command {
         message.channel.send({ embed });
       } catch (error) {
         this.client.logger.error(error);
-        return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+        return message.channel.send(`An error occurred:\n\```${error.message}\````);
       } 
     } else {
       let command = args[0];
@@ -37,14 +37,14 @@ class Help extends Command {
         command = this.client.commands.get(command);
         if (level < this.client.levelCache[command.conf.permLevel]) return; 
         
-        const helpembed = new RichEmbed()
+        const embed = new RichEmbed()
           .setColor('RANDOM')
           .setTitle('__**Command Help:**__')
           .setThumbnail('https://cdn.discordapp.com/attachments/578170428216967179/585889209165021189/cmd.png')
           .addField(`${settings.prefix}${command.help.name}:`, `${command.help.description}`)
           .addField(`Aliases`, `${command.conf.aliases.map(a => settings.prefix + a).join(", ") || "None"}`)
           .addField('__Usage:__', `${command.help.usage.includes("<") ? "<> - Required parameter" : "\u200b"} ${command.help.usage.includes("[") ? "[] - Optional parameter" : "\u200b"}\n\n${settings.prefix}${command.help.usage}`)
-        message.channel.send(helpembed);
+        message.channel.send({ embed });
       }
     }
   }
