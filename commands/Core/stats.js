@@ -28,7 +28,6 @@ class Stats extends Command {
       .addField(':card_box: | **Channel Count**', `${this.client.channels.size.toLocaleString()}`, true)
       .addField(':chart_with_downwards_trend: | **Memory Usage**', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
       .addField(':page_facing_up: | **Version**', `v${version}`, true)
-      .addField(':bookmark_tabs: | **latest release notes**', `**Use the \`${settings.prefix}changelog\` command to view all recent changes.**`, true)
     await msg.edit({ embed });
     
   }
