@@ -12,12 +12,12 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 * `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is c.
 * `CELESTIA_ID=` is the ID of your bot. This is so far only used for the `rate` command (yet).
 
-### System
+### System:
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
 * `SYSTEM_NOTICE=` Leave this to `true`, which is set by default. This shouldn't be touched.
 
-### Emoji IDs
+### Emoji IDs:
 `GEM_EMOJI_ID=` is used by the Economy commands. As example, Celestia uses Gems as currency system, aka a custom Gem emoji to actually display the currency. This is totally optional!
 
 ### Roles:
@@ -35,4 +35,4 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 `FEEDBACK_CHANNEL=` is simply the channel ID of any channel in the main server the bot should be in.
 
 ## License
-For more information see `LICENSE`.
+For more information view the `LICENSE` file.
