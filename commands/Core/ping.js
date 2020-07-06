@@ -12,7 +12,7 @@ class Ping extends Command {
     });
   } 
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const pingMsg = await message.channel.send("Ping?");
     const embed = new RichEmbed()
       .setTitle("__**Ping!**__")

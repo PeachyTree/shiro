@@ -11,7 +11,7 @@ class CreateEmoji extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message, args) { 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
     if (!message.member.hasPermission("MANAGE_EMOJIS")) return message.channel.send("As you do not have the \"Manage Emojis\" permission, you cannot use this command.");
     

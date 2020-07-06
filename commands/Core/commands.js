@@ -17,7 +17,7 @@ class Commands extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message, args, level) {
 
     if (!args[0]) {
       // Loads guild settings (for prefixes and eventually per-guild tweaks)

@@ -12,7 +12,7 @@ class Invite extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     this.client.generateInvite(botPerms).then(link => {
       message.channel.send('🔄 | Generating invite link...')
       .then(msg => {

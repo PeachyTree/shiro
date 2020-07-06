@@ -11,7 +11,7 @@ class Poll extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     if (!args.length) {
       return message.reply("Command Usage: `poll <question> [TIME_IN_MINUTES] | [end]`")

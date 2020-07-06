@@ -13,7 +13,7 @@ class Steam extends Command {
         });
     }
 
-    async run(message, args, level, settings) {
+    async run(message, args) {
 
         const query = args.join(" ");
 

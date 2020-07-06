@@ -11,7 +11,7 @@ class Terms extends Command {
     });
   } 
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
 
     const embed = new RichEmbed()
       .setColor("RANDOM")

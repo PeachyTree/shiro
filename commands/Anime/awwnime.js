@@ -12,7 +12,7 @@ class Awwnime extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message) {
     randomPuppy('awwnime')
     .then(url => {
       const embed = new RichEmbed()

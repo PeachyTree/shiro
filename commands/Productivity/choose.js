@@ -10,7 +10,7 @@ class Choose extends Command {
     });
   }
 
-  run(message, args, level, settings) { 
+  run(message, args) { 
 
     if (!args.length) {
       return message.reply("Command Usage: `choose <option1;option2> [option3[...]]`")

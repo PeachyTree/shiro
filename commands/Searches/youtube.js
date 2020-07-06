@@ -15,7 +15,7 @@ class YouTube extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     let query = args.join(" ");
     try {
       youtube.search(query, 1, function(error, result) {

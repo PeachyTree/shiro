@@ -22,7 +22,7 @@ class Meme extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message) {
     let randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
     randomPuppy(randSubreddit)

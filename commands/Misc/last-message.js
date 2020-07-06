@@ -13,7 +13,7 @@ class LastMessage extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message) {
     const member = message.mentions.members.first();
     if (!member) return message.channel.send('Command Usage: `lastmessage <@user>`');
 

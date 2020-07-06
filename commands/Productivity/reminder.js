@@ -11,7 +11,7 @@ class Reminder extends Command {
     });
   }
   
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     let reminderTime = args[0];
 

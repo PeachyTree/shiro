@@ -12,7 +12,7 @@ class Weather extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
       if (!args.length) {
         return message.reply("Command Usage: `weather <location>`")

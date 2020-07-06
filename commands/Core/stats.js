@@ -15,7 +15,7 @@ class Stats extends Command {
     });
   } 
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const duration = moment.duration(this.client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
     const msg = await message.channel.send("🔄 | Fetching bot stats...");

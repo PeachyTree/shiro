@@ -16,7 +16,7 @@ class Translate extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message, args) {
     if (args.length < 2) {
       return message.reply("Command Usage: `translate <Language> <Text>`")
     }

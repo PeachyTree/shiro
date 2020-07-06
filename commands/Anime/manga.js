@@ -13,7 +13,7 @@ class Manga extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message, args) {
 
     let search = args.join(" ");
 

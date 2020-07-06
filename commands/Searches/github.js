@@ -13,7 +13,7 @@ class GitHub extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     let owner = args[0];
     if (!owner.length || !repo.length) {
       return message.reply("Command Usage: `github <repo-owner> <repo-name>`")

@@ -11,7 +11,7 @@ class Prefix extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, settings) { 
     message.channel.send(`My prefix here on ${message.guild.name} is "**${settings.prefix}**".\nTo change my prefix, do \`${settings.prefix}set edit prefix <New Prefix>\`.`);
   }
 }

@@ -12,7 +12,7 @@ class Calculate extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     let exp = args.join(" ");
     if (!exp) return message.reply('Command Usage: `calculate <Expression>`');
     if (exp.includes("°")) exp = exp.replace(/°/g, "deg");

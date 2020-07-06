@@ -14,7 +14,7 @@ class Feedback extends Command {
       }); 
     }
 
-    async run(message, args, level, settings) {
+    async run(message, args) {
         let channel = this.client.channels.get(FEEDBACK_CHANNEL);
 
         if (!args.length) {

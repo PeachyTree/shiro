@@ -13,7 +13,7 @@ class Booru extends Command {
     });
   }
 
-    async run(message, args, level, settings) {
+    async run(message, args) {
         if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
         let query = args.join(" ");

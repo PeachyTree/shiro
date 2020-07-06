@@ -12,7 +12,7 @@ class UrbanDictionary extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     const query = args.join(" ");
     if (!args.length) {
       return message.reply("Command Usage: `urban <Query>`")

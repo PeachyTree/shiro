@@ -14,7 +14,7 @@ class Settings extends Command {
     });
   }
 
-  async run(message, [action, key, ...value], level) { 
+  async run(message, [action, key, ...value]) { 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
     const settings = message.settings;

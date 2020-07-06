@@ -14,7 +14,7 @@ class Giphy extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     const query = args[0];
     if (!query.length) {
       return message.reply("Command Usage: `giphy <Query>`")

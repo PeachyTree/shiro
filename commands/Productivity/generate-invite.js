@@ -10,7 +10,7 @@ class GenerateInvite extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     let uses = args[0]
     let age = args[1]

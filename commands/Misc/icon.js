@@ -12,7 +12,7 @@ class Icon extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message) { 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
     const embed = new RichEmbed()
