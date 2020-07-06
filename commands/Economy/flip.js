@@ -1,6 +1,7 @@
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require("quick.db");
+const { GEM_EMOJI_ID } = process.env;
 
 const recentUsers = new Set();
 
@@ -8,7 +9,7 @@ class Flip extends Command {
   constructor(client) {
     super(client, {
       name: "flip",
-      description: "Bet Money on prediction of the outcome of flipping a coin. If you win, you get more of it. But if you lose, you lose the amount you have bet.",
+      description: "Bet Gems on prediction of the outcome of flipping a coin. If you win, you get more of it. But if you lose, you lose the amount you have bet.",
       category: "Economy",
       usage: "flip <heads / tails> <Amount>",
       aliases: ["bet-flip", "bflip"]
@@ -31,14 +32,14 @@ class Flip extends Command {
       let argsoutcome = args[0];
       let money = args[1];
 
-      let minAmount = 50;
+      let minAmount = 5;
       if (money < minAmount) {
-        return message.channel.send("The minimum amount to bet is 50.");
+        return message.channel.send(`The minimum amount to bet are 5 ${GEM_EMOJI_ID}.`);
       }
 
-      let maxAmount = 250;
+      let maxAmount = 25;
       if (money > maxAmount) {
-        return message.channel.send("The maximum amount to bet is 250.");
+        return message.channel.send(`The maximum amount to bet are 25 ${GEM_EMOJI_ID}.`);
       }
 
       let userMoney = db.get(`money_${message.author.id}`);
@@ -46,7 +47,7 @@ class Flip extends Command {
       // if not, send this:
 
       if (money > userMoney) {
-        return message.channel.send("You have less Money than you want to bet.")
+        return message.channel.send("You have less Gems than you want to bet.")
       }
 
       let outcomes = [
@@ -60,15 +61,15 @@ class Flip extends Command {
       let result;
       if (outcome.toLowerCase() === argsoutcome.toLowerCase()) {
         let prize = money;
-        result = `Congratulations! You won the bet.\nYou won **${prize}**.`;
+        result = `Congratulations! You won the bet.\nYou won **${prize}** ${GEM_EMOJI_ID}.`;
 
-        db.add(`money_${message.author.id}`, prize)
+        db.add(`gems_${message.author.id}`, prize)
 
       } else {
         let prize = money;
-        result = 'Sorry, you lost the bet. Better luck next time.';
+        result = `Sorry, you lost the bet (and ${prize} ${GEM_EMOJI_ID}). Better luck next time.`;
 
-        db.subtract(`money_${message.author.id}`, prize)
+        db.subtract(`gems_${message.author.id}`, prize)
       }
 
       const embed = new RichEmbed()
@@ -80,8 +81,6 @@ class Flip extends Command {
         this.client.looger.error(e);
         return message.channel.send(`An error occurred:\n\```${error.message}\````);
       });
-      
-
       setTimeout(() => {
         recentUsers.delete(message.author.id);
       }, cooldown);

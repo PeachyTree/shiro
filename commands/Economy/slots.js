@@ -1,6 +1,7 @@
 const Command = require('../../base/Command.js');
 const { RichEmbed } = require('discord.js');
 const db = require("quick.db");
+const { GEM_EMOJI_ID } = process.env;
 
 const recentUsers = new Set();
 
@@ -8,7 +9,7 @@ class Slots extends Command {
   constructor(client) {
     super(client, {
       name: "slots",
-      description: "Bet Money on spinning the slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!",
+      description: "Bet Gems on spinning the slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!",
       category: "Economy",
       usage: "slots <Amount>",
       aliases: ["slot-machine", "betslots"]
@@ -30,14 +31,14 @@ class Slots extends Command {
 
       let money = args[0]
 
-      let minAmount = 100;
+      let minAmount = 15;
       if (money < minAmount) {
-        return message.channel.send("The minimum amount to bet is 100.");
+        return message.channel.send(`The minimum amount to bet are 15 ${GEM_EMOJI_ID}.`);
       }
 
-      let maxAmount = 500;
+      let maxAmount = 50;
       if (money > maxAmount) {
-        return message.channel.send("The maximum amount to bet is 500.");
+        return message.channel.send(`The maximum amount to bet are 50 ${GEM_EMOJI_ID}.`);
       }
 
       recentUsers.add(message.author.id);
@@ -61,21 +62,21 @@ class Slots extends Command {
         reels.push(reel[Math.floor(Math.random() * reel.length)]);
       }
 
-      let result = 'Sorry, you lost the bet. Better luck next time.';
+      let result;
       if (reels[0] === reels[1] && reels[1] === reels[2]) {
         let prize = money;
 
         if (reels[0] === ':moneybag:') prize *= 2;
 
-        result = `Congratulations! You won the bet.\nYou won **${prize}**.`;
+        result = `Congratulations! You won the bet.\nYou won **${prize}** ${GEM_EMOJI_ID}.`;
 
-        db.subtract(`money_${message.author.id}`, prize)
+        db.add(`gems_${message.author.id}`, prize)
 
       } else {
         let prize = money;
-        result = 'Sorry, you lost the bet. Better luck next time.';
+        result = `Sorry, you lost the bet (and ${prize} ${GEM_EMOJI_ID}). Better luck next time.`;
 
-        db.subtract(`money_${message.author.id}`, prize)
+        db.subtract(`gems_${message.author.id}`, prize)
       }
 
       const embed = new RichEmbed()
@@ -84,7 +85,6 @@ class Slots extends Command {
         .setDescription(reels.join(' \u05C0 '))
         .setFooter(`🎰 ${result}`)
       await message.channel.send({ embed });
-
       setTimeout(() => {
         recentUsers.delete(message.author.id);
       }, cooldown);
