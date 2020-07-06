@@ -6,7 +6,7 @@ class Work extends Command {
   constructor(client) {
     super(client, {
       name: "work",
-      description: "Work for a chance to earn Money!",
+      description: "Work for a chance to earn Gems!",
       category: "Economy",
       usage: "work",
       aliases: ["earn-money"]
@@ -24,12 +24,12 @@ class Work extends Command {
         talkedRecently.delete(message.author.id);
       }, 1.08e+7); // 3 hours cooldown to prevent users to cheat.
 
-      let reward = 0 || 10 || 25 || 50 || 75 || 100 || 250 || 500;
+      let reward = 0 || 2 || 5 || 10 || 15;
         
       if (reward == 0) return message.channel.send('Sadly you did not do your job well.. so you earned nothing!')
 
-      message.channel.send(`You earned **${reward}**!`)
-      db.add(`money_${message.author.id}`, reward);
+      message.channel.send(`You earned **${reward}** Gems!`)
+      db.add(`gems_${message.author.id}`, reward);
     }
   }
 }

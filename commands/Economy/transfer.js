@@ -5,10 +5,10 @@ class Transfer extends Command {
     constructor(client) {
       super(client, {
         name: "transfer",
-        description: "Transfer Money to your friends!",
+        description: "Transfer Gems to your friends!",
         category: "Economy",
         usage: "transfer <@USER_MENTION> <AMOUNT_TO_TRANSFER>",
-        aliases: ["give", "give-user", "transfer-user"]
+        aliases: ["give", "give-user", "transfer-gems"]
       });
     }
   
@@ -16,7 +16,7 @@ class Transfer extends Command {
 
         let user = message.mentions.members.first() 
 
-        let member = await db.get(`money_${message.author.id}`)
+        let member = await db.get(`gems_${message.author.id}`)
 
         if (!user || !args[1]) {
             return message.reply('Command Usage: `transfer <@USER_MENTION> <AMOUNT_TO_TRANSFER>`')
@@ -27,12 +27,12 @@ class Transfer extends Command {
         }
 
         if (member < args[1]) {
-            return message.channel.send(`The amount you wanted to transfer was above the amount of Money you own. Please try again with a valid amount.`)
+            return message.channel.send(`The amount of Gems you wanted to transfer was above the amount of Gems you own. Please try again with a valid amount.`)
         }
 
-        message.reply(`you successfully transfered ${args[1]} to ${user.username}!`)
-        db.add(`money_${user.id}`, args[1]) 
-        db.subtract(`money_${user.author.id}`, args[1])
+        message.reply(`you successfully transfered ${args[1]} Gems to ${user.username}!`)
+        db.add(`gems_${user.id}`, args[1]) 
+        db.subtract(`gems_${user.author.id}`, args[1])
     }
 }
 
