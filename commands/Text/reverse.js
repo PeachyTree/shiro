@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Reverse extends Command {
   constructor(client) {
@@ -17,7 +17,7 @@ class Reverse extends Command {
       return message.reply("Command Usage: `reverse <Text>`")
     }
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**txeT desreveR**__")
       .setDescription(args.join(' ').split('').reverse().join(''))

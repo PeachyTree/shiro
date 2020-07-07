@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const line = require('../../assets/json/pickuplines.json');
 
 class PickUpLine extends Command {
@@ -14,7 +14,7 @@ class PickUpLine extends Command {
   }
 
   async run(message, args, level, settings) {
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setTitle('__**Your pickupline:**__')
       .setDescription(`💖 | ${line[Math.round(Math.random() * (line.length - 1))]}`)
       .setColor('RANDOM');

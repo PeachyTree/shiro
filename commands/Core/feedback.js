@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { version } = require("../../package.json");
 const { FEEDBACK_CHANNEL } = process.env;
 
@@ -22,7 +22,7 @@ class Feedback extends Command {
         } else {
 
             try {
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                     .setColor('RANDOM')
                     .setTitle(`Feedback command used by ${message.author.tag}`)
                     .addField("In:", `${message.guild.name}, ${message.channel.name} (${message.channel.id})`)

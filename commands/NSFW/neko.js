@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 
 class Neko extends Command {
@@ -19,7 +19,7 @@ class Neko extends Command {
             const res = await request.get('http://nekos.life/api/neko');
             const preview = res.body.neko;
 
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setImage(preview)
                 .setColor('RANDOM')
                 .setFooter('http://nekos.life', 'https://a.safe.moe/3XYZ6.gif');
@@ -29,7 +29,7 @@ class Neko extends Command {
             const res = await request.get('http://nekos.life/api/lewd/neko');
             const preview = res.body.neko;
 
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setImage(preview)
                 .setColor('RANDOM')
                 .setFooter('http://nekos.life', 'https://a.safe.moe/3XYZ6.gif');

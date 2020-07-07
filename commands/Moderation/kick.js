@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Kick extends Command {
   constructor(client) {
@@ -51,7 +51,7 @@ class Kick extends Command {
           return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
         }
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setTitle(`👢 | __**Member kicked in #${message.channel.name}**__`)
           .setColor('RANDOM')
           .addField('Issued to:', `${user.tag} (${user.id})`)

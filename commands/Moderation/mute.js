@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Mute extends Command {
   constructor(client) {
@@ -79,7 +79,7 @@ class Mute extends Command {
       });
 
       try {
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setTitle(`🔇 | __**Member muted in #${message.channel.name}**__`)
           .setColor('RANDOM')
           .addField('Target:', `${user.tag} (${user.id})`)

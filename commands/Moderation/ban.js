@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Ban extends Command {
   constructor(client) {
@@ -51,7 +51,7 @@ class Ban extends Command {
 
         const lastMessage = message.guild.member(user).lastMessageID;
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setTitle(`🚫 | __**Member banned from ${message.guild.name}**__`)
           .setColor('RANDOM')
           .addField('Target:', `${user.tag} (${user.id})`)

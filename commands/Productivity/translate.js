@@ -3,7 +3,7 @@
 // Credit to module owner: https://github.com/k3rn31p4nic
 
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const translate = require('@k3rn31p4nic/google-translate-api');
 
 class Translate extends Command {
@@ -23,7 +23,7 @@ class Translate extends Command {
 
     const result = await translate(args.slice(1).join(' '), { to: args[0] });
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setDescription(result.text)
       .setFooter(`Translation from ${result.from.language.iso.toUpperCase()} to ${args[0].toUpperCase()}`);

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const errors = require('../../assets/json/errors');
 
@@ -29,7 +29,7 @@ class Boobs extends Command {
             const preview = res.body[0]["PREVIEW".toLowerCase()];
             const image = `http://media.oboobs.ru/${preview}`;
 
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setFooter('http://oboobs.ru/')
                 .setImage(image)
                 .setColor('RANDOM');

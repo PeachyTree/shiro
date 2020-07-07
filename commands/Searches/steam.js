@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 
 class Steam extends Command {
@@ -48,7 +48,7 @@ class Steam extends Command {
             if (data.platforms.linux) platforms.push('Linux');
         }
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor('RANDOM')
             .setAuthor('Steam', 'https://i.imgur.com/xxr2UBZ.png', 'http://store.steampowered.com/')
             .setTitle(`__**${data.name}**__`)

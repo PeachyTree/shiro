@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const h = new (require("html-entities").AllHtmlEntities)();
 
@@ -31,7 +31,7 @@ class Trivia extends Command {
       choices.splice(choices.indexOf(randomChoices[i]), 1);
     }
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setAuthor("Trivia", "https://vgy.me/9UDUk0.png")
       .addField('**Question**', `${h.decode(quiz.question)}\n:regional_indicator_a: ${randomChoices[0]}\n:regional_indicator_b: ${randomChoices[1]}\n:regional_indicator_c: ${randomChoices[2]}\n:regional_indicator_d: ${randomChoices[3]}`)

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 
@@ -24,7 +24,7 @@ class HentaiIrl extends Command {
 
         randomPuppy('hentai_irl')
         .then(url => {
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setFooter('Hentai_irl', 'https://a.safe.moe/jZZKM.png')
                 .setDescription(`[Image URL](${url})`)   
                 .setImage(url)

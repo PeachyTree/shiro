@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const moment = require("moment");
 
@@ -41,7 +41,7 @@ class User extends Command {
       activity = "Listening to **Spotify**";
     }
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor(message.guild.member(user).displayColor)
       .setThumbnail(user.displayAvatarURL)
       .setTitle(`User Information for ${user.tag}`)

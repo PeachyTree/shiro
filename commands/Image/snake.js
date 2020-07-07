@@ -1,6 +1,6 @@
 const Command = require("../../base/Command.js");
 const fetch = require("node-superfetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { UNSPLASH_ACCESS_KEY } = process.env;
 
 class Snake extends Command {
@@ -25,7 +25,7 @@ class Snake extends Command {
     .then(res => res.json())
     .then(json => {
       const data = json.results[parseInt(index.toFixed(0))];
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setTitle("🐍 Snake")
         .setURL(data.urls.raw)
         .setDescription(`Photo by [${data.user.name}](${data.user.links.html}) on [Unsplash](https://unsplash.com)`)

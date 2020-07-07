@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 class Avatar extends Command {
   constructor(client) {
@@ -14,7 +14,7 @@ class Avatar extends Command {
   async run(message, args, level, settings) { 
     const user = message.mentions.users.first() || message.author;
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setTitle(`__${user.tag}'s Avatar__`)
       .setDescription(`🔗 **[Direct URL](${user.displayAvatarURL})**`)

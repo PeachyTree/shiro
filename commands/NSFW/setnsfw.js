@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-//const { RichEmbed } = require('discord.js');
+//const { MessageEmbed } = require('discord.js');
 
 class SetNSFW extends Command {
     constructor(client) {

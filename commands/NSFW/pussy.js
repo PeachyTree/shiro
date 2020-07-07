@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
 const errors = require('../../assets/json/errors');
 
@@ -36,7 +36,7 @@ class Pussy extends Command {
 
         randomPuppy(sub)
         .then(url => {
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setFooter(`pussy`)
                 .setDescription(`[Image URL](${url})`)
                 .setImage(url)

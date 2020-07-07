@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');
 const { GEM_EMOJI_ID } = process.env;
 
@@ -25,7 +25,7 @@ class Profile extends Command {
 
     if (user.id == this.client.id) return;
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setThumbnail(user.displayAvatarURL)
       .setTitle(`__**${user.username}'s Profile**__`)

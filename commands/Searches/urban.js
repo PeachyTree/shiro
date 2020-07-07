@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const fetch = require("node-superfetch");
 
 class UrbanDictionary extends Command {
@@ -24,7 +24,7 @@ class UrbanDictionary extends Command {
       const data = json.list[0];
       const definition = data.definition.replace(/[[\]]+/g, "");
       const example = data.example.replace(/[[\]]+/g, "");
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor('RANDOM')
         .setAuthor("Urban Dictionary", "https://vgy.me/ScvJzi.jpg")
         .setDescription(`Displaying Urban Dictionary definition for "**${data.word}**"\n<${data.permalink}>`)

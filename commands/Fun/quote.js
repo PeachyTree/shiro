@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const quotes = require('../../assets/json/quotes.json');
 const total = Object.keys(quotes).length
 
@@ -18,7 +18,7 @@ class Quote extends Command {
     let random = Math.floor(Math.random() * total + 1);
     let quote = quotes[random];
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setAuthor(quote.author)
       .setDescription(quote.quote)
       .setFooter(`Quote Number ${random}`)

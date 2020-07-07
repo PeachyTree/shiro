@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Leet extends Command {
   constructor(client) {
@@ -25,7 +25,7 @@ class Leet extends Command {
     args = args.replace(/s/ig, '5');
     args = args.replace(/t/ig, '7');
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**Leet Text**__")
       .setDescription(args)

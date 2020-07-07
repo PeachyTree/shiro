@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const wanakana = require('wanakana');
 
@@ -35,7 +35,7 @@ class Jisho extends Command {
       senses = senses.replace(/^/gm, '•\u2000');
       senses = senses.replace(/\\/g, "")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setAuthor(`${content.japanese[0].word ? content.japanese[0].word : content.japanese[0].reading}`)
         .setColor('RANDOM')
         .setDescription(content.is_common ? '`Common Word`' : '`Not a Common Word`' + `\n[External Link](https://jisho.org/search/${query})`)

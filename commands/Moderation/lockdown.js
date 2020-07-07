@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const ms = require("ms");
 
 class Lockdown extends Command {
@@ -35,7 +35,7 @@ class Lockdown extends Command {
                 message.channel.overwritePermissions(message.guild.id, {
                     SEND_MESSAGES: false
                 }).then(() => {
-                    const embed = new RichEmbed()
+                    const embed = new MessageEmbed()
                         .setTitle("🔒 | __**Channel locked down**__")
                         .setColor('RANDOM')
                         .addField('Channel:', `#${message.channel.name} (${message.channel.id})`)

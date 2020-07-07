@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Poll extends Command {
   constructor(client) {
@@ -21,7 +21,7 @@ class Poll extends Command {
     let time = args[0]
     if (!time) time == 3.6e+6;
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setAuthor('Poll Started')
       .setDescription(question)

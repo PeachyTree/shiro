@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 let aq = require('animequote');
 const Kitsu = require('kitsu.js');
 const kitsu = new Kitsu();
@@ -23,7 +23,7 @@ class Anime extends Command {
 
                 let anime = result[0]
 
-                let embed = new RichEmbed()
+                let embed = new MessageEmbed()
                     .setColor('RANDOM')
                     .setAuthor(`${anime.titles.english} | ${anime.showType}`, anime.posterImage.original)
                     .setDescription(anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0])
@@ -44,7 +44,7 @@ class Anime extends Command {
 
                 let anime = result[0]
 
-                let embed = new RichEmbed()
+                let embed = new MessageEmbed()
                     .setColor('RANDOM')
                     .setAuthor(`${anime.titles.english ? anime.titles.english : search} | ${anime.showType}`, anime.posterImage.original)
                     .setDescription(anime.synopsis.replace(/<[^>]*>/g, '').split('\n')[0])

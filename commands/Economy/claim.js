@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');
 const parseMilliseconds = require('parse-ms');
 
@@ -28,7 +28,7 @@ class Claim extends Command {
 
     } else { // If not, continue, and give them their reward for today:
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle(`__**${message.author.username}'s Daily Reward**__`)
         .addField(`Reward Collected`, `5 Gems`)

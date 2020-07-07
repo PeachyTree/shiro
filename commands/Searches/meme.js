@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
 const subreddits = [
   "memes",
@@ -27,7 +27,7 @@ class Meme extends Command {
 
     randomPuppy(randSubreddit)
     .then(url => {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setFooter(`${randSubreddit}`)
         .setDescription(`[Image URL](${url})`)
         .setImage(url)

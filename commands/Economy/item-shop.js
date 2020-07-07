@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');
 const { GEM_EMOJI_ID } = process.env;
 
@@ -24,7 +24,7 @@ class ItemShop extends Command {
     if (bal === null) bal = 0; 
     // If the user has not used this bot, or gained any Gems, set their balance to 0
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setTitle('__Item Shop__')
       .addField("Item 1", `**5** ${GEM_EMOJI_ID}`)

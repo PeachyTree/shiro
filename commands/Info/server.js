@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const moment = require("moment");
 
@@ -33,7 +33,7 @@ class Server extends Command {
 
     const createdTimestamp = moment.utc(message.guild.createdAt).format("YYYYMMDD");
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setThumbnail(message.guild.iconURL)
       .setTitle(`Server Information for ${message.guild.name}`)

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class ForceBan extends Command {
   constructor(client) {
@@ -28,7 +28,7 @@ class ForceBan extends Command {
         return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
       });
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setTitle(`🚫 | __**Member force-banned from ${message.guild.name}**__`)
       .setColor('RANDOM')
       .addField('Target:', `${userID}`)

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Magic8Ball extends Command {
   constructor(client) {
@@ -71,14 +71,14 @@ class Magic8Ball extends Command {
       const randomOutcome = outcomes.random();
       try {
         if (randomOutcome.startsWith("http://i.imgur.com/")) {
-          const embed = new RichEmbed()
+          const embed = new MessageEmbed()
             .setTitle("🎱 | __**Magic 8 Ball says...**__")
             .setImage(randomOutcome)
             .setColor('RANDOM')
             .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
           message.channel.send({ embed });
         } else {
-          const embed = new RichEmbed()
+          const embed = new MessageEmbed()
             .setTitle(`🎱 | __**Magic 8 Ball says...**__`)
             .setColor('RANDOM')
             .setDescription(`**${randomOutcome}**`)

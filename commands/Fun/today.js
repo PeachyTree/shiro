@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 
 class Today extends Command {
@@ -18,7 +18,7 @@ class Today extends Command {
     const source = data.data['Events']
     const event = source[Math.round(Math.random() * (source.length - 1))]
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setAuthor(`Historical Event from ${data.date}, ${event.year}`)
       .setColor('RANDOM')
       .setDescription(event.text)

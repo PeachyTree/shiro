@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const signs = [
     "capricorn",
@@ -40,7 +40,7 @@ class Horoscope extends Command {
         let horoscope = body.horoscope
         let replaced = horoscope.replace('(c) Kelli Fox, The Astrologer, http://new.theastrologer.com', '')
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor('RANDOM')
             .setAuthor(`🔮 | Horoscope for ${body.sunsign} on ${body.date}`, 'http://images.indianexpress.com/2017/01/zodiac-love-2017-main_820_thinkstockphotos-481896132.jpg?w=820')
             .setDescription(replaced)

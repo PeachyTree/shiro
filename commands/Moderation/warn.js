@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Warn extends Command {
   constructor(client) {
@@ -41,7 +41,7 @@ class Warn extends Command {
 
     if (reason) {
       try {
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setTitle(`⚠️ | __**Warning issued in #${message.channel.name}**__`)
           .setColor('RANDOM')
           .addField('Issued to:', `${user.tag} (${user.id})`)

@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const moment = require("moment");
 
 class Emoji extends Command {
@@ -24,7 +24,7 @@ class Emoji extends Command {
     const emoji = this.client.emojis.get(match[1]);
     if (!emoji) return message.reply('You must provide a valid emoji, from a server I am on.');
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setTitle("Emoji Information")
       .setThumbnail(emoji.url)

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const waifus = require('../../assets/json/waifus.json');
 const total = Object.keys(waifus).length
 
@@ -23,7 +23,7 @@ class Waifu extends Command {
             let random = Math.floor(Math.random() * total + 1);
             let waifu = waifus[random];
 
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setAuthor(waifu.name, waifu.image)
                 .setDescription(waifu.origin)
                 .setImage(waifu.image)
@@ -37,7 +37,7 @@ class Waifu extends Command {
 
         } else if (waifuNumber) {
             let waifu = waifus[waifuNumber]
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setAuthor(waifu.name, waifu.image)
                 .setDescription(waifu.origin)
                 .setImage(waifu.image)

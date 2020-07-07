@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class NSFWCommands extends Command {
   constructor(client) {
@@ -18,7 +18,7 @@ class NSFWCommands extends Command {
     const category = args.join(" ").toLowerCase(); 
 
     if (!args.length) {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setDescription("Use the `nsfwcommands <category>` command to list all the NSFW commands in the specified category.")
         .addField("NSFW Command Categories", categories)
@@ -30,7 +30,7 @@ class NSFWCommands extends Command {
       let commandsCategory = "10 2D NSFW"
       let allCommands = ("ecchi\nhentai\nhentaigif\nhentaiirl\nneko\npantsu\noppai\nyaoi\nyuri\nzr")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("List of NSFW Commands in `2D NSFW` category")
         .setDescription(`Use the \`nsfwcommands\` command to get a list of all the NSFW command categories.`)
@@ -44,7 +44,7 @@ class NSFWCommands extends Command {
       let commandsCategory = "9 2D Fetish"
       let allCommands = ("ahegao\nbara\nbondage\nfuta\nmonstergirl\npaizuri\nsukebei\ntentacle\ntrap")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("List of NSFW Commands in `2D Fetish` category")
         .setDescription(`Use the \`nsfwcommands\` command to get a list of all the NSFW command categories.`)
@@ -57,7 +57,7 @@ class NSFWCommands extends Command {
       let commandsCategory = "7 3D NSFW"
       let allCommands = ("4knsfw\nartsyporn\nass\nboobs\nnsfw\nnsfwgif\npussy")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("List of NSFW Commands in `3D NSFW` category")
         .setDescription(`Use the \`nsfwcommands\` command to get a list of all the NSFW command categories.`)
@@ -70,7 +70,7 @@ class NSFWCommands extends Command {
       let commandsCategory = "6 3D Fetish"
       let allCommands = ("asian\namateur\nbdsm\ncosplay\ngrool\nlingerie")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("List of NSFW Commands in `3D Fetish` category")
         .setDescription(`Use the \`nsfwcommands\` command to get a list of all the NSFW command categories.`)
@@ -83,7 +83,7 @@ class NSFWCommands extends Command {
       let commandsCategory = "10 NSFW Image Boards"
       let allCommands = ("danbooru\ngelbooru\nhypno\nkonachan\npaheal\nrule34\ntbib\nyandere\nxbooru\ne621")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("List of NSFW Commands in `NSFW Image Boards` category")
         .setDescription(`Use the \`nsfwcommands\` command to get a list of all the NSFW command categories.`)
@@ -96,7 +96,7 @@ class NSFWCommands extends Command {
       let commandsCategory = "2 Other"
       let allCommands = ("nonsfw\nsetnsfw")
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("List of NSFW Commands in `Other` category")
         .setDescription(`Use the \`nsfwcommands\` command to get a list of all the NSFW command categories.`)
@@ -106,7 +106,7 @@ class NSFWCommands extends Command {
       await message.channel.send({ embed });
 
     } else if (!category === "2d nsfw" || "2d fetish" || "3d nsfw" || "3d fetish" || "nsfw image boards" || "other") {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle("🚫 | NSFW Command Category Not Found")
         .setDescription("Use the `nsfwcommands` command without any arguments to get a list of all the available NSFW command categories.")

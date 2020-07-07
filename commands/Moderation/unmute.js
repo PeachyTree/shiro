@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Unmute extends Command {
   constructor(client) {
@@ -54,7 +54,7 @@ class Unmute extends Command {
     }
 
     try {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setTitle("🔊 | __**Member unmuted**__")
         .setColor('RANDOM')
         .addField('User:', `${user.tag} (${user.id})`)

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const weather = require("weather-js");
 
 class Weather extends Command {
@@ -46,7 +46,7 @@ class Weather extends Command {
       else if (ct >= 40) col = 12386304;
       else col = 7654911; // fallback
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor(col)
         .setTitle(`☀️ | __**Weather information for ${current.observationpoint}**__`)
         .setDescription(`The weather is **${current.skytext.toLowerCase()}** at the moment.`)

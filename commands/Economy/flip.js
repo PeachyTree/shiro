@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const db = require("quick.db");
 const { GEM_EMOJI_ID } = process.env;
 
@@ -72,7 +72,7 @@ class Flip extends Command {
         db.subtract(`gems_${message.author.id}`, prize)
       }
 
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor("RANDOM")
         .setTitle(`Flipped ${outcome}`)
         .setDescription(result)

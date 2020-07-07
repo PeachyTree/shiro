@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const fetch = require("node-superfetch");
 const moment = require("moment");
 
@@ -29,7 +29,7 @@ class GitHub extends Command {
     fetch(`https://api.github.com/repos/${owner}/${repo}`)
     .then(res => res.json())
     .then(data => {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setColor('RANDOM')
         .setThumbnail(data.owner.avatar_url)
         .setAuthor("GitHub", "https://vgy.me/B4CvF1.png")

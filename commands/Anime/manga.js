@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const Kitsu = require('kitsu.js');
 const kitsu = new Kitsu();
 
@@ -28,7 +28,7 @@ class Manga extends Command {
 
       let manga = result[0]
 
-      let embed = new RichEmbed()
+      let embed = new MessageEmbed()
         .setColor('RANDOM')
         .setAuthor(`${manga.titles.english}`, manga.posterImage.original)
         .setDescription(manga.synopsis.replace(/<[^>]*>/g, '').split('\n')[0])

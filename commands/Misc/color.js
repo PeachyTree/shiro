@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Color extends Command {
     constructor(client) {
@@ -17,7 +17,7 @@ class Color extends Command {
 
         if (!color) {
             let genColour = '#' + Math.floor(Math.random() * 16777215).toString(16);
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 .setColor(genColour)
                 .setImage(`https://dummyimage.com/50/${genColour.slice(1)}/&text=%20`)
                 .setFooter(genColour);
@@ -25,7 +25,7 @@ class Color extends Command {
         }
 
         if (((color.indexOf("#") === 0) && color.length === 7) || (!isNaN(color) && color.length <= 8 && color < 16777215)) {
-            const embed = await new RichEmbed()
+            const embed = await new MessageEmbed()
                 .setColor(color)
                 .setImage(`https://dummyimage.com/50/${color.slice(1)}/&text=%20`)
                 .setFooter(color);

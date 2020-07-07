@@ -1,6 +1,6 @@
 const Command = require('../../base/Command.js');
 const celestia = require("../../package.json");
-const { RichEmbed, version } = require("discord.js");
+const { MessageEmbed, version } = require("discord.js");
 
 class Help extends Command {
   constructor(client) {
@@ -16,7 +16,7 @@ class Help extends Command {
   async run(message, args, level, settings) {
     if (!args[0]) {
       try {
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setThumbnail(this.client.user.displayAvatarURL)
           .setTitle(`:wave: Hey ${message.author.username}, I'm Celestia!`)
@@ -37,7 +37,7 @@ class Help extends Command {
         command = this.client.commands.get(command);
         if (level < this.client.levelCache[command.conf.permLevel]) return; 
         
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
           .setColor('RANDOM')
           .setTitle('__**Command Help:**__')
           .setThumbnail('https://cdn.discordapp.com/attachments/578170428216967179/585889209165021189/cmd.png')

@@ -1,6 +1,6 @@
 const Command = require('../../base/Command.js');
 const catFacts = require('../../assets/json/catfacts.json');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class CatFact extends Command {
   constructor(client) {
@@ -14,7 +14,7 @@ class CatFact extends Command {
 
   async run(message, args, level, settings) { 
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle('🐱 | __**Cat Fact**__')
       .setDescription(catFacts[Math.round(Math.random() * (catFacts.length - 1))])

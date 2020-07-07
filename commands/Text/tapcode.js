@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class TapCode extends Command {
   constructor(client) {
@@ -52,7 +52,7 @@ class TapCode extends Command {
     args = args.replace(/\. /g, ' x ');
     args = args.replace(/./g, x => `${tapCode[x]}\u2001`).trim();
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**Tap Code**__")
       .setDescription(`**${args}**`)

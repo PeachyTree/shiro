@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Report extends Command {
   constructor(client) {
@@ -23,7 +23,7 @@ class Report extends Command {
 
     message.delete();
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setTitle(`🚩 | __**Report received from ${message.author.tag} (${message.author.id})**__`)
       .setColor('RANDOM')
       .addField('Target:', `${user.tag} (${user.id})`)

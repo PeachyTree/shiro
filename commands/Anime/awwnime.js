@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
 
 class Awwnime extends Command {
@@ -15,7 +15,7 @@ class Awwnime extends Command {
   async run(message) {
     randomPuppy('awwnime')
     .then(url => {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
         .setFooter(`awwnime`)
         .setDescription(`[Image URL](${url})`)
         .setImage(url)

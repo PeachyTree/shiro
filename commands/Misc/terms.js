@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class Terms extends Command {
   constructor(client) {
@@ -13,7 +13,7 @@ class Terms extends Command {
 
   async run(message) { 
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**Celestia Bot - Terms of Service**__")
       .setDescription('\nCelestia has access to the End User Data through the Discord API, but Celestia does not collect, use and/or disclose End User Data except (a) as necessary to exercise your rights under this Agreement, (b) in accordance with Discord’s Privacy Policy.' +

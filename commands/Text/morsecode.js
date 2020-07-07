@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 class MorseCode extends Command {
   constructor(client) {
@@ -109,7 +109,7 @@ class MorseCode extends Command {
     };
     args = args.replace(/./g, x => `${morseCode[x]}\u2001`).trim();
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**Morse Code**__")
       .setDescription(`**${args}**`)

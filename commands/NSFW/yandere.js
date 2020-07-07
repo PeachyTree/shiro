@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const booru = require('booru');
 const errors = require('../../assets/json/errors');
 
@@ -31,7 +31,7 @@ class Yandere extends Command {
         .then(booru.commonfy)
         .then(images => {
             for (let image of images) {
-                const embed = new RichEmbed()
+                const embed = new MessageEmbed()
                     .setAuthor(`Yandere ${query}`, 'https://c.catgirlsare.sexy/NrAI.png')
                     .setImage(image.common.file_url)
                     .setColor('RANDOM');

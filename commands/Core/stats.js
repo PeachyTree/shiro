@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { version } = require('../../package');
 const moment = require("moment");
 require("moment-duration-format");
@@ -19,7 +19,7 @@ class Stats extends Command {
     const duration = moment.duration(this.client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
     const msg = await message.channel.send("🔄 | Fetching bot stats...");
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setTitle("__**Celestia Bot Stats**__")
       .setColor('RANDOM')
       .addField(':clock4: | **Uptime**', `${duration}`, true)

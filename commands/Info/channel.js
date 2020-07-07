@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const moment = require("moment");
 
 class Channel extends Command {
@@ -23,7 +23,7 @@ class Channel extends Command {
 
     const createdTimestamp = moment.utc(chan.createdAt).format("YYYYMMDD");
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor('RANDOM')
       .setThumbnail("https://vgy.me/9fSC7k.png")
       .setTitle(`Channel Information for #${chan.name}`)

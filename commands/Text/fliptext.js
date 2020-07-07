@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const flipText = require('../../assets/json/fliptext.json');
 
 class FlipText extends Command {
@@ -23,7 +23,7 @@ class FlipText extends Command {
       args = args.replace(Object.keys(flipText)[i], flipText[Object.keys(flipText)[i]]);
     }
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**ɟlᴉddǝp ʇǝxʇ:**__")
       .setDescription(args.split('').reverse().join(''))

@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const errors = require('../../assets/json/errors');
 
@@ -26,7 +26,7 @@ class GTN extends Command {
         const text = await request.get('https://rra.ram.moe/i/r?nsfw=true');
         let body = JSON.parse(text.text);
 
-        let embed = new RichEmbed()
+        let embed = new MessageEmbed()
             .setColor('RANDOM')
             .setImage(`https://rra.ram.moe${body.path}`);
         return message.channel.send({ embed });
