@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
-const shortener = require("isgd");
+const request = require('node-superfetch');
+const { BITLY_KEY } = process.env;
 
 class Shorten extends Command {
   constructor(client) {
@@ -7,23 +8,24 @@ class Shorten extends Command {
       name: "shorten",
       description: "Shortens the specified link.",
       category: "Productivity",
-      usage: "shorten <URL> [Custom Title]",
+      usage: "shorten <URL>",
+      aliases: ["shorten-url", "bit-ly"]
     });
   }
 
   async run(message, args) { 
-    if (!args[0]) return message.reply('Command Usage: `shorten <URL> [Custom Title]`');
-    if (!args[1]) {
-      shortener.shorten(args[0], function(res) {
-        if (res.startsWith("Error:")) return message.channel.send(`Invalid URL provided!`);
-        message.channel.send(`🔗 | Your shortened link: **<${res}>**.`);
-      });
-    } else {
-      shortener.custom(args[0], args[1], function(res) {
-        if (res.startsWith("Error:")) return message.channel.send(`An error occurred:\n\```${res.slice(7)}\````);
-        message.channel.send(`🔗 | Your shortened link: **<${res}>**.`);
-      });
-    }
+    if (!args[0]) return message.reply('Command Usage: `shorten <URL>`');
+    const url = args.join(" ");
+    try {
+			const { body } = await request
+				.post('https://api-ssl.bitly.com/v4/shorten')
+				.send({ long_url: url })
+				.set({ Authorization: `Bearer ${BITLY_KEY}` });
+			return message.channel.send(body.link);
+		} catch (err) {
+			if (err.status === 400) return message.reply('You provided an invalid URL. Please try again.');
+			return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
   }
 }
 
