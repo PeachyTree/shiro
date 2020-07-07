@@ -1,5 +1,5 @@
 # Celestia Discord Bot
-A Discord Bot with focus on Fun, Moderation, Economy, Utility and NSFW commands.
+A Discord Bot with focus on Fun, Moderation, Economy, Utility commands and much more.
 
 YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
 
