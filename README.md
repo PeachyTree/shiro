@@ -26,6 +26,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 * `ADMIN_ROLE=` Admin role on a server. Default is `Administrator`.
 
 ### API KEYS, Secrets, and more:
+* `BITLY_KEY=` can be obtained by getting a [Generic Access Token](https://bitly.is/accesstoken).
 * `GOOGLE_API=` You can get the Google API Key by creating a new Application on the [Google Cloud Console.](https://console.cloud.google.com/home/dashboard). After that, you need to enable the [YouTube Data API](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508&project=azura-278914&hl).
 * `GIPHY_API_KEY=` You can get the Giphy API Key by visiting the [Giphy API Page](https://developers.giphy.com/).
 * `UNSPLASH_ACCESS_KEY=` You can get the Unsplash Key by going to the [Unsplash Image API](https://unsplash.com/developers).
