@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const dictionary = require('../../assets/json/piratephrases.json');
 
 class PirateSpeak extends Command {
@@ -19,7 +19,7 @@ class PirateSpeak extends Command {
       return message.reply("Command Usage: `piratespeak <Text>`")
     }
 
-    const embed = new RichEmbed()
+    const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("__**Pirate Speak**__")
       .setDescription(translate(args.join(' ')))
