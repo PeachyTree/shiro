@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-superfetch");
+const request = require("node-superfetch");
 
 class Robohash extends Command {
   constructor(client) {
@@ -12,22 +12,17 @@ class Robohash extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     const query = args.join(" ");
     if (!query) return message.channel.send("Command Usage: `robohash <Text>`");
     if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
 
-    message.channel.startTyping();
-
-    fetch(`https://robohash.org/${encodeURIComponent(query)}.png`)
+    request(`https://robohash.org/${encodeURIComponent(query)}.png`)
     .then(res => message.channel.send({ files: [{ attachment: res.body, name: `${query}.png` }] })
     .catch(error => {
       this.client.logger.error(error);
-      message.channel.stopTyping(true);
       return message.channel.send(`An error occurred: ${error.message}`);
     }));
-
-    message.channel.stopTyping(true);
   }
 }
 

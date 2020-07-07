@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-superfetch");
+const request = require('node-superfetch');
 
 class Dog extends Command {
   constructor(client) {
@@ -11,19 +11,9 @@ class Dog extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
-    message.channel.startTyping();
-
-    fetch("https://dog.ceo/api/breeds/image/random")
-    .then(res => res.json())
-    .then(data => message.channel.send({ file: data.message }))
-    .catch(error => {
-      this.client.logger.error(error);
-      message.channel.stopTyping(true);
-      return message.channel.send(`An error occurred: ${error.message}`);
-    });
-
-    message.channel.stopTyping(true);
+  async run(message) { 
+    const { body } = await request.get('https://dog.ceo/api/breeds/image/random');
+    return message.channel.send({ files: [body.message] });
   }
 }
 

@@ -1,5 +1,5 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-superfetch");
+const request = require("node-superfetch");
 const { MessageEmbed } = require("discord.js");
 const { UNSPLASH_ACCESS_KEY } = process.env;
 
@@ -14,7 +14,7 @@ class ImageSearch extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     let query = args.join(" ");
     if (!query) return message.channel.send("Command Usage: `image-search <Query>`");
     else query = encodeURIComponent(args.join(" "));
@@ -23,9 +23,7 @@ class ImageSearch extends Command {
     const index = Math.floor(Math.random() * 10) + 1;
     const meta = { "Authorization": `Client-ID ${UNSPLASH_ACCESS_KEY}` };
 
-    message.channel.startTyping();
-
-    fetch(`https://api.unsplash.com/search/photos?page=${page}&query=${query}`, { headers: meta })
+    request(`https://api.unsplash.com/search/photos?page=${page}&query=${query}`, { headers: meta })
     .then(res => res.json())
     .then(json => {
       const data = json.results[parseInt(index.toFixed(0))];
@@ -39,7 +37,6 @@ class ImageSearch extends Command {
       message.channel.send({ embed });
     })
     .catch(error => {
-      message.channel.stopTyping(true);
       if (error.message === "Cannot read property 'urls' of undefined") return message.channel.send('No results found.');
       this.client.logger.error(error);
       return message.channel.send(`An error occurred: ${error.message}`);
