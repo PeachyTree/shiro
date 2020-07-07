@@ -18,7 +18,7 @@ class Help extends Command {
       try {
         const embed = new MessageEmbed()
           .setColor("RANDOM")
-          .setThumbnail(this.client.user.displayAvatarURL)
+          .setThumbnail(this.client.user.displayAvatarURL())
           .setTitle(`:wave: Hey ${message.author.username}, I'm Celestia!`)
           .setDescription("I'm a bot developed and maintained by Azura Apple#0955\n\All my commands start with the prefix `c.`. To see all my commands use `c.commands`!")
           .addField("Version", celestia.version)
