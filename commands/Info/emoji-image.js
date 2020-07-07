@@ -12,7 +12,7 @@ class EmojiImage extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     if (!args[0]) return message.reply('Command Usage: `emoji-image <Emoji>`');
     if (args[0].startsWith("<a:")) return message.reply("This command does not support animated emojis yet.");
     if (args[0].charCodeAt(0) >= 55296) return message.reply(`${args[0]} is a regular Discord emoji, from Twemoji.\nhttps://twemoji.twitter.com`);

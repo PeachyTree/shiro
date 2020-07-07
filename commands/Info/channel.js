@@ -14,7 +14,7 @@ class Channel extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const chan = message.channel;
 
     let topic;
@@ -27,14 +27,14 @@ class Channel extends Command {
       .setColor('RANDOM')
       .setThumbnail("https://vgy.me/9fSC7k.png")
       .setTitle(`Channel Information for #${chan.name}`)
-      .addField("Created", chan.createdAt, true)
-      .addField("Age", moment(createdTimestamp, "YYYYMMDD").fromNow().slice(0, -4), true)
-      .addField("Type", chan.type.toProperCase(), true)
-      .addField("Position", chan.calculatedPosition, true)
-      .addField("Parent", !chan.parent ? "None" : chan.parent.name, true)
-      .addField("NSFW", chan.nsfw.toString().toProperCase(), true)
-      .addField("Deletable", chan.deletable.toString().toProperCase(), true)
-      .addField("Topic", !topic ? "No topic set." : topic, true)
+      .addField("❯ Created", chan.createdAt, true)
+      .addField("❯ Age", moment(createdTimestamp, "YYYYMMDD").fromNow().slice(0, -4), true)
+      .addField("❯ Type", chan.type.toProperCase(), true)
+      .addField("❯ Position", chan.calculatedPosition, true)
+      .addField("❯ Parent", !chan.parent ? "None" : chan.parent.name, true)
+      .addField("❯ NSFW", chan.nsfw.toString().toProperCase(), true)
+      .addField("❯ Deletable", chan.deletable.toString().toProperCase(), true)
+      .addField("❯ Topic", !topic ? "No topic set." : topic, true)
       .setFooter(`Channel ID: ${chan.id}`, "https://vgy.me/167efD.png");
     message.channel.send({ embed });
   }

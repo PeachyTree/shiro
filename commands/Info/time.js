@@ -12,12 +12,9 @@ class Time extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args, settings) { 
     const timeZone = args.join("_").toUpperCase();
-    if (!timeZone) return message.reply(stripIndents`
-    Command Usage: \`time <Continent / City>\`
-    For a full list of timezones, use the \`timezones\` command.
-    `);
+    if (!timeZone) return message.reply('Command Usage: \`time <Continent / City>\`');
 
     try {
       const time = new Date().toLocaleTimeString("en-GB", { timeZone, hour12: false });
@@ -26,7 +23,6 @@ class Time extends Command {
     } catch (err) {
       message.channel.send(stripIndents`
       An error occurred:\n\```${err.message}\```
-      For a full list of timezones, refer to the \`timezones\` command.
 
       • Please ensure you are using the correct format, e.g. \`${settings.prefix}time europe/london\`.
       • Note that the continent of North America is split into **America** and **Canada**, e.g. \`${settings.prefix}time america/new york\`.

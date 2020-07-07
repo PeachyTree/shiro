@@ -15,7 +15,7 @@ class User extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
   
     const user = message.mentions.users.first() || message.author;

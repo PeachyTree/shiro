@@ -11,7 +11,7 @@ class Discrim extends Command {
       });
     }
 
-    async run(message, args, level, settings) { 
+    async run(message, args) { 
         let discrim = args[0];
         if (!discrim) {
             discrim = message.author.discriminator;

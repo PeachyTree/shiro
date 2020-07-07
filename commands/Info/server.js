@@ -29,7 +29,7 @@ class Server extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
 
     const createdTimestamp = moment.utc(message.guild.createdAt).format("YYYYMMDD");
 
