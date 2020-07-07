@@ -9,7 +9,7 @@ class Wikipedia extends Command {
 			description: "Searches Wikipedia for the specified article.",
 			category: "Searches",
 			usage: "wikipedia <Query>"
-    	});
+    		});
   	}
 
   	async run(message, args) { 
