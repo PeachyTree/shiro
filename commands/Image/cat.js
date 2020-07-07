@@ -1,5 +1,6 @@
 const Command = require("../../base/Command.js");
-const fetch = require("node-superfetch");
+const request = require('node-superfetch');
+const { THECATAPI_KEY } = process.env;
 
 class Cat extends Command {
   constructor(client) {
@@ -11,19 +12,15 @@ class Cat extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
-    message.channel.startTyping();
-
-    fetch("https://aws.random.cat/meow")
-    .then(res => res.json())
-    .then(data => message.channel.send({ file: data.file }))
-    .catch(error => {
-      this.client.logger.error(error);
-      message.channel.stopTyping(true);
-      return message.channel.send(`An error occurred: ${error.message}`);
-    });
-
-    message.channel.stopTyping(true);
+  async run(message) { 
+    const { body } = await request
+      .get('https://api.thecatapi.com/v1/images/search')
+      .query({
+        limit: 1,
+        mime_types: 'jpg,png'
+      })
+      .set({ 'x-api-key': THECATAPI_KEY });
+    return message.channel.send({ files: [body[0].url] });
   }
 }
 
