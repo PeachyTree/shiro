@@ -3,12 +3,12 @@ const request = require('node-superfetch');
 const { shorten } = require('../../util/Utils.js');
 
 class Wikipedia extends Command {
-  	constructor(client) {
-    	super(client, {
-		name: "wikipedia",
-		description: "Searches Wikipedia for the specified article.",
-		category: "Searches",
-		usage: "wikipedia <Query>"
+	constructor(client) {
+		super(client, {
+			name: "wikipedia",
+			description: "Searches Wikipedia for the specified article.",
+			category: "Searches",
+			usage: "wikipedia <Query>"
     	});
   	}
 
