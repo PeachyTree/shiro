@@ -5,12 +5,19 @@ class Utils {
         throw new TypeError(`${mode} is not a supported Base64 mode`);
     }
 
-    static formatNumberK(number) {
-		return number > 999 ? `${(number / 1000).toLocaleString(undefined, { maximumFractionDigits: 1 })}K` : number;
+    static formatNumber(number, minimumFractionDigits = 0) {
+      return Number.parseFloat(number).toLocaleString(undefined, {
+        minimumFractionDigits,
+        maximumFractionDigits: 2
+      });
     }
     
     static shorten(text, maxLen = 2000) {
-		return text.length > maxLen ? `${text.substr(0, maxLen - 3)}...` : text;
+		  return text.length > maxLen ? `${text.substr(0, maxLen - 3)}...` : text;
+  }
+
+  static embedURL(title, url, display) {
+		return `[${title}](${url.replace(/\)/g, '%27')}${display ? ` "${display}"` : ''})`;
 	}
 }
 
