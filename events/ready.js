@@ -1,7 +1,7 @@
 // This event runs whenever the bot starts up
 // It's basically for creating its presence on Discord
 
-const { version } = require("../package.json");
+const activities = require("../assets/activities.json");
 
 module.exports = class {
   constructor(client) {
@@ -29,19 +29,10 @@ module.exports = class {
     this.client.user.setStatus("online"); // Then, after 5 seconds, sets the status back to online
 
     // Activity List
-    // You can add more to it!
-    const activities_list = [
-      "c.help | Use c.invite to invite me!", 
-      "c.help | View all Command categories: c.commands",
-      "c.help | Follow my creator on Twitter: @azura_apple",
-      "c.help | Need help for any command? Use c.help <command>!",
-      "c.help | Found bugs? c.feedback",
-      "c.help | Suggestions? c.feedback",
-      `c.help | v${version}`
-      ]; 
+    // You can add more to it in activities.json!
     setInterval(() => { // Randomly choses one of the following activites in an Interval 
-      const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
-      this.client.user.setPresence({ game: { name: activities_list[index], type: "PLAYING"}});
+      const index = Math.floor(Math.random() * (activities.length - 1) + 1); 
+      this.client.user.setPresence({ game: { name: activities[index], type: "PLAYING"}});
   }, 300000); // Changes every 5 minutes
     this.client.logger.log(`Ready and logged in as ${this.client.user.tag}`, "ready");
   }
