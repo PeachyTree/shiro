@@ -1,6 +1,5 @@
 const Command = require('../../base/Command.js');
-const { MessageEmbed } = require('discord.js');
-const zalgolize = require("../../assets/zalgolize.js");
+const zalgo = require('../../assets/json/zalgo');
 
 class Zalgolize extends Command {
   constructor(client) {
@@ -18,11 +17,16 @@ class Zalgolize extends Command {
       return message.reply("Command Usage: `zalgolize <Text>`")
     }
 
-    const embed = new MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle("__**Zalgolized Text**__")
-      .setDescription(zalgolize(args.join(' ')))
-    await message.channel.send({ embed });
+    let result = '';
+    const text = args.join(' ');
+		for (let i = 0; i < text.length; i++) {
+			result += text[i];
+			for (const chars of Object.values(zalgo)) {
+				let count = Math.floor(Math.random() * 5);
+				while (count--) result += chars[Math.floor(Math.random() * chars.length)];
+			}
+		}
+		return message.channel.send(result);
   };
 }
 
