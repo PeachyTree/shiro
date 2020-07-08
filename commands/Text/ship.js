@@ -5,7 +5,7 @@ class Ship extends Command {
     super(client, {
       name: "ship",
       description: "Combines two or more mentioned user's names.",
-      category: "Fun",
+      category: "Text",
       usage: "ship <@USER_MENTION1> <@USER_MENTION2>"
     });
   }
