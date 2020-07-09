@@ -41,8 +41,6 @@ class ImageSearch extends Command {
       this.client.logger.error(error);
       return message.channel.send(`An error occurred: ${error.message}`);
     });
-
-    message.channel.stopTyping(true);
   }
 }
 
