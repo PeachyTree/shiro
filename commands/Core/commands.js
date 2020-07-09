@@ -1,24 +1,22 @@
 // The COMMANDS command is used to display every command's name and description
-// to the user, so that they can see what commands are available. The commands
+// to the user, so that they can see what commands are available. The help
 // command is also filtered by level, so if a user does not have access to
-// a command, it is not shown to them. If a command name is given with the
-// help command, its extended help is shown.
+// a command, it is not shown to them.
 
-const Command = require('../../base/Command.js');
+const Command = require("../../base/Command.js");
 
 class Commands extends Command {
   constructor(client) {
     super(client, {
       name: "commands",
-      description: "Sends a list of all commands.",
-      category: "Core",
-      usage: "commands",
-      aliases: ["command", "cmd", "cmds"]
+      description: "Displays all commands available for you.",
+      usage: "commands [command]",
+      aliases: ["cmd", "cmds"]
     });
   }
 
   async run(message, args, level) {
-
+    // Shows all filtered commands, if no specific command is called.
     if (!args[0]) {
       // Loads guild settings (for prefixes and eventually per-guild tweaks)
       const settings = message.settings;
@@ -42,24 +40,33 @@ class Commands extends Command {
         output += `${settings.prefix}${c.help.name}${" ".repeat(longest - c.help.name.length)} :: ${c.help.description}\n`;
       });
 
+      let image;
+      if (message.channel.type === "text" && message.guild.me.hasPermission("ATTACH_FILES")) {
+        image = "https://i.imgur.com/9xF3uYR.png";
+      } else {
+        image = null;
+      }
+
       // Sends the output to the message author, and catches any errors that occur
         message.channel.send('Sending commands to your DM...');
-        message.author.send(output, { code:"asciidoc", split: { char: "\u200b" } })
-        .catch(e => {
-          if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
-            return message.channel.send(`Cannot send DMs to ${message.author}. Please enable the setting in your settings.`)
-          } else {
-            this.client.logger.error(e);
-            return message.channel.send(`An Error occurred: ${e.message}`);
-          }
-        });
-      
-      if (message.channel.type === "dm") {
-        await this.client.wait(2000);
-        message.author.send("Please note that due to the `commands` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `commands` command in a server.");
+        message.author.send(output, { code:"asciidoc", split: true })
+          .catch(e => {
+            if (e.toString().startsWith("DiscordAPIError: Cannot send messages to this user")) {
+              return message.channel.send('I couldn\'t send the DM...', {
+                file: image
+              });
+            } else {
+              this.client.logger.error(e);
+              return message.channel.send(`An Error occurred: ${e.message}`);
+            }
+          });
+        
+        if (message.channel.type === "dm") {
+          await this.client.wait(2000);
+          message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
+        }
       }
     }
-  }
 }
 
 module.exports = Commands;
