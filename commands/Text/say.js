@@ -5,7 +5,7 @@ class Say extends Command {
     super(client, {
       name: "say",
       description: "Lets me say something for you. Useful for example to create rules or help pages.",
-      category: "Productivity",
+      category: "Text",
       usage: "say <Text>",
       aliases: ["echo"],
       permLevel: 'Moderator'
