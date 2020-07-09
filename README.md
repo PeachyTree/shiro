@@ -8,7 +8,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 
 **Note: I am not testing every single command, I would really appreciate it that if you would find any errors that may occurr, to open an issue and I'll fix them as fast as I can!**
 
-## Filling out the .env / config.js file
+## Filling out the .env file
 
 *Note: Remove the .example part from both the .env and config.js files, once you are done!*
 
