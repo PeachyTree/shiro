@@ -63,7 +63,7 @@ class Commands extends Command {
         
         if (message.channel.type === "dm") {
           await this.client.wait(2000);
-          message.author.send("Please note that due to the `help` command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run the `help` command in a server.");
+          message.author.send("Please note that due to this command being run in DMs, only commands that work in DMs are shown in the list of commands.\nFor a list of *all* commands available for your permission level, please run this command in a server.");
         }
       }
     }
