@@ -7,7 +7,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 
 ## Filling out the .env / config.js file
 
-*Note: Remove the .example part from both the .env and config.js files, once you are done.*
+*Note: Remove the .example part from both the .env and config.js files, once you are done!*
 
 ### Bot-related Information:
 * `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
