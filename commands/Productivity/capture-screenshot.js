@@ -1,6 +1,3 @@
-// Credit to dragonfire535 for the optimized and cleaner version of this command
-// https://github.com/dragonfire535
-
 const Command = require('../../base/Command.js');
 const request = require('node-superfetch');
 

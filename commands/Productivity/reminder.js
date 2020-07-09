@@ -21,7 +21,7 @@ class Reminder extends Command {
 
     let reminder = args.slice(1).join(" "); 
 
-    message.channel.send(`☑️ | Got it, ${message.author.username}! I will remind you about **${reminder}** in in **${reminderTime}**! *wink*`); 
+    message.channel.send(`☑️ | Got it, ${message.author.username}! I will remind you about **${reminder}** in **${reminderTime}**! *wink*`); 
 
     setTimeout(function() {
       message.reply(`you wanted me to remind you about: ${reminder}`);
