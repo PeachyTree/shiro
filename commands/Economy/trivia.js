@@ -2,23 +2,27 @@ const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const h = new (require("html-entities").AllHtmlEntities)();
+const db = require('quick.db');
 
 class Trivia extends Command {
   constructor(client) {
     super(client, { 
       name: "trivia",
-      description: "Put your general knowledge to the test.",
-      category: "Fun",
+      description: "Put your general knowledge to the test and earn Gems!",
+      category: "Economy",
       usage: "trivia [difficulty (easy | medium | hard)]",
       aliases: ["randomtrivia", "testme", "quiz"]
     });
   }
 
-  async run(message, args, level) { 
+  async run(message, args) { 
+
+    let earned = "4"; // Amount of Gems, earned after a user got the right answer
+    let lost = "2"; // Amount of Gems, lost after a user got the wrong answer
 
     const levels = ["easy", "medium", "hard"];
     const difficulty = args[0] || "medium";
-    if (!levels.includes(difficulty.toLowerCase())) return message.reply("Invalid difficulty specified. Please choose from one of **easy**, **medium** or **hard**.");
+    if (!levels.includes(difficulty.toLowerCase())) return message.reply("Command Usage: `trivia [difficulty (easy | medium | hard)]`");
 
     const { body } = await request.get(`https://opentdb.com/api.php?amount=50&difficulty=${difficulty.toLowerCase()}&type=multiple`);
     const quiz = body.results.random();
@@ -42,8 +46,8 @@ class Trivia extends Command {
 
     const choice = randomChoices[["a", "b", "c", "d"].indexOf(question.toLowerCase())];
     if (!choice) return message.channel.send("That's not a valid answer!\nFor future reference, please ensure your answer is either **A**, **B**, **C**, or **D** (lowercase and uppercase are both accepted).");
-    if (choice === h.decode(quiz.correct_answer)) return message.channel.send(`☑️ | Well done, your answer is correct!\nTrivia session ended.`);
-    else return message.channel.send(`Unfortunately, that's the wrong answer. The correct answer was **${h.decode(quiz.correct_answer)}**, and you chose **${choice}**.\nTrivia session ended.`);
+    if (choice === h.decode(quiz.correct_answer)) return db.add(`gems_${message.author.id}`, 4) , message.channel.send(`☑️ | Well done, your answer is correct! You also earned ${earned} ${GEM_EMOJI_ID}\nTrivia session ended.`);
+    else return db.subtract(`gems_${message.author.id}`, 2) , message.channel.send(`Unfortunately, that's the wrong answer. Sadly, you also lost ${lost} ${GEM_EMOJI_ID}.\nThe correct answer was **${h.decode(quiz.correct_answer)}**, and you chose **${choice}**.\nTrivia session ended.`);
   }
 }
 
