@@ -7,7 +7,7 @@ class Poll extends Command {
       name: "poll",
       description: "Starts a poll in the current text channel asking users to vote with the specified time. If no time is specified, poll ends in 60 minutes.",
       category: "Productivity",
-      usage: "poll <question> [TIME_IN_MINUTES] | [end]"
+      usage: "poll <question> [TIME_IN_MINUTES]"
     });
   }
 
@@ -37,7 +37,7 @@ class Poll extends Command {
       let upVotes = upVoteCollection.first().count;
       let downVoteCollection = msg.reactions.filter(rx => rx.emoji.name == '❌');
       let downVotes = downVoteCollection.first().count;
-      if (args[0] === "end") return msg.delete, message.channel.send(`Poll ended by ${message.author.username}.\nResults: ✅: ${upVotes} votes, ❌: ${downVotes} votes`);
+      return message.channel.send(`Poll ended by ${message.author.username}.\nResults: ✅: ${upVotes} votes, ❌: ${downVotes} votes`);
     })
     msg.delete({timeout: time}); 
   }
