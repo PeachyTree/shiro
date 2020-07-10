@@ -1,6 +1,6 @@
 # Celestia Discord Bot
 
-Celestia 2.2.5 ©2018-2020 AzuraApple#0955
+Celestia 2.3.1 ©2018-2020 AzuraApple#0955
 
 A Discord Bot with focus on Fun, Moderation, Economy, Utility commands and much more.
 
@@ -35,6 +35,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 * `CLEARBIT_KEY=` can be obtained at the [Clearbit dashboard](https://dashboard.clearbit.com/login).
 * `GOOGLE_API=` can be obtained by going to the Google API. You need to create a new Application on the [Google Cloud Console](https://console.cloud.google.com/home/dashboard). After that, enable the [YouTube Data API](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508&project=azura-278914&hl).
 * `GIPHY_API_KEY=` can be obtained by going to the [Giphy API Page](https://developers.giphy.com/).
+* `IMGUR_KEY=` can be obtained by [Registering an Application at the Imgur website](https://imgur.com/signin?redirect=https%3A%2F%2Fapi.imgur.com%2Foauth2%2Faddclient).
 * `OSU_KEY=` can be obtained by [signing up at the osu! API page](https://osu.ppy.sh/forum/ucp.php?mode=login). Whether this link takes you to the right page or not is hit-or-miss.
 * `THECATAPI_KEY=` can be obtained by going to the [Cat API](https://thecatapi.com/).
 * `UNSPLASH_ACCESS_KEY=` can be obtained by going to the [Unsplash Image API](https://unsplash.com/developers).
@@ -43,6 +44,9 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 ### Feedback Command
 *Note: This is a Channel ID for the channel you want to view feedback from. It's not really required, so delete it, with the feedback command, if you don't want or need it.*
 `FEEDBACK_CHANNEL=` is simply the channel ID of any channel in the main server the bot should be in.
+
+### Imgur Album IDS
+As all of these keys are the same process, this is a little different. You need to first sign up for Imgur. Then you just need to go to your profile and make albums that contain the images for the command(s) you want to use. Use the ID of that album (look at the URL) as the variable. Yes, you need to fill these albums yourself.
 
 ## License
 For more information view the `LICENSE` file.
