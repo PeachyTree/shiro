@@ -32,15 +32,15 @@ class Company extends Command {
             return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
         }
     }
+
+    async fetchCompany(query) {
+        const { body } = await request
+            .get(`https://autocomplete.clearbit.com/v1/companies/suggest`)
+            .query({ query })
+            .set({ Authorization: `Bearer ${CLEARBIT_KEY}` });
+        if (!body.length) return null;
+        return body[0];
+    }
 }
 
 module.exports = Company;
-
-async function fetchCompany(query) {
-    const { body } = await request
-        .get(`https://autocomplete.clearbit.com/v1/companies/suggest`)
-        .query({ query })
-        .set({ Authorization: `Bearer ${CLEARBIT_KEY}` });
-    if (!body.length) return null;
-    return body[0];
-}
