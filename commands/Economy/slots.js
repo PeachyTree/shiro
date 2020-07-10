@@ -16,7 +16,7 @@ class Slots extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     let cooldown = 3.6e+6;
     // 1 hour cooldown as in flip/roll to prevent uses from cheating.

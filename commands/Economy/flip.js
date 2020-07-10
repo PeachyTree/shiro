@@ -16,7 +16,7 @@ class Flip extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     let cooldown = 3.6e+6; // = 1 hour cooldown
     // This command has a cooldown, so it can't be instantly, to prevent users to cheat.

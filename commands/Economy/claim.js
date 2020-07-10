@@ -14,7 +14,7 @@ class Claim extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
 
     let dailyCooldown = 8.64e+7; // = 24 hours in ms
 

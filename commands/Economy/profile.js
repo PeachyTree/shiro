@@ -14,7 +14,7 @@ class Profile extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
 
     let user = message.mentions.users.first() || message.author;
     let money = await db.get(`gems_${user.id}`);

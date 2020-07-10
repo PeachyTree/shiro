@@ -13,7 +13,7 @@ class Work extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
 
     if (talkedRecently.has(message.author.id)) {
       message.reply("You can only use this command once every 3 hours! Wait 3 hours before using this again!");

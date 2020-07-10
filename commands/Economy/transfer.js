@@ -12,7 +12,7 @@ class Transfer extends Command {
       });
     }
   
-    async run(message, args, level, settings) { 
+    async run(message, args) { 
 
         let user = message.mentions.members.first() 
 

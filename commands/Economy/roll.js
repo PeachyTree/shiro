@@ -16,7 +16,7 @@ class Roll extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     let cooldown = 3.6e+6;
     // Same as flip, 1 hour limit to prevent users to cheat.

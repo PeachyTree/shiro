@@ -14,7 +14,7 @@ class ItemShop extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
 
     // This command uses the example of the buy-item.js command
     // It uses the same item and amount of Gems, just to show an example

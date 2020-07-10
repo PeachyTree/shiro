@@ -15,7 +15,7 @@ class BuyItem extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     const item = args;
     // "gems_" is just an example and can be changed to anyting else, same goes with item above!
