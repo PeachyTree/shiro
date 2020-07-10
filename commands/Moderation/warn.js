@@ -13,14 +13,14 @@ class Warn extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-    if (!message.guild.me.permissions.has(["EMBED_LINKS", "ADD_REACTIONS"])) return message.channel.send(`🚫 | I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"Embed Links\" & \"Add Reactions\" permissions.`);
+    if (!message.guild.me.permissions.has(["EMBED_LINKS", "ADD_REACTIONS"])) return message.channel.send(`I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"Embed Links\" & \"Add Reactions\" permissions.`);
 
     const user = message.mentions.users.first();
     let reason = args.slice(1).join(" ") || undefined;
     
-    if (!user) return message.react('🚫'), message.reply('Command Usage: `warn <@USER_MENTION> <Reason>`');
+    if (!user) return message.reply('Command Usage: `warn <@USER_MENTION> <Reason>`');
     if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("🚫 | You cannot warn this user as they have the same role or a higher role than you.");
     if (!reason) {
       message.channel.send('Please enter a reason for the warning...\nThis text-entry period will time-out in 30 seconds. Reply with `cancel` to exit.');
@@ -56,7 +56,7 @@ class Warn extends Command {
         message.react("✅");
       } catch (error) {
         this.client.logger.error(error);
-        return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+        return message.channel.send(`An error occurred:\n\```${error.message}\````);
       }
     }
   }

@@ -15,17 +15,17 @@ class Unmute extends Command {
 
   async run(message, args, level, settings) { 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-    if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(`🚫 | I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"Manage Roles\" permission.`);
+    if (!message.guild.me.hasPermission("MANAGE_ROLES")) return message.channel.send(`I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"Manage Roles\" permission.`);
 
     const muteRole = message.guild.roles.find(role => role.name === "Muted");
     const empty = await this.isEmpty(muteRole);
-    if (empty) return message.channel.send(`🚫 | A "Muted" role does not exist on this server. To create one, please run the \`${settings.prefix}mute\` command.`);
+    if (empty) return message.channel.send(`A "Muted" role does not exist on this server. To create one, please run the \`${settings.prefix}mute\` command.`);
 
     const user = message.mentions.users.first();
     let reason = args.slice(1).join(" ");
     
-    if (!user) return message.react("🚫"), message.reply("Command Usage: `unmute <@USER_MENTION> <Reason>`")
-    if (user.id === message.author.id) return message.channel.send("🚫 | You cannot unmute yourself!");
+    if (!user) return message.reply("Command Usage: `unmute <@USER_MENTION> <Reason>`")
+    if (user.id === message.author.id) return message.channel.send("You cannot unmute yourself!");
     if (message.guild.member(message.author).highestRole.position <= message.guild.member(user).highestRole.position) return message.channel.send("🚫 | You cannot unmute this user as they have a higher role than you.");
 
     if (!reason) {
@@ -50,7 +50,7 @@ class Unmute extends Command {
         message.react("✅");
       });
     } else {
-      return message.channel.send("🚫 | The mentioned user isn't muted, so I cannot unmute them.");
+      return message.channel.send("The mentioned user isn't muted, so I cannot unmute them.");
     }
 
     try {
@@ -66,7 +66,7 @@ class Unmute extends Command {
       user.send(`You have been unmuted in **${message.guild.name}**.\nPlease ensure you always follow the rules to prevent being muted again!`);
     } catch (error) {
       this.client.logger.error(error.stack);
-      return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+      return message.channel.send(`An error occurred:\n\```${error.message}\````);
     }
   }
 

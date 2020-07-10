@@ -14,13 +14,13 @@ class Lockdown extends Command {
       });
     }
 
-    async run(message, args, level, settings) { 
+    async run(message, args, settings) { 
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
         if (!this.client.lockit) this.client.lockit = [];
         const time = args.join(" ");
         const validUnlocks = ["release", "rel", "unlock", "end", "stop"];
-        if (!time) return message.react('🚫 '), message.channel.send("Command Usage: `lockdown <duration (seconds | minute(s) | hour(s))>`");
+        if (!time) return message.channel.send("Command Usage: `lockdown <duration (seconds | minute(s) | hour(s))>`");
 
         try {
             if (validUnlocks.includes(time)) {
@@ -56,7 +56,7 @@ class Lockdown extends Command {
                 });
             }
         } catch (error) {
-            message.channel.send(`🚫 | An error occurred whilst trying to lock this channel down. Use \`${settings.prefix}help lockdown\` to see how to use this command.`);
+            message.channel.send(`An error occurred whilst trying to lock this channel down. Use \`${settings.prefix}help lockdown\` to see how to use this command.`);
         }
     }
 }

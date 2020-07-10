@@ -12,14 +12,14 @@ class Report extends Command {
     });
   }
   
-  async run(message, args, level, settings) {
+  async run(message, args) {
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-    if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(`🚫 | I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"Embed Links\" permission.`);
+    if (!message.guild.me.hasPermission("EMBED_LINKS")) return message.channel.send(`I cannot run this command as I have insufficient permissions to do so. Please ensure I have the \"Embed Links\" permission.`);
 
     const user = message.mentions.users.first();
     const reason = args.slice(1).join(" ");
    
-    if (!user || !reason) return message.react("🚫"), message.reply('Command Usage: `report <@USER_MENTION> <Reason / Info>`')
+    if (!user || !reason) return message.reply('Command Usage: `report <@USER_MENTION> <Reason / Info>`')
 
     message.delete();
 
@@ -37,7 +37,7 @@ class Report extends Command {
     })
     .catch(error => {
       this.client.logger.error(error);
-      return message.channel.send(`🚫 | An error occurred:\n\```${error.message}\````);
+      return message.channel.send(`An error occurred:\n\```${error.message}\````);
     });
   }
 }
