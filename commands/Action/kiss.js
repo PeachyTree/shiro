@@ -12,7 +12,6 @@ class Kiss extends Command {
             guildOnly: true,
             aliases: ['smooch']
         });
-        this.cache = null;
     }
 
     async run(message) {
@@ -29,13 +28,13 @@ class Kiss extends Command {
     }
 
     async random() {
-        if (this.cache) return this.cache[Math.floor(Math.random() * this.cache.length)];
+        if (this.client.cache) return this.client.cache[Math.floor(Math.random() * this.client.cache.length)];
         const { body } = await request
             .get(`https://api.imgur.com/3/album/${KISS_ALBUM_ID}`)
             .set({ Authorization: `Client-ID ${IMGUR_KEY}` });
         if (!body.data.images.length) return null;
-        this.cache = body.data.images.map(image => image.link);
-        setTimeout(() => { this.cache = null; }, 3.6e+6);
+        this.client.cache = body.data.images.map(image => image.link);
+        setTimeout(() => { this.client.cache = null; }, 3.6e+6);
         return body.data.images[Math.floor(Math.random() * body.data.images.length)].link;
     }
 };
