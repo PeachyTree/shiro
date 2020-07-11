@@ -20,6 +20,7 @@ class Celestia extends Discord.Client {
     this.settings = new Enmap({ name: "settings" });
     this.logger = require("./util/Logger");
     this.wait = promisify(setTimeout);
+    this.cache = null;
   }
 
   // Permission Levels
