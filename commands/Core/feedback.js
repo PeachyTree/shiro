@@ -15,7 +15,7 @@ class Feedback extends Command {
     }
 
     async run(message, args) {
-        let channel = this.client.channels.get(FEEDBACK_CHANNEL);
+        let channel = this.client.channels.cache.get(FEEDBACK_CHANNEL);
 
         if (!args.length) {
             return message.reply("Command Usage: `feedback <Suggestion / Issue>`")
