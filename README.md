@@ -22,8 +22,13 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
 * `SYSTEM_NOTICE=` Leave this to `true`, which is set by default. This shouldn't be touched.
 
-### Emoji IDs:
-`GEM_EMOJI_ID=` is used by the Economy commands. As example, Celestia uses Gems as currency system, aka a custom Gem emoji to actually display the currency. This is totally optional!
+### Emoji IDs (All of them are totally optional!):
+* `BAN_EMOJI_ID=` is used by the Moderation commands `ban` and `forceban`.
+* `FEEDBACK_EMOJI_ID=` is used by the Core command `feedback`.
+* `GEM_EMOJI_ID=` is used by the Economy commands. As example, Celestia uses Gems as currency system, aka a custom Gem emoji to actually display the currency.
+* `KICK_EMOJI_ID=` is used by the Moderation command `kick`.
+* `REPORT_EMOJI_ID=` is used by the Moderation command `report`. 
+* `WARN_EMOJI_ID=` is used by the Moderation command `warn`.
 
 ### Roles:
 *Note:  Feel free to change these roles for your server. It's not required to change them though. Defaults below. Those are for the permission level function, so that the bot knows who is an Admin, Moderator, or user.*

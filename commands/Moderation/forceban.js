@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
+const { BAN_EMOJI_ID } = process.env;
 
 class ForceBan extends Command {
   constructor(client) {
@@ -29,7 +30,7 @@ class ForceBan extends Command {
       });
 
     const embed = new MessageEmbed()
-      .setTitle(`🚫 | __**Member force-banned from ${message.guild.name}**__`)
+      .setTitle(`${BAN_EMOJI_ID} | __**Member force-banned from ${message.guild.name}**__`)
       .setColor('RANDOM')
       .addField('Target:', `${userID}`)
       .addField('Issued by:', `${message.author.tag} (${message.author.id})`)

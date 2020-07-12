@@ -1,7 +1,7 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const { version } = require("../../package.json");
-const { FEEDBACK_CHANNEL } = process.env;
+const { FEEDBACK_CHANNEL, FEEDBACK_EMOJI_ID } = process.env;
 
 class Feedback extends Command {
     constructor(client) {
@@ -24,7 +24,7 @@ class Feedback extends Command {
             try {
                 const embed = new MessageEmbed()
                     .setColor('RANDOM')
-                    .setTitle(`Feedback command used by ${message.author.tag}`)
+                    .setTitle(`${FEEDBACK_EMOJI_ID} | Feedback command used by ${message.author.tag}`)
                     .addField("In:", `${message.guild.name}, ${message.channel.name} (${message.channel.id})`)
                     .addField("Issue:", args.join(" "))
                     .setFooter(`Celestia v${version}`)

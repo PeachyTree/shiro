@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
+const { BAN_EMOJI_ID } = process.env;
 
 class Ban extends Command {
   constructor(client) {
@@ -52,7 +53,7 @@ class Ban extends Command {
         const lastMessage = message.guild.member(user).lastMessageID;
 
         const embed = new MessageEmbed()
-          .setTitle(`🚫 | __**Member banned from ${message.guild.name}**__`)
+          .setTitle(`${BAN_EMOJI_ID} | __**Member banned from ${message.guild.name}**__`)
           .setColor('RANDOM')
           .addField('Target:', `${user.tag} (${user.id})`)
           .addField('Issued by:', `${message.author.tag} (${message.author.id})`)

@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
+const { WARN_EMOJI_ID } = process.env;
 
 class Warn extends Command {
   constructor(client) {
@@ -42,7 +43,7 @@ class Warn extends Command {
     if (reason) {
       try {
         const embed = new MessageEmbed()
-          .setTitle(`⚠️ | __**Warning issued in #${message.channel.name}**__`)
+          .setTitle(`${WARN_EMOJI_ID} | __**Warning issued in #${message.channel.name}**__`)
           .setColor('RANDOM')
           .addField('Issued to:', `${user.tag} (${user.id})`)
           .addField('Issued by:', `${message.author.tag} (${message.author.id})`)

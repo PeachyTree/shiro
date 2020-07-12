@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
+const { REPORT_EMOJI_ID } = process.env;
 
 class Report extends Command {
   constructor(client) {
@@ -24,7 +25,7 @@ class Report extends Command {
     message.delete();
 
     const embed = new MessageEmbed()
-      .setTitle(`🚩 | __**Report received from ${message.author.tag} (${message.author.id})**__`)
+      .setTitle(`${REPORT_EMOJI_ID} | __**Report received from ${message.author.tag} (${message.author.id})**__`)
       .setColor('RANDOM')
       .addField('Target:', `${user.tag} (${user.id})`)
       .addField('Reason:', `${reason}`)

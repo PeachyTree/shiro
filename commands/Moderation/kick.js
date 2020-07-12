@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
+const { KICK_EMOJI_ID } = process.env;
 
 class Kick extends Command {
   constructor(client) {
@@ -52,7 +53,7 @@ class Kick extends Command {
         }
 
         const embed = new MessageEmbed()
-          .setTitle(`👢 | __**Member kicked in #${message.channel.name}**__`)
+          .setTitle(`${KICK_EMOJI_ID} | __**Member kicked in #${message.channel.name}**__`)
           .setColor('RANDOM')
           .addField('Issued to:', `${user.tag} (${user.id})`)
           .addField('Issued by:', `${message.author.tag} (${message.author.id})`)
