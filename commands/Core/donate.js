@@ -11,11 +11,11 @@ class Donate extends Command {
   }
 
   async run(message) {
-	return message.channel.send(stripIndents`
-		Contribute to development!
-		https://paypal.me/AzuraApple
-	`);
-	}
+    return message.channel.send(stripIndents`
+      Contribute to development!
+      https://paypal.me/AzuraApple
+    `);
+  }
 };
 
 module.exports = Donate;
