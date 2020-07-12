@@ -27,6 +27,7 @@ class Stats extends Command {
       .addField(':card_box: | **Channel Count**', `${this.client.channels.cache.size.toLocaleString()}`, true)
       .addField(':chart_with_downwards_trend: | **Memory Usage**', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
       .addField(':page_facing_up: | **Version**', `v${version}`, true)
+      .setFooter('Copyright ©2018-2020 Azura Apple#0955')
     await message.channel.send({ embed });
     
   }
