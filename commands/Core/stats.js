@@ -18,7 +18,6 @@ class Stats extends Command {
   async run(message) { 
     const duration = moment.duration(this.client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
-    const msg = await message.channel.send("🔄 | Fetching bot stats...");
     const embed = new MessageEmbed()
       .setTitle("__**Celestia Bot Stats**__")
       .setColor('RANDOM')
@@ -28,7 +27,7 @@ class Stats extends Command {
       .addField(':card_box: | **Channel Count**', `${this.client.channels.cache.size.toLocaleString()}`, true)
       .addField(':chart_with_downwards_trend: | **Memory Usage**', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
       .addField(':page_facing_up: | **Version**', `v${version}`, true)
-    await msg.edit({ embed });
+    await message.channel.send({ embed });
     
   }
 }
