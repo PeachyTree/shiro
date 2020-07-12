@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const h = new (require("html-entities").AllHtmlEntities)();
 const db = require('quick.db');
+const { GEM_EMOJI_ID } = process.env;
 
 class Trivia extends Command {
   constructor(client) {
