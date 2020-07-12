@@ -35,7 +35,7 @@ class Anime extends Command {
             })
 
         } else {
-            let search = args.split(/\s+/g).slice(1).join(" ");
+            let search = args.join(" ");
 
             kitsu.searchAnime(search).then(result => {
                 if (result.length === 0) {
