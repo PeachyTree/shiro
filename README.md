@@ -1,6 +1,6 @@
 # Celestia Discord Bot
 
-Celestia 2.3.3 ©2018-2020 Azura Apple#0955
+Celestia 2.3.4 ©2018-2020 Azura Apple#0955
 
 A Discord Bot with focus on Fun, Moderation, Economy, Utility commands and much more.
 
