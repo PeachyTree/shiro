@@ -13,13 +13,14 @@ class Ping extends Command {
   } 
 
   async run(message) { 
+    const pingMsg = 'Ping?'
     const embed = new MessageEmbed()
       .setTitle("__**Ping!**__")
       .setColor('RANDOM')
       .addField(':ping_pong: **Ping (Bot)**', `${pingMsg.createdTimestamp - message.createdTimestamp}ms`, true)
       .addField(':satellite: **Ping (API)**', `${Math.round(this.client.ws.ping)}ms`, true)
       .setTimestamp()
-    message.channel.send({ embed });
+    await message.channel.send({ embed });
   }
 }
 
