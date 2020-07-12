@@ -18,7 +18,7 @@ class Ping extends Command {
       .setTitle("__**Ping!**__")
       .setColor('RANDOM')
       .addField(':ping_pong: **Ping (Bot)**', `${pingMsg.createdTimestamp - message.createdTimestamp}ms`, true)
-      .addField(':satellite: **Ping (API)**', `${Math.round(this.client.ping)}ms`, true)
+      .addField(':satellite: **Ping (API)**', `${Math.round(this.client.ws.ping)}ms`, true)
       .setTimestamp()
     pingMsg.edit({ embed });
   }
