@@ -23,9 +23,9 @@ class Stats extends Command {
       .setTitle("__**Celestia Bot Stats**__")
       .setColor('RANDOM')
       .addField(':clock4: | **Uptime**', `${duration}`, true)
-      .addField(':bar_chart: | **Server Count**', `${this.client.guilds.size.toLocaleString()}` , true)
-      .addField(':chart_with_upwards_trend: | **User Count**', `${this.client.users.size.toLocaleString()}`, true)
-      .addField(':card_box: | **Channel Count**', `${this.client.channels.size.toLocaleString()}`, true)
+      .addField(':bar_chart: | **Server Count**', `${this.client.guilds.cache.size.toLocaleString()}` , true)
+      .addField(':chart_with_upwards_trend: | **User Count**', `${this.client.users.cache.size.toLocaleString()}`, true)
+      .addField(':card_box: | **Channel Count**', `${this.client.channels.cache.size.toLocaleString()}`, true)
       .addField(':chart_with_downwards_trend: | **Memory Usage**', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
       .addField(':page_facing_up: | **Version**', `v${version}`, true)
     await msg.edit({ embed });
