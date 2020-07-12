@@ -13,7 +13,7 @@ class Ping extends Command {
   } 
 
   async run(message) { 
-    const pingMsg = 'Ping?'
+    const pingMsg = message.channel.send('Ping?');
     const embed = new MessageEmbed()
       .setTitle("__**Ping!**__")
       .setColor('RANDOM')
