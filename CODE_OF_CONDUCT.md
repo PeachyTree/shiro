@@ -1,0 +1,1 @@
+If at anytime you choose to do an action that a rational person of average intelligence could reasonably consider your actions as violating or dumb, you are in violation of this code of conduct.
