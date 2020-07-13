@@ -31,8 +31,8 @@ module.exports = class {
     // Activity List
     // You can add more to it in activities.json!
     setInterval(() => { // Randomly choses one of the following activites in an Interval 
-      const index = Math.floor(Math.random() * (activities.length - 1) + 1); 
-      this.client.user.setPresence({ game: { name: activities[index], type: "PLAYING"}});
+      let index = activities[Math.round(Math.random() * (index.length - 1))];
+      this.client.user.setPresence({ game: { name: activities, type: "PLAYING"}});
   }, 300000); // Changes every 5 minutes
     this.client.logger.log(`Ready and logged in as ${this.client.user.tag}`, "ready");
   }
