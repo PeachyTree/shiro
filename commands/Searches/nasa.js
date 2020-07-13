@@ -7,7 +7,7 @@ class Nasa extends Command {
     constructor(client) {
         super(client, {
             name: "nasa",
-            description: "Searches NASA\'s image archive for your query.",
+            description: "Searches NASA's image archive for your query.",
             category: "Searches",
             usage: "nasa <Query>"
         });
