@@ -6,6 +6,7 @@ class Donate extends Command {
     super(client, {
       name: "donate",
       description: "Responds with the bot's donation links.",
+      category: "Core",
       usage: "donate"
     });
   }
