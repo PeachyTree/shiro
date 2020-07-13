@@ -10,6 +10,7 @@ class Commands extends Command {
     super(client, {
       name: "commands",
       description: "Displays all commands available for you.",
+      category: "Core",
       usage: "commands [command]",
       aliases: ["cmd", "cmds"]
     });
