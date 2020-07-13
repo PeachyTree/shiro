@@ -15,10 +15,7 @@ class Avatar extends Command {
     const member = message.mentions.users.first() || message.author;
 
     if (!member.user.avatar) return message.channel.send('This user does not have an avatar!');
-    const avatar = member.user.avatarURL({
-      format: member.user.avatar.startsWith('a_') ? 'gif' : 'png',
-      size: 2048
-    });
+    const avatar = member.avatarURL({format: 'jpg' , dynamic : true, size: 2048})
 
     const embed = new MessageEmbed()
       .setAuthor(`__${member.user.tag}'s Avatar__`, avatar)
