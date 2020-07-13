@@ -11,7 +11,7 @@ class Fortune extends Command {
     });
   }
 
-  run(message, args, level, settings) { 
+  run(message) { 
     message.channel.send(`🔮 | ${fortune[Math.round(Math.random() * (fortune.length - 1))]}`)
   }
 }

@@ -12,7 +12,7 @@ class Kaomoji extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message) {
     let face = kaomojis[Math.round(Math.random() * (face.length - 1))];
     return message.channel.send(face);
   }

@@ -11,7 +11,7 @@ class Advice extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const res = await request.get('http://api.adviceslip.com/advice');
     let advice = JSON.parse(res.body)
 

@@ -12,7 +12,7 @@ class DadJoke extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const meta = { "Accept": "text/plain" };
 
     fetch("https://icanhazdadjoke.com/", { headers: meta })

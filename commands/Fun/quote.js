@@ -13,7 +13,7 @@ class Quote extends Command {
     });
   }
 
-  run(message, args, level, settings) {
+  run(message) {
 
     let random = Math.floor(Math.random() * total + 1);
     let quote = quotes[random];

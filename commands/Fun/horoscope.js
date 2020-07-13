@@ -28,7 +28,7 @@ class Horoscope extends Command {
         });
     }
 
-    async run(message, args, level, settings) {
+    async run(message, args) {
         const sign = args.join(" ");
         if (!sign) return message.channel.send("Command Usage: `horoscope <Sign>`");
 

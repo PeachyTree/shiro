@@ -38,7 +38,7 @@ class Tsundere extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message) {
     return message.channel.send(tsun[Math.round(Math.random() * (tsun.length - 1))]);
   }
 }

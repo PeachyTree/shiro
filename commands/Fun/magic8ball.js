@@ -12,7 +12,7 @@ class Magic8Ball extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
 
     /*
       OUTCOME TYPES:

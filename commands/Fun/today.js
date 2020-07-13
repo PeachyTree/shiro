@@ -12,7 +12,7 @@ class Today extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const res = await request.get('http://history.muffinlabs.com/date');
     const data = JSON.parse(res.body)
     const source = data.data['Events']

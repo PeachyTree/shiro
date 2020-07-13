@@ -11,7 +11,7 @@ class Joke extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     fetch("https://official-joke-api.appspot.com/random_joke")
     .then(res => res.json())
     .then(data => message.channel.send(`${data.setup} ${data.punchline}`))

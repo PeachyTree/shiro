@@ -13,7 +13,7 @@ class PickUpLine extends Command {
     });
   }
 
-  async run(message, args, level, settings) {
+  async run(message) {
     const embed = new MessageEmbed()
       .setTitle('__**Your pickupline:**__')
       .setDescription(`💖 | ${line[Math.round(Math.random() * (line.length - 1))]}`)

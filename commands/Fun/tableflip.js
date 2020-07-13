@@ -17,7 +17,7 @@ class TableFlip extends Command {
       });
     }
 
-    async run(message, args, level) { 
+    async run(message) { 
       const msg = await message.channel.send("(\\\\°□°)\\\\  ┬─┬");
 
       for (const frame of flipFrames) {

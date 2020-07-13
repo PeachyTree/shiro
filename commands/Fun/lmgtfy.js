@@ -11,7 +11,7 @@ class LMGTFY extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     const textQuery = args.join(" ");
     const query = encodeURIComponent(args.join(" "));
     const url = `https://lmgtfy.com/?q=${query}`;
