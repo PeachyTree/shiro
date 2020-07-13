@@ -7,7 +7,6 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
-const { CELESTIA_TOKEN } = process.env;
 
 // Client Settings
 class Celestia extends Discord.Client {
