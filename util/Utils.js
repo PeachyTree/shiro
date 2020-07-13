@@ -18,7 +18,14 @@ class Utils {
 
   static embedURL(title, url, display) {
 		return `[${title}](${url.replace(/\)/g, '%27')}${display ? ` "${display}"` : ''})`;
-	}
+  }
+  
+  static getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
 }
 
 module.exports = Utils;
