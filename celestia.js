@@ -144,7 +144,7 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-  client.login(CELESTIA_TOKEN);
+  client.login();
 
 };
 
