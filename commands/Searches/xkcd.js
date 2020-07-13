@@ -8,7 +8,7 @@ class XKCDComic extends Command {
     super(client, {
       name: "xkcd",
       description: "Searches for a comic on xkcd.",
-      category: "Utility",
+      category: "Searches",
       usage: "xkcd [ latest | comic_number ]",
       aliases: ["comic"]
     });
