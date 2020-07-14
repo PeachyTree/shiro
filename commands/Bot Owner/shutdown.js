@@ -11,7 +11,7 @@ class Shutdown extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message) { 
     try {
       await message.channel.send(":wave: | Shutting down...");
       this.client.commands.forEach(async cmd => {

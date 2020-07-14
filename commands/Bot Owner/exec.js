@@ -12,7 +12,7 @@ class Exec extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     this.client.logger.warn("⚠️ | Exec command used");
 
     try {

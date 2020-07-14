@@ -11,7 +11,7 @@ class Eval extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message, args) { 
     this.client.logger.warn("⚠️ | Eval command used");
 
     const code = args.join(" ");

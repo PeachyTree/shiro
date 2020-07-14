@@ -11,7 +11,7 @@ class Nonce extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message) { 
     try {
       const msg = await message.channel.send(message.nonce);
       msg.edit(`${message.nonce}\nDelivery time: **${msg.createdTimestamp - message.createdTimestamp}**ms.`);

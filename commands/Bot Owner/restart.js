@@ -11,7 +11,7 @@ class Restart extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message) { 
     try {
       await message.channel.send("🔄 | Restarting, please wait...");
       this.client.commands.forEach(async cmd => {
