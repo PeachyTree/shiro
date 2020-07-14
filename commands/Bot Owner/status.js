@@ -11,9 +11,9 @@ class Status extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message, args) { 
     const status = args[0];
-    if (!status) return message.react('🚫'), message.reply("A status type must be provided.");
+    if (!status) return message.reply("A status type must be provided.");
 
     const statusType = args[0].toLowerCase();
 
@@ -21,7 +21,7 @@ class Status extends Command {
       this.client.user.setStatus(status);
       message.channel.send(`☑️ | Status successfully changed to **${statusType}**.\nPlease note that initially changing status may take up to a minute or two.`);
     } else {
-      return message.channel.send(`🚫 | "${statusType}" is not a valid status type.`);
+      return message.channel.send(`"${statusType}" is not a valid status type.`);
     }
   }
 }
