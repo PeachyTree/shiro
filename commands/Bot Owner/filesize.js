@@ -12,9 +12,9 @@ class FileSize extends Command {
     });
   }
 
-  async run(message, args, level) { 
+  async run(message, args) { 
     const file = args[0];
-    if (!file) return message.react('🚫'), message.reply("You must provide a file (and location if non-root file), and the correct syntax must be used.");
+    if (!file) return message.reply("You must provide a file (and location if non-root file), and the correct syntax must be used.");
 
     try {
       const stats = fs.statSync(file);
@@ -23,7 +23,7 @@ class FileSize extends Command {
 
       message.channel.send(`\`${file}\` currently has a size of **${fileBytes}** bytes (${fileKB.toFixed(2)}KB).`);
     } catch (error) {
-      if (error.code === "ENOENT") return message.channel.send(`🚫 | The file \`${file}\` could not be found.`);
+      if (error.code === "ENOENT") return message.channel.send(`The file \`${file}\` could not be found.`);
       else this.client.logger.error(error);
     }
   }
