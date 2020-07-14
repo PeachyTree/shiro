@@ -22,7 +22,7 @@ class GenerateInvite extends Command {
 
     await message.channel.send('Hiya.\n'
       + 'If you wanna invite friends to this server, share the following invite'
-      + ' link with your friends.\n<3\n' +
+      + ' link with your friends.\n' +
       `https://discord.gg/${invite.code}`);
   };
 }
