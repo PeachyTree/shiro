@@ -61,8 +61,8 @@ is every permission the bot asks for:
 
 
 ## Interesting Information
-- 170+ commands
-- 12,000+ lines of JavaScript
+- 180+ commands
+- 22,000+ lines of code
 - 2 years of development
 - 300+ Commits
 
@@ -148,7 +148,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 179**
+**Total Commands: 180**
 
 ### Action
 
@@ -252,9 +252,10 @@ Image Commands: 9
 
 ### Info
 
-Info Commands: 10
+Info Commands: 11
 
 * **avatar:** Sends your avatar or the mentioned user's avatar.
+* **celestia-fact:** Sends a fact about the bot.
 * **channel:** Displays information about the current channel.
 * **discrim:** Searches for users with the specified discriminator.
 * **emoji:** Displays information about the specified emoji.
@@ -272,10 +273,10 @@ Moderation Commands: 12
 * **ban:** Bans the mentioned user from the server.
 * **clear:** Clears (bulk-deletes) between 2 and 99 messages.
 * **clear-nickname:** Clears a user's nickname.
-* **fetchbans:** Checks how many users are banned on the current server.
-* **forceban:** Bans a user, even if they aren't in your server.
+* **fetch-bans:** Checks how many users are banned on the current server.
+* **force-ban:** Bans a user, even if they aren't in your server.
 * **kick:** Kicks the mentioned user from the server.
-* **listbans:** DMs you a list of banned users.
+* **list-bans:** DMs you a list of banned users.
 * **lockdown:** Locks a channel down for a set duration. Use \"lockdown release\" to end the lockdown prematurely.
 * **mute:** Mutes the mentioned user.
 * **report:** Reports a user to the server's staff.
