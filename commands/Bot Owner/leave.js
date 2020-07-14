@@ -12,7 +12,7 @@ class Leave extends Command {
       });
     }
 
-    async run(message, args, level, settings) { 
+    async run(message) { 
         if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
 
         message.reply("Are you sure you want me to leave this guild? I can only be added back by users with the `MANAGE_GUILD` (Manage Server) permission. **(Y/N)**");
@@ -38,7 +38,7 @@ class Leave extends Command {
                     .then(g => this.client.logger.info(`☑️ | Left guild via command: ${g}`))
                     .catch(e => {
                         this.client.logger.error(e);
-                        returnmessage.channel.send(`🚫 | I tried to leave, but couldn't. An error occurred:\n\```${e.message}\````);
+                        returnmessage.channel.send(`I tried to leave, but couldn't. An error occurred:\n\```${e.message}\````);
                     });
                 }
             }
