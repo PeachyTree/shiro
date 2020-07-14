@@ -12,16 +12,16 @@ class Config extends Command {
     });
   }
 
-  async run(message, [action, key, ...value], level) {
+  async run(message, [action, key, ...value]) {
 
     if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
     
     const defaults = this.client.settings.get("default");
   
     if (action === "add") {
-      if (!key) return message.channel.send("🚫 | Please specify a key to add");
-      if (defaults[key]) return message.channel.send("🚫 | This key already exists in the default settings");
-      if (value.length < 1) return message.channel.send("🚫 | Please specify a value");
+      if (!key) return message.channel.send("Please specify a key to add");
+      if (defaults[key]) return message.channel.send("This key already exists in the default settings");
+      if (value.length < 1) return message.channel.send("Please specify a value");
 
       defaults[key] = value.join(" ");
   
@@ -30,9 +30,9 @@ class Config extends Command {
     } else
   
     if (action === "edit") {
-      if (!key) return message.channel.send("🚫 | Please specify a key to edit");
-      if (!defaults[key]) return message.channel.send("🚫 | This key does not exist in the settings");
-      if (value.length < 1) return message.channel.send("🚫 | Please specify a new value");
+      if (!key) return message.channel.send("Please specify a key to edit");
+      if (!defaults[key]) return message.channel.send("This key does not exist in the settings");
+      if (value.length < 1) return message.channel.send("Please specify a new value");
 
       defaults[key] = value.join(" ");
 
@@ -41,8 +41,8 @@ class Config extends Command {
     } else
   
     if (action === "del") {
-      if (!key) return message.channel.send("🚫 | Please specify a key to delete.");
-      if (!defaults[key]) return message.channel.send("🚫 | This key does not exist in the settings");
+      if (!key) return message.channel.send("Please specify a key to delete.");
+      if (!defaults[key]) return message.channel.send("This key does not exist in the settings");
     
       const response = await this.client.awaitReply(message, `Are you sure you want to permanently delete ${key} from all guilds? This action **CANNOT** be undone.`);
 
@@ -65,8 +65,8 @@ class Config extends Command {
     } else
   
     if (action === "get") {
-      if (!key) return message.channel.send("🚫 | Please specify a key to view");
-      if (!defaults[key]) return message.channel.send("🚫 | This key does not exist in the settings");
+      if (!key) return message.channel.send("Please specify a key to view");
+      if (!defaults[key]) return message.channel.send("This key does not exist in the settings");
       message.channel.send(`The value of ${key} is currently ${defaults[key]}`);
       
     } else {
