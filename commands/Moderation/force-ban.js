@@ -5,10 +5,10 @@ const { BAN_EMOJI_ID } = process.env;
 class ForceBan extends Command {
   constructor(client) {
     super(client, {
-      name: "forceban",
+      name: "force-ban",
       description: "Bans a user, even if they aren't in your server.",
       category: "Moderation",
-      usage: "forceban <USER_ID> <Reason>",
+      usage: "force-ban <USER_ID> <Reason>",
       guildOnly: true,
       permLevel: "Administrator"
     });

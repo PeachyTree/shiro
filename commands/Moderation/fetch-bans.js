@@ -3,10 +3,10 @@ const Command = require('../../base/Command.js');
 class Bans extends Command {
   constructor(client) {
     super(client, {
-      name: "fetchbans",
+      name: "fetch-bans",
       description: "Checks how many users are banned on the current server.",
       category: "Moderation",
-      usage: "fetchbans",
+      usage: "fetch-bans",
       guildOnly: true,
       permLevel: "Moderator"
     });
