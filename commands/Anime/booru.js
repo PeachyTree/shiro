@@ -14,33 +14,30 @@ class Booru extends Command {
   }
 
     async run(message, args) {
-        if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
+        try {
+            if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
 
-        let query = args.join(" ");
+            let query = args.join(" ");
 
-        if (!query) {
-            return message.reply("Command Usage: `booru <Query>`")
-        } else {
+            if (!query) {
+                return message.reply("Command Usage: `booru <Query>`")
+            } else {
 
-        booru.search('safebooru', [query], { limit: 1, random: true })
-            .then(booru.commonfy)
-            .then(images => {
-                for (let image of images) {
-                    const embed = new MessageEmbed()
-                        .setAuthor(`Safebooru ${query}`, 'https://c.catgirlsare.sexy/NrAI.png')
-                        .setImage(image.common.file_url)
-                        .setDescription(`[Image URL](${image.common.file_url})`)
-                        .setColor('RANDOM');
-                    return message.channel.send({ embed });
-                }
-
-            }).catch(err => {
-                if (err.name === 'booruError') {
-                    return message.channel.send(`No search results found for **${query}**!`);
-                } else {
-                    return message.channel.send(`No search results found for **${query}**!`);
-                }
-            })
+            booru.search('safebooru', [query], { limit: 1, random: true })
+                .then(booru.commonfy)
+                .then(images => {
+                    for (let image of images) {
+                        const embed = new MessageEmbed()
+                            .setAuthor(`Safebooru ${query}`, 'https://c.catgirlsare.sexy/NrAI.png')
+                            .setImage(image.common.file_url)
+                            .setDescription(`[Image URL](${image.common.file_url})`)
+                            .setColor('RANDOM');
+                        return message.channel.send({ embed });
+                    }
+                })
+            }
+        } catch (err) {
+            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
         }
     }
 }

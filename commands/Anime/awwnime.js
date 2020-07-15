@@ -13,15 +13,19 @@ class Awwnime extends Command {
   }
 
   async run(message) {
-    randomPuppy('awwnime')
-    .then(url => {
-      const embed = new MessageEmbed()
-        .setFooter(`awwnime`)
-        .setDescription(`[Image URL](${url})`)
-        .setImage(url)
-        .setColor('RANDOM')
-      return message.channel.send({ embed })
-    })
+    try {
+      randomPuppy('awwnime')
+      .then(url => {
+        const embed = new MessageEmbed()
+          .setFooter(`awwnime`)
+          .setDescription(`[Image URL](${url})`)
+          .setImage(url)
+          .setColor('RANDOM')
+        return message.channel.send({ embed })
+      })
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 
