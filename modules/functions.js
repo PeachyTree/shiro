@@ -1,5 +1,3 @@
-// This is the functions file, you can place any function in here.
-
 module.exports = (client) => {
 
   client.awaitReply = async (msg, question, limit = 60000) => {
