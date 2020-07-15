@@ -1,14 +1,14 @@
 const Command = require('../../base/Command.js');
-const catFacts = require('../../assets/json/catfacts.json');
+const catFacts = require('../../assets/json/cat-fact.json');
 const { MessageEmbed } = require('discord.js');
 
 class CatFact extends Command {
   constructor(client) {
     super(client, {
-      name: "catfact",
+      name: "cat-fact",
       description: "Shows a random fact about cats.",
       category: "Fun",
-      usage: "catfact"
+      usage: "cat-fact"
     });
   }
 

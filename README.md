@@ -148,7 +148,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 180**
+**Total Commands: 181**
 
 ### Action
 
@@ -207,11 +207,12 @@ Core Commands: 10
 
 ### Fun
 
-Fun Commands: 17
+Fun Commands: 18
 
 * **advice:** Get some advice!
-* **catfact:** Shows a random fact about cats.
+* **cat-fact:** Shows a random fact about cats.
 * **dadjoke:** Sends a random dad joke.
+* **dog-fact:** Shows a random fact about dogs.
 * **fortune:** Get a fortune!
 * **horoscope:** Gets your daily horoscope!
 * **joke:** Tells a general or programming-related joke.
