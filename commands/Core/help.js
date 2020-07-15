@@ -26,10 +26,9 @@ class Help extends Command {
           .setFooter(`Made with Discord.js v${version}`)
           .setTimestamp();
         message.channel.send({ embed });
-      } catch (error) {
-        this.client.logger.error(error);
-        return message.channel.send(`An error occurred:\n\```${error.message}\````);
-      } 
+      } catch (err) {
+        return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+      }
     } else {
       let command = args[0];
 

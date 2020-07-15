@@ -13,12 +13,16 @@ class Invite extends Command {
   }
 
   async run(message) { 
-    this.client.generateInvite(botPerms).then(link => {
-      message.channel.send('🔄 | Generating invite link...')
-      .then(msg => {
-        msg.edit(`🔗 | Generated invite link for Celestia:\n**<${link}>**`);
+    try {
+      this.client.generateInvite(botPerms).then(link => {
+        message.channel.send('🔄 | Generating invite link...')
+        .then(msg => {
+          msg.edit(`🔗 | Generated invite link for Celestia:\n**<${link}>**`);
+        });
       });
-    });
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 

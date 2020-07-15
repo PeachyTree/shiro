@@ -15,13 +15,12 @@ class Feedback extends Command {
     }
 
     async run(message, args) {
-        let channel = this.client.channels.cache.get(FEEDBACK_CHANNEL);
+        try {
+            let channel = this.client.channels.cache.get(FEEDBACK_CHANNEL);
 
-        if (!args.length) {
-            return message.reply("Command Usage: `feedback <Suggestion / Issue>`")
-        } else {
-
-            try {
+            if (!args.length) {
+                return message.reply("Command Usage: `feedback <Suggestion / Issue>`")
+            } else {
                 const embed = new MessageEmbed()
                     .setColor('RANDOM')
                     .setTitle(`${FEEDBACK_EMOJI_ID} | Feedback command used by ${message.author.tag}`)
@@ -36,12 +35,11 @@ class Feedback extends Command {
                 await message.react("🇳").catch(console.error);
                 await message.react("🇹").catch(console.error);
 
-                return null;
-
-            } catch (err) {
-                return message.channel.send(`An error occurred:\n\```${err.message}\````);
-            }   
-       }
+                return null; 
+            }
+        } catch (err) {
+            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+        }
     }
 }
 
