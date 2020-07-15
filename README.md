@@ -148,7 +148,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 181**
+**Total Commands: 185**
 
 ### Action
 
@@ -207,9 +207,10 @@ Core Commands: 10
 
 ### Fun
 
-Fun Commands: 18
+Fun Commands: 22
 
 * **advice:** Get some advice!
+* **button:** Responds with a random 'Will You Press The Button?' situation.
 * **cat-fact:** Shows a random fact about cats.
 * **dadjoke:** Sends a random dad joke.
 * **dog-fact:** Shows a random fact about dogs.
@@ -219,11 +220,14 @@ Fun Commands: 18
 * **kaomoji:** Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ
 * **lmgtfy:** Why don't you just... Google it?
 * **magic8ball:** Consults my magic 8-ball!
+* **never-have-i-ever:** Responds with a random 'Never Have I Ever...' statement.
+* **number-fact:** Responds with a random fact about a specific number.
 * **pasta:** Cool custom, random pastas that I make!
 * **pickupline:** Get a random pick up line!
 * **quote:** Gives you a random quote!
 * **rate:** Gives the item you specify a rating out of 10!
 * **rightthere:** Sends a random right there copypasta! May include NSFW language and elements or considered as spam.
+* **roast:** Roasts a user.
 * **tableflip:** Flips a table, in real-time! (╯°□°)╯
 * **today:** Finds a historical event from today!
 * **tsundere:** Get a random tsundere quote!
