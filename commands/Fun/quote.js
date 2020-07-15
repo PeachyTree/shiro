@@ -7,23 +7,35 @@ class Quote extends Command {
   constructor(client) {
     super(client, {
       name: "quote",
-      description: "Gives you a random quote!",
+      description: "Gives you a random quote or a quote from your given number!",
       category: "Fun",
       usage: "quote"
     });
   }
 
-  run(message) {
+  run(message, args) {
 
-    let random = Math.floor(Math.random() * total + 1);
-    let quote = quotes[random];
+    if (args[0]) {
+      if (args[0] > total) return message.channel.send('This command has 241 quotes, your number was higher than this amount!');
+      let quote = args[0];
 
-    const embed = new MessageEmbed()
-      .setAuthor(quote.author)
-      .setDescription(quote.quote)
-      .setFooter(`Quote Number ${random}`)
-      .setColor('RANDOM')
-    message.channel.send({ embed });
+      const embed = new MessageEmbed()
+        .setAuthor(quote.author)
+        .setDescription(quote.quote)
+        .setFooter(`Quote Number ${args[0]}`)
+        .setColor('RANDOM')
+      message.channel.send({ embed });
+    } else {
+      let random = Math.floor(Math.random() * total + 1);
+      let quote = quotes[random];
+
+      const embed = new MessageEmbed()
+        .setAuthor(quote.author)
+        .setDescription(quote.quote)
+        .setFooter(`Quote Number ${random}`)
+        .setColor('RANDOM')
+      message.channel.send({ embed });
+    }
   }
 }
 
