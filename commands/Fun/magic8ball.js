@@ -1,5 +1,6 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
+const outcomes = require("../../assets/json/magic8ball");
 
 class Magic8Ball extends Command {
   constructor(client) {
@@ -20,56 +21,13 @@ class Magic8Ball extends Command {
       Neutral:  7
       Negative: 14
     */
+    try {
+      if (!args.length) {
+        return message.reply("Command Usage: `magic8ball <Question>`")
+      }
 
-    const outcomes = [
-      "Yes.", // Positive
-      "No.", // Negative
-      "Maybe.", // Neutral
-      "Most certainly!", // Positive
-      "Definitely not.", // Negative
-      "Undoubtedly.", // Positive
-      "Affirmative.", // Positive
-      "Negative.", // Negative
-      "No way!", // Negative
-      "Only on Saturdays.", // Neutral
-      "Hmm...", // Neutral
-      "Nahhhhhh", // Negative
-      "Certainly not.", // Negative
-      "Seems like my magic 8 ball is broken... Try again.", 
-      "I sure hope so!", // Positive
-      "There is a good chance.", // Positive
-      "Quite likely.", // Positive
-      "I think so.", // Positive
-      "I hope not.", // Negative
-      "I hope so.", // Positive
-      "Possibly.", // Neutral
-      "Forget about it.", // Negative
-      "http://i.imgur.com/n7A21Jq.gif", // Negative
-      "Only on Wednessdays.", // Neutral
-      "I highly doubt it.", // Negative
-      "My sources say no.", // Negative
-      "My sources say yes.", // Positive
-      "All signs point to yes.", // Positive
-      "Delete this and try again", // neutral
-      "Sure.", // positive
-      // below sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
-      "Outlook not so good.", // negative
-      "Outlook good.", // positive
-      // above sourced from https://en.wikipedia.org/wiki/Magic_8-Ball#Possible_answers
-      "You may rely on it.", // Positive
-      "Don't count on it.", // negative
-      "Maybe", // neutral
-      "Never.", // negative
-      "No. Why would you even ask such a thing?" // Negative
-    ];
-
-    if (!args.length) {
-      return message.reply("Command Usage: `magic8ball <Question>`")
-    }
-
-    if (args[0]) {
-      const randomOutcome = outcomes.random();
-      try {
+      if (args[0]) {
+        const randomOutcome = outcomes.random();
         if (randomOutcome.startsWith("http://i.imgur.com/")) {
           const embed = new MessageEmbed()
             .setTitle("🎱 | __**Magic 8 Ball says...**__")
@@ -85,10 +43,9 @@ class Magic8Ball extends Command {
             .setFooter(`Question asked by ${message.author.tag}`, message.author.displayAvatarURL);
           message.channel.send({ embed });
         }
-      } catch (error) {
-        this.client.logger.error(error);
-        message.channel.send(`My Magic 8 Ball says: An error occurred:\n\```${error.message}\````);
       }
+    } catch (err) {
+      return message.reply(`Oh no, my magic 8 Ball says: \`${err.message}\`.`);
     }
   }
 }
