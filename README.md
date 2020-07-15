@@ -77,9 +77,10 @@ is every permission the bot asks for:
 
 ### Windows
 
-1. Open an **ADMIN POWERSHELL** window and run `npm i -g --production windows-build-tools`.
-2. Run `npm i --production` in the folder you cloned the bot.
-3. After filling out the .env file, you can start the bot by running `node celestia.js`.
+1. Open an **ADMIN POWERSHELL** window.
+2. Run `npm i -g --production windows-build-tools`.
+3. Run `npm i --production` in the folder you cloned the bot.
+4. After filling out the .env file, you can start the bot by running `node celestia.js`.
 
 ### Mac
 
