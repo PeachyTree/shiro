@@ -1,16 +1,7 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
-const subreddits = [
-  "memes",
-  "DeepFriedMemes",
-  "bonehurtingjuice",
-  "surrealmemes",
-  "dankmemes",
-  "meirl",
-  "me_irl",
-  "funny"
-]
+const subreddits = require("../../assets/json/subreddits");
 
 class Meme extends Command {
   constructor(client) {
@@ -23,17 +14,21 @@ class Meme extends Command {
   }
 
   async run(message) {
-    let randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
+    try {
+      let randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
-    randomPuppy(randSubreddit)
-    .then(url => {
-      const embed = new MessageEmbed()
-        .setFooter(`${randSubreddit}`)
-        .setDescription(`[Image URL](${url})`)
-        .setImage(url)
-        .setColor('RANDOM');
-      return message.channel.send({ embed });
-    })
+      randomPuppy(randSubreddit)
+      .then(url => {
+        const embed = new MessageEmbed()
+          .setFooter(`${randSubreddit}`)
+          .setDescription(`[Image URL](${url})`)
+          .setImage(url)
+          .setColor('RANDOM');
+        return message.channel.send({ embed });
+      })
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 
