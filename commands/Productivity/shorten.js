@@ -14,18 +14,17 @@ class Shorten extends Command {
   }
 
   async run(message, args) { 
-    if (!args[0]) return message.reply('Command Usage: `shorten <URL>`');
-    const url = args.join(" ");
     try {
-			const { body } = await request
-				.post('https://api-ssl.bitly.com/v4/shorten')
-				.send({ long_url: url })
-				.set({ Authorization: `Bearer ${BITLY_KEY}` });
-			return message.channel.send(body.link);
-		} catch (err) {
-			if (err.status === 400) return message.reply('You provided an invalid URL. Please try again.');
-			return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-		}
+      if (!args[0]) return message.reply('Command Usage: `shorten <URL>`');
+      const url = args.join(" ");
+        const { body } = await request
+          .post('https://api-ssl.bitly.com/v4/shorten')
+          .send({ long_url: url })
+          .set({ Authorization: `Bearer ${BITLY_KEY}` });
+        return message.channel.send(body.link);
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 

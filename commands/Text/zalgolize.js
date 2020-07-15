@@ -12,21 +12,24 @@ class Zalgolize extends Command {
   }
 
   async run(message, args) { 
+    try {
+      if (!args.length) {
+        return message.reply("Command Usage: `zalgolize <Text>`")
+      }
 
-    if (!args.length) {
-      return message.reply("Command Usage: `zalgolize <Text>`")
+      let result = '';
+      const text = args.join(' ');
+      for (let i = 0; i < text.length; i++) {
+        result += text[i];
+        for (const chars of Object.values(zalgo)) {
+          let count = Math.floor(Math.random() * 5);
+          while (count--) result += chars[Math.floor(Math.random() * chars.length)];
+        }
+      }
+      return message.channel.send(result);
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
-
-    let result = '';
-    const text = args.join(' ');
-		for (let i = 0; i < text.length; i++) {
-			result += text[i];
-			for (const chars of Object.values(zalgo)) {
-				let count = Math.floor(Math.random() * 5);
-				while (count--) result += chars[Math.floor(Math.random() * chars.length)];
-			}
-		}
-		return message.channel.send(result);
   };
 }
 

@@ -16,8 +16,8 @@ class YouTube extends Command {
   }
 
   async run(message, args) { 
-    let query = args.join(" ");
     try {
+      let query = args.join(" ");
       youtube.search(query, 1, function(error, result) {
         if (!query) {
           return message.reply('Command Usage: `youtube <Video Name>`');
@@ -36,7 +36,7 @@ class YouTube extends Command {
         }
       });
     } catch (err) {
-      return message.channel.send('Something went wrong while executing that command!');
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
   }
 }

@@ -13,16 +13,20 @@ class Robohash extends Command {
   }
 
   async run(message, args) { 
-    const query = args.join(" ");
-    if (!query) return message.channel.send("Command Usage: `robohash <Text>`");
-    if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
+    try {
+      const query = args.join(" ");
+      if (!query) return message.channel.send("Command Usage: `robohash <Text>`");
+      if (query.match(/[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/g)) return message.channel.send("Your query cannot include symbols.");
 
-    request(`https://robohash.org/${encodeURIComponent(query)}.png`)
-    .then(res => message.channel.send({ files: [{ attachment: res.body, name: `${query}.png` }] })
-    .catch(error => {
-      this.client.logger.error(error);
-      return message.channel.send(`An error occurred: ${error.message}`);
-    }));
+      request(`https://robohash.org/${encodeURIComponent(query)}.png`)
+      .then(res => message.channel.send({ files: [{ attachment: res.body, name: `${query}.png` }] })
+      .catch(error => {
+        this.client.logger.error(error);
+        return message.channel.send(`An error occurred: ${error.message}`);
+      }));
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 

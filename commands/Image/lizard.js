@@ -11,7 +11,7 @@ class Lizard extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message) { 
     const { body } = await request.get('https://nekos.life/api/v2/img/lizard');
     return message.channel.send({ files: [body.message] });
   }

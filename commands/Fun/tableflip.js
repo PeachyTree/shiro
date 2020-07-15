@@ -8,16 +8,17 @@ const flipFrames = [
 ];
 
 class TableFlip extends Command {
-    constructor(client) {
-      super(client, {
-        name: "tableflip",
-        description: "Flips a table, in real-time! (╯°□°)╯",
-        category: "Fun",
-        usage: "tableflip"
-      });
-    }
+  constructor(client) {
+    super(client, {
+      name: "tableflip",
+      description: "Flips a table, in real-time! (╯°□°)╯",
+      category: "Fun",
+      usage: "tableflip"
+    });
+  }
 
-    async run(message) { 
+  async run(message) { 
+    try {
       const msg = await message.channel.send("(\\\\°□°)\\\\  ┬─┬");
 
       for (const frame of flipFrames) {
@@ -25,7 +26,10 @@ class TableFlip extends Command {
         await msg.edit(frame);
       }
       return msg;
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
+  }
 }
 
 module.exports = TableFlip;

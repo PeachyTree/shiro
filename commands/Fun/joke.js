@@ -12,13 +12,13 @@ class Joke extends Command {
   }
 
   async run(message) { 
-    fetch("https://official-joke-api.appspot.com/random_joke")
-    .then(res => res.json())
-    .then(data => message.channel.send(`${data.setup} ${data.punchline}`))
-    .catch(error => {
-      this.client.logger.error(error);
-      return message.channel.send(`An error occurred:\n\```${error.message}\````);
-    });
+    try {
+      fetch("https://official-joke-api.appspot.com/random_joke")
+      .then(res => res.json())
+      .then(data => message.channel.send(`${data.setup} ${data.punchline}`))
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 

@@ -13,21 +13,24 @@ class Destruct extends Command {
   }
   
   async run(message, args) {
+    try {
+      let time = args[0];
 
-    let time = args[0];
+      if (!args.length) {
+        return message.reply("Command Usage: `destruct <Time (sec)> <Text>`")
+      }
 
-    if (!args.length) {
-      return message.reply("Command Usage: `destruct <Time (sec)> <Text>`")
+      let text = args.slice(1).join(" "); 
+      
+      message.delete();
+      let destructMsg = message.channel.send(`${text}`); 
+
+      setTimeout(function() {
+        message.delete(`${destructMsg}`);
+      }, ms(time));
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
-
-    let text = args.slice(1).join(" "); 
-    
-    message.delete();
-    let destructMsg = message.channel.send(`${text}`); 
-
-    setTimeout(function() {
-      message.delete(`${destructMsg}`);
-    }, ms(time));
   }
 } 
 

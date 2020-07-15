@@ -15,23 +15,26 @@ class Profile extends Command {
   }
 
   async run(message) { 
+    try {
+      let user = message.mentions.users.first() || message.author;
+      let money = await db.get(`gems_${user.id}`);
+      if (money === null) money = 0;
 
-    let user = message.mentions.users.first() || message.author;
-    let money = await db.get(`gems_${user.id}`);
-    if (money === null) money = 0;
+      let items = await db.get(`items_${user.id}`);
+      if (items === null) items = 'No Items yet.';
 
-    let items = await db.get(`items_${user.id}`);
-    if (items === null) items = 'No Items yet.';
+      if (user.id == this.client.id) return;
 
-    if (user.id == this.client.id) return;
-
-    const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(user.displayAvatarURL)
-      .setTitle(`__**${user.username}'s Profile**__`)
-      .addField('Gems', `${money} ${GEM_EMOJI_ID}`)
-      .addField('Items', `${items}`)
-    message.channel.send({ embed }); 
+      const embed = new MessageEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(user.displayAvatarURL)
+        .setTitle(`__**${user.username}'s Profile**__`)
+        .addField('Gems', `${money} ${GEM_EMOJI_ID}`)
+        .addField('Items', `${items}`)
+      message.channel.send({ embed }); 
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+    }
   }
 }
 

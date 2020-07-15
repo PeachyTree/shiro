@@ -15,25 +15,25 @@ class Giphy extends Command {
   }
 
   async run(message, args) { 
-    const query = args[0];
-    if (!query.length) {
-      return message.reply("Command Usage: `giphy <Query>`")
+    try {
+      const query = args[0];
+      if (!query.length) {
+        return message.reply("Command Usage: `giphy <Query>`")
+      }
+      
+      const url = "http://api.giphy.com/v1/gifs/search?";
+      const params = new URLSearchParams({
+        q: query,
+        api_key: GIPHY_API_KEY,
+        rating: "pg"
+      });
+      
+      fetch(url + params)
+      .then(res => res.json())
+      .then(json => message.channel.send(json.data.random().images.original.url))
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
-    
-    const url = "http://api.giphy.com/v1/gifs/search?";
-    const params = new URLSearchParams({
-      q: query,
-      api_key: GIPHY_API_KEY,
-      rating: "pg"
-    });
-    
-    fetch(url + params)
-    .then(res => res.json())
-    .then(json => message.channel.send(json.data.random().images.original.url))
-    .catch(error => {
-      this.client.logger.error(error);
-      return message.channel.send(`An error occurred:\n\```${error.message}\````);
-    });
   }
 }
 

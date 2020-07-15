@@ -12,7 +12,7 @@ class Image extends Command {
     });
   }
 
-  async run(message, args, level, settings) { 
+  async run(message, args) { 
     let size = args[0];
     if (!args[0]) size = "";
 
