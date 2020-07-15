@@ -148,7 +148,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 185**
+**Total Commands: 184**
 
 ### Action
 
@@ -207,12 +207,11 @@ Core Commands: 10
 
 ### Fun
 
-Fun Commands: 22
+Fun Commands: 21
 
 * **advice:** Get some advice!
 * **button:** Responds with a random 'Will You Press The Button?' situation.
 * **cat-fact:** Shows a random fact about cats.
-* **dadjoke:** Sends a random dad joke.
 * **dog-fact:** Shows a random fact about dogs.
 * **fortune:** Get a fortune!
 * **horoscope:** Gets your daily horoscope!
