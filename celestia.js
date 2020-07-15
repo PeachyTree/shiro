@@ -1,4 +1,4 @@
-// Celestia Discord Bot Copyright (©) 2019 - 2020 Azura Apple. All rights reserved. MIT License.
+// Celestia Discord Bot Copyright (©) 2018 - 2020 Azura Apple. All rights reserved. MIT License.
 
 require("dotenv").config();
 const Discord = require("discord.js");
@@ -40,7 +40,6 @@ class Celestia extends Discord.Client {
     return permlvl;
   }
   
-
   // Command load / unload
   loadCommand(commandPath, commandName) {
     try {
@@ -145,13 +144,11 @@ const init = async () => {
   }
 
   client.login(CELESTIA_TOKEN);
-
 };
 
 init();
 
 client.on("disconnect", () => client.logger.warn("Bot is disconnecting..."))
       .on("reconnect", () => client.logger.log("Bot reconnecting...", "log"))
-      // .on("rateLimit", rateLimitInfo => client.logger.warn(`Rate limit hit:\nHTTP method: ${rateLimitInfo.method}\n${Object.entries(rateLimitInfo)}`))
       .on("error", e => client.logger.error(e))
       .on("warn", info => client.logger.warn(info));
