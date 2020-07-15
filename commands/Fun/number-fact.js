@@ -14,6 +14,7 @@ class NumberFact extends Command {
   async run(message) {
     try {
         const number = args[0];
+        if (!number) return message.channel.send("Command Usage: `number-fact <Number>`");
         const { text } = await request.get(`http://numbersapi.com/${number}`);
         return message.channel.send(text);
     } catch (err) {
