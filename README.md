@@ -149,7 +149,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 184**
+**Total Commands: 185**
 
 ### Action
 
@@ -250,6 +250,7 @@ Image Commands: 9
 * **cat:** Sends a random image of a cat.
 * **dog:** Sends a random image of a dog.
 * **duck:** Sends a random image of a duck.
+* **food:** Responds with a randomly generated food.
 * **image:** Sends a random image.
 * **image-search:** Sends a random image based on your query.
 * **lizard:** Sends a random image of a lizard.
