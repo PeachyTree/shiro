@@ -4,7 +4,7 @@
   "description": "A Discord Bot with focus on Economy, Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
-    "start": "npm i celestia.js"
+    "start": "node celestia.js"
   },
   "repository": {
     "type": "git",
