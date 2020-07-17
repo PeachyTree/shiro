@@ -11,19 +11,22 @@ class GenerateInvite extends Command {
   }
 
   async run(message, args) { 
+    try {
+      let uses = args[0]
+      let age = args[1]
 
-    let uses = args[0]
-    let age = args[1]
+      let invite = await message.channel.createInvite({
+        maxAge: age * 60,
+        maxUses: uses 
+      });
 
-    let invite = await message.channel.createInvite({
-      maxAge: age * 60,
-      maxUses: uses 
-    });
-
-    await message.channel.send('Hiya.\n'
-      + 'If you wanna invite friends to this server, share the following invite'
-      + ' link with your friends.\n' +
-      `https://discord.gg/${invite.code}`);
+      await message.channel.send('Hiya.\n'
+        + 'If you wanna invite friends to this server, share the following invite'
+        + ' link with your friends.\n' +
+        `https://discord.gg/${invite.code}`);
+      } catch (err) {
+        return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+      }
   };
 }
 
