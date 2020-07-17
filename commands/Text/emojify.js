@@ -13,11 +13,15 @@ class Emojify extends Command {
     }
   
     async run(message, args) {
-        if (!args.length) {
-            return message.reply("Command Usage: `emojify <Text>`")
-        }
+        try {
+            if (!args.length) {
+                return message.reply("Command Usage: `emojify <Text>`")
+            }
 
-        return message.channel.send(letterTrans(args.join(' '), dictionary, ' '));
+            return message.channel.send(letterTrans(args.join(' '), dictionary, ' '));
+        } catch (err) {
+            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+        }
     }
 }
 

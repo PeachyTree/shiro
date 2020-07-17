@@ -13,13 +13,17 @@ class Say extends Command {
   }
 
   async run(message, args) { 
-    if (!args.length) {
-      return message.reply("Command Usage: `say <Text>`")
+    try {
+      if (!args.length) {
+        return message.reply("Command Usage: `say <Text>`")
+      }
+      
+      let botmessage = args.join(" ");
+      message.delete().catch();
+      message.channel.send(botmessage);
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
-    
-    let botmessage = args.join(" ");
-    message.delete().catch();
-    message.channel.send(botmessage);
   }
 }
 

@@ -12,16 +12,19 @@ class Reverse extends Command {
   }
 
   async run(message, args) { 
+    try {
+      if (!args.length) {
+        return message.reply("Command Usage: `reverse <Text>`")
+      }
 
-    if (!args.length) {
-      return message.reply("Command Usage: `reverse <Text>`")
+      const embed = new MessageEmbed()
+        .setColor("RANDOM")
+        .setTitle("__**txeT desreveR**__")
+        .setDescription(args.join(' ').split('').reverse().join(''))
+      await message.channel.send({ embed });
+    } catch (err) {
+      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
     }
-
-    const embed = new MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle("__**txeT desreveR**__")
-      .setDescription(args.join(' ').split('').reverse().join(''))
-    await message.channel.send({ embed });
   }
 }
 

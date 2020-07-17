@@ -11,10 +11,14 @@ class Clap extends Command {
     }
   
     async run(message, args) {
-        if (!args.length) {
-            return message.reply("Command Usage: `clap <Text>`")
+        try {
+            if (!args.length) {
+                return message.reply("Command Usage: `clap <Text>`")
+            }
+            return message.channel.send(args.join(' ').replace(/ /g, ' 👏 '))
+        } catch (err) {
+            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
         }
-        return message.channel.send(args.join(' ').replace(/ /g, ' 👏 '))
     }
 }
 
