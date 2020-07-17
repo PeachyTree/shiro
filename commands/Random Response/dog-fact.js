@@ -7,7 +7,7 @@ class DogFact extends Command {
     super(client, {
       name: "dog-fact",
       description: "Shows a random fact about dogs.",
-      category: "Fun",
+      category: "Random Response",
       usage: "dog-fact",
       aliases: ["puppy-fact"]
     });

@@ -7,7 +7,7 @@ class Today extends Command {
     super(client, {
       name: "today",
       description: "Finds a historical event from today!",
-      category: "Fun",
+      category: "Random Response",
       usage: "today"
     });
   }

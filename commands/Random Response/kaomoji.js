@@ -6,7 +6,7 @@ class Kaomoji extends Command {
     super(client, {
       name: "kaomoji",
       description: "Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ",
-      category: "Fun",
+      category: "Random Response",
       usage: "kaomojo",
       aliases: ["emoticon"]
     });

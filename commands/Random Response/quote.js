@@ -8,7 +8,7 @@ class Quote extends Command {
     super(client, {
       name: "quote",
       description: "Gives you a random quote or a quote from your given number!",
-      category: "Fun",
+      category: "Random Response",
       usage: "quote"
     });
   }

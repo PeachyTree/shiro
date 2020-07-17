@@ -7,7 +7,7 @@ class Magic8Ball extends Command {
     super(client, {
       name: "magic8ball",
       description: "Consults my magic 8-ball!",
-      category: "Fun",
+      category: "Random Response",
       usage: "magic8ball <Question>",
       aliases: ["8ball"]
     });

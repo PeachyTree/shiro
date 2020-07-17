@@ -6,7 +6,7 @@ class Tsundere extends Command {
     super(client, {
       name: "tsundere",
       description: "Get a random tsundere quote!",
-      category: "Fun",
+      category: "Random Response",
       usage: "tsundere",
     });
   }

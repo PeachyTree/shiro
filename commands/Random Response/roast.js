@@ -6,7 +6,7 @@ class Roast extends Command {
     super(client, {
       name: "roast",
       description: "Roasts a user.",
-      category: "Fun",
+      category: "Random Response",
       usage: "roast [@USER_MENTION]"
     });
   }

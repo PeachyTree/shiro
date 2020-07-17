@@ -6,7 +6,7 @@ class CelestiaFact extends Command {
     super(client, {
       name: "celestia-fact",
       description: "Sends a fact about the bot.",
-      category: "Info",
+      category: "Random Response",
       usage: "celestia-fact",
       aliases: ["bot-fact"]
     }); 

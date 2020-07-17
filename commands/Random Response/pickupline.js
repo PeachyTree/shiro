@@ -7,7 +7,7 @@ class PickUpLine extends Command {
     super(client, {
       name: "pickupline",
       description: "Get a random pick up line!",
-      category: "Fun",
+      category: "Random Response",
       usage: "pickupline",
       aliases: ["pickup"]
     });

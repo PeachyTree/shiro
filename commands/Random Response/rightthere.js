@@ -6,7 +6,7 @@ class RightThere extends Command {
     super(client, {
       name: "rightthere",
       description: "Sends a random right there copypasta! May include NSFW language and elements or considered as spam.",
-      category: "Fun",
+      category: "Random Response",
       usage: "rightthere",
       aliases: ["rthere"]
     });

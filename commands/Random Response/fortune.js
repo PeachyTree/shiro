@@ -6,7 +6,7 @@ class Fortune extends Command {
     super(client, {
       name: "fortune",
       description: "Get a fortune!",
-      category: "Fun",
+      category: "Random Response",
       usage: "fortune"
     });
   }

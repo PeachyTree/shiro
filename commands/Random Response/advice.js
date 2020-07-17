@@ -6,7 +6,7 @@ class Advice extends Command {
     super(client, {
       name: "advice",
       description: "Get some advice!",
-      category: "Fun",
+      category: "Random Response",
       usage: "advice"
     });
   }

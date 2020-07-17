@@ -6,7 +6,7 @@ class NumberFact extends Command {
     super(client, {
       name: "number-fact",
       description: "Responds with a random fact about a specific number.",
-      category: "Fun",
+      category: "Random Response",
       usage: "number-fact <Number>"
     });
   }

@@ -7,7 +7,7 @@ class CatFact extends Command {
     super(client, {
       name: "cat-fact",
       description: "Shows a random fact about cats.",
-      category: "Fun",
+      category: "Random Response",
       usage: "cat-fact"
     });
   }

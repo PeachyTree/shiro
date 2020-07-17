@@ -6,7 +6,7 @@ class NeverHaveIEver extends Command {
     super(client, {
       name: "never-have-i-ever",
       description: "Responds with a random 'Never Have I Ever...' statement.",
-      category: "Fun",
+      category: "Random Response",
       usage: "never-have-i-ever",
       aliases: ["never-have-i", "never-have", "never-ever"]
     });

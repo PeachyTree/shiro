@@ -6,7 +6,7 @@ class Pasta extends Command {
     super(client, {
       name: "pasta",
       description: "Cool custom, random pastas that I make!",
-      category: "Fun",
+      category: "Random Response",
       usage: "pasta",
     });
   }

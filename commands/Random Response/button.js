@@ -7,7 +7,7 @@ class Button extends Command {
     super(client, {
       name: "button",
       description: "Responds with a random 'Will You Press The Button?' situation.",
-      category: "Fun",
+      category: "Random Response",
       usage: "button",
       aliases: ["will-you-press-the-button", "press-the-button", "press-button"]
     });

@@ -6,7 +6,7 @@ class Joke extends Command {
     super(client, {
       name: "joke",
       description: "Tells a general or programming-related joke.",
-      category: "Fun",
+      category: "Random Response",
       usage: "joke",
     });
   }
