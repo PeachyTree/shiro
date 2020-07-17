@@ -8,7 +8,7 @@ class ImageSearch extends Command {
     super(client, {
       name: "image-search",
       description: "Sends a random image based on your query.",
-      category: "Image",
+      category: "Random Image",
       usage: "image-search <Query>",
       aliases: ["isearch", "i-search", "imagesearch"]
     });

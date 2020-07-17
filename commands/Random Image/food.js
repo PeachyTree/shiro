@@ -7,7 +7,7 @@ class Food extends Command {
     	super(client, {
 			name: "food",
 			description: "Responds with a randomly generated food.",
-			category: "Image",
+			category: "Random Image",
 			usage: "food"
     	});
   	}

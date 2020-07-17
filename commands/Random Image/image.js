@@ -6,7 +6,7 @@ class Image extends Command {
     super(client, {
       name: "image",
       description: "Returns a random image.",
-      category: "Image",
+      category: "Random Image",
       usage: "image [size (e.g. 1920x1080)]",
       aliases: ["randomimage", "random-image"]
     });

@@ -6,7 +6,7 @@ class Bunny extends Command {
     	super(client, {
 			name: "bunny",
 			description: "Sends a random image of a bunny.",
-			category: "Image",
+			category: "Random Image",
 			usage: "bunny"
     	});
   	}
