@@ -5,9 +5,9 @@ class LMGTFY extends Command {
     super(client, {
       name: "lmgtfy",
       description: "Why don't you just... Google it?",
-      category: "Fun",
+      category: "Other",
       usage: "lmgtfy <Query>",
-      aliases: ["googleit"]
+      aliases: ["google-it"]
     });
   }
 

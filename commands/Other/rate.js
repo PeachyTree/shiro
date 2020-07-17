@@ -6,7 +6,7 @@ class Rate extends Command {
     super(client, {
       name: "rate",
       description: "Gives the item you specify a rating out of 10!",
-      category: "Fun",
+      category: "Other",
       usage: "rate <ITEM_TO_BE_RATED>"
     });
   }
