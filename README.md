@@ -149,7 +149,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 185**
+**Total Commands: 187**
 
 ### Action
 
@@ -258,7 +258,7 @@ Image Commands: 9
 
 ### Info
 
-Info Commands: 11
+Info Commands: 12
 
 * **avatar:** Sends your avatar or the mentioned user's avatar.
 * **celestia-fact:** Sends a fact about the bot.
@@ -268,6 +268,7 @@ Info Commands: 11
 * **emoji-image:** Sends the specified emoji as an image.
 * **icon:** Sends the current server's icon.
 * **last-message:** Returns the mentioned user's last message.
+* **pi:** Returns the value of Pi (π).
 * **server:** Displays information about the current server.
 * **time:** Returns the current time in a specified timezone.
 * **user:** Displays information about the mentioned user.
@@ -297,7 +298,7 @@ NSFW commands won't be listed here for many reasons. If you want to see what kin
 
 ### Productivity
 
-Productivity Commands: 10
+Productivity Commands: 11
 
 * **calculate:** Evaluates/calculates a given mathematical expression.
 * **capture-screenshot:** Captures a screenshot of a given URL.
@@ -306,6 +307,7 @@ Productivity Commands: 10
 * **create-emoji:** Creates a new emoji.
 * **generate-invite:** Generates an invite link of the current text channel of your Discord server.
 * **poll:** Starts a poll in the current text channel asking users to vote with the specified time. If no time is specified, poll ends in 60 minutes.
+* **prime-number:** Checks if a number is a prime number.
 * **reminder:** Sets a reminder for you with the given time.
 * **shorten:** Shortens the specified link.
 * **translate:** Translates a specific text. A language (e.g. English, German, French, etc.) must be added to specify a language to translate to.
