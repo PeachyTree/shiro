@@ -30,14 +30,15 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 	* [Anime](#anime)
 	* [Bot Owner](#bot-owner)
 	* [Core](#core)
-	* [Fun](#fun)
 	* [Games](#games)
-	* [Image](#image)
 	* [Info](#info)
 	* [Moderation](#moderation)
 	* [NSFW](#nsfw)
+	* [Other](#other)
 	* [Productivity](#productivity)
 	* [Profile](#profile)
+	* [Random Image](#random-image)
+	* [Random Response](#random-response)
 	* [Searches](#searches)
 	* [Text](#text)
 - [Licensing](#licensing)
@@ -149,7 +150,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 187**
+**Total Commands: 188**
 
 ### Action
 
@@ -206,32 +207,6 @@ Core Commands: 10
 * **stats:** Shows some information about Celestia!
 * **terms:** Read Celestia's Terms of Service.
 
-### Fun
-
-Fun Commands: 21
-
-* **advice:** Get some advice!
-* **button:** Responds with a random 'Will You Press The Button?' situation.
-* **cat-fact:** Shows a random fact about cats.
-* **dog-fact:** Shows a random fact about dogs.
-* **fortune:** Get a fortune!
-* **horoscope:** Gets your daily horoscope!
-* **joke:** Tells a general or programming-related joke.
-* **kaomoji:** Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ
-* **lmgtfy:** Why don't you just... Google it?
-* **magic8ball:** Consults my magic 8-ball!
-* **never-have-i-ever:** Responds with a random 'Never Have I Ever...' statement.
-* **number-fact:** Responds with a random fact about a specific number.
-* **pasta:** Cool custom, random pastas that I make!
-* **pickupline:** Get a random pick up line!
-* **quote:** Gives you a random quote!
-* **rate:** Gives the item you specify a rating out of 10!
-* **rightthere:** Sends a random right there copypasta! May include NSFW language and elements or considered as spam.
-* **roast:** Roasts a user.
-* **tableflip:** Flips a table, in real-time! (╯°□°)╯
-* **today:** Finds a historical event from today!
-* **tsundere:** Get a random tsundere quote!
-
 ### Games
 
 Games Commands: 4
@@ -241,33 +216,18 @@ Games Commands: 4
 * **slots:** Bet Gems on spinning the slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!
 * **trivia:** Put your general knowledge to the test and earn Gems!
 
-### Image
-
-Image Commands: 9
-
-* **bird:** Sends a random image of a bird.
-* **bunny:** Sends a random image of a bunny.
-* **cat:** Sends a random image of a cat.
-* **dog:** Sends a random image of a dog.
-* **duck:** Sends a random image of a duck.
-* **food:** Responds with a randomly generated food.
-* **image:** Sends a random image.
-* **image-search:** Sends a random image based on your query.
-* **lizard:** Sends a random image of a lizard.
-* **robohash:** Generates a picture of a robot from some given text.
-
 ### Info
 
 Info Commands: 12
 
 * **avatar:** Sends your avatar or the mentioned user's avatar.
-* **celestia-fact:** Sends a fact about the bot.
 * **channel:** Displays information about the current channel.
 * **discrim:** Searches for users with the specified discriminator.
 * **emoji:** Displays information about the specified emoji.
 * **emoji-image:** Sends the specified emoji as an image.
 * **icon:** Sends the current server's icon.
 * **last-message:** Returns the mentioned user's last message.
+* **permission-level:** Displays your permission level for your location.
 * **pi:** Returns the value of Pi (π).
 * **server:** Displays information about the current server.
 * **time:** Returns the current time in a specified timezone.
@@ -296,6 +256,15 @@ NSFW Commands: 47
 
 NSFW commands won't be listed here for many reasons. If you want to see what kind of NSFW commands this bot has, go to `commands/NSFW`. The bot also has a own command to list all NSFW commands called `nsfwcommands`.
 
+### Other
+
+Other Commands: 4
+
+* **horoscope:** Gets your daily horoscope!
+* **lmgtfy:** Why don't you just... Google it?
+* **rate:** Gives the item you specify a rating out of 10!
+* **tableflip:** Flips a table, in real-time! (╯°□°)╯
+
 ### Productivity
 
 Productivity Commands: 11
@@ -322,6 +291,44 @@ Profile Commands: 6
 * **profile:** Displays your amount of Gems and items you currently own.
 * **transfer:** Transfer Gems to your friends!
 * **work:** Work for a chance to earn Gems!
+
+### Random Image
+
+Random Image Commands: 9
+
+* **bird:** Sends a random image of a bird.
+* **bunny:** Sends a random image of a bunny.
+* **cat:** Sends a random image of a cat.
+* **dog:** Sends a random image of a dog.
+* **duck:** Sends a random image of a duck.
+* **food:** Responds with a randomly generated food.
+* **image:** Sends a random image.
+* **image-search:** Sends a random image based on your query.
+* **lizard:** Sends a random image of a lizard.
+
+### Random Response
+
+Random Response Commands: 19
+
+* **advice:** Get some advice!
+* **button:** Responds with a random 'Will You Press The Button?' situation.
+* **cat-fact:** Shows a random fact about cats.
+* **celestia-fact:** Sends a fact about the bot.
+* **dog-fact:** Shows a random fact about dogs.
+* **fortune:** Get a fortune!
+* **joke:** Tells a general or programming-related joke.
+* **kaomoji:** Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ
+* **loremipsum:** Need placeholder text for your website? Look no further.
+* **magic8ball:** Consults my magic 8-ball!
+* **never-have-i-ever:** Responds with a random 'Never Have I Ever...' statement.
+* **number-fact:** Responds with a random fact about a specific number.
+* **pasta:** Cool custom, random pastas that I make!
+* **pickupline:** Get a random pick up line!
+* **quote:** Gives you a random quote!
+* **rightthere:** Sends a random right there copypasta! May include NSFW language and elements or considered as spam.
+* **roast:** Roasts a user.
+* **today:** Finds a historical event from today!
+* **tsundere:** Get a random tsundere quote!
 
 ### Searches
 
