@@ -1,7 +1,7 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
-const { shorten, base64, embedURL } = require('../../util/Util');
+const { shorten, base64, embedURL } = require('../../util/Utils');
 const { GITHUB_USERNAME, GITHUB_PASSWORD, CELESTIA_GITHUB_REPO_USERNAME, CELESTIA_GITHUB_REPO_NAME } = process.env;
 
 class Changelog extends Command {
