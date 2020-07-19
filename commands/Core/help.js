@@ -1,6 +1,7 @@
 const Command = require('../../base/Command.js');
 const celestia = require("../../package.json");
 const { MessageEmbed, version } = require("discord.js");
+const { CELESTIA_INVITE_LINK } = process.env;
 
 class Help extends Command {
   constructor(client) {
@@ -22,7 +23,7 @@ class Help extends Command {
           .setTitle(`:wave: Hey ${message.author.username}, I'm Celestia!`)
           .setDescription("I'm a bot developed and maintained by Azura Apple#0955\n\All my commands start with the prefix `c.`. To see all my commands use `c.commands`!")
           .addField("Version", celestia.version)
-          .addField("Invite link", "[Click here](https://discordapp.com/oauth2/authorize?client_id=671855064103714826&scope=bot&permissions=1476717695)")
+          .addField("Invite link", `[Click here](${CELESTIA_INVITE_LINK})`)
           .setFooter(`Made with Discord.js v${version}`)
           .setTimestamp();
         message.channel.send({ embed });

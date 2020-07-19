@@ -1,5 +1,5 @@
 const Command = require('../../base/Command.js');
-const { botPerms } = require("../../util/data.js");
+const { CELESTIA_INVITE_LINK } = process.env;
 
 class Invite extends Command {
   constructor(client) {
@@ -13,16 +13,7 @@ class Invite extends Command {
   }
 
   async run(message) { 
-    try {
-      this.client.generateInvite(botPerms).then(link => {
-        message.channel.send('🔄 | Generating invite link...')
-        .then(msg => {
-          msg.edit(`🔗 | Generated invite link for Celestia:\n**<${link}>**`);
-        });
-      });
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
+    message.channel.send(`🔗 | ${CELESTIA_INVITE_LINK}`);
   }
 }
 

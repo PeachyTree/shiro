@@ -109,6 +109,7 @@ _Remove the .example part from both the .env and config.js files, once you are d
 * `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
 * `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is c.
 * `CELESTIA_ID=` is the ID of your bot. This is so far only used for the `rate` command (yet).
+* `CELESTIA_INVITE_LINK=` is an invite link for the bot. As example: `https://discordapp.com/oauth2/authorize?client_id=1234567891011&scope=bot&permissions=0123456789`
 
 ### System
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
