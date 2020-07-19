@@ -134,10 +134,10 @@ _Feel free to change these roles for your server. It's not required to change th
 * `CLEARBIT_KEY=` can be obtained at the [Clearbit dashboard](https://dashboard.clearbit.com/login).
 * `GOOGLE_API=` can be obtained by going to the Google API. You need to create a new Application on the [Google Cloud Console](https://console.cloud.google.com/home/dashboard). After that, enable the [YouTube Data API](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508&project=azura-278914&hl).
 * `GIPHY_API_KEY=` can be obtained by going to the [Giphy API Page](https://developers.giphy.com/).
-* `GITHUB_USERNAME` is the username of your GitHub account.
-* `GITHUB_PASSWORD` is the password of your GitHub account. 
-* `CELESTIA_GITHUB_REPO_USERNAME` is your username, as example `AzuraApple`.
-* `CELESTIA_GITHUB_REPO_NAME` is the name of your repository, as example `celestia`.
+* `GITHUB_USERNAME=` is the username of your GitHub account.
+* `GITHUB_PASSWORD=` is the password of your GitHub account. 
+* `CELESTIA_GITHUB_REPO_USERNAME=` is your username, as example `AzuraApple`.
+* `CELESTIA_GITHUB_REPO_NAME=` is the name of your repository, as example `celestia`.
 * `IMGUR_KEY=` can be obtained by [Registering an Application at the Imgur website](https://imgur.com/signin?redirect=https%3A%2F%2Fapi.imgur.com%2Foauth2%2Faddclient).
 * `OSU_KEY=` can be obtained by [signing up at the osu! API page](https://osu.ppy.sh/forum/ucp.php?mode=login). Whether this link takes you to the right page or not is hit-or-miss.
 * `THECATAPI_KEY=` can be obtained by going to the [Cat API](https://thecatapi.com/).
