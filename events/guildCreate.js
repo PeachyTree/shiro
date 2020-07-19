@@ -19,8 +19,6 @@ module.exports = class {
       }
     }) 
 
-    //this.client.user.setActivity(`over ${this.client.guilds.size} servers`, { type: "WATCHING" });
-
     // Logs that the bot has joined a server, with the server name and ID:
     this.client.logger.log(`New guild has been joined: ${guild.name} (${guild.id}) with ${guild.memberCount - 1} members`);
     let guildOwner = guild.owner;
