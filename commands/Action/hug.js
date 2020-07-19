@@ -18,7 +18,7 @@ class Hug extends Command {
        
         let user = message.mentions.members.first() 
 
-        if (!user || !args[1]) {
+        if (!user) {
             return message.reply('Command Usage: `hug <@USER_MENTION>`')
         }
 

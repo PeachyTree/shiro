@@ -17,7 +17,7 @@ class Pat extends Command {
     async run(message, args) {
         let user = message.mentions.members.first() 
 
-        if (!user || !args[1]) {
+        if (!user) {
             return message.reply('Command Usage: `pat <@USER_MENTION>`')
         }
 

@@ -17,7 +17,7 @@ class Hand extends Command {
     async run(message) {
         let user = message.mentions.members.first() 
 
-        if (!user || !args[1]) {
+        if (!user) {
             return message.reply('Command Usage: `hand <@USER_MENTION>`')
         }
 

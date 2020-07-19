@@ -17,7 +17,7 @@ class Tickle extends Command {
 
         let user = message.mentions.members.first() 
 
-        if (!user || !args[1]) {
+        if (!user) {
             return message.reply('Command Usage: `tickle <@USER_MENTION>`')
         }
 
