@@ -1,7 +1,7 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const randomPuppy = require('random-puppy');
-const subreddits = require("../../assets/json/subreddits");
+const subreddits = require("../../assets/json/meme");
 
 class Meme extends Command {
   constructor(client) {
