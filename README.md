@@ -103,8 +103,6 @@ All the command line developer tools will be installed to the /Library/Developer
 
 Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's why I've compiled a list here of where to go to get every single API key!
 
-_Remove the .example part from both the .env and config.js files, once you are done!_
-
 ### Bot-related Information
 * `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
 * `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is c.
