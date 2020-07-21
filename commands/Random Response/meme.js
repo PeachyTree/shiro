@@ -8,7 +8,7 @@ class Meme extends Command {
     super(client, {
       name: "meme",
       description: "Searches for a random meme from selected subreddits!\nWarning: There is no NSFW filter on this!",
-      category: "Searches",
+      category: "Random Response",
       usage: "meme",
     });
   }

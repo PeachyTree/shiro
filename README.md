@@ -312,7 +312,7 @@ Random Image Commands: 9
 
 ### Random Response
 
-Random Response Commands: 19
+Random Response Commands: 20
 
 * **advice:** Get some advice!
 * **button:** Responds with a random 'Will You Press The Button?' situation.
@@ -324,6 +324,7 @@ Random Response Commands: 19
 * **kaomoji:** Displays a random kaomoji! (´・ω・｀) 3000 will definitely be enough to keep you busy! (ｖ｀▽´)ｖ
 * **loremipsum:** Need placeholder text for your website? Look no further.
 * **magic8ball:** Consults my magic 8-ball!
+* **meme:** Searches for a random meme from selected subreddits! Warning: There is no NSFW filter on this!
 * **never-have-i-ever:** Responds with a random 'Never Have I Ever...' statement.
 * **number-fact:** Responds with a random fact about a specific number.
 * **pasta:** Cool custom, random pastas that I make!
@@ -336,7 +337,7 @@ Random Response Commands: 19
 
 ### Searches
 
-Searches Commands: 15
+Searches Commands: 14
 
 * **company:** Shows the image and website of the company you provided.
 * **define:** Defines the word you provided.
@@ -344,7 +345,6 @@ Searches Commands: 15
 * **giphy:** Returns a GIF from Giphy based on your query.
 * **github:** Returns information about the specified GitHub repository.
 * **jisho:** Searches for Japanese words and kanji on Jisho!
-* **meme:** Searches for a random meme from selected subreddits! Warning: There is no NSFW filter on this!
 * **nasa:** Searches NASA's image archive for your query.
 * **osu:** Responds with information on an osu! user.
 * **steam:** Searches Steam for games!
