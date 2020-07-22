@@ -1,6 +1,7 @@
-const { ADMIN, SUPPORT, CELESTIA_PREFIX, MOD_ROLE, ADMIN_ROLE, SYSTEM_NOTICE } = process.env;
+const { OWNER, ADMIN, SUPPORT, CELESTIA_PREFIX, MOD_ROLE, ADMIN_ROLE, SYSTEM_NOTICE } = process.env;
 
 const config = {
+  "owner": OWNER, // ID of the Bot Owner. Has access to Bot Owner commands.
   "admins": ADMIN, // ID of Bot Admin. Not required.
   "support": SUPPORT, // ID of Bot Support. Not required.
 
@@ -52,7 +53,7 @@ const config = {
     },
     { level: 10,
       name: "Bot Owner", 
-      check: (message) => message.client.appInfo.owner.id === message.author.id
+      check: (message) => config.owner.includes(message.author.id)
     }
   ]
 };
