@@ -111,6 +111,7 @@ Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's 
 
 ### System
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
+* `OWNER=` Bot Owner User ID. Used for Bot Owner commands. 
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
 * `SYSTEM_NOTICE=` Leave this to `true`, which is set by default. This shouldn't be touched.
 
@@ -255,6 +256,8 @@ Moderation Commands: 12
 * **warn:** Warns the mentioned user.
 
 ### NSFW
+
+**CURRENTLY WORKING ON FIXING/REPLACING NSFW COMMANDS.**
 
 NSFW Commands: 47
 
