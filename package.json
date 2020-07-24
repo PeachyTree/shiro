@@ -1,6 +1,6 @@
 {
   "name": "celestia",
-  "version": "3.0.3",
+  "version": "3.1.1",
   "description": "A Discord Bot with focus on Economy, Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "path": "^0.12.7",
     "quick.db": "^7.1.1",
     "random-puppy": "^1.1.0",
+    "request-promise-native": "^1.0.9",
     "wanakana": "^4.0.2",
     "weather-js": "^2.0.0",
     "xkcd": "^1.1.3",

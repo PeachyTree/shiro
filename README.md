@@ -62,10 +62,10 @@ is every permission the bot asks for:
 
 
 ## Interesting Information
-- 180+ commands
+- 160+ commands
 - 22,000+ lines of code
 - 2 years of development
-- 300+ Commits
+- 350+ Commits
 
 ## Installing
 
@@ -154,7 +154,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 189**
+**Total Commands: 167**
 
 ### Action
 
@@ -259,9 +259,9 @@ Moderation Commands: 12
 
 **CURRENTLY WORKING ON FIXING/REPLACING NSFW COMMANDS.**
 
-NSFW Commands: 47
+NSFW Commands: 25
 
-NSFW commands won't be listed here for many reasons. If you want to see what kind of NSFW commands this bot has, go to `commands/NSFW`. The bot also has a own command to list all NSFW commands called `nsfwcommands`.
+NSFW commands won't be listed here for many reasons. If you want to see what kind of NSFW commands this bot has, go to `commands/NSFW`.
 
 ### Other
 
