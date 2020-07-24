@@ -11,7 +11,7 @@ class NSFWCommands extends Command {
   }
 
   async run(message) {
-    return message.channel.send('https://github.com/AzuraApple/celestia/tree/master/commands/nsfw')
+    return message.channel.send('https://github.com/AzuraApple/celestia/tree/master/commands/NSFW')
   }
 }
 
