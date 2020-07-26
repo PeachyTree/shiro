@@ -1,6 +1,6 @@
 {
   "name": "celestia",
-  "version": "3.1.1",
+  "version": "3.2.1",
   "description": "A Discord Bot with focus on Economy, Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
@@ -25,6 +25,7 @@
     "cheerio": "^1.0.0-rc.3",
     "common-tags": "^1.8.0",
     "custom-translate": "^2.2.8",
+    "discord-leveling": "^1.1.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "enmap": "^5.3.1",

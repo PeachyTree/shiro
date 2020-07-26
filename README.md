@@ -62,7 +62,7 @@ is every permission the bot asks for:
 
 
 ## Interesting Information
-- 160+ commands
+- 170+ commands
 - 22,000+ lines of code
 - 2 years of development
 - 350+ Commits
@@ -154,7 +154,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 167**
+**Total Commands: 171**
 
 ### Action
 
@@ -183,9 +183,10 @@ Anime Commands: 5
 
 ### Bot Owner
 
-Bot Owner Commands: 10
+Bot Owner Commands: 11
 
 * **config:** Modifies the default configuration for all guilds.
+* **delete:** Removes a user from the database for leveling.
 * **eval:** Evaluates arbitrary JavaScript.
 * **exec:** Evaluates arbitrary JavaScript.
 * **filesize:** Returns the value of the size of the specified file.
@@ -290,12 +291,15 @@ Productivity Commands: 11
 
 ### Profile
 
-Profile Commands: 6
+Profile Commands: 9
 
+* **add-exp:** Adds EXP to the mentioned user or yourself.
 * **buy-item:** Buy something from the item shop!
 * **claim:** Claim your daily rewards.
 * **item-shop:** Buy Items from the Item Shop!
+* **leaderboard:** Displays the global level leaderboard!
 * **profile:** Displays your amount of Gems and items you currently own.
+* **set-level:** Sets the specified level to a user or yourself.
 * **transfer:** Transfer Gems to your friends!
 * **work:** Work for a chance to earn Gems!
 
