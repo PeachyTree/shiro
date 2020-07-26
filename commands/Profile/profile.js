@@ -1,6 +1,7 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const db = require('quick.db');
+const leveling = require('discord-leveling');
 const { GEM_EMOJI_ID } = process.env;
 
 class Profile extends Command {
@@ -23,6 +24,32 @@ class Profile extends Command {
       let items = await db.get(`items_${user.id}`);
       if (items === null) items = 'No Items yet.';
 
+      // Definitely not the *most efficient* way, but the most simple one and it works! :P
+      let barPer;
+      const currentLevel = await leveling.Fetch(user.id);
+  
+      if (currentLevel.xp == 0) barPer = "0" 
+      if (currentLevel.xp == 10) barPer = "5" 
+      if (currentLevel.xp == 20) barPer = "10" 
+      if (currentLevel.xp == 30) barPer = "15" 
+      if (currentLevel.xp == 40) barPer = "20" 
+      if (currentLevel.xp == 50) barPer = "25" 
+      if (currentLevel.xp == 60) barPer = "30" 
+      if (currentLevel.xp == 70) barPer = "35" 
+      if (currentLevel.xp == 80) barPer = "40" 
+      if (currentLevel.xp == 90) barPer = "45" 
+      if (currentLevel.xp == 100) barPer = "50" 
+      if (currentLevel.xp == 110) barPer = "55" 
+      if (currentLevel.xp == 120) barPer = "60" 
+      if (currentLevel.xp == 130) barPer = "65" 
+      if (currentLevel.xp == 140) barPer = "70" 
+      if (currentLevel.xp == 150) barPer = "75" 
+      if (currentLevel.xp == 160) barPer = "80" 
+      if (currentLevel.xp == 170) barPer = "85" 
+      if (currentLevel.xp == 180) barPer = "90" 
+      if (currentLevel.xp == 190) barPer = "95" 
+      if (currentLevel.xp == 200) barPer = "99"  
+
       if (user.id == this.client.id) return;
 
       const embed = new MessageEmbed()
@@ -30,6 +57,7 @@ class Profile extends Command {
         .setThumbnail(user.displayAvatarURL)
         .setTitle(`__**${user.username}'s Profile**__`)
         .addField('Gems', `${money} ${GEM_EMOJI_ID}`)
+        .addField('Level Progress', `${currentLevel.level} | ${barPer}%`)
         .addField('Items', `${items}`)
       message.channel.send({ embed }); 
     } catch (err) {
