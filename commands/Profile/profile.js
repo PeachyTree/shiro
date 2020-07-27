@@ -11,7 +11,7 @@ class Profile extends Command {
       description: "Displays your amount of Gems and items you currently own.",
       category: "Profile",
       usage: "profile [@USER_MENTION]",
-      aliases: ["user-card", "user-profile", "social", "money", "balance", "bal"]
+      aliases: ["user-card", "user-profile", "social", "money", "balance", "bal", "level"]
     });
   }
 
