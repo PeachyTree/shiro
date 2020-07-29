@@ -7,7 +7,6 @@ class PermissionLevel extends Command {
       description: "Displays your permission level for your location.",
       category: "Info",
       usage: "permission-level",
-      aliases: ["my-level", "perm-level"],
       guildOnly: true
     });
   }

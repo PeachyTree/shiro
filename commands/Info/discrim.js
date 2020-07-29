@@ -7,7 +7,7 @@ class Discrim extends Command {
         description: "Searches for users with the specified discriminator.",
         category: "Info",
         usage: "discrim [#xxxx]",
-        aliases: ["discriminator", "discriminator-search", "discrim-search"]
+        aliases: ["discriminator"]
       });
     }
 

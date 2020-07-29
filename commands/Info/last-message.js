@@ -8,7 +8,6 @@ class LastMessage extends Command {
       description: "Returns the mentioned user's last message.",
       category: "Info",
       usage: "last-message <@user>",
-      aliases: ["lm"],
       guildOnly: true
     });
   }

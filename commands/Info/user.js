@@ -10,7 +10,7 @@ class User extends Command {
       description: "Displays information about the mentioned user.",
       category: "Info",
       usage: "user [@USER_MENTION]",
-      aliases: ["userinfo", "whois"],
+      aliases: ["userinfo"],
       guildOnly: true
     });
   }

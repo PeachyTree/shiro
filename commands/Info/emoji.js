@@ -9,7 +9,7 @@ class Emoji extends Command {
       description: "Displays information about the specified emoji.",
       category: "Info",
       usage: "emoji <Emoji>",
-      aliases: ["emoji-info", "einfo"]
+      aliases: ["emoji-info"]
     });
   }
 
