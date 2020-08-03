@@ -62,7 +62,7 @@ class Profile extends Command {
         .setThumbnail(user.displayAvatarURL)
         .setTitle(`__**${user.username}'s Profile**__`)
 
-        // Show their amount og Gems:
+        // Show their amount of Gems:
         .addField('Gems', `${money} ${GEM_EMOJI_ID}`)
 
         // Show their current level progress with percentage:
