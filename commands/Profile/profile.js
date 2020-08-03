@@ -11,19 +11,22 @@ class Profile extends Command {
       description: "Displays your amount of Gems and items you currently own.",
       category: "Profile",
       usage: "profile [@USER_MENTION]",
-      aliases: ["user-card", "user-profile", "social", "money", "balance", "bal", "level"]
+      aliases: ["user-card", "user-profile", "social", "money", "balance", "bal", "level", "items"]
     });
   }
 
   async run(message) { 
     try {
       let user = message.mentions.users.first() || message.author;
+ 
+      // Fetch user's balance & items
       let money = await db.get(`gems_${user.id}`);
       if (money === null) money = 0;
 
       let items = await db.get(`items_${user.id}`);
       if (items === null) items = 'No Items yet.';
 
+      // Show level and level progress
       // Definitely not the *most efficient* way, but the most simple one and it works! :P
       let barPer;
       const currentLevel = await leveling.Fetch(user.id);
@@ -50,14 +53,23 @@ class Profile extends Command {
       if (currentLevel.xp == 190) barPer = "95" 
       if (currentLevel.xp == 200) barPer = "99"  
 
+      // Don't return this if the mentioned user is a bot
+      // A bot won't have a user profile!
       if (user.id == this.client.id) return;
 
       const embed = new MessageEmbed()
         .setColor('RANDOM')
         .setThumbnail(user.displayAvatarURL)
         .setTitle(`__**${user.username}'s Profile**__`)
+
+        // Show their amount og Gems:
         .addField('Gems', `${money} ${GEM_EMOJI_ID}`)
+
+        // Show their current level progress with percentage:
         .addField('Level Progress', `${currentLevel.level} | ${barPer}%`)
+
+        // Show their Items; if they don't have any items,
+        // it will be set to 'No items yet'.
         .addField('Items', `${items}`)
       message.channel.send({ embed }); 
     } catch (err) {

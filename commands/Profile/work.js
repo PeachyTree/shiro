@@ -9,7 +9,7 @@ class Work extends Command {
       description: "Work for a chance to earn Gems!",
       category: "Profile",
       usage: "work",
-      aliases: ["earn-money"]
+      aliases: ["earn"]
     });
   }
 

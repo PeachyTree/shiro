@@ -1,4 +1,4 @@
-// If you want to add another item to this buy-item.js command, make sure to also add it to the item-shop 
+// If you want to add another item to this command, make sure to also add it to the item-shop!
 
 const Command = require('../../base/Command.js');
 const db = require('quick.db');
@@ -25,22 +25,24 @@ class BuyItem extends Command {
         return message.reply("Command Usage: `buy-item <item>`")
       } else {
         // Example of an buy-item command:
-        // Item name = Item 1
-        // Gems = 50
-        if(item[0] == 'Item 1') { 
+        // Item name = Apple
+        // Gems = 5
+        if(item[0] == 'Apple') { 
           if (author < 5 /* author = author's balance, 5 = amount of gems */) return message.channel.send(`You need \`5\` ${GEM_EMOJI_ID} to buy this item.`) 
           db.subtract(`gems_${message.author.id}`, 5)
-          // If the Author has enough of Gems, subtract it from their balance,
-          // and push the item into their balance, which will be visible in the profile.js command.
+          // If the Author has enough Gems, subtract it from their balance,
+          // and push the item into their profile, which will be visible in the `profile.js` command.
           db.push(`items_${message.author.id}`, 'item1') // 'item1' is the name of the item the user has bought
-          // Send a verification message, that the user successfully bought the item.
+          // Let them know they successfully bought the item.
           message.channel.send(`You successfully bought this item for \`5\` ${GEM_EMOJI_ID}`)
-        } else if(item[0] == 'Item 2') { 
+          // else, if an other item is specified:
+        } else if(item[0] == 'Cookie') { 
           if (author < 10) return message.channel.send(`You need \`10\` ${GEM_EMOJI_ID} to buy this item.`) 
           db.subtract(`gems_${message.author.id}`, 10)
           db.push(`items_${message.author.id}`, 'item2')
           message.channel.send(`You successfully bought this item for \`10\` ${GEM_EMOJI_ID}`)
-        } else if(item[0] == 'Item 3') { 
+          // You can copy and paste this else loop to add more items.
+        } else if(item[0] == 'Cake') { 
           if (author < 20) return message.channel.send(`You need \`20\` ${GEM_EMOJI_ID} to buy this item.`) 
           db.subtract(`gems_${message.author.id}`, 20)
           db.push(`items_${message.author.id}`, 'item3')

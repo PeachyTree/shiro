@@ -36,7 +36,7 @@ class Claim extends Command {
 
         // Sets the daily reward
         db.set(`dailyRewardInfo_${message.author.id}.lastDaily`, Date.now());
-        // Adds the money to the author 
+        // Add Gems to their balance
         db.add(`gems_${message.author.id}`, 5); 
       }
     } catch (err) {

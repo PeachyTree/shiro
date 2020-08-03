@@ -26,7 +26,8 @@ class Leaderboard extends Command {
     } else {
  
       leveling.Leaderboard({
-        limit: 5 
+        limit: 3
+        // Shows the best 3 users; can be up to 25
       }).then(async users => { 
  
         if (users[0]) var firstplace = await this.client.fetchUser(users[0].userid) 
