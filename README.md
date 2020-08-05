@@ -383,3 +383,4 @@ Text Commands: 14
 
 ## Licensing
 For more information view the `LICENSE` file.
+[![Run on Repl.it](https://repl.it/badge/github/AzuraApple/celestia)](https://repl.it/github/AzuraApple/celestia)
