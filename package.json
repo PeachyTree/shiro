@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AzuraApple/celestia.git"
+    "url": "git+https://github.com/SnowballOw/celestia.git"
   },
-  "author": "Azura Apple <dragonminner867@gmail.com>",
+  "author": "Snowball ♪#0955",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/AzuraApple/celestia/issues"
+    "url": "https://github.com/SnowballOw/celestia/issues"
   },
-  "homepage": "https://github.com/AzuraApple/celestia#readme",
+  "homepage": "https://github.com/SnowballOw/celestia#readme",
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.1.1",
     "animequote": "^1.1.1",

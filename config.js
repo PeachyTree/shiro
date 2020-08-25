@@ -1,4 +1,11 @@
-const { OWNER, ADMIN, SUPPORT, CELESTIA_PREFIX, MOD_ROLE, ADMIN_ROLE, SYSTEM_NOTICE } = process.env;
+const { OWNER, 
+  ADMIN, 
+  SUPPORT, 
+  CELESTIA_PREFIX, 
+  MOD_ROLE, 
+  ADMIN_ROLE, 
+  SYSTEM_NOTICE 
+} = process.env;
 
 const config = {
   "owner": OWNER, // ID of the Bot Owner. Has access to Bot Owner commands.

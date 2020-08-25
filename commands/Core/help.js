@@ -21,7 +21,7 @@ class Help extends Command {
           .setColor("RANDOM")
           .setThumbnail(this.client.user.displayAvatarURL())
           .setTitle(`:wave: Hey ${message.author.username}, I'm Celestia!`)
-          .setDescription("I'm a bot developed and maintained by Azura Apple#0955\n\All my commands start with the prefix `c.`. To see all my commands use `c.commands`!")
+          .setDescription("I'm a bot developed and maintained by Snowball ♪#0955\n\All my commands start with the prefix `c.`. To see all my commands use `c.commands`!")
           .addField("Version", celestia.version)
           .addField("Invite link", `[Click here](${CELESTIA_INVITE_LINK})`)
           .setFooter(`Made with Discord.js v${version}`)
