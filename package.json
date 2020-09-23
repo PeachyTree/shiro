@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SnowballOw/celestia.git"
+    "url": "git+https://github.com/Snowy0955/celestia.git"
   },
-  "author": "Snowball ♪#0955",
+  "author": "Snowy#0955",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/SnowballOw/celestia/issues"
+    "url": "https://github.com/Snowy0955/celestia/issues"
   },
-  "homepage": "https://github.com/SnowballOw/celestia#readme",
+  "homepage": "https://github.com/Snowy0955/celestia#readme",
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.1.1",
     "animequote": "^1.1.1",
