@@ -1,6 +1,6 @@
 # Celestia Discord Bot
 
-Celestia ©2018-2020 Snowy#0955
+Celestia ©2018-2020 Snow♪#0955
 
 A Discord Bot with focus on Fun, Moderation, Economy, Utility commands and much more.
 
