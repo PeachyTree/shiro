@@ -1,4 +1,4 @@
-// Celestia Discord Bot Copyright (©) 2018 - 2020 Snowy. All rights reserved. MIT License.
+// Celestia Discord Bot Copyright (©) 2018 - 2020 Snoww#0955. All rights reserved. MIT License.
 
 require("dotenv").config();
 const Discord = require("discord.js");
