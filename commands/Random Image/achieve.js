@@ -5,7 +5,7 @@ class Achieve extends Command {
   	constructor(client) {
     		super(client, {
 			name: "achieve",
-			description: "Sends a random image of a bird.",
+			description: "Sends an achievement.",
 			category: "Random Image",
 			usage: "achieve"
     	});
