@@ -3,13 +3,13 @@ const Discord = require('discord.js');
 
 class Achieve extends Command {
   	constructor(client) {
-    	super(client, {
-			name: "chieve",
+    		super(client, {
+			name: "achieve",
 			description: "Sends a random image of a bird.",
 			category: "Random Image",
 			usage: "achieve"
     	});
-  	}
+  }
 
 	async run (message, args) {
       try {
