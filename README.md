@@ -36,7 +36,6 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 	* [NSFW](#nsfw)
 	* [Other](#other)
 	* [Productivity](#productivity)
-	* [Profile](#profile)
 	* [Random Image](#random-image)
 	* [Random Response](#random-response)
 	* [Searches](#searches)
@@ -62,7 +61,7 @@ is every permission the bot asks for:
 
 
 ## Interesting Information
-- 170+ commands
+- 160+ commands
 - 22,000+ lines of code
 - 2 years of development
 - 350+ Commits
@@ -118,7 +117,6 @@ Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's 
 ### Emoji IDs (All of them are totally optional!)
 * `BAN_EMOJI_ID=` is used by the Moderation commands `ban` and `forceban`.
 * `FEEDBACK_EMOJI_ID=` is used by the Core command `feedback`.
-* `GEM_EMOJI_ID=` is used by the Economy commands. As example, Celestia uses Gems as currency system, aka a custom Gem emoji to actually display the currency.
 * `KICK_EMOJI_ID=` is used by the Moderation command `kick`.
 * `REPORT_EMOJI_ID=` is used by the Moderation command `report`. 
 * `WARN_EMOJI_ID=` is used by the Moderation command `warn`.
@@ -154,7 +152,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 171**
+**Total Commands: 162**
 
 ### Action
 
@@ -217,10 +215,10 @@ Core Commands: 11
 
 Games Commands: 4
 
-* **flip:** Bet Gems on prediction of the outcome of flipping a coin. If you win, you get more of it. But if you lose, you lose the amount you have bet.
-* **roll:** Bet Gems on prediction of the outcome of rolling a dice. If you win, you get more of it. But if you lose, you lose the amount you have bet.
-* **slots:** Bet Gems on spinning the slot machine! You win if all 3 reels stop at the same emojis. There's also a grand prize if all 3 reels stop at :moneybag:!
-* **trivia:** Put your general knowledge to the test and earn Gems!
+* **flip:** Bet on prediction of the outcome of flipping a coin.
+* **roll:** Bet on prediction of the outcome of rolling a dice. 
+* **slots:** Spin the slot machine! You win if all 3 reels stop at the same emojis.
+* **trivia:** Put your general knowledge to the test!
 
 ### Info
 
@@ -288,20 +286,6 @@ Productivity Commands: 11
 * **reminder:** Sets a reminder for you with the given time.
 * **shorten:** Shortens the specified link.
 * **translate:** Translates a specific text. A language (e.g. English, German, French, etc.) must be added to specify a language to translate to.
-
-### Profile
-
-Profile Commands: 9
-
-* **add-exp:** Adds EXP to the mentioned user or yourself.
-* **buy-item:** Buy something from the item shop!
-* **claim:** Claim your daily rewards.
-* **item-shop:** Buy Items from the Item Shop!
-* **leaderboard:** Displays the global level leaderboard!
-* **profile:** Displays your amount of Gems and items you currently own.
-* **set-level:** Sets the specified level to a user or yourself.
-* **transfer:** Transfer Gems to your friends!
-* **work:** Work for a chance to earn Gems!
 
 ### Random Image
 
