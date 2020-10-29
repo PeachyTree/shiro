@@ -1,9 +1,5 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
-const db = require("quick.db");
-const { GEM_EMOJI_ID } = process.env;
-
-const recentUsers = new Set();
 
 class Roll extends Command {
   constructor(client) {
