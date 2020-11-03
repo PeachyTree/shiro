@@ -64,7 +64,7 @@ is every permission the bot asks for:
 - 160+ commands
 - 22,000+ lines of code
 - 2 years of development
-- 350+ Commits
+- 400+ Commits
 
 ## Installing
 
