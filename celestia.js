@@ -1,4 +1,4 @@
-// Celestia Discord Bot Copyright (©) 2018 - 2020 Snow#0955. All rights reserved. MIT License.
+// Celestia Discord Bot Copyright (©) 2018 - 2020 Snowball#0955. All rights reserved. MIT License.
 
 // We need this for our .env file, make sure to put it above anything else!
 require("dotenv").config();
