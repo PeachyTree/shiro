@@ -1,4 +1,4 @@
-// Celestia Discord Bot Copyright (©) 2018 - 2020 Snowball#0955. All rights reserved. MIT License.
+// Celestia Discord Bot Copyright (©) 2018 - 2020 Shin#0955. All rights reserved. MIT License.
 
 // We need this for our .env file, make sure to put it above anything else!
 require("dotenv").config();
@@ -150,7 +150,5 @@ const init = async () => {
 
 init();
 
-client.on("disconnect", () => client.logger.warn("Bot is disconnecting..."))
-      .on("reconnect", () => client.logger.log("Bot reconnecting...", "log"))
-      .on("error", e => client.logger.error(e))
+client.on("error", e => client.logger.error(e))
       .on("warn", info => client.logger.warn(info));
