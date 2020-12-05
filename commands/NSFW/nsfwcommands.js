@@ -11,7 +11,7 @@ class NSFWCommands extends Command {
   }
 
   async run(message) {
-    return message.channel.send('https://github.com/lostinOW/celestia/tree/master/commands/NSFW')
+    return message.channel.send('https://github.com/Shinmercy/celestia/tree/master/commands/NSFW')
   }
 }
 
