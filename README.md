@@ -1,8 +1,8 @@
 # Celestia Discord Bot
 
-Celestia ©2018-2020 Snowball#0955
+Celestia ©2018-2020 Shin#0955
 
-A Discord Bot with focus on Fun, Moderation, Economy, Utility commands and much more.
+A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
 YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
 
@@ -71,7 +71,7 @@ is every permission the bot asks for:
 ### Before You Begin
 
 1. Make sure you have installed [Node.js](https://nodejs.org/en/) (you will need **at least v12.0.0**) and [Git](https://git-scm.com/).
-2. Clone this repository with `git clone https://github.com/AzuraApple/celestia.git`.
+2. Clone this repository with `git clone https://github.com/Shindva/celestia.git`.
 3. Run `cd celestia` to move into the folder that you just created.
 4. Create a file named `.env` and fill it out as shown in `.env.example`.
 
