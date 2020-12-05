@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shindva/celestia.git"
+    "url": "git+https://github.com/Shinmercy/celestia.git"
   },
   "author": "Shin#0955",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Shindva/celestia/issues"
+    "url": "https://github.com/Shinmercy/celestia/issues"
   },
-  "homepage": "https://github.com/Shindva/celestia#readme",
+  "homepage": "https://github.com/Shinmercy/celestia#readme",
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.1.1",
     "animequote": "^1.1.1",
