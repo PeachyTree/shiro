@@ -152,7 +152,7 @@ As all of these keys are the same process, this is a little different. You need 
 
 ## Commands
 
-**Total Commands: 162**
+**Total Commands: 163**
 
 ### Action
 
@@ -289,8 +289,9 @@ Productivity Commands: 11
 
 ### Random Image
 
-Random Image Commands: 9
+Random Image Commands: 10
 
+* **achuevement** Sends an Minecraft achievement with the text you provided.
 * **bird:** Sends a random image of a bird.
 * **bunny:** Sends a random image of a bunny.
 * **cat:** Sends a random image of a cat.
