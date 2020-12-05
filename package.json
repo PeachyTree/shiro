@@ -1,21 +1,21 @@
 {
   "name": "celestia",
-  "version": "3.2.5",
-  "description": "A Discord Bot with focus on Economy, Fun, Moderation, and Utility commands.",
+  "version": "3.3.1",
+  "description": "A Discord Bot with focus on Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
     "start": "node celestia.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snow0955/celestia.git"
+    "url": "git+https://github.com/Shindva/celestia.git"
   },
-  "author": "Snowball#0955",
+  "author": "Shin#0955",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/snow0955/celestia/issues"
+    "url": "https://github.com/Shindva/celestia/issues"
   },
-  "homepage": "https://github.com/snow0955/celestia#readme",
+  "homepage": "https://github.com/Shindva/celestia#readme",
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.1.1",
     "animequote": "^1.1.1",
