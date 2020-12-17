@@ -6,7 +6,7 @@ A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
 YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
 
-**I am not testing every single command, I would really appreciate it that if you would find any errors that may occurr, to open an issue and I'll fix them as fast as I can!**
+**I am not testing every single command, I would really appreciate it if you would find any errors that may occurr, to open an issue and I'll fix them as fast as I can!**
 
 ## Table of Contents
 
@@ -255,8 +255,6 @@ Moderation Commands: 12
 * **warn:** Warns the mentioned user.
 
 ### NSFW
-
-**CURRENTLY WORKING ON FIXING/REPLACING NSFW COMMANDS.**
 
 NSFW Commands: 25
 
