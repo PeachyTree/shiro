@@ -14,7 +14,7 @@ class Poll extends Command {
   async run(message, args) { 
     try {
       if (!args.length) {
-        return message.reply("Command Usage: `poll <question> [TIME_IN_MINUTES] | [end]`")
+        return message.reply("Command Usage: `poll <question> [TIME_IN_MINUTES]`")
       }
 
       let question = args.join(' ');
