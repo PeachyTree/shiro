@@ -1,6 +1,6 @@
 [
   "c.help | Use c.invite to invite me!", 
-  "c.help | View all Command categories: c.commands",
+  "c.help | View all Commands: c.commands",
   "c.help | Donate to support development! c.donate",
   "c.help | View the source code on Github: Shinmercy/celestia",
   "c.help | Need help for any command? Use c.help <command>!",
