@@ -1,8 +1,6 @@
 // This is the message event. It runs anytime the bot receives a message.
 // For setting up the prefix, args, level up message and settings!
 
-const leveling = require('discord-leveling');
-
 module.exports = class {
   constructor(client) {
     this.client = client;
@@ -11,15 +9,6 @@ module.exports = class {
   async run(message) {
 
     if (message.author.bot) return;
-
-    let profile = await leveling.Fetch(message.author.id)
-    leveling.AddXp(message.author.id, 10) 
-
-    if (profile.xp + 10 > 200) {
-      await leveling.AddLevel(message.author.id, 1)
-      await leveling.SetXp(message.author.id, 0) 
-      message.channel.send(`⬆️ | ${message.author.username}, you've leveled up to level **${profile.level + 1}**!`);
-    }
 
     if (message.channel.type === "text" && !message.guild.me.hasPermission("SEND_MESSAGES")) return;
 
