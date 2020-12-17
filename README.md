@@ -289,7 +289,7 @@ Productivity Commands: 11
 
 Random Image Commands: 10
 
-* **achuevement** Sends an Minecraft achievement with the text you provided.
+* **achievement** Sends an Minecraft achievement with the text you provided.
 * **bird:** Sends a random image of a bird.
 * **bunny:** Sends a random image of a bunny.
 * **cat:** Sends a random image of a cat.
