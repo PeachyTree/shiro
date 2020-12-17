@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/Shinmercy/celestia#readme",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.1.1",
