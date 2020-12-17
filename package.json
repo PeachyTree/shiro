@@ -12,13 +12,13 @@
   },
   "author": "Shin#4513",
   "license": "MIT",
-  "engines": {
-		"node": ">=12"
-	},
   "bugs": {
     "url": "https://github.com/Shinmercy/celestia/issues"
   },
   "homepage": "https://github.com/Shinmercy/celestia#readme",
+  "engines": {
+    "node": ">=12"
+  },
   "dependencies": {
     "@k3rn31p4nic/google-translate-api": "^1.1.1",
     "animequote": "^1.1.1",
