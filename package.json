@@ -1,6 +1,6 @@
 {
   "name": "celestia",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "A Discord Bot with focus on Fun, Moderation, and Utility commands.",
   "main": "celestia.js",
   "scripts": {
@@ -12,6 +12,9 @@
   },
   "author": "Shin#4513",
   "license": "MIT",
+  "engines": {
+		"node": ">=12"
+	},
   "bugs": {
     "url": "https://github.com/Shinmercy/celestia/issues"
   },
