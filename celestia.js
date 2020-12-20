@@ -1,8 +1,7 @@
-// Celestia Discord Bot Copyright (©) 2018 - 2020 Shin#0955. All rights reserved. MIT License.
+// Celestia Discord Bot Copyright (©) 2018 - 2020 Shin#0484. All rights reserved. MIT License.
 
 // We need this for our .env file, make sure to put it above anything else!
 require("dotenv").config();
-
 const Discord = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
@@ -42,7 +41,7 @@ class Celestia extends Discord.Client {
     return permlvl;
   }
   
-  // Command load / unload
+  // Command load
   loadCommand(commandPath, commandName) {
     try {
       const props = new (require(`${commandPath}${path.sep}${commandName}`))(client);
@@ -60,7 +59,8 @@ class Celestia extends Discord.Client {
       return `Unable to load command ${commandName}: ${e}`;
     }
   }
-
+  
+  // Command unload
   async unloadCommand(commandPath, commandName) {
     let command;
     if (this.commands.has(commandName)) {
@@ -77,7 +77,7 @@ class Celestia extends Discord.Client {
     return false;
   }
 
-  // Get / write Settingsfile
+  // Get Settingsfile
   getSettings(guild) {
     if (guild) {
       const defaults = client.config.defaultSettings || {};
@@ -91,6 +91,7 @@ class Celestia extends Discord.Client {
     }
   }
 
+  // Write Settingsfile
   writeSettings(id, newSettings) {
     const defaults = this.settings.get("default");
     let settings = this.settings.get(id);
@@ -106,13 +107,16 @@ class Celestia extends Discord.Client {
   }
 }
 
+// Celestia Client
 const client = new Celestia({
   disabledEvents: ["TYPING_START", "RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "CHANNEL_PINS_UPDATE"],
   disableEveryone: true
 });
 
+// Log Permission Levels
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
 
+// Get the functions file for loading the commands
 require("./modules/functions.js")(client);
 
 const init = async () => {
@@ -145,10 +149,12 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
+  // Discord Login
   client.login(CELESTIA_TOKEN);
 };
 
 init();
 
+// Some additional logger functions
 client.on("error", e => client.logger.error(e))
       .on("warn", info => client.logger.warn(info));
