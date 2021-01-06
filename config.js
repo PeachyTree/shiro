@@ -3,8 +3,7 @@ const { OWNER,
   SUPPORT, 
   CELESTIA_PREFIX, 
   MOD_ROLE, 
-  ADMIN_ROLE, 
-  SYSTEM_NOTICE 
+  ADMIN_ROLE
 } = process.env;
 
 const config = {
