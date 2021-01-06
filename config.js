@@ -15,8 +15,7 @@ const config = {
   defaultSettings: {
     "prefix": CELESTIA_PREFIX,
     "modRole": MOD_ROLE, // Default mod role.
-    "adminRole": ADMIN_ROLE, // Default admin role.
-    "systemNotice": SYSTEM_NOTICE
+    "adminRole": ADMIN_ROLE // Default admin role.
   },
   
   permLevels: [
