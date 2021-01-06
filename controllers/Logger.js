@@ -1,4 +1,4 @@
-// Logger class for unique and advanced logging
+// Custom Logger Class for easy and advanced logging
 
 const chalk = require("chalk");
 const moment = require("moment");

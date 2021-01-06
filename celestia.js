@@ -19,7 +19,7 @@ class Celestia extends Discord.Client {
     this.commands = new Discord.Collection();
     this.aliases = new Discord.Collection();
     this.settings = new Enmap({ name: "settings" });
-    this.logger = require("./util/Logger");
+    this.logger = require("./controllers/Logger");
     this.wait = promisify(setTimeout);
     this.cache = null;
   }
@@ -117,7 +117,7 @@ const client = new Celestia({
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
 
 // Get the functions file for loading the commands
-require("./modules/functions.js")(client);
+require("./controllers/functions.js")(client);
 
 const init = async () => {
   // Load commands
