@@ -63,7 +63,7 @@ is every permission the bot asks for:
 ## Interesting Information
 - 160+ commands
 - 22,000+ lines of code
-- 2 years of development
+- 3 years of development
 - 400+ Commits
 
 ## Installing
