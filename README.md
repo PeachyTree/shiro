@@ -1,6 +1,6 @@
 # Celestia Discord Bot
 
-Celestia ©2018-2020 Shin#0484
+Celestia ©2018-2021 Shin#0484
 
 A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
