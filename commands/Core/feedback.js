@@ -1,7 +1,7 @@
 const Command = require('../../base/Command.js');
 const { MessageEmbed } = require('discord.js');
 const { version } = require("../../package.json");
-const { FEEDBACK_CHANNEL, FEEDBACK_EMOJI_ID } = process.env;
+const { FEEDBACK_CHANNEL_ID, FEEDBACK_EMOJI_ID } = process.env;
 
 class Feedback extends Command {
     constructor(client) {
@@ -16,7 +16,7 @@ class Feedback extends Command {
 
     async run(message, args) {
         try {
-            let channel = this.client.channels.cache.get(FEEDBACK_CHANNEL);
+            let channel = this.client.channels.cache.get(FEEDBACK_CHANNEL_ID);
 
             if (!args.length) {
                 return message.reply("Command Usage: `feedback <Suggestion / Issue>`")
