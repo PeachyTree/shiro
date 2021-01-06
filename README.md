@@ -108,11 +108,17 @@ Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's 
 * `CELESTIA_ID=` is the ID of your bot. This is so far only used for the `rate` command.
 * `CELESTIA_INVITE_LINK=` is an invite link for the bot. As example: `https://discordapp.com/oauth2/authorize?client_id=1234567891011&scope=bot&permissions=0123456789`
 
+_This is a Channel ID for the channel you want to view feedback from. It's not really required, so you can delete it._
+* `FEEDBACK_CHANNEL_ID=` is simply the channel ID of any channel in the main server the bot should be in.
+
 ### System
 * `ADMIN=` Bot Admin User ID. Not required, and totally optional.
 * `OWNER=` Bot Owner User ID. Used for Bot Owner commands. 
 * `SUPPORT=` Bot Support User ID. Not required, and totally optional.
-* `SYSTEM_NOTICE=` Leave this to `true`, which is set by default. This shouldn't be touched.
+
+_Feel free to change these roles for your server. It's not required to change them though. Defaults below. Those are for the permission level function, so that the bot knows who is an Admin, Moderator, or user._
+* `MOD_ROLE=` Moderator role on a server. Default is `Moderator`.
+* `ADMIN_ROLE=` Admin role on a server. Default is `Administrator`.
 
 ### Emoji IDs (All of them are totally optional!)
 * `BAN_EMOJI_ID=` is used by the Moderation commands `ban` and `forceban`.
@@ -120,12 +126,6 @@ Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's 
 * `KICK_EMOJI_ID=` is used by the Moderation command `kick`.
 * `REPORT_EMOJI_ID=` is used by the Moderation command `report`. 
 * `WARN_EMOJI_ID=` is used by the Moderation command `warn`.
-
-### Roles
-_Feel free to change these roles for your server. It's not required to change them though. Defaults below. Those are for the permission level function, so that the bot knows who is an Admin, Moderator, or user._
-
-* `MOD_ROLE=` Moderator role on a server. Default is `Moderator`.
-* `ADMIN_ROLE=` Admin role on a server. Default is `Administrator`.
 
 ### API KEYS, Secrets, and more
 * `BITLY_KEY=` can be obtained by getting a [Generic Access Token](https://bitly.is/accesstoken).
@@ -141,11 +141,6 @@ _Feel free to change these roles for your server. It's not required to change th
 * `THECATAPI_KEY=` can be obtained by going to the [Cat API](https://thecatapi.com/).
 * `UNSPLASH_ACCESS_KEY=` can be obtained by going to the [Unsplash Image API](https://unsplash.com/developers).
 * `WEBSTER_KEY=` can be obtained by going to the [Dictionary API website](https://dictionaryapi.com/). Find the "GET STARTED USING OUR API" section.
-
-### Feedback Command
-_This is a Channel ID for the channel you want to view feedback from. It's not really required, so delete it, with the feedback command, if you don't want or need it._
-
-`FEEDBACK_CHANNEL=` is simply the channel ID of any channel in the main server the bot should be in.
 
 ### Imgur Album IDs
 As all of these keys are the same process, this is a little different. You need to first sign up for Imgur. Then you just need to go to your profile and make albums that contain the images for the command(s) you want to use. Use the ID of that album (look at the URL) as the variable. Yes, you need to fill these albums yourself.
