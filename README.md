@@ -21,9 +21,7 @@ YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.
 	* [Bot-related Information](#bot-related-information)
 	* [System](#system)
     * [Emoji IDs](#emoji-ids-all-of-them-are-totally-optional)
-    * [Roles](#roles)
     * [API KEYS, Secrets, and more](#api-keys-secrets-and-more)
-	* [Feedback Command](#feedback-command)
 	* [Imgur Album IDs](#imgur-album-ids)
 - [Commands](#commands)
 	* [Action](#action)
@@ -104,7 +102,7 @@ Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's 
 
 ### Bot-related Information
 * `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
-* `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is `c.`.
+* `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is `c.`
 * `CELESTIA_ID=` is the ID of your bot. This is so far only used for the `rate` command.
 * `CELESTIA_INVITE_LINK=` is an invite link for the bot. As example: `https://discordapp.com/oauth2/authorize?client_id=1234567891011&scope=bot&permissions=0123456789`
 
