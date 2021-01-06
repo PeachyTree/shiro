@@ -1,7 +1,7 @@
 // This event runs whenever the bot starts up
 // It's basically for creating its presence on Discord
 
-const activities = require("../assets/activities.json");
+const activities = require("../assets/json/bot/activities");
 
 module.exports = class {
   constructor(client) {
