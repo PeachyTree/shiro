@@ -1,4 +1,4 @@
-# Celestia (Codename Mitorisia) Discord Bot
+# Celestia (Codename Shiro) Discord Bot
 
 Celestia ©2018-2021 Shin#0484
 
@@ -7,7 +7,7 @@ A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
 
 ## IMPORTANT INFORMATION
-I am going to make a rewrite of this bot, since 80% of this code is outdated. 
+I am going to make a rewrite of this bot (also the name will be changed to Shiro soon), since 80% of this code is outdated. 
 The old code will still stay here, until the rewrite is done. 
 Information on this readme file will also be removed, except the `Filling out the .env file` section.
 
