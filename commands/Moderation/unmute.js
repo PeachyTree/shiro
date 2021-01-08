@@ -60,7 +60,7 @@ class Unmute extends Command {
         .addField('User:', `${user.tag} (${user.id})`)
         .addField('Unmuted by:', `${message.author.tag} (${message.author.id})`)
         .addField('Reason:', `${reason}`)
-        .setFooter('Moderation system powered by Celestia <3', this.client.user.displayAvatarURL)
+        .setFooter('Moderation system powered by Shiro', this.client.user.displayAvatarURL)
         .setTimestamp();
       message.channel.send({ embed });
       user.send(`You have been unmuted in **${message.guild.name}**.\nPlease ensure you always follow the rules to prevent being muted again!`);

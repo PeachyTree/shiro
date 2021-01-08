@@ -1,7 +1,7 @@
 const Command = require('../../base/Command.js');
-const celestia = require("../../package.json");
+const shiro = require("../../package.json");
 const { MessageEmbed, version } = require("discord.js");
-const { CELESTIA_INVITE_LINK } = process.env;
+const { SHIRO_INVITE_LINK } = process.env;
 
 class Help extends Command {
   constructor(client) {
@@ -20,10 +20,10 @@ class Help extends Command {
         const embed = new MessageEmbed()
           .setColor("RANDOM")
           .setThumbnail(this.client.user.displayAvatarURL())
-          .setTitle(`:wave: Hey ${message.author.username}, I'm Celestia!`)
-          .setDescription("I'm a bot developed and maintained by Snowball ♪#0955\n\All my commands start with the prefix `c.`. To see all my commands use `c.commands`!")
-          .addField("Version", celestia.version)
-          .addField("Invite link", `[Click here](${CELESTIA_INVITE_LINK})`)
+          .setTitle(`:wave: Hey ${message.author.username}, I'm Shiro!`)
+          .setDescription("I'm a bot developed and maintained by Shin#0484\n\All my commands start with the prefix `s.`. To see all my commands use `s.commands`!")
+          .addField("Version", shiro.version)
+          .addField("Invite link", `[Click here](${SHIRO_INVITE_LINK})`)
           .setFooter(`Made with Discord.js v${version}`)
           .setTimestamp();
         message.channel.send({ embed });

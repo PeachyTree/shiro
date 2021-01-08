@@ -41,7 +41,7 @@ class Lockdown extends Command {
                         .addField('Channel:', `#${message.channel.name} (${message.channel.id})`)
                         .addField('Duration:', `${ms(ms(time), { long: true })}`)
                         .addField('Issued by:', `${message.author.tag}`)
-                        .setFooter('Moderation system powered by Celestia <3', this.client.user.displayAvatarURL)
+                        .setFooter('Moderation system powered by Shiro', this.client.user.displayAvatarURL)
                         .setTimestamp();
                     message.channel.send({ embed })
                     .then(() => {

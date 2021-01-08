@@ -1,13 +1,13 @@
 const Command = require("../../base/Command.js");
-const facts = require('../../assets/json/celestia-fact');
+const facts = require('../../assets/json/shiro-fact');
 
-class CelestiaFact extends Command {
+class ShiroFact extends Command {
   constructor(client) {
     super(client, {
-      name: "celestia-fact",
+      name: "shiro-fact",
       description: "Sends a fact about the bot.",
       category: "Random Response",
-      usage: "celestia-fact",
+      usage: "shiro-fact",
       aliases: ["bot-fact"]
     }); 
   }
@@ -18,4 +18,4 @@ class CelestiaFact extends Command {
   }
 }
 
-module.exports = CelestiaFact;
+module.exports = ShiroFact;

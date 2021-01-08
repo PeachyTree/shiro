@@ -60,7 +60,7 @@ class Ban extends Command {
           .addField('Reason:', `${reason}`)
           .addField('Duration:', `Permanent`)
           .addField('Last message:', `${lastMessage}`)
-          .setFooter('Moderation system powered by Celestia <3', this.client.user.displayAvatarURL)
+          .setFooter('Moderation system powered by Shiro', this.client.user.displayAvatarURL)
           .setTimestamp();
         message.channel.send({ embed });
 

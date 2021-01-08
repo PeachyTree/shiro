@@ -26,7 +26,7 @@ class Feedback extends Command {
                     .setTitle(`${FEEDBACK_EMOJI_ID} | Feedback command used by ${message.author.tag}`)
                     .addField("In:", `${message.guild.name}, ${message.channel.name} (${message.channel.id})`)
                     .addField("Issue:", args.join(" "))
-                    .setFooter(`Celestia v${version}`)
+                    .setFooter(`Shiro v${version}`)
                     .setTimestamp()
                 channel.send({ embed });
 

@@ -30,7 +30,7 @@ class Report extends Command {
       .addField('Target:', `${user.tag} (${user.id})`)
       .addField('Reason:', `${reason}`)
       .addField('Channel:', `#${message.channel.name}`)
-      .setFooter('Moderation system powered by Celestia <3', this.client.user.displayAvatarURL)
+      .setFooter('Moderation system powered by Shiro', this.client.user.displayAvatarURL)
       .setTimestamp();
     message.channel.send({ embed })
     .then(() => {

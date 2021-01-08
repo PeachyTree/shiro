@@ -1,9 +1,9 @@
 [
-  "c.help | Use c.invite to invite me!", 
-  "c.help | View all Commands: c.commands",
-  "c.help | Donate to support development! c.donate",
-  "c.help | View the source code on Github: Shinmercy/celestia",
-  "c.help | Need help for any command? Use c.help <command>!",
-  "c.help | Found bugs? c.feedback",
-  "c.help | Suggestions? c.feedback"
+  "s.help | Use s.invite to invite me!", 
+  "s.help | View all Commands: s.commands",
+  "s.help | Donate to support development! s.donate",
+  "s.help | View the source code on Github: Shinmercy/shiro",
+  "s.help | Need help for any command? Use s.help <command>!",
+  "s.help | Found bugs? s.feedback",
+  "s.help | Suggestions? s.feedback"
 ]

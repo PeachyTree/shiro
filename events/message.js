@@ -19,7 +19,7 @@ module.exports = class {
     // If someone mentions the bot in a text channel, it'll automatically send a reply with how to use it:
     const mention = `<@${this.client.user.id}>`; // = This Client ID
     if (message.content.startsWith(mention)) {
-      message.channel.send(`First time using Celestia? Need help getting started? Simply forgotten how to use this bot?\nUse the \`c.help\` command!`);
+      message.channel.send(`First time using Shiro? Need help getting started? Simply forgotten how to use this bot?\nUse the \`s.help\` command!`);
     }
 
     if (message.content.indexOf(settings.prefix) !== 0) return;

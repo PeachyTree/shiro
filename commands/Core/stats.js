@@ -8,7 +8,7 @@ class Stats extends Command {
   constructor(client) {
     super(client, {
       name: "stats",
-      description: "Shows some information about Celestia!",
+      description: "Shows some information about Shiro!",
       category: "Core",
       usage: "stats",
       aliases: ["botinfo"]
@@ -19,7 +19,7 @@ class Stats extends Command {
     const duration = moment.duration(this.client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
     const embed = new MessageEmbed()
-      .setTitle("__**Celestia Bot Stats**__")
+      .setTitle("__**Shiro Bot Stats**__")
       .setColor('RANDOM')
       .addField(':clock4: | **Uptime**', `${duration}`, true)
       .addField(':bar_chart: | **Server Count**', `${this.client.guilds.cache.size.toLocaleString()}` , true)

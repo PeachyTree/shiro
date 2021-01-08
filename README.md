@@ -1,12 +1,16 @@
-# Celestia Discord Bot
+# Shiro Discord Bot
 
-Celestia ©2018-2021 Shin#0484
+Shiro ©2018-2021 Shin#0484
 
 A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
-YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS. 
+## IMPORTANT INFORMATION
+**YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.** 
+**NOTE THAT THIS BOT MAY NOT WORK AS A STANDALONE - IT IS A BIT OUTDATED**
 
-**I am not testing every single command, I would really appreciate it if you would find any errors that may occurr, to open an issue and I'll fix them as fast as I can!**
+**YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS**
+
+**I WILL NOT BE PROVIDING ANY SUPPORT FOR THIS BOT AS IT MAY NOT PERFECTLY FUNCTIONS, YOU ARE FREE TO ASK QUESTIONS OR OPEN ISSUES THOUGH**
 
 ## Table of Contents
 
@@ -51,6 +55,8 @@ is every permission the bot asks for:
 - **View Channels** is required for every single command to work.
 - **Send Messages** is required for every single command to work.
 - **Manage Messages** allows the bot to use the `clear` command.
+- **Kick Members** allows the bot to use the `kick` command.
+- **Ban Members** allows the bot to use various `moderation` commands.
 - **Embed Links** is required to allow commands that send embeds to work. A whole bunch of commands use this.
 - **Attach Files** is required to allow commands that send files to work. A whole bunch of commands use this.
 - **Read Message History** allows the bot to use the `last-message` and `clear` commands.
@@ -69,8 +75,8 @@ is every permission the bot asks for:
 ### Before You Begin
 
 1. Make sure you have installed [Node.js](https://nodejs.org/en/) (you will need **at least v14.0.0**) and [Git](https://git-scm.com/).
-2. Clone this repository with `git clone https://github.com/Shinmercy/celestia.git`.
-3. Run `cd celestia` to move into the folder that you just created.
+2. Clone this repository with `git clone https://github.com/Shinmercy/shiro.git`.
+3. Run `cd shiro` to move into the folder that you just created.
 4. Create a file named `.env` and fill it out as shown in `.env.example`.
 
 ### Windows
@@ -78,7 +84,7 @@ is every permission the bot asks for:
 1. Open an **ADMIN POWERSHELL** window.
 2. Run `npm i -g --production windows-build-tools`
 3. Run `npm i --production` in the folder you cloned the bot.
-4. After filling out the .env file, you can start the bot by running `node celestia.js`.
+4. After filling out the .env file, you can start the bot by running `node shiro.js`.
 
 ### Mac
 
@@ -86,7 +92,7 @@ is every permission the bot asks for:
 2. Run `xcode-select --install`
 3. You should now see a software update popup asking you the following: "The xcode-select command requires the command line developer tools. Would you like to install the tools now?" Click on the Install button to confirm, then Agree to the License Agreement when requested (have fun reading through that).
 All the command line developer tools will be installed to the /Library/Developer/CommandLineTools/ directory.
-4. After filling out the .env file, you can start the bot by running `node celestia.js`.
+4. After filling out the .env file, you can start the bot by running `node shiro.js`.
 
 ### Ubuntu and other Debian-based systems
 
@@ -94,17 +100,17 @@ All the command line developer tools will be installed to the /Library/Developer
 2. Run `apt upgrade` to install the latest dependencies of your distro.
 3. Run `apt install python` to install python.
 4. Run `npm i --production` in the folder you cloned the bot.
-5. After filling out the .env file, you can start the bot by running `node celestia.js`.
+5. After filling out the .env file, you can start the bot by running `node shiro.js`.
 
 ## Filling out the .env file
 
 Getting _all_ the API keys for your `.env` file can be a pain sometimes, that's why I've compiled a list here of where to go to get every single API key!
 
 ### Bot-related Information
-* `CELESTIA_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
-* `CELESTIA_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is `c.`
-* `CELESTIA_ID=` is the ID of your bot. This is so far only used for the `rate` command.
-* `CELESTIA_INVITE_LINK=` is an invite link for the bot. As example: `https://discordapp.com/oauth2/authorize?client_id=1234567891011&scope=bot&permissions=0123456789`
+* `SHIRO_TOKEN=` is the bot's token. You can get it from [here](https://discord.com/developers/applications/).
+* `SHIRO_PREFIX=` is the default prefix of the bot. Can be changed to anything you want. Default is `s.`
+* `SHIRO_ID=` is the ID of your bot. This is so far only used for the `rate` command.
+* `SHIRO_INVITE_LINK=` is an invite link for the bot. As example: `https://discordapp.com/oauth2/authorize?client_id=1234567891011&scope=bot&permissions=0123456789`
 
 _This is a Channel ID for the channel you want to view feedback from. It's not really required, so you can delete it._
 * `FEEDBACK_CHANNEL_ID=` is simply the channel ID of any channel in the main server the bot should be in.
@@ -132,8 +138,8 @@ _Feel free to change these roles for your server. It's not required to change th
 * `GIPHY_API_KEY=` can be obtained by going to the [Giphy API Page](https://developers.giphy.com/).
 * `GITHUB_USERNAME=` is the username of your GitHub account.
 * `GITHUB_PASSWORD=` is the password of your GitHub account. 
-* `CELESTIA_GITHUB_REPO_USERNAME=` is your username, as example `AzuraApple`.
-* `CELESTIA_GITHUB_REPO_NAME=` is the name of your repository, as example `celestia`.
+* `SHIRO_GITHUB_REPO_USERNAME=` is your username, as example `AzuraApple`.
+* `SHIRO_GITHUB_REPO_NAME=` is the name of your repository, as example `shiro`.
 * `IMGUR_KEY=` can be obtained by [Registering an Application at the Imgur website](https://imgur.com/signin?redirect=https%3A%2F%2Fapi.imgur.com%2Foauth2%2Faddclient).
 * `OSU_KEY=` can be obtained by [signing up at the osu! API page](https://osu.ppy.sh/forum/ucp.php?mode=login). Whether this link takes you to the right page or not is hit-or-miss.
 * `THECATAPI_KEY=` can be obtained by going to the [Cat API](https://thecatapi.com/).
@@ -185,8 +191,8 @@ Bot Owner Commands: 11
 * **nonce:** Sends a random number string used for checking message delivery.
 * **reload:** Reloads a command that has been modified.
 * **restart:** If running under PM2, the bot will restart.
-* **shutodown:** Shuts down Celestia.
-* **status:** Sets Celestia's presence/status.
+* **shutodown:** Shuts down Shiro.
+* **status:** Sets Shiro's presence/status.
 
 ### Core
 
@@ -197,12 +203,12 @@ Core Commands: 11
 * **donate:** Responds with the bot's donation links.
 * **feedback:** Want to give feedback? Encountered any bugs?
 * **help:** Displays basic information or help for a command!
-* **invite:** Generates an invite link, for adding Celestia to a server.
+* **invite:** Generates an invite link, for adding Shiro to a server.
 * **ping:** Shows the bot latency and gives it a rating.
 * **prefix:** Returns the command prefix for the current server.
 * **settings:** Allows you to view or change settings for your server.
-* **stats:** Shows some information about Celestia!
-* **terms:** Read Celestia's Terms of Service. 
+* **stats:** Shows some information about Shiro!
+* **terms:** Read Shiro's Terms of Service. 
 
 ### Games
 
@@ -300,7 +306,7 @@ Random Response Commands: 20
 * **advice:** Get some advice!
 * **button:** Responds with a random 'Will You Press The Button?' situation.
 * **cat-fact:** Shows a random fact about cats.
-* **celestia-fact:** Sends a fact about the bot.
+* **shiro-fact:** Sends a fact about the bot.
 * **dog-fact:** Shows a random fact about dogs.
 * **fortune:** Get a fortune!
 * **joke:** Tells a general or programming-related joke.

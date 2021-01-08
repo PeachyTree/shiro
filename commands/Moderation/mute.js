@@ -85,7 +85,7 @@ class Mute extends Command {
           .addField('Target:', `${user.tag} (${user.id})`)
           .addField('Issued by:', `${message.author.tag} (${message.author.id})`)
           .addField('Reason:', `${reason}`)
-          .setFooter('Moderation system powered by Celestia <3', this.client.user.displayAvatarURL)
+          .setFooter('Moderation system powered by Shiro', this.client.user.displayAvatarURL)
           .setTimestamp();
         message.channel.send({ embed });
         user.send(`You were muted by staff in the **${message.guild.name}** server for the reason "${reason}".\nPlease ensure you follow all the rules of the server in the future to avoid this occurring again.`);

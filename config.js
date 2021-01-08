@@ -1,7 +1,7 @@
 const { OWNER, 
   ADMIN, 
   SUPPORT, 
-  CELESTIA_PREFIX, 
+  SHIRO_PREFIX, 
   MOD_ROLE, 
   ADMIN_ROLE
 } = process.env;
@@ -12,7 +12,7 @@ const config = {
   "support": SUPPORT, // ID of Bot Support. Not required.
 
   defaultSettings: {
-    "prefix": CELESTIA_PREFIX,
+    "prefix": SHIRO_PREFIX,
     "modRole": MOD_ROLE, // Default mod role.
     "adminRole": ADMIN_ROLE // Default admin role.
   },

@@ -1,21 +1,21 @@
 {
-  "name": "celestia",
-  "version": "3.4.0",
+  "name": "shiro",
+  "version": "4.0.1",
   "description": "A Discord Bot with focus on Fun, Moderation, and Utility commands.",
-  "main": "celestia.js",
+  "main": "shiro.js",
   "scripts": {
-    "start": "node celestia.js"
+    "start": "node shiro.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shinmercy/celestia.git"
+    "url": "git+https://github.com/Shinmercy/shiro.git"
   },
   "author": "Shin#0484",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shinmercy/celestia/issues"
+    "url": "https://github.com/Shinmercy/shiro/issues"
   },
-  "homepage": "https://github.com/Shinmercy/celestia#readme",
+  "homepage": "https://github.com/Shinmercy/shiro#readme",
   "engines": {
     "node": ">=14"
   },

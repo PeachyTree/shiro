@@ -35,7 +35,7 @@ class ForceBan extends Command {
       .addField('Target:', `${userID}`)
       .addField('Issued by:', `${message.author.tag} (${message.author.id})`)
       .addField('Reason:', `${reason}`)
-      .setFooter('Moderation system powered by Celestia <3', this.client.user.displayAvatarURL)
+      .setFooter('Moderation system powered by Shiro', this.client.user.displayAvatarURL)
       .setTimestamp();
     message.channel.send({ embed });
   }

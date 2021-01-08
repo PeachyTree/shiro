@@ -4,7 +4,7 @@ class Shutdown extends Command {
   constructor(client) {
     super(client, {
       name: "shutdown",
-      description: "Shuts down Celestia.",
+      description: "Shuts down Shiro.",
       category: "Bot Owner",
       usage: "shutdown",
       permLevel: "Bot Owner"

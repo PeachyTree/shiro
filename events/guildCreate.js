@@ -25,9 +25,9 @@ module.exports = class {
 
     // This is the embed that'll be sent to the channel above. Can of course be changed to anything!
     const embed = new MessageEmbed()
-      .setTitle('Hiya! I\'m Celestia. I\'m a bot developed and maintained by Snowball ♪#0955.')
+      .setTitle('Hiya! I\'m Shiro. I\'m a bot developed and maintained by Snowball ♪#0955.')
       .setColor('RANDOM')
-      .setDescription(`You must be the server owner, ${guildOwner}! Somebody invited me to your server **${guild.name}**. My prefix is \`c.\` (but can be changed).\nTo view all commands and information, use the \`c.help\` and \`c.commands\` commands!`)
+      .setDescription(`You must be the server owner, ${guildOwner}! Somebody invited me to your server **${guild.name}**. My prefix is \`s.\` (but can be changed).\nTo view all commands and information, use the \`s.help\` and \`s.commands\` commands!`)
       .addField('Version:', `v${pkg.version}`)
       .setFooter(`Made with Discord.js (v${version}) and Node.js (${process.version})`)
     defaultChannel.send({ embed }); 

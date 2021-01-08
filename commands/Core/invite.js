@@ -1,11 +1,11 @@
 const Command = require('../../base/Command.js');
-const { CELESTIA_INVITE_LINK } = process.env;
+const { SHIRO_INVITE_LINK } = process.env;
 
 class Invite extends Command {
   constructor(client) {
     super(client, {
       name: "invite",
-      description: "Generates an invite link, for adding Celestia to a server.",
+      description: "Generates an invite link, for adding Shiro to a server.",
       category: "Core",
       usage: "invite",
       aliases: ["add"]
@@ -13,7 +13,7 @@ class Invite extends Command {
   }
 
   async run(message) { 
-    message.channel.send(`🔗 | ${CELESTIA_INVITE_LINK}`);
+    message.channel.send(`🔗 | ${SHIRO_INVITE_LINK}`);
   }
 }
 

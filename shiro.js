@@ -1,4 +1,4 @@
-// Celestia Discord Bot Copyright (©) 2018 - 2021 Shin#0484. All rights reserved. MIT License.
+// Shiro Discord Bot Copyright (©) 2018 - 2021 Shin#0484. All rights reserved. MIT License.
 
 // We need this for our .env file, make sure to put it above anything else!
 require("dotenv").config();
@@ -8,10 +8,10 @@ const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
 const klaw = require("klaw");
 const path = require("path");
-const { CELESTIA_TOKEN } = process.env;
+const { SHIRO_TOKEN } = process.env;
 
 // Client Settings
-class Celestia extends Discord.Client {
+class Shiro extends Discord.Client {
   constructor(options) {
     super(options);
 
@@ -107,8 +107,8 @@ class Celestia extends Discord.Client {
   }
 }
 
-// Celestia Client
-const client = new Celestia({
+// Shiro Client
+const client = new Shiro({
   disabledEvents: ["TYPING_START", "RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "CHANNEL_PINS_UPDATE"],
   disableEveryone: true
 });
@@ -150,7 +150,7 @@ const init = async () => {
   }
 
   // Discord Login
-  client.login(CELESTIA_TOKEN);
+  client.login(SHIRO_TOKEN);
 };
 
 init();
