@@ -1,4 +1,4 @@
-// Shiro Discord Bot Copyright (©) 2018 - 2021 Shin#0484. All rights reserved. MIT License.
+// Shiro Discord Bot Copyright (©) 2018 - 2021 ShinWulf#0484. All rights reserved. MIT License.
 
 // We need this for our .env file, make sure to put it above anything else!
 require("dotenv").config();
