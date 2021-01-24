@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shinmercy/shiro.git"
+    "url": "git+https://github.com/Shinwulf/shiro.git"
   },
   "author": "Shin#0484",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shinmercy/shiro/issues"
+    "url": "https://github.com/Shinwulf/shiro/issues"
   },
-  "homepage": "https://github.com/Shinmercy/shiro#readme",
+  "homepage": "https://github.com/Shinwulf/shiro#readme",
   "engines": {
     "node": ">=14"
   },
