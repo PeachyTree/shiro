@@ -1,6 +1,6 @@
 # Shiro Discord Bot
 
-Shiro ©2018-2021 Shin#0484
+Shiro ©2018-2021 ShinWulf#0484
 
 A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
@@ -75,7 +75,7 @@ is every permission the bot asks for:
 ### Before You Begin
 
 1. Make sure you have installed [Node.js](https://nodejs.org/en/) (you will need **at least v14.0.0**) and [Git](https://git-scm.com/).
-2. Clone this repository with `git clone https://github.com/Shinmercy/shiro.git`.
+2. Clone this repository with `git clone https://github.com/Shinwulf/shiro.git`.
 3. Run `cd shiro` to move into the folder that you just created.
 4. Create a file named `.env` and fill it out as shown in `.env.example`.
 
