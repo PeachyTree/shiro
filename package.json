@@ -1,6 +1,6 @@
 {
   "name": "shiro",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "A Discord Bot with focus on Fun, Moderation, and Utility commands.",
   "main": "shiro.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Shinwulf/shiro.git"
   },
-  "author": "Shin#0484",
+  "author": "Shinwulf",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Shinwulf/shiro/issues"
