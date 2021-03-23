@@ -1,15 +1,11 @@
 const { OWNER, 
-  ADMIN, 
-  SUPPORT, 
   SHIRO_PREFIX, 
   MOD_ROLE, 
   ADMIN_ROLE
 } = process.env;
 
 const config = {
-  "owner": OWNER, // ID of the Bot Owner. Has access to Bot Owner commands.
-  "admins": ADMIN, // ID of Bot Admin. Not required.
-  "support": SUPPORT, // ID of Bot Support. Not required.
+  "owner": OWNER, 
 
   defaultSettings: {
     "prefix": SHIRO_PREFIX,
@@ -47,14 +43,6 @@ const config = {
     { level: 4,
       name: "Server Owner", 
       check: (message) => message.channel.type === "text" ? (message.guild.owner.user.id === message.author.id ? true : false) : false
-    },
-    { level: 8,
-      name: "Bot Support",
-      check: (message) => config.support.includes(message.author.id)
-    },
-    { level: 9,
-      name: "Bot Admin",
-      check: (message) => config.admins.includes(message.author.id)
     },
     { level: 10,
       name: "Bot Owner", 

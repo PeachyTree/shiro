@@ -1,8 +1,7 @@
-// Shiro Discord Bot Copyright (©) 2018 - 2021 Shinwulf. All rights reserved. MIT License.
+// Shiro Discord Bot Copyright (©) 2017 - 2021 Shinwulf. All rights reserved. MIT License.
 
-// We need this for our .env file, make sure to put it above anything else!
 require("dotenv").config();
-const Discord = require("discord.js");
+const { Client } = require("discord.js");
 const { promisify } = require("util");
 const readdir = promisify(require("fs").readdir);
 const Enmap = require("enmap");
@@ -10,8 +9,7 @@ const klaw = require("klaw");
 const path = require("path");
 const { SHIRO_TOKEN } = process.env;
 
-// Client Settings
-class Shiro extends Discord.Client {
+class Shiro extends Client {
   constructor(options) {
     super(options);
 
@@ -24,7 +22,6 @@ class Shiro extends Discord.Client {
     this.cache = null;
   }
 
-  // Permission Levels
   permlevel(message) {
     let permlvl = 0;
 
@@ -41,7 +38,6 @@ class Shiro extends Discord.Client {
     return permlvl;
   }
   
-  // Command load
   loadCommand(commandPath, commandName) {
     try {
       const props = new (require(`${commandPath}${path.sep}${commandName}`))(client);
@@ -60,7 +56,6 @@ class Shiro extends Discord.Client {
     }
   }
   
-  // Command unload
   async unloadCommand(commandPath, commandName) {
     let command;
     if (this.commands.has(commandName)) {
@@ -77,7 +72,6 @@ class Shiro extends Discord.Client {
     return false;
   }
 
-  // Get Settingsfile
   getSettings(guild) {
     if (guild) {
       const defaults = client.config.defaultSettings || {};
@@ -91,7 +85,6 @@ class Shiro extends Discord.Client {
     }
   }
 
-  // Write Settingsfile
   writeSettings(id, newSettings) {
     const defaults = this.settings.get("default");
     let settings = this.settings.get(id);
@@ -107,20 +100,16 @@ class Shiro extends Discord.Client {
   }
 }
 
-// Shiro Client
 const client = new Shiro({
   disabledEvents: ["TYPING_START", "RELATIONSHIP_ADD", "RELATIONSHIP_REMOVE", "CHANNEL_PINS_UPDATE"],
   disableEveryone: true
 });
 
-// Log Permission Levels
 console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
 
-// Get the functions file for loading the commands
 require("./controllers/functions.js")(client);
 
 const init = async () => {
-  // Load commands
   klaw("./commands").on("data", (item) => {
     const cmdFile = path.parse(item.path);
     if (!cmdFile.ext || cmdFile.ext !== ".js") return;
@@ -128,7 +117,6 @@ const init = async () => {
     if (response) client.logger.error(response);
   });
 
-  // Find and load events folder
   const evtFiles = await readdir("./events");
   client.logger.log(`Loading a total of ${evtFiles.length} events.`, "log");
   evtFiles.forEach(file => {
@@ -149,7 +137,6 @@ const init = async () => {
     client.levelCache[thisLevel.name] = thisLevel.level;
   }
 
-  // Discord Login
   client.login(SHIRO_TOKEN);
 };
 
