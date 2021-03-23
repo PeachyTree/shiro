@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const math = require("mathjs");
 
 class Calculate extends Command {

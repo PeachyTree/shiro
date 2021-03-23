@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const zalgo = require('../../assets/json/zalgo');
 
 class Zalgolize extends Command {

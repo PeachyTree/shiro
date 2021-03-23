@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const { letterTrans } = require('custom-translate');
 const dictionary = require('../../assets/json/emojify');
 

@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const weather = require('weather-js');
 
 class Forecast extends Command {

@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const { MessageEmbed } = require('discord.js');
 const quotes = require('../../assets/json/quotes.json');
 const total = Object.keys(quotes).length

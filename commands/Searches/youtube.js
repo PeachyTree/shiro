@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 let youtube_node = require('youtube-node');
 youtube = new youtube_node();
 youtube.setKey(process.env.GOOGLE_API);

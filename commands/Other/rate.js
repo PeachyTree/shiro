@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const { SHIRO_ID } = process.env;
 
 class Rate extends Command {

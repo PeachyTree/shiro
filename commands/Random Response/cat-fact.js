@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const catFacts = require('../../assets/json/cat-fact.json');
 const { MessageEmbed } = require('discord.js');
 

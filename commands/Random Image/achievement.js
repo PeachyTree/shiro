@@ -1,4 +1,4 @@
-const Command = require("../../base/Command.js");
+const Command = require("../Command");
 const { MessageAttachment } = require('discord.js');
 
 class Achievement extends Command {

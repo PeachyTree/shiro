@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const roasts = require('../../assets/json/roast');
 
 class Roast extends Command {

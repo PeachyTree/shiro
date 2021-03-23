@@ -1,5 +1,3 @@
-// Base Command Handler structure for all commands
-
 class Command {
   constructor(client, {
     name = null,

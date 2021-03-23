@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const { SHIRO_INVITE_LINK } = process.env;
 
 class Invite extends Command {

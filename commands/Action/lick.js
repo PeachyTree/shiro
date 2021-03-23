@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const request = require('node-superfetch');
 const { IMGUR_KEY, LICK_ALBUM_ID } = process.env; 
 

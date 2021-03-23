@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const shiro = require("../../package.json");
 const { MessageEmbed, version } = require("discord.js");
 const { SHIRO_INVITE_LINK } = process.env;

@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const kaomojis = require('../../assets/json/kaomoji')
 
 class Kaomoji extends Command {

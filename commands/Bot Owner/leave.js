@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 
 class Leave extends Command {
     constructor(client) {

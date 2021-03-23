@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const fetch = require("node-superfetch");
 const { URLSearchParams } = require("url");
 const { GIPHY_API_KEY } = process.env;

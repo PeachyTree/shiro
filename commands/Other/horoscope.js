@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const signs = require('../../assets/json/signs');

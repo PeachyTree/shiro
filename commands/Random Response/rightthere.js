@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const rightThere = require('../../assets/json/rightthere');
 
 class RightThere extends Command {

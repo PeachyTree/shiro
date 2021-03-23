@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const fs = require("fs");
 
 class FileSize extends Command {

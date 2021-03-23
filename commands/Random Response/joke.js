@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const fetch = require("node-superfetch");
 
 class Joke extends Command {

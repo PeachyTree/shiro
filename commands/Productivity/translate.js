@@ -2,7 +2,7 @@
 // which is sourced from https://github.com/TheBastionBot/Bastion
 // Credit to module owner: https://github.com/k3rn31p4nic
 
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const { MessageEmbed } = require('discord.js');
 const translate = require('@k3rn31p4nic/google-translate-api');
 

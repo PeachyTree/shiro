@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const tsun = require('../../assets/json/tsundere');
 
 class Tsundere extends Command {

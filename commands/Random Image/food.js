@@ -1,4 +1,4 @@
-const Command = require("../../base/Command.js");
+const Command = require("../Command");
 const request = require('node-superfetch');
 const cheerio = require('cheerio');
 

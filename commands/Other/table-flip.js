@@ -1,4 +1,4 @@
-const Command = require("../../base/Command.js");
+const Command = require("../Command");
 const flipFrames = require("../../assets/json/table-flip");
 
 class TableFlip extends Command {

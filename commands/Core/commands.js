@@ -3,7 +3,7 @@
 // command is also filtered by level, so if a user does not have access to
 // a command, it is not shown to them.
 
-const Command = require("../../base/Command.js");
+const Command = require("../Command");
 
 class Commands extends Command {
   constructor(client) {

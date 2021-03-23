@@ -1,4 +1,4 @@
-const Command = require('../../base/Command.js');
+const Command = require('../Command');
 const leveling = require('discord-leveling');
 
 class Delete extends Command {
