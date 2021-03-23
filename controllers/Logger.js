@@ -1,5 +1,3 @@
-// Custom Logger Class for easy and advanced logging
-
 const chalk = require("chalk");
 const moment = require("moment");
 
@@ -10,25 +8,25 @@ class Logger {
       case "log": { 
         return console.log(`${timestamp} ${chalk.bgBlue(type.toUpperCase())} ${content} `);
       }
-      case "warn": { // Warn logger, usually runs if the eval command is used, as example
+      case "warn": { 
         return console.log(`${timestamp} ${chalk.black.bgYellow(type.toUpperCase())} ${content} `);
       }
-      case "info": { // Info logger, usually runs when the bot starts or shuts down
+      case "info": { 
         return console.log(`${timestamp} ${chalk.cyan(type.toUpperCase())} ${content} `);
       }
-      case "error": { // Error logger, for logging advanced error messages
+      case "error": { 
         return console.log(`${timestamp} ${chalk.bgRed(type.toUpperCase())} ${content} `);
       }
       case "debug": { 
         return console.log(`${timestamp} ${chalk.green(type.toUpperCase())} ${content} `);
       }
-      case "cmd": { // When a command is run by someone, it'll log it
+      case "cmd": { 
         return console.log(`${timestamp} ${chalk.black.bgWhite(type.toUpperCase())} ${content}`);
       }
       case "panel": { 
         return console.log(`${timestamp} ${chalk.black.bgCyan(type.toUpperCase())} ${content}`);
       }
-      case "ready": { // Runs when the bot starts up. To this counts loading events and loading commands
+      case "ready": { 
         return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
       } 
       default: throw new TypeError("Logger type must be one of either log, warn, info, error, debug, cmd, panel or ready.");
