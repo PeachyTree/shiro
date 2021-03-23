@@ -115,9 +115,7 @@ _This is a Channel ID for the channel you want to view feedback from. It's not r
 * `FEEDBACK_CHANNEL_ID=` is simply the channel ID of any channel in the main server the bot should be in.
 
 ### System
-* `ADMIN=` Bot Admin User ID. Not required, and totally optional.
 * `OWNER=` Bot Owner User ID. Used for Bot Owner commands. 
-* `SUPPORT=` Bot Support User ID. Not required, and totally optional.
 
 _Feel free to change these roles for your server. It's not required to change them though. Defaults below. Those are for the permission level function, so that the bot knows who is an Admin, Moderator, or user._
 * `MOD_ROLE=` Moderator role on a server. Default is `Moderator`.
