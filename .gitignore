@@ -12,10 +12,3 @@ config.json
 *.example
 
 # In-Development Commands
-commands/productivity/reminder.js
-commands/text/destruct.js
-
-# macOS Files (Ignore these)
-commands/.DS_Store
-.DS_Store
-
