@@ -1,4 +1,4 @@
-exports.botPerms = [
+[
     "MANAGE_ROLES", 
     "KICK_MEMBERS", 
     "MANAGE_CHANNELS", 
@@ -14,4 +14,4 @@ exports.botPerms = [
     "MANAGE_NICKNAMES", 
     "ATTACH_FILES", 
     "ADD_REACTIONS"
-];
+]
