@@ -5,7 +5,6 @@ exports.botPerms = [
     "BAN_MEMBERS", 
     "VIEW_AUDIT_LOG", 
     "VIEW_CHANNEL", 
-    "SEND_TTS_MESSAGES", 
     "EMBED_LINKS", 
     "READ_MESSAGE_HISTORY", 
     "USE_EXTERNAL_EMOJIS", 
@@ -14,8 +13,5 @@ exports.botPerms = [
     "MANAGE_MESSAGES",
     "MANAGE_NICKNAMES", 
     "ATTACH_FILES", 
-    "ADD_REACTIONS", 
-    "CONNECT", 
-    "SPEAK", 
-    "USE_VAD"
+    "ADD_REACTIONS"
 ];
