@@ -1,14 +1,15 @@
 # Shiro Discord Bot
 
-Shiro ©2018-2021 Shinwulf
+Shiro 4.0.3 ©2017-2021 Shinwulf
 
 A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
 ## IMPORTANT INFORMATION
 **YOU ARE FREE TO USE ITS CODE AS REFERENCE FOR YOUR OWN BOTS.** 
-**NOTE THAT THIS BOT MAY NOT WORK AS A STANDALONE - IT IS OUTDATED**
 
-**I WILL NOT BE PROVIDING ANY SUPPORT FOR THIS BOT AS IT MAY NOT FUNCTIONS ANYMORE, YOU ARE FREE TO OPEN ISSUES THOUGH**
+Part of the code has been used but modified to fit into Shiro's framework from [this repository](https://github.com/DS-Development/delet). 
+If you notice any similarities with my code and their code, please make sure to tell me so & I will try to as soon as possible do something about it.
+All the credit to any similarity content goes to the repository open source project above.
 
 ## Table of Contents
 
