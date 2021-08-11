@@ -1,6 +1,6 @@
 # Shiro Discord Bot
 
-Shiro 4.0.3 ©2017-2021 Shinwulf
+Shiro 4.1 ©2017-2021 PeachyTree
 
 A Discord Bot with focus on Fun, Moderation, Utility commands and much more.
 
