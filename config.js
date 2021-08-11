@@ -1,25 +1,21 @@
-const { OWNER, 
-  SHIRO_PREFIX, 
-  MOD_ROLE, 
-  ADMIN_ROLE
-} = process.env;
+const { OWNER, SHIRO_PREFIX, MOD_ROLE, ADMIN_ROLE } = process.env;
 
 const config = {
-  "owner": OWNER, 
+  'owner': OWNER, 
 
   defaultSettings: {
-    "prefix": SHIRO_PREFIX,
-    "modRole": MOD_ROLE, // Default mod role.
-    "adminRole": ADMIN_ROLE // Default admin role.
+    'prefix': SHIRO_PREFIX,
+    'modRole': MOD_ROLE, // Default mod role.
+    'adminRole': ADMIN_ROLE // Default admin role.
   },
   
   permLevels: [
     { level: 1,
-      name: "User", 
+      name: 'User', 
       check: () => true
     },
     { level: 2,
-      name: "Moderator",
+      name: 'Moderator',
       check: (message) => {
         try {
           const modRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.modRole.toLowerCase());
@@ -30,7 +26,7 @@ const config = {
       }
     },
     { level: 3,
-      name: "Administrator", 
+      name: 'Administrator', 
       check: (message) => {
         try {
           const adminRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.adminRole.toLowerCase());
@@ -41,11 +37,11 @@ const config = {
       }
     },
     { level: 4,
-      name: "Server Owner", 
+      name: 'Server Owner', 
       check: (message) => message.channel.type === "text" ? (message.guild.owner.user.id === message.author.id ? true : false) : false
     },
     { level: 10,
-      name: "Bot Owner", 
+      name: 'Bot Owner', 
       check: (message) => config.owner.includes(message.author.id)
     }
   ]

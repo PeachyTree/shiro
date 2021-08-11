@@ -1,9 +1,9 @@
-const chalk = require("chalk");
-const moment = require("moment");
+const chalk = require('chalk');
+const moment = require('moment');
 
 class Logger {
-  static log(content, type = "log") {
-    const timestamp = `[${moment().format("YYYY-MM-DD HH:mm:ss")}]:`;
+  static log(content, type = 'log') {
+    const timestamp = `[${moment().format('YYYY-MM-DD HH:mm:ss')}]:`;
     switch (type) {
       case "log": { 
         return console.log(`${timestamp} ${chalk.bgBlue(type.toUpperCase())} ${content} `);
@@ -29,7 +29,7 @@ class Logger {
       case "ready": { 
         return console.log(`${timestamp} ${chalk.black.bgGreen(type.toUpperCase())} ${content}`);
       } 
-      default: throw new TypeError("Logger type must be one of either log, warn, info, error, debug, cmd, panel or ready.");
+      default: throw new TypeError('Logger type must be one of either log, warn, info, error, debug, cmd, panel or ready.');
     }
   }
   
