@@ -73,7 +73,7 @@ is every permission the bot asks for:
 
 ### Before You Begin
 
-1. Make sure you have installed [Node.js](https://nodejs.org/en/) (you will need **at least v14.0.0**) and [Git](https://git-scm.com/).
+1. Make sure you have installed [Node.js](https://nodejs.org/en/) (you will need **at least v12.0.0**) and [Git](https://git-scm.com/).
 2. Clone this repository with `git clone https://github.com/Shinwulf/shiro.git`.
 3. Run `cd shiro` to move into the folder that you just created.
 4. Create a file named `.env` and fill it out as shown in `.env.example`.
