@@ -1,37 +1,38 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const ms = require('ms');
 
-class Destruct extends Command {
-  constructor(client) {
-    super(client, {
-      name: "destruct",
-      description: "Sends the same message that you had sent, but it will get auto deleted after a specific amount of time.",
-      category: "Text",
-      usage: "destruct <Time (sec)> <Text>",
-      aliases: ['self-destruct']
-    });
-  }
-  
-  async run(message, args) {
-    try {
-      let time = args[0];
+module.exports = class DestructCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'destruct',
+			aliases: ['self-destruct'],
+			group: 'text',
+			memberName: 'destruct',
+			description: 'Sends the same message that you had sent, but it will get auto deleted after a specific amount of time.',
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text do you want to self-destruct?',
+					type: 'string'
+				},
+        {
+					key: 'time',
+					prompt: 'For how long should (in seconds) the message stay, and then self-destruct?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-      if (!args.length) {
-        return message.reply("Command Usage: `destruct <Time (sec)> <Text>`")
-      }
-
-      let text = args.slice(1).join(" "); 
-      
-      message.delete();
-      let destructMsg = message.channel.send(`${text}`); 
-
+	async run(msg, { text, time }) {
+		try {      
+      msg.delete();
+      let destructMsg = await msg.say(`${text}`); 
       setTimeout(function() {
-        message.delete(`${destructMsg}`);
+        return msg.delete(`${destructMsg}`);
       }, ms(time));
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-} 
-
-module.exports = Destruct;
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

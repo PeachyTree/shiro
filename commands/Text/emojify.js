@@ -1,28 +1,25 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { letterTrans } = require('custom-translate');
 const dictionary = require('../../assets/json/emojify');
 
-class Emojify extends Command {
-    constructor(client) {
-        super(client, {
-            name: "emojify",
-            description: "Sends the same message that you had sent, but converts it into emoji form.",
-            category: "Text",
-            usage: "emojify <Text>",
-        });
-    }
-  
-    async run(message, args) {
-        try {
-            if (!args.length) {
-                return message.reply("Command Usage: `emojify <Text>`")
-            }
+module.exports = class EmojifyCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'emojify',
+			group: 'text',
+			memberName: 'emojify',
+			description: 'Sends the same message that you had sent, but converts it into emoji form.',
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text do you want to emojify?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-            return message.channel.send(letterTrans(args.join(' '), dictionary, ' '));
-        } catch (err) {
-            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-        }
-    }
-}
-
-module.exports = Emojify;
+	run(msg, { text }) {
+        return msg.say(letterTrans(text, dictionary, ' '));
+	}
+};

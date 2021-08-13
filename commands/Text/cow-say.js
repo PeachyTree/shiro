@@ -1,32 +1,35 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const request = require('node-superfetch');
 
-class CowSay extends Command {
-    constructor(client) {
-        super(client, {
-            name: "cow-say",
-            description: "Sends the same message that you had sent, but with the cow say style.",
-            category: "Text",
-            usage: "cow-say <Text>",
-        });
-    }
-  
-    async run(message, args) {
-        try {
-            if (!args.length) {
-                return message.reply("Command Usage: `cow-say <Text>`")
-            }
+module.exports = class CowSayCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'cow-say',
+			aliases: ['cow'],
+			group: 'text',
+			memberName: 'cow-say',
+			description: 'Sends the same message that you had sent, but with the cow say style.',
+			args: [
+				{
+					key: 'text',
+					prompt: 'What do you want the cow to say?',
+					type: 'string'
+				}
+			]
+		});
+	}
+
+	async run(msg, { text }) {
+		try {
             const { body } = await request
                 .get('http://cowsay.morecode.org/say')
                 .query({
-                    message: args.join(' '),
+                    message: text,
                     format: 'json'
                 });
-            return message.code(null, body.cow);
-        } catch (err) {
-            return message.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
-        }
-    }
-}
-
-module.exports = CowSay;
+            return msg.code(null, body.cow);
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};
