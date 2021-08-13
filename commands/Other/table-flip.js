@@ -1,29 +1,30 @@
-const Command = require("../Command");
-const flipFrames = require("../../assets/json/table-flip");
+const Command = require('../../structures/Command');
+const { delay } = require('../../util/Util');
+const frames = [
+	'(-°□°)-  ┬─┬',
+	'(╯°□°)╯    ]',
+	'(╯°□°)╯  ︵  ┻━┻',
+	'(╯°□°)╯       [',
+	'(╯°□°)╯           ┬─┬'
+];
 
-class TableFlip extends Command {
-  constructor(client) {
-    super(client, {
-      name: "table-flip",
-      description: "Flips a table, in real-time! (╯°□°)╯",
-      category: "Other",
-      usage: "table-flip"
-    });
-  }
+module.exports = class TableflipCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'table-flip',
+			aliases: ['animated-tableflip'],
+			group: 'other',
+			memberName: 'table-flip',
+			description: 'Flips a table... With animation!'
+		});
+	}
 
-  async run(message) { 
-    try {
-      const msg = await message.channel.send("(\\\\°□°)\\\\  ┬─┬");
-
-      for (const frame of flipFrames) {
-        await this.client.wait(300);
-        await msg.edit(frame);
-      }
-      return msg;
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = TableFlip;
+	async run(msg) {
+		const message = await msg.say('(\\\\°□°)\\\\  ┬─┬');
+		for (const frame of frames) {
+			await delay(100);
+			await message.edit(frame);
+		}
+		return message;
+	}
+};

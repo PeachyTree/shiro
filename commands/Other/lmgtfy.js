@@ -1,28 +1,30 @@
-const Command = require("../Command");
+const Command = require('../../structures/Command');
 
-class LMGTFY extends Command {
-  constructor(client) {
-    super(client, {
-      name: "lmgtfy",
-      description: "Why don't you just... Google it?",
-      category: "Other",
-      usage: "lmgtfy <Query>",
-      aliases: ["google-it"]
-    });
-  }
+module.exports = class LMGTFYCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'lmgtfy',
+			aliases: ['google-it'],
+			group: 'other',
+			memberName: 'lmgtfy',
+			description: 'Why don\'t you just... Google it?',
+			args: [
+				{
+					key: 'textQuery',
+					prompt: 'What do you want to google for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      const textQuery = args.join(" ");
-      const query = encodeURIComponent(args.join(" "));
+	async run(msg, { textQuery }) {
+		try {
+      const query = encodeURIComponent(textQuery);
       const url = `https://lmgtfy.com/?q=${query}`;
-
-      if (!query) return message.channel.send('Command Usage: `lmgtfy <Query>`');
-      else message.channel.send(`"${textQuery}"\n**<${url}>**`);
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = LMGTFY;
+      return msg.say(`"${textQuery}"\n**<${url}>**`);
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};
