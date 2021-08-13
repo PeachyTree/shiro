@@ -57,7 +57,7 @@ client.on('message', msg => {
 	const hasEmbed = msg.embeds.length !== 0;
 	if (msg.author.bot || (!hasText && !hasImage && !hasEmbed)) return;
 	if (client.blacklist.user.includes(msg.author.id)) return;
-	if (msg.isCommand && msg.channel.type !== 'dm') return null;
+	if (msg.isCommand && msg.channel.type !== 'dm') return; /* eslint no-useless-return */
 });
 
 client.on('guildCreate', async guild => {
