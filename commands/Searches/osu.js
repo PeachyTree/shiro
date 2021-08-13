@@ -1,25 +1,28 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const { formatNumber } = require('../../util/Utils');
 const { OSU_KEY } = process.env;
 
-class Osu extends Command {
-    constructor(client) {
-        super(client, {
-            name: "osu",
-            description: "Responds with information on an osu! user.",
-            category: "Searches",
-            usage: "osu <Username>"
-        });
-    }
+module.exports = class OsuCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'osu',
+			group: 'searches',
+			memberName: 'osu',
+			description: 'Responds with information on an osu! user.',
+			args: [
+				{
+					key: 'user',
+					prompt: 'What user do you want to search for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-    async run(message, args) {
-        try {
-            const user = args.join(' ');
-            if (!word.length) {
-                return message.reply("Command Usage: `osu <Username>`")
-            }
+	async run(msg, { user }) {
+		try {
 			const { body } = await request
 				.get('https://osu.ppy.sh/api/get_user')
 				.query({
@@ -27,7 +30,7 @@ class Osu extends Command {
 					u: user,
 					type: 'string'
 				});
-			if (!body.length) return message.channel.send('Could not find any results.');
+			if (!body.length) return msg.say('Could not find any results.');
 			const data = body[0];
 			const embed = new MessageEmbed()
 				.setColor('RANDOM')
@@ -44,11 +47,9 @@ class Osu extends Command {
 				.addField('❯ SS', data.count_rank_ss ? formatNumber(data.count_rank_ss) : '???', true)
 				.addField('❯ S', data.count_rank_s ? formatNumber(data.count_rank_s) : '???', true)
 				.addField('❯ A', data.count_rank_a ? formatNumber(data.count_rank_a) : '???', true);
-			return message.channel.send({ embed });
+			return msg.embed(embed);
 		} catch (err) {
-			return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
 		}
-    }
-}
-
-module.exports = Osu;
+	}
+};

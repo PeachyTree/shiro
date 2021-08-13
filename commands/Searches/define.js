@@ -1,38 +1,40 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const request = require('node-superfetch');
 const { stripIndents } = require('common-tags');
 const { WEBSTER_KEY } = process.env;
 
-class Define extends Command {
-    constructor(client) {
-        super(client, {
-            name: "define",
-            description: "Defines the word you provided.",
-            category: "Searches",
-            usage: "define <Word>"
-        });
-    }
+module.exports = class DefineCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'define',
+			aliases: ['dictionary', 'webster'],
+			group: 'searches',
+			memberName: 'define',
+			description: 'Defines the word you provided.',
+			args: [
+				{
+					key: 'word',
+					prompt: 'What word do you want to define?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-    async run(message, args) { 
-        try {
-            const word = args[0];
-            if (!word.length) {
-                return message.reply("Command Usage: `define <Word>`")
-            }
+	async run(msg, { word }) {
+		try {
 			const { body } = await request
 				.get(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}`)
 				.query({ key: WEBSTER_KEY });
-			if (!body.length) return message.channel.send('Could not find any results.');
+			if (!body.length) return msg.say('Could not find any results.');
 			const data = body[0];
-			if (typeof data === 'string') return message.channel.send(`Could not find any results. Did you mean **${data}**?`);
-			return message.channel.send(stripIndents`
+			if (typeof data === 'string') return msg.say(`Could not find any results. Did you mean **${data}**?`);
+			return msg.say(stripIndents`
 				**${data.meta.stems[0]}** (${data.fl})
 				${data.shortdef.map((definition, i) => `(${i + 1}) ${definition}`).join('\n')}
 			`);
 		} catch (err) {
-			return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
 		}
-    }
-}
-
-module.exports = Define;
+	}
+};

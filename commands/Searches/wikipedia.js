@@ -1,25 +1,27 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
 const { shorten } = require('../../util/Utils.js');
 
-class Wikipedia extends Command {
+module.exports = class WikipediaCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "wikipedia",
-			description: "Searches Wikipedia for the specified article.",
-			category: "Searches",
-			usage: "wikipedia <Query>"
-    		});
-  	}
+			name: 'wikipedia',
+			group: 'searches',
+			memberName: 'wikipedia',
+			description: 'Searches Wikipedia for the specified article.',
+			args: [
+				{
+					key: 'query',
+					prompt: 'What article do you want to search for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-  	async run(message, args) { 
-		if (!args.length) {
-			return message.reply("Command Usage: `wikipedia <text>`")
-		}
-
+	async run(msg, { query }) {
 		try {
-			const query = args.join(" ");
 			const { body } = await request
 			.get('https://en.wikipedia.org/w/api.php')
 			.query({
@@ -42,11 +44,9 @@ class Wikipedia extends Command {
 				.setThumbnail(data.thumbnail ? data.thumbnail.source : null)
 				.setURL(`https://en.wikipedia.org/wiki/${encodeURIComponent(query).replace(/\)/g, '%29')}`)
 				.setDescription(shorten(data.extract.replace(/\n/g, '\n\n')));
-			return message.channel.send({ embed });
+			return msg.embed(embed);
 		} catch (err) {
-			return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
 		}
-	};
-}
-
-module.exports = Wikipedia;
+	}
+};

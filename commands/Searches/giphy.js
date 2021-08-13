@@ -1,40 +1,39 @@
-const Command = require('../Command');
-const fetch = require("node-superfetch");
-const { URLSearchParams } = require("url");
+const Command = require('../../structures/Command');
+const fetch = require('node-superfetch');
+const { URLSearchParams } = require('url');
 const { GIPHY_API_KEY } = process.env;
 
-class Giphy extends Command {
-  constructor(client) {
-    super(client, {
-      name: "giphy",
-      description: "Returns a GIF from Giphy based on your query.",
-      category: "Searches",
-      usage: "giphy <Query>",
-      aliases: ["gif"]
-    });
-  }
+module.exports = class GiphyCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'giphy',
+			aliases: ['gif'],
+			group: 'searches',
+			memberName: 'giphy',
+			description: 'Returns a GIF from Giphy based on your query.',
+			args: [
+				{
+					key: 'query',
+					prompt: 'What gif do you want to search for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      const query = args[0];
-      if (!query.length) {
-        return message.reply("Command Usage: `giphy <Query>`")
-      }
-      
+	async run(msg, { query }) {
+		try {      
       const url = "http://api.giphy.com/v1/gifs/search?";
       const params = new URLSearchParams({
         q: query,
         api_key: GIPHY_API_KEY,
         rating: "pg"
       });
-      
       fetch(url + params)
       .then(res => res.json())
-      .then(json => message.channel.send(json.data.random().images.original.url))
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = Giphy;
+      .then(json => msg.say(json.data.random().images.original.url));
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

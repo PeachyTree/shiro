@@ -1,40 +1,43 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const xkcd = require('xkcd');
-const getRandomInt = require("../../util/Utils");
+const getRandomInt = require('../../util/Utils');
 
-class XKCDComic extends Command {
-  constructor(client) {
-    super(client, {
-      name: "xkcd",
-      description: "Searches for a comic on xkcd.",
-      category: "Searches",
-      usage: "xkcd [ latest | comic_number ]",
-      aliases: ["comic"]
-    });
-  }
+module.exports = class XKCDCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'xkcd',
+			aliases: ['kcd'],
+			group: 'searches',
+			memberName: 'xkcd',
+			description: 'Searches for a comic on xkcd.',
+			args: [
+				{
+					key: 'number',
+					prompt: 'What comic are you searching for? (Comic number)',
+					type: 'string',
+					default: 'latest'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      let latest = args.join(" ");
-      let number = args.slice(latest).join(" ");
-
+	async run(msg, { number }) {
+		try {
       if (latest) {
         await xkcd((data) => {
           const embed = new MessageEmbed()
-            .setColor("RANDOM")
+            .setColor('RANDOM')
             .setTitle(`__**${data.title}**__`)
             .setDescription(data.alt)
             .setURL(`https://xkcd.com/${data.num}`)
-            .addField("Comic Number", data.num, true)
-            .addField("Publication Date", new Date(data.year, data.month, data.day).toDateString(), true)
+            .addField('Comic Number', data.num, true)
+            .addField('Publication Date', new Date(data.year, data.month, data.day).toDateString(), true)
             .setImage(data.img)
-            .setFooter("Powered by xkcd")
-          message.channel.send({ embed
-          })
+            .setFooter('Powered by xkcd')
+          return msg.embed(embed);
         });
-      }
-      else {
+      } else {
         await xkcd((data) => {
           let comicNumber;
           if (number && !isNaN(number)) {
@@ -44,26 +47,22 @@ class XKCDComic extends Command {
             comicNumber = getRandomInt(1, data.num);
             comicNumber = Number.random(1, data.num);
           }
-
           xkcd(comicNumber, (data) => {
             const embed = new MessageEmbed()
-              .setColor("RANDOM")
+              .setColor('RANDOM')
               .setTitle(`__**${data.title}**__`)
               .setDescription(data.alt)
               .setURL(`https://xkcd.com/${data.num}`)
-              .addField("Comic Number", data.num, true)
-              .addField("Publication Date", new Date(data.year, data.month, data.day).toDateString(), true)
+              .addField('Comic Number', data.num, true)
+              .addField('Publication Date', new Date(data.year, data.month, data.day).toDateString(), true)
               .setImage(data.img)
-              .setFooter("Powered by xkcd")
-            message.channel.send({ embed
-            })
+              .setFooter('Powered by xkcd')
+            return msg.embed(embed);
           });
         });
       }
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  };
-}
-
-module.exports = XKCDComic;
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

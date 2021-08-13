@@ -1,24 +1,27 @@
-const Command = require('../Command');
-const request = require('node-superfetch');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
+const request = require('node-superfetch');
 const { shorten, embedURL } = require('../../util/Utils');
 
-class Nasa extends Command {
-    constructor(client) {
-        super(client, {
-            name: "nasa",
-            description: "Searches NASA's image archive for your query.",
-            category: "Searches",
-            usage: "nasa <Query>"
-        });
-    }
+module.exports = class NasaCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'nasa',
+			group: 'searches',
+			memberName: 'nasa',
+			description: 'Searches NASA\'s image archive for your query.',
+			args: [
+				{
+					key: 'query',
+					prompt: 'What do you want to search for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-    async run(message, args) {
-        try {
-            const query = args.join(' ');
-            if (!word.length) {
-                return message.reply("Command Usage: `nasa <Query>`")
-            }
+	async run(msg, { query }) {
+		try {
 			const { body } = await request
 				.get('https://images-api.nasa.gov/search')
 				.query({
@@ -26,7 +29,7 @@ class Nasa extends Command {
 					media_type: 'image'
 				});
 			const images = body.collection.items;
-			if (!images.length) return message.channel.send('Could not find any results.');
+			if (!images.length) return msg.say('Could not find any results.');
 			const data = images[Math.floor(Math.random() * images.length)];
 			const embed = new MessageEmbed()
 				.setTitle(shorten(data.data[0].title, 256))
@@ -36,9 +39,9 @@ class Nasa extends Command {
 				.setImage(`https://images-assets.nasa.gov/image/${data.data[0].nasa_id}/${data.data[0].nasa_id}~thumb.jpg`)
 				.setFooter(`Image Credits: ${data.data[0].center || 'Public Domain'}`)
 				.setTimestamp(new Date(data.data[0].date_created));
-			return message.channel.send({ embed });
+			return msg.embed(embed);
 		} catch (err) {
-			return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
 		}
 	}
 
@@ -49,5 +52,3 @@ class Nasa extends Command {
 			.replace(/<a href="(https?:\/\/[^ ]+)" rel="nofollow">([^<>]+)<\/a>/g, embedURL('$2', '$1'));
 	} 
 };
-
-module.exports = Nasa;

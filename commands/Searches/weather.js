@@ -1,29 +1,30 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
-const weather = require("weather-js");
+const weather = require('weather-js');
 
-class Weather extends Command {
-  constructor(client) {
-    super(client, {
-      name: "weather",
-      description: "Displays weather information for the specified location.",
-      category: "Searches",
-      usage: "weather <Location>"
-    });
-  }
+module.exports = class WeatherCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'weather',
+			group: 'searches',
+			memberName: 'weather',
+			description: 'Displays weather information for the specified location.',
+			args: [
+				{
+					key: 'location',
+					prompt: 'What location are you looking for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      weather.find({ search: args.join(" "), degreeType: "C" }, function(err, result) {
-        if (!args.length) {
-          return message.reply("Command Usage: `weather <location>`")
-        }
-
-        if (err) return message.channel.send(`An error occurred:\n\```${err.message}\````);
-
+	async run(msg, { location }) {
+		try {
+      weather.find({ search: location, degreeType: "C" }, function(err, result) {
+        if (err) return msg.say(`An error occurred:\n\```${err.message}\````);
         const ct = current.temperature;
         let col;
-          
         if (ct <= 0) col = 13431807;
         else if (ct < 0 && ct >= 5) col = 12579071;
         else if (ct >= 6 && ct <= 10) col = 11861906;
@@ -35,7 +36,6 @@ class Weather extends Command {
         else if (ct >= 36 && ct <= 40) col = 16727074;
         else if (ct >= 40) col = 12386304;
         else col = 7654911; // fallback
-
         const embed = new MessageEmbed()
           .setColor(col)
           .setTitle(`☀️ | __**Weather information for ${current.observationpoint}**__`)
@@ -47,12 +47,10 @@ class Weather extends Command {
           .setThumbnail(current.imageUrl)
           .setFooter(`Correct as of ${current.observationtime.slice(0, -3)} local time`)
           .setTimestamp();
-        message.channel.send({ embed });
+        return msg.embed(embed);
       });
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = Weather;
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

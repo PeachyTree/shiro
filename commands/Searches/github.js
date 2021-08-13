@@ -1,58 +1,58 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
+const moment = require('moment');
 const { MessageEmbed } = require('discord.js');
-const fetch = require("node-superfetch");
-const moment = require("moment");
+const request = require('node-superfetch');
+const { shorten, formatNumber } = require('../../util/Util');
+const { GITHUB_ACCESS_TOKEN } = process.env;
 
-class GitHub extends Command {
-  constructor(client) {
-    super(client, {
-      name: "github",
-      description: "Returns information about the specified GitHub repository.",
-      category: "Searches",
-      usage: "github <Repo-owner> <Repo-name>",
-    });
-  }
+module.exports = class GithubCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'github',
+			aliases: ['repo', 'gh', 'github-repo', 'gh-repo'],
+			group: 'searches',
+			memberName: 'github',
+			description: 'Responds with information on a GitHub repository.',
+			clientPermissions: ['EMBED_LINKS'],
+			args: [
+				{
+					key: 'author',
+					prompt: 'Who is the author of the repository?',
+					type: 'string',
+					parse: author => encodeURIComponent(author)
+				},
+				{
+					key: 'repository',
+					prompt: 'What is the name of the repository?',
+					type: 'string',
+					parse: repository => encodeURIComponent(repository)
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      let owner = args[0];
-      if (!owner.length || !repo.length) {
-        return message.reply("Command Usage: `github <repo-owner> <repo-name>`")
-      }
-      else owner = encodeURIComponent(args[0]);
-
-      
-      if (!repo.length) {
-        return message.reply("Command Usage: `github <repo-owner> <repo-name>`")
-      }
-      else repo = encodeURIComponent(args[1]);
-      
-      fetch(`https://api.github.com/repos/${owner}/${repo}`)
-      .then(res => res.json())
-      .then(data => {
-        const embed = new MessageEmbed()
-          .setColor('RANDOM')
-          .setThumbnail(data.owner.avatar_url)
-          .setAuthor("GitHub", "https://vgy.me/B4CvF1.png")
-          .setTitle(`__**${data.full_name}**__`)
-          .setURL(data.html_url)
-          .setDescription(data.description ? data.description : "[No description set]")
-          .addField("❯ Created", moment.utc(data.created_at).format("DD/MM/YYYY HH:mm:ss"), true)
-          .addField("❯ Last updated", moment.utc(data.updated_at, "YYYYMMDD").fromNow(), true)
-          .addField("❯ Stars", data.stargazers_count, true)
-          .addField("❯ Forks", data.forks, true)
-          .addField("❯ Issues", data.open_issues, true)
-          .addField("❯ Language", data.language || "No language", true)
-          .addField("❯ License", data.license ? data.license.spdx_id : "Unlicensed", true)
-          .addField("❯ Archived?", data.archived.toString().toProperCase(), true)
-          .setFooter(`All times are UTC`, message.author.avatarURL)
-          .setTimestamp();
-        return message.channel.send({ embed });
-      })
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = GitHub;
+	async run(msg, { author, repository }) {
+		try {
+			const { body } = await request
+				.get(`https://api.github.com/repos/${author}/${repository}`)
+				.set({ Authorization: `token ${GITHUB_ACCESS_TOKEN}` });
+			const embed = new MessageEmbed()
+				.setColor(0xFFFFFF)
+				.setAuthor('GitHub', 'https://i.imgur.com/e4HunUm.png', 'https://github.com/')
+				.setTitle(body.full_name)
+				.setURL(body.html_url)
+				.setDescription(body.description ? shorten(body.description) : 'No description.')
+				.setThumbnail(body.owner.avatar_url)
+				.addField('❯ Stars', formatNumber(body.stargazers_count), true)
+				.addField('❯ Forks', formatNumber(body.forks), true)
+				.addField('❯ Issues', formatNumber(body.open_issues), true)
+				.addField('❯ Language', body.language || '???', true)
+				.addField('❯ Creation Date', moment.utc(body.created_at).format('MM/DD/YYYY h:mm A'), true)
+				.addField('❯ Modification Date', moment.utc(body.updated_at).format('MM/DD/YYYY h:mm A'), true);
+			return msg.embed(embed);
+		} catch (err) {
+			if (err.status === 404) return msg.say('Could not find any results.');
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`. Try again later!`);
+		}
+	}
+};
