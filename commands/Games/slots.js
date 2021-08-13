@@ -1,52 +1,40 @@
-const Command = require('../Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require('../../structures/Command');
+const { stripIndents } = require('common-tags');
+const slots = ['🍇', '🍊', '🍐', '🍒', '🍋', '🍌', '🔔'];
 
-class Slots extends Command {
-  constructor(client) {
-    super(client, {
-      name: "slots",
-      description: "Spin the slot machine! You win if all 3 reels stop at the same emojis.",
-      category: "Games",
-      usage: "slots",
-      aliases: ["slot-machine"]
-    });
-  }
+module.exports = class SlotsCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'slots',
+			group: 'games',
+			memberName: 'slots',
+			description: 'Play a game of slots.'
+		});
+	}
 
-  async run(message, args) { 
-      let reel = [
-        ':custard:',
-        ':candy:',
-        ':cake:',
-        ':icecream:',
-        ':lollipop:',
-        ':chocolate_bar:',
-        ':moneybag:',
-        ':shaved_ice:',
-        ':doughnut:',
-        ':cookie:',
-        ':ice_cream:'
-      ];
+	run(msg) {
+		const slotOne = Math.floor(Math.random() * slots.length);
+		const slotTwo = Math.floor(Math.random() * slots.length);
+		const slotThree = Math.floor(Math.random() * slots.length);
+		return msg.say(stripIndents`
+			**[  🎰 | SLOTS ]**
+			------------------
+			${this.wrapSlots(slotOne, false)} : ${this.wrapSlots(slotTwo, false)} : ${this.wrapSlots(slotThree, false)}
 
-      let reels = [];
-      for (let i = 0; i < 3; i++) {
-        reels.push(reel[Math.floor(Math.random() * reel.length)]);
-      }
+			${slots[slotOne]} : ${slots[slotTwo]} : ${slots[slotThree]} **<**
 
-      let result;
-      if (reels[0] === reels[1] && reels[1] === reels[2]) {
-        result = 'Congratulations! You won.';
-      } else {
-        result = 'Sorry, you lost. Better luck next time.';
-      }
+			${this.wrapSlots(slotOne, true)} : ${this.wrapSlots(slotTwo, true)} : ${this.wrapSlots(slotThree, true)}
+			------------------
+			| : : :  **${slotOne === slotTwo && slotOne === slotThree ? 'WIN!' : 'LOST'}**  : : : |
+		`);
+	}
 
-      const embed = new MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle('Slot Machine')
-        .setDescription(reels.join(' \u05C0 '))
-        .setFooter(`🎰 ${result}`)
-      await message.channel.send({ embed });
-    }
-  };
-}
-
-module.exports = Slots;
+	wrapSlots(slot, add) {
+		if (add) {
+			if (slot + 1 > slots.length - 1) return slots[0];
+			return slots[slot + 1];
+		}
+		if (slot - 1 < 0) return slots[slots.length - 1];
+		return slots[slot - 1];
+	}
+};

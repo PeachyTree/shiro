@@ -1,51 +1,41 @@
-const Command = require('../Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require('../../structures/Command');
+const { randomRange, formatNumber } = require('../../util/Util');
 
-class Roll extends Command {
-  constructor(client) {
-    super(client, {
-      name: "roll",
-      description: "Bet of the outcome of rolling a dice.",
-      category: "Games",
-      usage: "roll <one / two / three / four / five / six>"
-    });
-  }
+module.exports = class RollCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'roll',
+			aliases: ['dice'],
+			group: 'games',
+			memberName: 'roll',
+			description: 'Rolls a dice with a minimum/maximum value of your choice.',
+			args: [
+				{
+					key: 'maxValue',
+					label: 'highest number',
+					prompt: 'What is the highest number you wish to appear?',
+					type: 'integer',
+					default: 6,
+					min: 1,
+					max: Number.MAX_SAFE_INTEGER
+				},
+				{
+					key: 'minValue',
+					label: 'lowest number',
+					prompt: 'What is the lowest number you wish to appear?',
+					type: 'integer',
+					default: 0,
+					min: 0,
+					max: Number.MAX_SAFE_INTEGER
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-
-    if (!args.length) {
-      return message.reply("Command Usage: `roll < one / two / three / four / five / six >`")
-    }
-
-      let argsoutcome = args[0];
-      let outcomes = [
-        'one',
-        'two',
-        'three',
-        'four',
-        'five',
-        'six'
-      ];
-      let outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
-
-      let result;
-      if (outcome.toLowerCase() === argsoutcome.toLowerCase()) {
-        result = 'Congratulations! You won the bet.';
-      } else {
-        result = 'Sorry, you lost the bet. Better luck next time.';
-      }
-
-      const embed = new MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle(`Rolled: ${outcome}:`)
-        .setDescription(result)
-      await message.channel.send({ embed
-      }).catch(e => {
-        this.client.logger.error(e);
-        return message.channel.send(`An error occurred:\n\```${error.message}\````);
-      });
-    }
-  };
-}
-
-module.exports = Roll;
+	run(msg, { maxValue, minValue }) {
+		let result;
+		if (minValue) result = randomRange(minValue, maxValue);
+		else result = Math.floor(Math.random() * maxValue) + 1;
+		return msg.say(`You rolled a ${formatNumber(result)}.`);
+	}
+};
