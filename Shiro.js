@@ -51,10 +51,6 @@ client.on('ready', () => {
 	}, 60000);
 });
 
-client.on('message', msg => {
-	if (msg.author.bot) return;
-});
-
 client.on('guildCreate', async guild => {
 	if (client.blacklist.guild.includes(guild.id) || client.blacklist.user.includes(guild.ownerID)) {
 		try {
