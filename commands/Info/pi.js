@@ -1,19 +1,17 @@
-const Command = require("../Command");
+const Command = require('../../structures/Command');
 
-class Pi extends Command {
-    constructor(client) {
-      super(client, {
-        name: "pi",
-        description: "Returns the value of Pi (π).",
-        category: "Info",
-        usage: "pi",
-        aliases: ["π"]
-      });
-    }
+module.exports = class PiCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'pi',
+			aliases: ['π'],
+			group: 'info',
+			memberName: 'pi',
+			description: 'Returns the value of Pi (π).'
+		});
+	}
 
-    async run(message) { 
-        message.channel.send(`π = **${Math.PI}**...`);
-    }
-}
-
-module.exports = Pi;
+	run(msg) {
+    return msg.say(`π = **${Math.PI}**...`);
+	}
+};

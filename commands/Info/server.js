@@ -1,77 +1,49 @@
-const Command = require("../Command");
-const { MessageEmbed } = require("discord.js");
-const { stripIndents } = require("common-tags");
-const moment = require("moment");
-
+const Command = require('../../structures/Command');
+const moment = require('moment');
+const { MessageEmbed } = require('discord.js');
+const filterLevels = {
+	DISABLED: 'Off',
+	MEMBERS_WITHOUT_ROLES: 'No Role',
+	ALL_MEMBERS: 'Everyone'
+};
 const verificationLevels = {
-    0: "None",
-    1: "Low",
-    2: "Medium",
-    3: "(╯°□°）╯︵ ┻━┻",
-    4: "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻"
+	NONE: 'None',
+	LOW: 'Low',
+	MEDIUM: 'Medium',
+	HIGH: 'High',
+	VERY_HIGH: 'Highest'
 };
 
-const contentFilterLevels = {
-    0: "None",
-    1: "Medium",
-    2: "High"
+module.exports = class ServerCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'server',
+			aliases: ['guild', 'server-info', 'guild-info'],
+			group: 'info',
+			memberName: 'server',
+			description: 'Responds with detailed information on the server.',
+			guildOnly: true,
+			clientPermissions: ['EMBED_LINKS']
+		});
+	}
+
+	async run(msg) {
+		if (!msg.guild.members.cache.has(msg.guild.ownerID)) await msg.guild.members.fetch(msg.guild.ownerID);
+		const embed = new MessageEmbed()
+			.setColor(0x00AE86)
+			.setThumbnail(msg.guild.iconURL({ format: 'png' }))
+			.addField('❯ Name', msg.guild.name, true)
+			.addField('❯ ID', msg.guild.id, true)
+			.addField('❯ Creation Date', moment.utc(msg.guild.createdAt).format('MM/DD/YYYY h:mm A'), true)
+			.addField('❯ Owner', msg.guild.owner.user.tag, true)
+			.addField('❯ Boost Count', msg.guild.premiumSubscriptionCount || 0, true)
+			.addField('❯ Boost Tier', msg.guild.premiumTier ? `Tier ${msg.guild.premiumTier}` : 'None', true)
+			.addField('❯ Region', msg.guild.region.toUpperCase(), true)
+			.addField('❯ Explicit Filter', filterLevels[msg.guild.explicitContentFilter], true)
+			.addField('❯ Verification Level', verificationLevels[msg.guild.verificationLevel], true)
+			.addField('❯ Members', msg.guild.memberCount, true)
+			.addField('❯ Roles', msg.guild.roles.cache.size, true)
+			.addField('❯ Channels', msg.guild.channels.cache.filter(channel => channel.type !== 'category').size, true);
+		return msg.embed(embed);
+	}
 };
-
-class Server extends Command {
-  constructor(client) {
-    super(client, {
-      name: "server",
-      description: "Displays information about the current server.",
-      category: "Info",
-      usage: "server",
-      aliases: ["serverinfo", "guildinfo", "guild"],
-      guildOnly: true
-    });
-  }
-
-  async run(message) { 
-
-    const createdTimestamp = moment.utc(message.guild.createdAt).format("YYYYMMDD");
-
-    const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setThumbnail(message.guild.iconURL)
-      .setTitle(`Server Information for ${message.guild.name}`)
-      .setDescription(`**Server ID:** ${message.guild.id}`)
-
-      .addField("❯ Details", stripIndents`
-      • Created: **${moment.utc(message.guild.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}** (${moment(createdTimestamp, "YYYYMMDD").fromNow()})
-      • Owner: **${message.guild.owner.user.tag}**
-      • Region: **${message.guild.region.toProperCase()}**
-      • Verification: **${verificationLevels[message.guild.verificationLevel]}**
-      ‍   
-      `, true)
-
-      .addField("❯ Users", stripIndents`
-      • Users: **${message.guild.memberCount - message.guild.members.filter(m => m.user.bot).size}**
-      • Bots: **${message.guild.members.filter(m => m.user.bot).size}**
-
-      `, true)
-
-      .addField("❯ Roles", stripIndents`
-      • Default: **${message.guild.defaultRole.name}**
-      • Count: **${message.guild.roles.size} roles**
-      `, true)
-
-      .addField("❯ Channels", stripIndents`
-      • Text: **${message.guild.channels.filter(ch => ch.type === "text").size}**
-      • Voice: **${message.guild.channels.filter(ch => ch.type === "voice").size}**
-      • AFK: **${message.guild.afkChannel ? message.guild.afkChannel.name : "None"}**
-      `, true)
-
-      .addField("❯ Other", stripIndents`
-      • AFK: After **${message.guild.afkTimeout / 60} min**
-      • Large? **${message.guild.large.toString().toProperCase()}**
-      • Content filter level: **${contentFilterLevels[message.guild.explicitContentFilter]}**
-              
-      `, true)
-    message.channel.send({ embed });
-  }
-}
-
-module.exports = Server;

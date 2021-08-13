@@ -1,70 +1,72 @@
-const Command = require("../Command");
-const { MessageEmbed } = require("discord.js");
-const { stripIndents } = require("common-tags");
-const moment = require("moment");
+const Command = require('../../structures/Command');
+const moment = require('moment');
+const { MessageEmbed } = require('discord.js');
+const { trimArray } = require('../../util/Util');
+const flags = {
+	DISCORD_EMPLOYEE: 'Discord Employee',
+	PARTNERED_SERVER_OWNER: 'Discord Partner',
+	BUGHUNTER_LEVEL_1: 'Bug Hunter (Level 1)',
+	BUGHUNTER_LEVEL_2: 'Bug Hunter (Level 2)',
+	HYPESQUAD_EVENTS: 'HypeSquad Events',
+	HOUSE_BRAVERY: 'House of Bravery',
+	HOUSE_BRILLIANCE: 'House of Brilliance',
+	HOUSE_BALANCE: 'House of Balance',
+	EARLY_SUPPORTER: 'Early Supporter',
+	TEAM_USER: 'Team User',
+	SYSTEM: 'System',
+	VERIFIED_BOT: 'Verified Bot',
+	EARLY_VERIFIED_DEVELOPER: 'Early Verified Bot Developer'
+};
+const deprecated = ['DISCORD_PARTNER', 'VERIFIED_DEVELOPER'];
 
-class User extends Command {
-  constructor(client) {
-    super(client, {
-      name: "user",
-      description: "Displays information about the mentioned user.",
-      category: "Info",
-      usage: "user [@USER_MENTION]",
-      aliases: ["userinfo"],
-      guildOnly: true
-    });
-  }
+module.exports = class UserCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'user',
+			aliases: ['user-info', 'member', 'member-info', 'profile', 'who-is', 'who'],
+			group: 'info',
+			memberName: 'user',
+			description: 'Responds with detailed information on a user.',
+			clientPermissions: ['EMBED_LINKS'],
+			args: [
+				{
+					key: 'user',
+					prompt: 'Which user would you like to get information on?',
+					type: 'user',
+					default: msg => msg.author
+				}
+			]
+		});
+	}
 
-  async run(message) { 
-    if (!message.guild.available) return this.client.logger.info(`Guild "${message.guild.name}" (${message.guild.id}) is unavailable.`);
-  
-    const user = message.mentions.users.first() || message.author;
-
-    let status;
-    if (user.presence.status.toProperCase() === "Dnd") {
-      status = "Do Not Disturb";
-    } else {
-      status = user.presence.status.toProperCase();
-    }
-
-    let activity = "";
-
-    if (!user.presence.game) {
-      activity = "Nothing";
-    }
-
-    if (user.presence.game) {
-      activity = `Playing **${user.presence.game ? user.presence.game.name : "Nothing"}**`;
-    }
-
-    if (user.presence.game.name === "Spotify") {
-      activity = "Listening to **Spotify**";
-    }
-
-    const embed = new MessageEmbed()
-      .setColor(message.guild.member(user).displayColor)
-      .setThumbnail(user.displayAvatarURL)
-      .setTitle(`User Information for ${user.tag}`)
-      .setDescription(`**User ID**: ${user.id}`)
-      
-      .addField("❯ Details", stripIndents`
-      • Status: **${status}**
-      • Activity: ${activity}
-      ‍   
-      `, true)
-
-      .addField("❯ Roles", stripIndents`
-      • Highest: **\`${message.guild.member(user).highestRole.name}\`**
-      • All: ${message.guild.member(user).roles.map(roles => `\`${roles.name}\``).slice(1).join(", ")}
-      ‍   
-      `, true)
-
-      .addField("❯ Join Dates", stripIndents`
-      • ${message.guild.name}: **${moment.utc(message.guild.member(user).joinedAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
-      • Discord: **${moment.utc(user.createdAt).format("dddd, Do MMMM YYYY @ HH:mm:ss")}**
-      `, true)
-    message.channel.send({ embed });
-  }
-}
-
-module.exports = User;
+	async run(msg, { user }) {
+		const userFlags = user.flags ? user.flags.toArray().filter(flag => !deprecated.includes(flag)) : [];
+		const embed = new MessageEmbed()
+			.setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true }))
+			.setAuthor(user.tag)
+			.addField('❯ Discord Join Date', moment.utc(user.createdAt).format('MM/DD/YYYY h:mm A'), true)
+			.addField('❯ ID', user.id, true)
+			.addField('❯ Bot?', user.bot ? 'Yes' : 'No', true)
+			.addField('❯ Flags', userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None');
+		if (msg.guild) {
+			try {
+				const member = await msg.guild.members.fetch(user.id);
+				const defaultRole = msg.guild.roles.cache.get(msg.guild.id);
+				const roles = member.roles.cache
+					.filter(role => role.id !== defaultRole.id)
+					.sort((a, b) => b.position - a.position)
+					.map(role => role.name);
+				embed
+					.addField('❯ Server Join Date', moment.utc(member.joinedAt).format('MM/DD/YYYY h:mm A'), true)
+					.addField('❯ Highest Role',
+						member.roles.highest.id === defaultRole.id ? 'None' : member.roles.highest.name, true)
+					.addField('❯ Hoist Role', member.roles.hoist ? member.roles.hoist.name : 'None', true)
+					.addField(`❯ Roles (${roles.length})`, roles.length ? trimArray(roles, 6).join(', ') : 'None')
+					.setColor(member.displayHexColor);
+			} catch {
+				embed.setFooter('Failed to resolve member, showing basic user information instead.');
+			}
+		}
+		return msg.embed(embed);
+	}
+};

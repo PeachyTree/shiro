@@ -1,43 +1,45 @@
-const Command = require("../Command");
-const { MessageEmbed } = require("discord.js");
-const moment = require("moment");
+const Command = require('../../structures/Command');
+const moment = require('moment');
+const { MessageEmbed } = require('discord.js');
+const types = {
+	dm: 'DM',
+	group: 'Group DM',
+	text: 'Text Channel',
+	voice: 'Voice Channel',
+	category: 'Category',
+	unknown: 'Unknown'
+};
 
-class Channel extends Command {
-  constructor(client) {
-    super(client, {
-      name: "channel",
-      description: "Displays information about the current channel.",
-      category: "Info",
-      usage: "channel",
-      aliases: ["channelinfo", "cinfo"],
-      guildOnly: true
-    });
-  }
+module.exports = class ChannelCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'channel',
+			aliases: ['channel-info'],
+			group: 'info',
+			memberName: 'channel',
+			description: 'Responds with detailed information on a channel.',
+			clientPermissions: ['EMBED_LINKS'],
+			args: [
+				{
+					key: 'channel',
+					prompt: 'Which channel would you like to get information on?',
+					type: 'channel',
+					default: msg => msg.channel
+				}
+			]
+		});
+	}
 
-  async run(message) { 
-    const chan = message.channel;
-
-    let topic;
-    if (chan.topic && chan.topic.length > 2048) topic = "[Too long to display!]";
-    else topic = chan.topic;
-
-    const createdTimestamp = moment.utc(chan.createdAt).format("YYYYMMDD");
-
-    const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setThumbnail("https://vgy.me/9fSC7k.png")
-      .setTitle(`Channel Information for #${chan.name}`)
-      .addField("❯ Created", chan.createdAt, true)
-      .addField("❯ Age", moment(createdTimestamp, "YYYYMMDD").fromNow().slice(0, -4), true)
-      .addField("❯ Type", chan.type.toProperCase(), true)
-      .addField("❯ Position", chan.calculatedPosition, true)
-      .addField("❯ Parent", !chan.parent ? "None" : chan.parent.name, true)
-      .addField("❯ NSFW", chan.nsfw.toString().toProperCase(), true)
-      .addField("❯ Deletable", chan.deletable.toString().toProperCase(), true)
-      .addField("❯ Topic", !topic ? "No topic set." : topic, true)
-      .setFooter(`Channel ID: ${chan.id}`, "https://vgy.me/167efD.png");
-    message.channel.send({ embed });
-  }
-}
-
-module.exports = Channel;
+	run(msg, { channel }) {
+		const embed = new MessageEmbed()
+			.setColor(0x00AE86)
+			.addField('❯ Name', channel.type === 'dm' ? `@${channel.recipient.username}` : channel.name, true)
+			.addField('❯ ID', channel.id, true)
+			.addField('❯ NSFW', channel.nsfw ? 'Yes' : 'No', true)
+			.addField('❯ Category', channel.parent ? channel.parent.name : 'None', true)
+			.addField('❯ Type', types[channel.type], true)
+			.addField('❯ Creation Date', moment.utc(channel.createdAt).format('MM/DD/YYYY h:mm A'), true)
+			.addField('❯ Topic', channel.topic || 'None');
+		return msg.embed(embed);
+	}
+};

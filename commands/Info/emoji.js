@@ -1,39 +1,35 @@
-const Command = require("../Command");
-const { MessageEmbed } = require("discord.js");
-const moment = require("moment");
+const Command = require('../../structures/Command');
+const moment = require('moment');
+const { MessageEmbed } = require('discord.js');
 
-class Emoji extends Command {
-  constructor(client) {
-    super(client, {
-      name: "emoji",
-      description: "Displays information about the specified emoji.",
-      category: "Info",
-      usage: "emoji <Emoji>",
-      aliases: ["emoji-info"]
-    });
-  }
+module.exports = class EmojiCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'emoji',
+			aliases: ['emoji-info', 'emote'],
+			group: 'info',
+			memberName: 'emoji',
+			description: 'Responds with detailed information on an emoji.',
+			guildOnly: true,
+			clientPermissions: ['EMBED_LINKS'],
+			args: [
+				{
+					key: 'emoji',
+					prompt: 'Which emoji would you like to get information on?',
+					type: 'custom-emoji'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    if (!args[0]) return message.reply('Command Usage: `emoji <Emoji>`');
-    if (args[0].startsWith("<a:")) return message.reply("This command does not support animated emojis yet.");
-    if (args[0].charCodeAt(0) >= 55296) return message.reply(`${args[0]} is a regular Discord emoji, from Twemoji.\nhttps://twemoji.twitter.com`);
-
-    const match = args[0].match(/<:[a-zA-Z0-9_-]+:(\d{18})>/);
-    if (!match || !match[1]) return message.reply('You must provide a valid emoji, from a server I am on.');
-
-    const emoji = this.client.emojis.get(match[1]);
-    if (!emoji) return message.reply('You must provide a valid emoji, from a server I am on.');
-
-    const embed = new MessageEmbed()
-      .setColor('RANDOM')
-      .setTitle("Emoji Information")
-      .setThumbnail(emoji.url)
-      .addField("❯ Name", emoji.name, true)
-      .addField("❯ ID", emoji.id, true)
-      .addField("❯ Created", moment.utc(emoji.createdAt).format("DD/MM/YYYY"), true)
-      .addField("❯ From", emoji.guild, true)
-    return message.channel.send({ embed });
-  }
-}
-
-module.exports = Emoji;
+	run(msg, { emoji }) {
+		const embed = new MessageEmbed()
+			.setColor(0x00AE86)
+			.setThumbnail(emoji.url)
+			.addField('❯ Name', emoji.name, true)
+			.addField('❯ ID', emoji.id, true)
+			.addField('❯ Creation Date', moment.utc(emoji.createdAt).format('MM/DD/YYYY h:mm A'), true)
+			.addField('❯ Animated?', emoji.animated ? 'Yes' : 'No', true);
+		return msg.embed(embed);
+	}
+};
