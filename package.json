@@ -1,0 +1,68 @@
+{
+	"name": "shiro",
+	"version": "5.0.1",
+	"description": "A Discord Bot around Fun, Roleplay and Utility.",
+	"main": "Shiro.js",
+	"scripts": {
+		"test": "npm run lint",
+		"lint": "eslint . --ext .js --ext .json",
+		"start": "node Shiro.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PeachyTree/shiro.git"
+	},
+	"keywords": [
+		"bot",
+		"commando",
+		"discord",
+		"discord-api",
+		"discord-bot",
+		"discord-js"
+	],
+	"author": "PeachyTree#8664",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/PeachyTree/shiro/issues"
+	},
+	"homepage": "https://github.com/PeachyTree/shiro#readme",
+	"engines": {
+		"node": ">=15"
+	},
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.5",
+		"common-tags": "^1.8.0",
+		"custom-translate": "^2.2.8",
+		"discord.js": "^12.5.1",
+		"discord.js-commando": "github:discordjs/Commando",
+		"dotenv": "^8.2.0",
+		"eslint": "^7.21.0",
+		"expr-eval": "^2.0.2",
+		"html-entities": "^2.1.0",
+		"js-beautify": "^1.13.5",
+		"mathjs": "^9.2.0",
+		"moment": "^2.29.1",
+		"moment-duration-format": "^2.3.2",
+		"moment-timezone": "^0.5.33",
+		"node-superfetch": "^0.1.11",
+		"valid-url": "^1.0.9",
+		"winston": "^3.3.3"
+	},
+	"optionalDependencies": {
+		"bufferutil": "^4.0.3",
+		"erlpack": "github:discord/erlpack",
+		"sodium": "^3.0.2",
+		"utf-8-validate": "^5.0.4",
+		"zlib-sync": "^0.1.7"
+	},
+	"devDependencies": {
+		"eslint-config-amber": "^2.0.4",
+		"eslint-plugin-json": "^2.1.2"
+	},
+	"eslintConfig": {
+		"extends": "amber",
+		"plugins": [
+			"json"
+		]
+	}
+}

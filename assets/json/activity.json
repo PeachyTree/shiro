@@ -1,0 +1,34 @@
+[
+	{
+		"text": "anime",
+		"type": "WATCHING"
+	},
+	{
+		"text": "over the inn",
+		"type": "WATCHING"
+	},
+	{
+		"text": "at the inn",
+		"type": "PLAYING"
+	},
+	{
+		"text": "in Selphia",
+		"type": "PLAYING"
+	},
+	{
+		"text": "with a cardboard box",
+		"type": "PLAYING"
+	},
+	{
+		"text": "in the fridge",
+		"type": "PLAYING"
+	},
+	{
+		"text": "with a knife",
+		"type": "PLAYING"
+	},
+	{
+		"text": "with a linter",
+		"type": "PLAYING"
+	}
+]
