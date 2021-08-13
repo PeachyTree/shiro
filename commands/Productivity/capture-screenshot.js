@@ -1,29 +1,31 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const request = require('node-superfetch');
 
-class CaptureScreenshot extends Command {
-  constructor(client) {
-    super(client, {
-      name: "capture-screenshot",
-      description: "Captures a screenshot of a given URL.",
-      category: "Productivity",
-      usage: "capture-screenshot <URL>",
-      aliases: ['screenshot']
-    });
-  }
-  
-  async run(message, args) {
-    try {
-      if (args.length !== 0) {
-        const { body } = await request.get(`https://image.thum.io/get/width/1920/crop/675/noanimate/${args[0]}`);
-        return message.channel.send({ files: [{ attachment: body, name: 'screenshot.png' }] });
-      } else {
-        return message.reply("Command Usage: `capture-screenshot <URL>`")
-      }
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-};
+module.exports = class CaptureScreenshotCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'capture-screenshot',
+			aliases: ['screenshot'],
+			group: 'productivity',
+			memberName: 'capture-screenshot',
+			description: 'Captures a screenshot of a given URL.',
+			nsfw: true,
+			args: [
+				{
+					key: 'url',
+					prompt: 'What webpage do you want to get a screenshot from (URL)?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-module.exports = CaptureScreenshot;
+	async run(msg, { url }) {
+		try {
+        const { body } = await request.get(`https://image.thum.io/get/width/1920/crop/675/noanimate/${url}`);
+        return msg.say({ files: [{ attachment: body, name: 'screenshot.png' }] });
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

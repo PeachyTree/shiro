@@ -1,34 +1,30 @@
-const Command = require('../Command');
-const math = require("mathjs");
+const Command = require('../../structures/Command');
+const { Parser } = require('expr-eval');
 
-class Calculate extends Command {
-  constructor(client) {
-    super(client, {
-      name: "calculate",
-      description: "Evaluates/calculates a given mathematical expression.",
-      category: "Productivity",
-      usage: "calculate <Expression>",
-      aliases: ["math", "maths"]
-    });
-  }
+module.exports = class CalculateCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'calculate',
+			aliases: ['mathematics', 'math'],
+			group: 'productivity',
+			memberName: 'calculate',
+			description: 'Evaluates a math expression.',
+			args: [
+				{
+					key: 'expression',
+					prompt: 'What expression do you want to evaluate?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      let exp = args.join(" ");
-      if (!exp) return message.reply('Command Usage: `calculate <Expression>`');
-      if (exp.includes("°")) exp = exp.replace(/°/g, "deg");
-
-      const msg = await message.channel.send(`🔄 | Calculating...`);
-
-      let evaled = math.eval(exp);
-      if (isNaN(evaled)) evaled = 'NaN (not a number).';
-      if (exp.length + evaled.length > 2000) return message.channel.send(`Output is too long to fit into a message!`);
-      
-      msg.edit(`${exp} = **${evaled}**`);
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = Calculate;
+	run(msg, { expression }) {
+		try {
+			const evaluated = Parser.evaluate(expression).toString();
+			return msg.reply(evaluated).catch(() => msg.reply('Invalid expression.'));
+		} catch {
+			return msg.reply('Invalid expression.');
+		}
+	}
+};

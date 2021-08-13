@@ -1,49 +1,56 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
+const { stripIndents } = require('common-tags');
 
-class Poll extends Command {
-  constructor(client) {
-    super(client, {
-      name: "poll",
-      description: "Starts a poll in the current text channel asking users to vote with the specified time. If no time is specified, poll ends in 60 minutes.",
-      category: "Productivity",
-      usage: "poll <question> [TIME_IN_MINUTES]"
-    });
-  }
+module.exports = class PollCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'poll',
+			group: 'productivity',
+			memberName: 'poll',
+			description: 'Starts a poll in the current text channel asking users to vote with the specified time. ',
+			details: 'If no time is specified, poll ends in 60 minutes.',
+			args: [
+				{
+					key: 'question',
+					prompt: 'What should the poll be about?',
+					type: 'string'
+				},
+        {
+					key: 'time',
+					prompt: 'For how long should the poll last (in minutes)?',
+					type: 'string',
+					default: ''
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      if (!args.length) {
-        return message.reply("Command Usage: `poll <question> [TIME_IN_MINUTES]`")
-      }
-
-      let question = args.join(' ');
-      let time = args[0]
+	async run(msg, { question, time }) {
+		try {
       if (!time) time == 3.6e+6;
-
       const embed = new MessageEmbed()
-        .setColor("RANDOM")
+        .setColor('RANDOM')
         .setAuthor('Poll Started')
         .setDescription(question)
-        .setFooter(`Poll created by ${message.author.username}`);
-      let msg = await message.channel.send({ embed });
-
-      await msg.react('✅'); 
-      await msg.react('❌');
-
-      message.channel.fetchMessage(msg.id)
+        .setFooter(`Poll created by ${msg.author.username}`);
+      let ms = await msg.embed(embed);
+      await ms.react('✅'); 
+      await ms.react('❌');
+      msg.fetchMessage(ms.id)
       .then(msg => {
-        let upVoteCollection = msg.reactions.filter(rx => rx.emoji.name == '✅');
+        let upVoteCollection = ms.reactions.filter(rx => rx.emoji.name == '✅');
         let upVotes = upVoteCollection.first().count;
-        let downVoteCollection = msg.reactions.filter(rx => rx.emoji.name == '❌');
+        let downVoteCollection = ms.reactions.filter(rx => rx.emoji.name == '❌');
         let downVotes = downVoteCollection.first().count;
-        return message.channel.send(`Poll ended by ${message.author.username}.\nResults: ✅: ${upVotes} votes, ❌: ${downVotes} votes`);
-      })
-      msg.delete({timeout: time}); 
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = Poll;
+        return msg.say(stripIndents`
+          Poll ended by ${msg.author.username}.
+          Results: ✅: ${upVotes} votes, ❌: ${downVotes} votes
+        `);
+      });
+      return ms.delete({ timeout: time });
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

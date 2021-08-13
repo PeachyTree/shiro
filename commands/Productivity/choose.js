@@ -1,25 +1,26 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 
-class Choose extends Command {
-  constructor(client) {
-    super(client, {
-      name: "choose",
-      description: "Choose an item from a list you provide.",    
-      category: "Productivity",
-      usage: "choose <option1;option2> [option3[...]]"
-    });
-  }
+module.exports = class ChooseCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'choose',
+			aliases: ['pick'],
+			group: 'productivity',
+			memberName: 'choose',
+			description: 'Chooses between options you provide.',
+			args: [
+				{
+					key: 'choices',
+					prompt: 'What choices do you want me pick from?',
+					type: 'string',
+					infinite: true,
+					max: 1950
+				}
+			]
+		});
+	}
 
-  run(message, args) { 
-
-    if (!args.length) {
-      return message.reply("Command Usage: `choose <option1;option2> [option3[...]]`")
-    }
-
-    const randomNumber = Math.floor(Math.random() * (args.length - 0) + 0);
-
-    return message.reply(`I choose #${randomNumber + 1}, ${args[randomNumber]}`);
-  }
+	run(msg, { choices }) {
+		return msg.say(`I choose ${choices[Math.floor(Math.random() * choices.length)]}!`);
+	}
 };
-
-module.exports = Choose;
