@@ -5,10 +5,9 @@ package-lock.json
 # Log Files
 logs/
 *.log
+report*.json
 
 # Config Files
 .env
-config.json
-*.example
 
 # In-Development Commands
