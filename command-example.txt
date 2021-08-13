@@ -1,0 +1,38 @@
+const Command = require('../../structures/Command');
+const { MessageEmbed } = require('discord.js');
+
+module.exports = class ExampleCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: '',
+			aliases: [''],
+			group: '',
+			memberName: '',
+			description: '',
+			details: '',
+			nsfw: true,
+			ownerOnly: true,
+			guarded: true,
+			args: [
+				{
+					key: '',
+					prompt: ``,
+					type: 'string',
+					default: '',
+					oneOf: types,
+					parse: type => type.toLowerCase()
+				}
+			]
+		});
+	}
+
+	async run(msg) {
+		try {
+
+
+
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};
