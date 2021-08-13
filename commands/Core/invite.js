@@ -1,20 +1,26 @@
-const Command = require('../Command');
-const { SHIRO_INVITE_LINK } = process.env;
+const Command = require('../../structures/Command');
+const { stripIndents } = require('common-tags');
+const permissions = require('../../assets/json/permissions');
 
-class Invite extends Command {
-  constructor(client) {
-    super(client, {
-      name: "invite",
-      description: "Generates an invite link, for adding Shiro to a server.",
-      category: "Core",
-      usage: "invite",
-      aliases: ["add"]
-    });
-  }
+module.exports = class InviteCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'invite',
+			group: 'core',
+			memberName: 'invite',
+			description: 'Responds with the bot\'s invite links.',
+			guarded: true
+		});
+	}
 
-  async run(message) { 
-    message.channel.send(`🔗 | ${SHIRO_INVITE_LINK}`);
-  }
-}
+	async run(msg) {
+		const invite = await this.client.generateInvite({ permissions });
+		return msg.say(stripIndents`
+			Invite me using this link:
+			<${invite}>
 
-module.exports = Invite;
+			Join my home server for support and announcements:
+			${this.client.options.invite || 'Coming soon...'}
+		`);
+	}
+};

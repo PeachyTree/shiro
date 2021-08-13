@@ -1,19 +1,22 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
+const { stripIndents } = require('common-tags');
 
-class Prefix extends Command {
-  constructor(client) {
-    super(client, {
-      name: "prefix",
-      description: "Returns the command prefix for the current server.",
-      category: "Core",
-      usage: "prefix",
-      guildOnly: true
-    });
-  }
+module.exports = class PrefixCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'prefix',
+			group: 'core',
+			memberName: 'prefix',
+			description: 'Responds with the bot\'s command prefix.',
+			guarded: true
+		});
+	}
 
-  async run(message, settings) { 
-    message.channel.send(`My prefix here on ${message.guild.name} is "**${settings.prefix}**".\nTo change my prefix, do \`${settings.prefix}set edit prefix <New Prefix>\`.`);
-  }
-}
-
-module.exports = Prefix;
+	run(msg) {
+		const prefix = msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix;
+		return msg.reply(stripIndents`
+			${prefix ? `The command prefix is \`${prefix}\`.` : 'There is no command prefix.'}
+			To run a command, use ${msg.anyUsage('<command>')}.
+		`);
+	}
+};

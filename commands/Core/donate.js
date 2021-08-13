@@ -1,22 +1,21 @@
-const Command = require("../Command");
+const Command = require('../../structures/Command');
 const { stripIndents } = require('common-tags');
 
-class Donate extends Command {
-  constructor(client) {
-    super(client, {
-      name: "donate",
-      description: "Responds with the bot's donation links.",
-      category: "Core",
-      usage: "donate"
-    });
-  }
+module.exports = class DonateCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'donate',
+			group: 'core',
+			memberName: 'donate',
+			description: 'Responds with the bot\'s donation links.',
+			guarded: true
+		});
+	}
 
-  async run(message) {
-    return message.channel.send(stripIndents`
-      Contribute to development!
-      https://paypal.me/AzuraApple
-    `);
-  }
+	run(msg) {
+    return msg.say(stripIndents`
+    Contribute to development!
+    https://paypal.me/AzuraApple
+  `);
+	}
 };
-
-module.exports = Donate;

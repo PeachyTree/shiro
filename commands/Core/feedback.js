@@ -1,46 +1,53 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
-const { version } = require("../../package.json");
-const { FEEDBACK_CHANNEL_ID, FEEDBACK_EMOJI_ID } = process.env;
+const { version } = require('../../package.json');
+const { FEEDBACK_EMOJI_ID } = process.env;
+const types = ['suggestion', 'bug', 'other'];
 
-class Feedback extends Command {
-    constructor(client) {
-      super(client, {
-        name: "feedback",
-        description: "Want to give feedback? Encountered any bugs?",
-        category: "Core",
-        usage: "feedback <Suggestion / Issue>",
-        aliases: ["suggestion", "suggest", "bug"]
-      }); 
-    }
+module.exports = class FeedbackCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'feedback',
+			aliases: ['suggestion', 'suggest', 'bug'],
+			group: 'core',
+			memberName: 'feedback',
+			description: 'Want to give feedback? Encountered any bugs?',
+			guarded: true,
+			args: [
+				{
+					key: 'type',
+					prompt: 'What do you want to report?',
+					type: 'string',
+					oneOf: types,
+					parse: type => type.toLowerCase()
+				},
+                {
+					key: 'message',
+					prompt: 'Explain it!',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-    async run(message, args) {
-        try {
-            let channel = this.client.channels.cache.get(FEEDBACK_CHANNEL_ID);
-
-            if (!args.length) {
-                return message.reply("Command Usage: `feedback <Suggestion / Issue>`")
-            } else {
-                const embed = new MessageEmbed()
-                    .setColor('RANDOM')
-                    .setTitle(`${FEEDBACK_EMOJI_ID} | Feedback command used by ${message.author.tag}`)
-                    .addField("In:", `${message.guild.name}, ${message.channel.name} (${message.channel.id})`)
-                    .addField("Issue:", args.join(" "))
-                    .setFooter(`Shiro v${version}`)
-                    .setTimestamp()
-                channel.send({ embed });
-
-                await message.react("🇸").catch(console.error);
-                await message.react("🇪").catch(console.error);
-                await message.react("🇳").catch(console.error);
-                await message.react("🇹").catch(console.error);
-
-                return null; 
-            }
-        } catch (err) {
-            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-        }
-    }
-}
-
-module.exports = Feedback;
+	async run(msg) {
+		try {
+            const embed = new MessageEmbed()
+                .setColor('RANDOM')
+                .setTitle(`${FEEDBACK_EMOJI_ID} | Feedback command used by ${msg.author.tag}`)
+                .addField('Type:', type)
+                .addField('Report message:', message)
+                .setFooter(`Shiro v${version}`)
+                .setTimestamp();
+            const channel = await this.client.fetchReportChannel();
+            channel.send(embed);
+            await msg.react("🇸");
+            await msg.react("🇪");
+            await msg.react("🇳");
+            await msg.react("🇹");
+            return null; 
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};

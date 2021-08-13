@@ -1,31 +1,25 @@
-const Command = require('../Command');
-const { MessageEmbed } = require('discord.js');
-require("moment-duration-format");
+const Command = require('../../structures/Command');
+const { stripIndents } = require('common-tags');
+const { formatNumber } = require('../../util/Util');
 
-class Ping extends Command {
-  constructor(client) {
-    super(client, {
-      name: "ping",
-      description: "Shows the bot latency and gives it a rating.",
-      category: "Core",
-      usage: "ping"
-    });
-  } 
+module.exports = class PingCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'ping',
+			aliases: ['pong', 'ping-pong'],
+			group: 'core',
+			memberName: 'ping',
+			description: 'Checks the bot\'s ping to the Discord server.',
+			guarded: true
+		});
+	}
 
-  async run(message) { 
-    try {
-      const pingMsg = await message.channel.send("Ping....");
-      const embed = new MessageEmbed()
-        .setTitle("__**Pong!**__")
-        .setColor('RANDOM')
-        .addField(':ping_pong: **Ping (Bot)**', `${pingMsg.createdTimestamp - message.createdTimestamp}ms`, true)
-        .addField(':satellite: **Ping (API)**', `${Math.round(this.client.ws.ping)}ms`, true)
-        .setTimestamp()
-      pingMsg.edit({ embed });
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = Ping;
+	async run(msg) {
+		const message = await msg.say('Pinging...');
+		const ping = Math.round(message.createdTimestamp - msg.createdTimestamp);
+		return message.edit(stripIndents`
+			🏓 P${'o'.repeat(Math.min(Math.round(ping / 100), 1500))}ng! \`${formatNumber(ping)}ms\`
+			Heartbeat: \`${formatNumber(Math.round(this.client.ws.ping))}ms\`
+		`);
+	}
+};
