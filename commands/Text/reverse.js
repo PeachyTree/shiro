@@ -1,31 +1,29 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 
-class Reverse extends Command {
-  constructor(client) {
-    super(client, {
-      name: "reverse",
-      description: "Sends the same message that you had sent but reversed.",
-      category: "Text",
-      usage: "reverse <Text>"
-    });
-  }
+module.exports = class ReverseCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'reverse',
+			aliases: ['esrever'],
+			group: 'text',
+			memberName: 'reverse',
+			description: 'Sends the same message that you had sent but reversed.',
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text do you want to make reverse?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      if (!args.length) {
-        return message.reply("Command Usage: `reverse <Text>`")
-      }
-
-      const embed = new MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle("__**txeT desreveR**__")
-        .setDescription(args.join(' ').split('').reverse().join(''))
-      await message.channel.send({ embed });
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  }
-}
-
-module.exports = Reverse;
+	async run(msg, { text }) {
+    const embed = new MessageEmbed()
+      .setColor('RANDOM')
+      .setTitle('__**txeT desreveR**__')
+      .setDescription(text.split('').reverse().join(''))
+    await msg.embed(embed);
+	}
+};
