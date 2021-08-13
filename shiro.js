@@ -5,131 +5,93 @@
  *------------------------------------------------*/
 
 require('dotenv').config();
-const { Client } = require('discord.js');
-const { promisify } = require('util');
-const readdir = promisify(require('fs').readdir);
-const Enmap = require('enmap');
-const klaw = require('klaw');
+const { SHIRO_TOKEN, OWNER, SHIRO_PREFIX, INVITE } = process.env;
 const path = require('path');
-const { SHIRO_TOKEN } = process.env;
-
-class Shiro extends Client {
-  constructor(options) {
-    super(options);
-
-    this.config = require('./config.js');
-    this.commands = new Discord.Collection();
-    this.aliases = new Discord.Collection();
-    this.settings = new Enmap({ name: 'settings' });
-    this.logger = require('./controllers/Logger');
-    this.wait = promisify(setTimeout);
-    this.cache = null;
-  }
-
-  permlevel(message) {
-    let permlvl = 0;
-    const permOrder = this.config.permLevels.slice(0).sort((p, c) => p.level < c.level ? 1 : -1);
-    while (permOrder.length) {
-      const currentLevel = permOrder.shift();
-      if (message.guild && currentLevel.guildOnly) continue;
-      if (currentLevel.check(message)) {
-        permlvl = currentLevel.level;
-        break;
-      }
-    }
-    return permlvl;
-  }
-  
-  loadCommand(commandPath, commandName) {
-    try {
-      const props = new (require(`${commandPath}${path.sep}${commandName}`))(client);
-      this.logger.log(`Loading command: ${props.help.name}. ✔`, 'log');
-      props.conf.location = commandPath;
-      if (props.init) {
-        props.init(this);
-      }
-      this.commands.set(props.help.name, props);
-      props.conf.aliases.forEach(alias => {
-        this.aliases.set(alias, props.help.name);
-      });
-      return false;
-    } catch (e) {
-      return `Unable to load command ${commandName}: ${e}`;
-    }
-  }
-  
-  async unloadCommand(commandPath, commandName) {
-    let command;
-    if (this.commands.has(commandName)) {
-      command = this.commands.get(commandName);
-    } else if (this.aliases.has(commandName)) {
-      command = this.commands.get(this.aliases.get(commandName));
-    }
-    if (!command) return `The command \`${commandName}\` doesn't seem to exist, nor is it an alias.`;
-    if (command.shutdown) {
-      await command.shutdown(this);
-    }
-    delete require.cache[require.resolve(`${commandPath}${path.sep}${commandName}.js`)];
-    return false;
-  }
-
-  getSettings(guild) {
-    if (guild) {
-      const defaults = client.config.defaultSettings || {};
-      const guildData = client.settings.get(guild.id) || {};
-      const returnObject = {};
-      Object.keys(defaults).forEach((key) => {
-        returnObject[key] = guildData[key] ? guildData[key] : defaults[key];
-      });
-      return returnObject;
-    }
-  }
-
-  writeSettings(id, newSettings) {
-    const defaults = this.settings.get('default');
-    let settings = this.settings.get(id);
-    if (typeof settings != "object") settings = {};
-    for (const key in newSettings) {
-      if (defaults[key] !== newSettings[key]) {
-        settings[key] = newSettings[key];
-      } else {
-        delete settings[key];
-      }
-    }
-    this.settings.set(id, settings);
-  }
-}
-const client = new Shiro({
-  disabledEvents: ['TYPING_START', 'RELATIONSHIP_ADD', 'RELATIONSHIP_REMOVE', 'CHANNEL_PINS_UPDATE'],
-  disableEveryone: true
+const { Intents, MessageEmbed } = require('discord.js');
+const Client = require('./structures/Client');
+const client = new Client({
+	commandPrefix: SHIRO_PREFIX,
+	owner: OWNER,
+	invite: INVITE,
+	disableMentions: 'everyone',
+	partials: ['GUILD_MEMBER'],
+	ws: { intents: [Intents.NON_PRIVILEGED, 'GUILD_MEMBERS'] }
 });
-console.log(client.config.permLevels.map(p => `${p.level} : ${p.name}`));
-require('./controllers/functions.js')(client);
-const init = async () => {
-  klaw('./commands').on('data', (item) => {
-    const cmdFile = path.parse(item.path);
-    if (!cmdFile.ext || cmdFile.ext !== '.js') return;
-    const response = client.loadCommand(cmdFile.dir, `${cmdFile.name}${cmdFile.ext}`);
-    if (response) client.logger.error(response);
-  });
-  const evtFiles = await readdir('./events');
-  client.logger.log(`Loading a total of ${evtFiles.length} events.`, 'log');
-  evtFiles.forEach(file => {
-    const eventName = file.split('.')[0];
-    client.logger.log(`Loading event: ${eventName}. ✅`);
-    const event = new (require(`./events/${file}`))(client); 
-    client.on(eventName, (...args) => event.run(...args));
-    const mod = require.cache[require.resolve(`./events/${file}`)];
-    delete require.cache[require.resolve(`./events/${file}`)];
-    const index = mod.parent.children.indexOf(mod);
-    if (index !== -1) mod.parent.children.splice(index, 1);
-  });
-  client.levelCache = {};
-  for (let i = 0; i < client.config.permLevels.length; i++) {
-    const thisLevel = client.config.permLevels[i];
-    client.levelCache[thisLevel.name] = thisLevel.level;
-  }
-  client.login(SHIRO_TOKEN);
-};
+const { formatNumber } = require('./util/Util');
 
-init();
+client.registry
+	.registerDefaultTypes()
+	.registerTypesIn(path.join(__dirname, 'types'))
+	.registerGroups([
+		['util', 'Util (Owner-only)'],
+		['core', 'Core'],
+		['productivity', 'Productivity'],
+		['anime', 'Anime'],
+		['searches', 'Searches'],
+		['games', 'Games'],
+		['info', 'Information'],
+		['action', 'Action'],
+		['random-image', 'Random Image'],
+		['random-response', 'Random Response'],
+		['auto', 'Automatic Response'],
+		['text', 'Edit Text'],
+		['other', 'Other']
+	])
+	.registerDefaultCommands({
+		help: false,
+		ping: false,
+		prefix: false,
+		commandState: false,
+		unknownCommand: false
+	})
+	.registerCommandsIn(path.join(__dirname, 'commands'));
+
+client.on('ready', async () => {
+	client.logger.info(`[READY] Logged in as ${client.user.tag}! ID: ${client.user.id}`);
+	client.setInterval(() => {
+		const activity = client.activities[Math.floor(Math.random() * client.activities.length)];
+		const text = typeof activity.text === 'function' ? activity.text() : activity.text;
+		client.user.setActivity(text, { type: activity.type });
+	}, 60000);
+});
+
+client.on('message', async msg => {
+	const hasText = Boolean(msg.content);
+	const hasImage = msg.attachments.size !== 0;
+	const hasEmbed = msg.embeds.length !== 0;
+	if (msg.author.bot || (!hasText && !hasImage && !hasEmbed)) return;
+	if (client.blacklist.user.includes(msg.author.id)) return;
+	if (msg.isCommand && msg.channel.type !== 'dm') return;
+});
+
+client.on('guildCreate', async guild => {
+	if (client.blacklist.guild.includes(guild.id) || client.blacklist.user.includes(guild.ownerID)) {
+		try {
+			await guild.leave();
+			return;
+		} catch {
+			return;
+		}
+	}
+	if (guild.systemChannel && guild.systemChannel.permissionsFor(client.user).has('SEND_MESSAGES')) {
+		try {
+			const usage = client.registry.commands.get('help').usage();
+			await guild.systemChannel.send(`Hi! I'm Shrio, use ${usage} to see my commands, okay?`);
+		} catch {
+			// Nothing!
+		}
+	}
+});
+
+client.on('disconnect', event => {
+	client.logger.error(`[DISCONNECT] Disconnected with code ${event.code}.`);
+	process.exit(0);
+});
+
+client.on('error', err => client.logger.error(err.stack));
+
+client.on('warn', warn => client.logger.warn(warn));
+
+client.on('commandError', (command, err) => client.logger.error(`[COMMAND:${command.name}]\n${err.stack}`));
+
+client.login(SHIRO_TOKEN);
