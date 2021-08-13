@@ -1,0 +1,30 @@
+[
+	{
+		"text": "s.help | Use s.invite to invite me!",
+		"type": "PLAYING"
+	},
+	{
+		"text": "s.help | View all Commands: s.commands",
+		"type": "PLAYING"
+	},
+	{
+		"text": "s.help | Donate to support development! s.donate",
+		"type": "PLAYING"
+	},
+	{
+		"text": "s.help | View the source code on Github: Shinmercy/shiro",
+		"type": "PLAYING"
+	},
+	{
+		"text": "s.help | Need help for any command? Use s.help <command>!",
+		"type": "PLAYING"
+	},
+	{
+		"text": "s.help | Found bugs? s.feedback",
+		"type": "PLAYING"
+	},
+	{
+		"text": "s.help | Suggestions? s.feedback",
+		"type": "PLAYING"
+	}
+]
