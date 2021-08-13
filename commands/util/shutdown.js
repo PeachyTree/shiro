@@ -1,5 +1,5 @@
 const Command = require('../../structures/Command');
-const texts = require('../../assets/json/bot/shutdown');
+const texts = require('../../assets/json/shutdown');
 
 module.exports = class ShutdownCommand extends Command {
 	constructor(client) {
