@@ -1,28 +1,30 @@
-const Command = require('../Command');
+const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const booru = require('booru');
 
-class Booru extends Command {
-  constructor(client) {
-    super(client, {
-      name: "booru",
-      description: "Searches for images on Safebooru! Keep in mind Safebooru's definition of safe!",
-      category: "Anime",
-      usage: "booru <Query>",
-      aliases: ["safebooru", "animepic", "sfwbooru"]
-    });
-  }
+module.exports = class BooruCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'booru',
+			aliases: ['safebooru', 'animepic', 'sfwbooru'],
+			group: 'anime',
+			memberName: 'booru',
+			description: 'Searches for images on Safebooru!',
+			details: 'Keep in mind Safebooru\'s definition of safe!',
+			args: [
+				{
+					key: 'query',
+					prompt: 'What images do you want to search for?',
+					type: 'string'
+				}
+			]
+		});
+	}
 
-    async run(message, args) {
-        try {
-            if (message.content.toUpperCase().includes('LOLI') || message.content.toUpperCase().includes('GORE')) return message.channel.send('That kind of stuff is not allowed! Not even in NSFW channels!');
-
-            let query = args.join(" ");
-
-            if (!query) {
-                return message.reply("Command Usage: `booru <Query>`")
-            } else {
-
+	async run(msg, { query }) {
+            if (msg.content.toUpperCase().includes('LOLI') 
+            || msg.content.toUpperCase().includes('GORE')) return msg.say('That kind of stuff is not allowed! Not even in NSFW channels!');
+            try {
             booru.search('safebooru', [query], { limit: 1, random: true })
                 .then(booru.commonfy)
                 .then(images => {
@@ -32,14 +34,11 @@ class Booru extends Command {
                             .setImage(image.common.file_url)
                             .setDescription(`[Image URL](${image.common.file_url})`)
                             .setColor('RANDOM');
-                        return message.channel.send({ embed });
+                        return msg.embed(embed);
                     }
-                })
-            }
-        } catch (err) {
-            return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-        }
-    }
-}
-
-module.exports = Booru;
+                });
+		} catch (err) {
+			return msg.reply(`Oh no, an error occurred: \`${err.message}\`.`);
+		}
+	}
+};
