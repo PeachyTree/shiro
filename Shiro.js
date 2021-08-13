@@ -40,7 +40,7 @@ client.registry
 	})
 	.registerCommandsIn(path.join(__dirname, 'commands'));
 
-client.on('ready', async () => {
+client.on('ready', () => {
 	client.logger.info(`[READY] Logged in as ${client.user.tag}! ID: ${client.user.id}`);
 
 	// Interval to change activity every minute
@@ -51,13 +51,13 @@ client.on('ready', async () => {
 	}, 60000);
 });
 
-client.on('message', async msg => {
+client.on('message', msg => {
 	const hasText = Boolean(msg.content);
 	const hasImage = msg.attachments.size !== 0;
 	const hasEmbed = msg.embeds.length !== 0;
 	if (msg.author.bot || (!hasText && !hasImage && !hasEmbed)) return;
 	if (client.blacklist.user.includes(msg.author.id)) return;
-	if (msg.isCommand && msg.channel.type !== 'dm') return;
+	if (msg.isCommand && msg.channel.type !== 'dm') return null;
 });
 
 client.on('guildCreate', async guild => {
