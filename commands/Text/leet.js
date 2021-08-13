@@ -1,39 +1,27 @@
-const Command = require('../Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require('../../structures/Command');
+const Leet = require('../../structures/Leet');
 
-class Leet extends Command {
-  constructor(client) {
-    super(client, {
-      name: "leet",
-      description: "Sends the same message that you had sent, but as leet text.",
-      category: "Text",
-      usage: "leet <Text>"
-    });
-  }
+module.exports = class LeetCommand extends Command {
+	constructor(client) {
+		super(client, {
+			name: 'leet',
+			aliases: ['l33t', 'leet-speak', 'l33t-speak', '1337', '1337-speak'],
+			group: 'text',
+			memberName: 'leet',
+			description: 'Converts text to l33t speak.',
+			args: [
+				{
+					key: 'text',
+					prompt: 'What text would you like to convert to l33t speak?',
+					type: 'string',
+					max: 500
+				}
+			]
+		});
+	}
 
-  async run(message, args) { 
-    try {
-      if (!args.length) {
-        return message.reply("Command Usage: `leet <Text>`")
-      }
-
-      args = args.join(' ');
-      args = args.replace(/a/ig, '4');
-      args = args.replace(/e/ig, '3');
-      args = args.replace(/l/ig, '1');
-      args = args.replace(/o/ig, '0');
-      args = args.replace(/s/ig, '5');
-      args = args.replace(/t/ig, '7');
-
-      const embed = new MessageEmbed()
-        .setColor("RANDOM")
-        .setTitle("__**Leet Text**__")
-        .setDescription(args)
-      await message.channel.send({ embed });
-    } catch (err) {
-      return message.reply(`Oh no, an error occurred: \`${err.message}\`.`);
-    }
-  };
-}
-
-module.exports = Leet;
+	run(msg, { text }) {
+		const leet = new Leet(text);
+		return msg.say(leet.toLeet());
+	}
+};
