@@ -4,8 +4,6 @@
 	"description": "A Discord Bot with focus on Fun, Anime and Utility commands.",
 	"main": "Shiro.js",
 	"scripts": {
-		"test": "npm run lint",
-		"lint": "eslint . --ext .js --ext .json",
 		"start": "node Shiro.js"
 	},
 	"repository": {
@@ -40,7 +38,6 @@
 		"discord.js": "^12.5.1",
 		"discord.js-commando": "github:discordjs/Commando",
 		"dotenv": "^8.2.0",
-		"eslint": "^7.21.0",
 		"expr-eval": "^2.0.2",
 		"kitsu.js": "^2.0.0",
 		"moment": "^2.29.1",
