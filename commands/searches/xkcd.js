@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const xkcd = require('xkcd');
-const getRandomInt = require('../../util/Utils');
+const getRandomInt = require('../../util/Util');
 
 module.exports = class XKCDCommand extends Command {
 	constructor(client) {

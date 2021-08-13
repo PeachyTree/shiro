@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
-const { shorten } = require('../../util/Utils.js');
+const { shorten } = require('../../util/Util.js');
 
 module.exports = class WikipediaCommand extends Command {
 	constructor(client) {

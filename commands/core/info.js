@@ -7,8 +7,8 @@ const { formatNumber, embedURL } = require('../../util/Util');
 const { version, dependencies, optionalDependencies } = require('../../package');
 const deps = { ...dependencies, ...optionalDependencies };
 const permissions = require('../../assets/json/permissions');
-const { XIAO_GITHUB_REPO_USERNAME, XIAO_GITHUB_REPO_NAME } = process.env;
-const source = XIAO_GITHUB_REPO_NAME && XIAO_GITHUB_REPO_USERNAME;
+const { SHIRO_GITHUB_REPO_USERNAME, SHIRO_GITHUB_REPO_NAME } = process.env;
+const source = SHIRO_GITHUB_REPO_NAME && SHIRO_GITHUB_REPO_USERNAME;
 
 module.exports = class InfoCommand extends Command {
 	constructor(client) {

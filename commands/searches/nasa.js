@@ -1,7 +1,7 @@
 const Command = require('../../structures/Command');
 const { MessageEmbed } = require('discord.js');
 const request = require('node-superfetch');
-const { shorten, embedURL } = require('../../util/Utils');
+const { shorten, embedURL } = require('../../util/Util');
 
 module.exports = class NasaCommand extends Command {
 	constructor(client) {
