@@ -1,6 +1,6 @@
 {
 	"name": "shiro",
-	"version": "5.0.1",
+	"version": "5.0.2",
 	"description": "A Discord Bot around Fun, Roleplay and Utility.",
 	"main": "Shiro.js",
 	"scripts": {
