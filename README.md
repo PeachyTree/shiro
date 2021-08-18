@@ -49,7 +49,8 @@ don't grant that permission.
 
 ## Fun Information
 
-- 500+ commands
+- 500+ commits
+- 150+ commands
 - 21,000+ lines of JavaScript
 - 45,000+ lines of JSON data
 - 4 years of development
