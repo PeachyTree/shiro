@@ -5,7 +5,7 @@ Shiro is a open-source Discord bot coded in JavaScript with
 [discord.js](https://discord.js.org/) using the
 [Commando](https://github.com/discordjs/Commando) command framework.
 
-©2017-2021 PeachyTree#8664
+©2017-2021 PeachyTree
 
 ## Table of Contents
 
