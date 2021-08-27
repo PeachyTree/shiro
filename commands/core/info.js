@@ -28,7 +28,7 @@ module.exports = class InfoCommand extends Command {
 		const repoURL = `https://github.com/${SHIRO_GITHUB_REPO_USERNAME}/${SHIRO_GITHUB_REPO_NAME}`;
 		const embed = new MessageEmbed()
 			.setColor(0x00AE86)
-			.setFooter('©2017-2021 PeachyTree#8664')
+			.setFooter('©2017-2021 PeachyTree')
 			.addField('❯ Servers', formatNumber(this.client.guilds.cache.size), true)
 			.addField('❯ Commands', formatNumber(this.client.registry.commands.size), true)
 			.addField('❯ Shards', formatNumber(this.client.options.shardCount), true)
